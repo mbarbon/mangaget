@@ -3,4 +3,10 @@
      distributed under the terms of the MIT license -->
 <resources>
   <string name="app_name">Manga Get</string>
+
+  <!-- Manga list -->
+  <string name="no_manga">Select manga</string>
+
+  <!-- Chapter list -->
+  <string name="no_chapter">Select manga</string>
 </resources>
