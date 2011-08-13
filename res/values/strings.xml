@@ -2,5 +2,5 @@
 <!-- Copyright (c) Mattia Barbon <mattia@barbon.org>
      distributed under the terms of the MIT license -->
 <resources>
-  <string name="app_name">Main</string>
+  <string name="app_name">Manga Get</string>
 </resources>
