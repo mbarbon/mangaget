@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Mattia Barbon <mattia@barbon.org>
+     distributed under the terms of the MIT license -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.barbon.mangaget.tests"
+    android:versionCode="1"
+    android:versionName="1.0">
+  <application>
+    <uses-library android:name="android.test.runner" />
+  </application>
+  <instrumentation
+      android:name="android.test.InstrumentationTestRunner"
+      android:targetPackage="org.barbon.mangaget"
+      android:label="Tests for org.barbon.mangaget"/>
+</manifest>
