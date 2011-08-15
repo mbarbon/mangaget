@@ -58,6 +58,18 @@ public class DB {
         "        ON DELETE CASCADE" +
         ")";
 
+    private static final String CREATE_PAGES_TABLE =
+        "CREATE TABLE pages (" +
+        "    id INTEGER PRIMARY KEY," +
+        "    chapter_id INTEGER NOT NULL," +
+        "    number INTEGER NOT NULL," +
+        "    url TEXT NOT NULL," +
+        "    image_url TEXT," +
+        "    download_status INTEGER NOT NULL," +
+        "    FOREIGN KEY (chapter_id) REFERENCES chapter(id)" +
+        "        ON DELETE CASCADE" +
+        ")";
+
     public static DB getNewInstance(Context context, String name) {
         return new DB(context, name);
     }
@@ -103,6 +115,7 @@ public class DB {
         public void onCreate(SQLiteDatabase db) {
             db.execSQL(CREATE_MANGA_TABLE);
             db.execSQL(CREATE_CHAPTERS_TABLE);
+            db.execSQL(CREATE_PAGES_TABLE);
 
             // TODO remove canned data
             db.execSQL(
