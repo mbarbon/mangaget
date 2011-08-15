@@ -27,49 +27,50 @@ import org.apache.http.util.EntityUtils;
 
 import org.apache.http.client.methods.HttpGet;
 
-class CountingInputStream extends FilterInputStream {
-    private long byteCount = 0;
-
-    public CountingInputStream(InputStream in) {
-        super(in);
-    }
-
-    public long getCount() {
-        return byteCount;
-    }
-
-    @Override
-    public int read(byte[] buffer) throws IOException {
-        int size = in.read(buffer);
-
-        if (size != -1)
-            byteCount += size;
-
-        return size;
-    }
-
-    @Override
-    public int read() throws IOException {
-        int ch = in.read();
-
-        if (ch != -1)
-            byteCount += 1;
-
-        return ch;
-    }
-
-    @Override
-    public int read(byte[] buffer, int offset, int count) throws IOException {
-        int size = in.read(buffer, offset, count);
-
-        if (size != -1)
-            byteCount += size;
-
-        return size;
-    }
-}
-
 public class Downloader {
+    protected static class CountingInputStream extends FilterInputStream {
+        private long byteCount = 0;
+
+        public CountingInputStream(InputStream in) {
+            super(in);
+        }
+
+        public long getCount() {
+            return byteCount;
+        }
+
+        @Override
+        public int read(byte[] buffer) throws IOException {
+            int size = in.read(buffer);
+
+            if (size != -1)
+                byteCount += size;
+
+            return size;
+        }
+
+        @Override
+        public int read() throws IOException {
+            int ch = in.read();
+
+            if (ch != -1)
+                byteCount += 1;
+
+            return ch;
+        }
+
+        @Override
+        public int read(byte[] buffer, int offset, int count)
+                throws IOException {
+            int size = in.read(buffer, offset, count);
+
+            if (size != -1)
+                byteCount += size;
+
+            return size;
+        }
+    }
+
     public interface OnDownloadProgress {
         public void downloadStarted();
         public void downloadProgress(long downloaded, long total);
