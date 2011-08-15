@@ -18,10 +18,18 @@ public class DB {
     public static final int DOWNLOAD_STARTED = 2;
     public static final int DOWNLOAD_COMPLETE = 3;
 
+    public static final String ID = "_id";
+    public static final String DOWNLOAD_STATUS = "download_status";
+
     public static final String MANGA_TITLE = "title";
 
+    public static final String CHAPTER_MANGA_ID = "manga_id";
     public static final String CHAPTER_NUMBER = "number";
     public static final String CHAPTER_TITLE = "title";
+    public static final String CHAPTER_URL = "url";
+
+    public static final String PAGE_URL = "url";
+    public static final String PAGE_IMAGE_URL = "image_url";
 
     private static final int VERSION = 1;
     private static DB theInstance;
