@@ -109,6 +109,7 @@ public class Downloader {
         @Override
         public void startDownload(InputStream stream, String encoding) {
             destination.charSet = encoding;
+            destination.encoding = encoding;
 
             in = stream;
             out = new ByteArrayOutputStream();
@@ -147,7 +148,7 @@ public class Downloader {
         @Override
         public void startDownload(InputStream stream, String encoding)
                 throws IOException {
-            destination.charSet = encoding;
+            destination.encoding = encoding;
 
             in = stream;
             out = new FileOutputStream(destination.path);
