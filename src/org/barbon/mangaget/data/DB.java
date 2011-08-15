@@ -5,6 +5,7 @@
 
 package org.barbon.mangaget.data;
 
+import android.content.ContentValues;
 import android.content.Context;
 
 import android.database.Cursor;
@@ -104,6 +105,111 @@ public class DB {
             "    WHERE manga_id = ?" +
             "    ORDER BY number",
             new String[] { Long.toString(mangaId) });
+    }
+
+    public Cursor getPages(long chapterId) {
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+
+        return db.rawQuery(
+            "SELECT id AS _id, number, url, image_url, download_status" +
+            "    FROM pages" +
+            "    WHERE chapter_id = ?" +
+            "    ORDER BY number",
+            new String[] { Long.toString(chapterId) });
+    }
+
+    public ContentValues getChapter(long chapterId) {
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+        Cursor cursor = db.rawQuery(
+            "SELECT id AS _id, manga_id, title, url, download_status" +
+            "    FROM chapters" +
+            "    WHERE id = ?",
+            new String[] { Long.toString(chapterId)});
+
+        ContentValues values = null;
+
+        if (cursor.moveToNext()) {
+            values = new ContentValues();
+
+            values.put("manga_id", cursor.getInt(1));
+            values.put("title", cursor.getString(2));
+            values.put("url", cursor.getString(3));
+            values.put("download_status", cursor.getString(4));
+        }
+
+        cursor.close();
+
+        return values;
+    }
+
+    public boolean updateChapterStatus(long chapterId, int downloadStatus) {
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("download_status", downloadStatus);
+
+        return db.update("chapters", values, "id = ?",
+                         new String[] { Long.toString(chapterId) }) == 1;
+    }
+
+    public boolean updatePageStatus(long pageId, int downloadStatus) {
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("download_status", downloadStatus);
+
+        return db.update("pages", values, "id = ?",
+                         new String[] { Long.toString(pageId) }) == 1;
+    }
+
+    public boolean updatePageImage(long pageId, String imageUrl) {
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("image_url", imageUrl);
+
+        return db.update("pages", values, "id = ?",
+                         new String[] { Long.toString(pageId) }) == 1;
+    }
+
+    public long insertManga(String title, String pattern, String url) {
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("title", title);
+        values.put("pattern", pattern);
+        values.put("url", url);
+
+        return db.insertOrThrow("manga", null, values);
+    }
+
+    public long insertChapter(long mangaId, int number, int pages,
+                              String title, String url) {
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("manga_id", mangaId);
+        values.put("number", number);
+        values.put("pages", pages);
+        values.put("title", title);
+        values.put("url", url);
+        values.put("download_status", DB.DOWNLOAD_STOPPED);
+
+        return db.insertOrThrow("chapters", null, values);
+    }
+
+    public long insertPage(long chapterId, int number, String url,
+                           String imageUrl, int downloadStatus) {
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("chapter_id", chapterId);
+        values.put("number", number);
+        values.put("url", url);
+        values.put("image_url", imageUrl);
+        values.put("download_status", downloadStatus);
+
+        return db.insertOrThrow("pages", null, values);
     }
 
     private class DBOpenHelper extends SQLiteOpenHelper {
