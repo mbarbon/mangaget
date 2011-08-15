@@ -82,7 +82,9 @@ public class Downloader {
             throws Exception;
         public long downloadChunk()
             throws Exception;
-        public void completeDownload(boolean success)
+        public void completeDownload()
+            throws Exception;
+        public void abortDownload()
             throws Exception;
     }
 
@@ -123,9 +125,12 @@ public class Downloader {
         }
 
         @Override
-        public void completeDownload(boolean success) {
+        public void completeDownload() {
             destination.stream = new ByteArrayInputStream(out.toByteArray());
         }
+
+        @Override
+        public void abortDownload() { }
     }
 
     public class FileDownloadTarget implements DownloadTarget {
@@ -159,7 +164,12 @@ public class Downloader {
         }
 
         @Override
-        public void completeDownload(boolean success) throws IOException {
+        public void completeDownload() throws IOException {
+            out.close();
+        }
+
+        @Override
+        public void abortDownload() throws IOException {
             out.close();
         }
     }
@@ -213,8 +223,17 @@ public class Downloader {
 
                     publishProgress(1L, byteCounter.getCount(), totalSize);
                 }
+
+                downloadTarget.completeDownload();
             }
             catch(Exception e) {
+                try {
+                    downloadTarget.abortDownload();
+                }
+                catch (Exception e1) {
+                    // can only ignore the exception...
+                }
+
                 client.close();
 
                 return false;
