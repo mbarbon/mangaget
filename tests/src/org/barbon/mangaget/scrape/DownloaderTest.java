@@ -5,8 +5,6 @@
 
 package org.barbon.mangaget.scrape;
 
-import android.test.AndroidTestCase;
-import android.test.UiThreadTest;
 import android.test.InstrumentationTestCase;
 
 import static org.barbon.mangaget.tests.Utils.networkConnected;
