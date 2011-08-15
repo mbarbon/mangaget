@@ -241,10 +241,10 @@ public class Downloader {
     }
 
     public class DownloadDestination {
-        File path;
-        InputStream stream;
-        String charSet;
-        String baseUrl;
+        public File path;
+        public InputStream stream;
+        public String encoding;
+        public String baseUrl;
 
         public DownloadDestination() {
         }
