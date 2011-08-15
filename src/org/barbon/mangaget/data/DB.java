@@ -108,7 +108,7 @@ public class DB {
             db.execSQL(
                 "INSERT INTO manga (id, title, pattern, url)" +
                 "    VALUES (1, 'Papillon - Hana to Chou'," +
-                "      'Papillon/papillon-%d'," +
+                "      'Pictures/Comics/Papillon/papillon-%d'," +
                 "      'http://manga.animea.net/papillon-hana-to-chou.html')");
 
             db.execSQL(
