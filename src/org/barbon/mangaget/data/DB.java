@@ -14,8 +14,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DB {
     public static final int DOWNLOAD_STOPPED = 0;
-    public static final int DOWNLOAD_STARTED = 1;
-    public static final int DOWNLOAD_COMPLETE = 2;
+    public static final int DOWNLOAD_REQUESTED = 1;
+    public static final int DOWNLOAD_STARTED = 2;
+    public static final int DOWNLOAD_COMPLETE = 3;
 
     public static final String MANGA_TITLE = "title";
 
@@ -101,7 +102,7 @@ public class DB {
                 "                      url, download_status)" +
                 "    VALUES (1, 1, 45, 'Wish'," +
                 "      'http://manga.animea.net/papillon-hana-to-chou-chapter-1-page-1.html'," +
-                "      2)");
+                "      3)");
 
             db.execSQL(
                 "INSERT INTO chapters (manga_id, number, pages, title," +
