@@ -200,7 +200,7 @@ public class Downloader {
             }
             catch (Exception e) {
                 client.close();
-                e.printStackTrace();
+
                 return false;
             }
 
