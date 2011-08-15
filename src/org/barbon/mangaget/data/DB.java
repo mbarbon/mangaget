@@ -32,6 +32,7 @@ public class DB {
     public static final String PAGE_IMAGE_URL = "image_url";
 
     private static final int VERSION = 1;
+    private static final String DB_NAME = "manga";
     private static DB theInstance;
 
     private DBOpenHelper openHelper;
@@ -57,15 +58,19 @@ public class DB {
         "        ON DELETE CASCADE" +
         ")";
 
+    public static DB getNewInstance(Context context, String name) {
+        return new DB(context, name);
+    }
+
     public static DB getInstance(Context context) {
         if (theInstance != null)
             return theInstance;
 
-        return new DB(context);
+        return new DB(context, DB_NAME);
     }
 
-    private DB(Context context) {
-        openHelper = new DBOpenHelper(context);
+    private DB(Context context, String name) {
+        openHelper = new DBOpenHelper(context, name);
     }
 
     public Cursor getMangaList() {
@@ -90,8 +95,8 @@ public class DB {
     }
 
     private class DBOpenHelper extends SQLiteOpenHelper {
-        public DBOpenHelper(Context context) {
-            super(context, "manga", null, VERSION);
+        public DBOpenHelper(Context context, String name) {
+            super(context, name, null, VERSION);
         }
 
         @Override
