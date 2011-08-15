@@ -36,6 +36,11 @@
     <!-- Required pre-setup import -->
     <import file="${sdk.dir}/tools/ant/pre_setup.xml" />
 
+    <target name="run-tests-quick" depends="install"
+            description="Runs tests without rebuilding the tested application">
+        <run-tests-helper />
+    </target>
+
 <!-- extension targets. Uncomment the ones where you want to do custom work
      in between standard targets -->
 <!--
