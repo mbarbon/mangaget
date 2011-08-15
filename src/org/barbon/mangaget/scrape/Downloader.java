@@ -78,7 +78,8 @@ public class Downloader {
     }
 
     public interface DownloadTarget {
-        public void startDownload(InputStream stream, String encoding)
+        public void startDownload(InputStream stream, String encoding,
+                                  String baseUrl)
             throws Exception;
         public long downloadChunk()
             throws Exception;
@@ -107,9 +108,10 @@ public class Downloader {
         }
 
         @Override
-        public void startDownload(InputStream stream, String encoding) {
-            destination.charSet = encoding;
+        public void startDownload(InputStream stream, String encoding,
+                                  String baseUrl) {
             destination.encoding = encoding;
+            destination.baseUrl = baseUrl;
 
             in = stream;
             out = new ByteArrayOutputStream();
@@ -146,9 +148,10 @@ public class Downloader {
         }
 
         @Override
-        public void startDownload(InputStream stream, String encoding)
-                throws IOException {
+        public void startDownload(InputStream stream, String encoding,
+                                  String baseUrl) throws IOException {
             destination.encoding = encoding;
+            destination.baseUrl = baseUrl;
 
             in = stream;
             out = new FileOutputStream(destination.path);
@@ -207,7 +210,10 @@ public class Downloader {
                 byteCounter = new CountingInputStream(content);
 
                 downloadTarget.startDownload(
-                    byteCounter, EntityUtils.getContentCharSet(entity));
+                    byteCounter, EntityUtils.getContentCharSet(entity),
+                    // TODO handle redirects
+                    // http://stackoverflow.com/questions/1456987/httpclient-4-how-to-capture-last-redirect-url/1457173#1457173
+                    params[0]);
             }
             catch (Exception e) {
                 client.close();
