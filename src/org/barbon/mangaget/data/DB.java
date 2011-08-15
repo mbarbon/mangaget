@@ -53,7 +53,8 @@ public class DB {
         "    title TEXT NOT NULL," +
         "    url TEXT NOT NULL," +
         "    download_status INTEGER NOT NULL," +
-        "    FOREIGN KEY (manga_id) REFERENCES manga(id)" +
+        "    FOREIGN KEY (manga_id) REFERENCES manga(id) " +
+        "        ON DELETE CASCADE" +
         ")";
 
     public static DB getInstance(Context context) {
