@@ -23,6 +23,7 @@ public class DB {
     public static final String DOWNLOAD_STATUS = "download_status";
 
     public static final String MANGA_TITLE = "title";
+    public static final String MANGA_PATTERN = "pattern";
 
     public static final String CHAPTER_MANGA_ID = "manga_id";
     public static final String CHAPTER_NUMBER = "number";
@@ -116,6 +117,28 @@ public class DB {
             "    WHERE chapter_id = ?" +
             "    ORDER BY number",
             new String[] { Long.toString(chapterId) });
+    }
+
+    public ContentValues getManga(long mangaId) {
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+        Cursor cursor = db.rawQuery(
+            "SELECT id AS _id, title, pattern" +
+            "    FROM manga" +
+            "    WHERE id = ?",
+            new String[] { Long.toString(mangaId)});
+
+        ContentValues values = null;
+
+        if (cursor.moveToNext()) {
+            values = new ContentValues();
+
+            values.put("title", cursor.getInt(1));
+            values.put("pattern", cursor.getString(2));
+        }
+
+        cursor.close();
+
+        return values;
     }
 
     public ContentValues getChapter(long chapterId) {
