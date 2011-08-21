@@ -77,17 +77,25 @@ public class ScraperTest extends InstrumentationTestCase {
         tempDir.mkdir();
     }
 
+    private long setUpTestManga() {
+        return db.insertManga(
+            "Title", "MangaGetTest/Dummy-%chapter%.cbz",
+            "http://manga.animea.net/papillon-hana-to-chou.html");
+    }
+
+    private long setUpTestChapter(long mangaId) {
+        return db.insertChapter(
+            mangaId, 1, 45, "Chapter title",
+            "http://manga.animea.net/papillon-hana-to-chou-chapter-1-page-1.html");
+    }
+
     @Override
     public void tearDown() throws Exception {
     }
 
     public void testFullDownload() throws Throwable {
-        final long mangaId = db.insertManga(
-            "Title", "MangaGetTest/Dummy-%chapter%.cbz",
-            "http://manga.animea.net/papillon-hana-to-chou.html");
-        final long chapterId = db.insertChapter(
-            mangaId, 1, 45, "Chapter title",
-            "http://manga.animea.net/papillon-hana-to-chou-chapter-1-page-1.html");
+        final long mangaId = setUpTestManga();
+        final long chapterId = setUpTestChapter(mangaId);
         final String targetCbz = new File(tempDir, "Dummy-1.cbz")
             .getAbsolutePath();
         final String tempDirString = tempDir.getAbsolutePath();
