@@ -189,10 +189,8 @@ public class Scraper {
                 // TODO rename the image according to image type
                 //      using magic + content-type + (real) url
 
-                if (count == 0) {
-                    createChapterArchive(download, pages);
-                    download.listener.downloadComplete(true);
-                }
+                if (count == 0)
+                    downloadFinished();
             }
         }
 
@@ -219,6 +217,10 @@ public class Scraper {
                     downloadPageImage(page);
                 }
             }
+
+            // all done!
+            if (count == 0)
+                downloadFinished();
         }
 
         public void downloadPageInfo(PageDownload page) {
@@ -231,6 +233,11 @@ public class Scraper {
             PageImageDownloader downloader = new PageImageDownloader(page);
 
             downloader.start();
+        }
+
+        private void downloadFinished() {
+            createChapterArchive(download, pages);
+            download.listener.downloadComplete(true);
         }
     }
 

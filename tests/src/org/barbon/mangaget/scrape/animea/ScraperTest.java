@@ -124,4 +124,8 @@ public class ScraperTest extends InstrumentationTestCase {
         assertTrue(progress.complete);
         assertTrue(new File(targetCbz).exists());
     }
+
+    // TODO test partial downloads
+    //      page URLs already filled in
+    //      all pages downloaded
 }
