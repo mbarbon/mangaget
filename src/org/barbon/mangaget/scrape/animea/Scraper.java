@@ -34,6 +34,18 @@ public class Scraper {
     private DB db;
     private Downloader downloader;
 
+    private static final OnChapterDownloadProgress dummyListener =
+        new OnChapterDownloadProgress() {
+            @Override
+            public void downloadStarted() { }
+
+            @Override
+            public void downloadProgress(int current, int total) { }
+
+            @Override
+            public void downloadComplete(boolean success) { }
+        };
+
     private class ChapterDownload {
         public long id;
         public ContentValues chapter;
@@ -241,7 +253,7 @@ public class Scraper {
 
         download.id = chapterId;
         download.chapter = chapter;
-        download.listener = listener;
+        download.listener = listener != null ? listener : dummyListener;
         download.tempDir = tempDir;
         download.targetPath = targetPath;
 
