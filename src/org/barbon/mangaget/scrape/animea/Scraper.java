@@ -28,6 +28,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import org.jsoup.parser.Tag;
+
 import org.jsoup.select.Elements;
 
 public class Scraper {
@@ -305,10 +307,22 @@ public class Scraper {
         pages.start();
     }
 
+    // search http://manga.animea.net/search.html?title=papillon
+    // search http://manga.animea.net/search.html?title=papillon&page=1
+
     private void downloadPageListAndPages(ChapterDownload download) {
         ChapterDownloader chapter = new ChapterDownloader(download);
 
         chapter.start();
+    }
+
+    // pure HTML scraping
+
+    public static class SearchResultPage {
+        public List<String> urls;
+        public List<String> titles;
+        public String pagingUrl;
+        public int currentPage;
     }
 
     public static List<String> scrapeChapterPages(
@@ -359,6 +373,62 @@ public class Scraper {
             return null;
 
         return img.attr("abs:src");
+    }
+
+    public static SearchResultPage scrapeSearchResults(
+            Downloader.DownloadDestination target) {
+        Document doc;
+
+        try {
+            doc = Jsoup.parse(target.stream, target.encoding, target.baseUrl);
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Elements mangas = doc.select("a.manga_title");
+        List<String> urls = new ArrayList<String>();
+        List<String> titles = new ArrayList<String>();
+
+        for (Element manga : mangas) {
+            urls.add(manga.attr("abs:href"));
+            titles.add(manga.text());
+        }
+
+        Elements items = doc.select("div.pagingdiv > ul:not(.order) > li");
+        int currentPage = -1;
+        String pagingUrl = null;
+
+        for (Element item : items) {
+            if (   item.children().size() == 0
+                && (   !item.hasAttr("class")
+                    || !item.attr("class").equals("totalmanga"))) {
+                currentPage = Integer.valueOf(item.text());
+            }
+            else if (   item.children().size() == 1
+                     && item.child(0).tag() == Tag.valueOf("a")) {
+                Element link = item.child(0);
+                String href = link.attr("abs:href");
+                int index = href.lastIndexOf("&page=");
+
+                if (index == -1)
+                    continue;
+
+                pagingUrl = href.substring(0, index + 6) + "%d";
+            }
+
+            if (currentPage != -1 && pagingUrl != null)
+                break;
+        }
+
+        SearchResultPage page = new SearchResultPage();
+
+        page.urls = urls;
+        page.titles = titles;
+        page.pagingUrl = pagingUrl;
+        page.currentPage = currentPage;
+
+        return page;
     }
 
     public static void createChapterArchive(ChapterDownload chapter,
