@@ -358,7 +358,7 @@ public class Scraper {
         if (!img.hasAttr("src"))
             return null;
 
-        return img.attr("src");
+        return img.attr("abs:src");
     }
 
     public static void createChapterArchive(ChapterDownload chapter,
