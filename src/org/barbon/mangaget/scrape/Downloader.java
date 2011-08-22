@@ -266,7 +266,7 @@ public class Downloader {
         }
     }
 
-    public class DownloadDestination {
+    public static class DownloadDestination {
         public File path;
         public InputStream stream;
         public String encoding;
