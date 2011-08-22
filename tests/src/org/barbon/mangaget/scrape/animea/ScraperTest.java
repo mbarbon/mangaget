@@ -50,9 +50,15 @@ public class ScraperTest extends InstrumentationTestCase {
             .createPackageContext("org.barbon.mangaget.tests", 0);
         downloader = new DummyDownloader(testContext);
 
+        final String baseUrl = "http://manga.animea.net";
+        final String baseImage = "http://s2-a.animea-server.net";
+
+        // set up dummy search results
+        downloader.addUrl(baseUrl + "search.html?title=",
+                          R.raw.animea_results_html);
+
         // set up dummy pages
-        String base =
-            "http://manga.animea.net/papillon-hana-to-chou-chapter-1-page-";
+        String base = baseUrl + "/papillon-hana-to-chou-chapter-1-page-";
 
         downloader.addUrl(base + "1.html", R.raw.papillon_c1_p1_html);
 
@@ -61,8 +67,8 @@ public class ScraperTest extends InstrumentationTestCase {
                               R.raw.papillon_c1_p2_html);
 
         // set up dummy images
-        String p1 = "http://s2-a.animea-server.net/5338%2F1_JHMCN%2F00_fuuchifighters.jpg" ;
-        String pn = "http://s2-a.animea-server.net/5338%2F1_JHMCN%2F001_cover.jpg" ;
+        String p1 = baseImage + "/5338%2F1_JHMCN%2F00_fuuchifighters.jpg" ;
+        String pn = baseImage + "/5338%2F1_JHMCN%2F001_cover.jpg" ;
 
         downloader.addUrl(p1, R.raw.papillon_dummy_img);
         downloader.addUrl(pn, R.raw.papillon_dummy_img);
