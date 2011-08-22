@@ -13,6 +13,8 @@ import android.test.InstrumentationTestCase;
 
 import java.io.File;
 
+import java.util.List;
+
 import org.barbon.mangaget.data.DB;
 
 import org.barbon.mangaget.tests.DummyDownloader;
@@ -131,6 +133,19 @@ public class ScraperTest extends InstrumentationTestCase {
                      res.titles.get(0));
         assertEquals("A House in Venice",
                      res.titles.get(47));
+    }
+
+    public void testScrapeMangaPage() {
+        String mangaPage = "http://manga.animea.net/";
+        List<Scraper.ChapterInfo> res =
+            Scraper.scrapeMangaPage(getPage(R.raw.papillon_chapters_html,
+                                            mangaPage));
+
+        assertEquals(29, res.size());
+        assertEquals("http://manga.animea.net/papillon-hana-to-chou-chapter-1-page-1.html",
+                     res.get(0).url);
+        assertEquals("http://manga.animea.net/papillon-hana-to-chou-chapter-29-page-1.html",
+                     res.get(28).url);
     }
 
     public void testFullDownload() throws Throwable {

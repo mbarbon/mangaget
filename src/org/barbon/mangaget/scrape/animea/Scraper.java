@@ -27,6 +27,8 @@ import org.jsoup.Jsoup;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Node;
+import org.jsoup.nodes.TextNode;
 
 import org.jsoup.parser.Tag;
 
@@ -325,6 +327,11 @@ public class Scraper {
         public int currentPage;
     }
 
+    public static class ChapterInfo {
+        public String url;
+        public String title;
+    }
+
     public static List<String> scrapeChapterPages(
             Downloader.DownloadDestination target) {
         Document doc;
@@ -429,6 +436,53 @@ public class Scraper {
         page.currentPage = currentPage;
 
         return page;
+    }
+
+    public static List<ChapterInfo> scrapeMangaPage(
+            Downloader.DownloadDestination target) {
+        Document doc;
+
+        try {
+            doc = Jsoup.parse(target.stream, target.encoding, target.baseUrl);
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Elements links = doc.select("table#chapterslist td > a");
+        List<ChapterInfo> chapters = new ArrayList<ChapterInfo>();
+
+        for (Element link : links) {
+            if (!link.hasAttr("href"))
+                continue;
+
+            String url = link.attr("abs:href");
+
+            if (!url.endsWith("-page-1.html"))
+                continue;
+            int dash = url.lastIndexOf('-', url.length() - 13);
+            String indexS = url.substring(dash + 1, url.length() - 12);
+            int index = Integer.valueOf(indexS) - 1;
+
+            int elementIndex = link.parent().childNodes().indexOf(link);
+            Node text = link.parent().childNode(elementIndex + 1);
+
+            if (!(text instanceof TextNode))
+                continue;
+
+            String title = ((TextNode)text).text();
+            ChapterInfo info = new ChapterInfo();
+
+            info.title = title;
+            info.url = url;
+
+            while (chapters.size() <= index)
+                chapters.add(null);
+
+            chapters.set(index, info);
+        }
+
+        return chapters;
     }
 
     public static void createChapterArchive(ChapterDownload chapter,

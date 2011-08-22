@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+Papillon - Hana to Chou manga - Last chapter: Papillon - Hana to Chou 29 - Read Papillon - Hana to Chou online for free</title>
+<meta name="Description" content="Read Papillon - Hana to Chou manga chapters online for free. No registration required. Last chapter: Papillon - Hana to Chou chapter 29" />
+<meta name="Keywords" content="Papillon - Hana to Chou, Papillon - Hana to Chou manga, Papillon - Hana to Chou chapter, Papillon - Hana to Chou chapters, Papillon - Hana to Chou read online, Papillon - Hana to Chou read, Papillon - Hana to Chou download" />
+<link href="http://manga.animea.net/rss/papillon-hana-to-chou.rss" type="application/rss+xml" rel="alternate" title="Papillon - Hana to Chou RSS Feed" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<meta name="google-site-verification" content="8m-5ow039Yzg8t_6sRky4b7e7nXJjQo0NZyuiGm6Jbg" />
+<script type='text/javascript' src='http://cdn.animea-server.net/combined.js'></script>
+<script type="text/javascript">
+$().ready(function() {
+	function formatItem(row) {
+		return row[0] + " (<strong>" + row[1] + "</strong>)";
+	}
+	function formatResult(row) {
+		return row[0].replace(/(<.+?>)/gi, '');
+	}
+
+	$("#searchquick").autocomplete("http://www.animea.net/search-autocomplete.php", {
+		width: 199,
+		selectFirst: false,		
+		formatItem: formatItem,
+		formatResult: formatResult,
+		delay: 400,
+		cacheLength: 0
+	});
+	$("#searchquick").result(function(event, data, formatted) {
+		if (data)
+			$(this).parent().next().find("input").val(data[1]);
+	});
+	
+});
+</script>
+<link rel="stylesheet" type="text/css" href="http://cdn.animea-server.net/style.css" media="screen"/>
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+
+sfHover = function() {
+	var sfEls = document.getElementById("nav").getElementsByTagName("LI");
+	for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+			this.className+=" sfhover";
+		}
+		sfEls[i].onmouseout=function() {
+			this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+		}
+	}
+}
+if (window.attachEvent) window.attachEvent("onload", sfHover);
+
+//--><!]]></script>
+<script type="text/javascript">
+	   $(document).ready(
+				function(){
+					$('#mangapreview').innerfade({
+						//animationtype: 'slide',
+						speed: 750,
+						timeout: 4000,
+						type: 'sequence',
+						containerheight: '250px'
+					});
+			});
+  	</script>
+</head>
+<body>
+
+<div class="container">
+	<div class="headera">
+
+		<div class="banner_728">
+<script type="text/javascript">
+admeld_publisher  = 278;
+admeld_site       = 'eu';
+admeld_size       = '728x90';
+admeld_placement   = 'ros';
+</script>
+<script type="text/javascript" src="http://js.admeld.com/meld120.js"></script></div>
+	</div>
+	<div class="menu">
+		<div class="menu_container">
+			<ul id="nav">
+				<li><a href="http://www.animea.net">Home</a></li>
+				<li> <a href="http://www.animea.net/series">Anime</a>
+					<ul>
+						<li><a href="http://www.animea.net/series">Anime List (a-z)</a></li>
+						<li><a href="http://www.animea.net/reviews">Anime Reviews</a></li>
+						<li><a href="http://www.animea.net/reviews">Recommended shows</a></li>
+						<li><a href="http://www.animea.net/reviews">Anime of 2008</a></li>
+					</ul>
+				</li>
+				<li><a href="http://vip.animea.net" class="active">VIP</a>
+					<ul>
+						<li><a href="http://vip.animea.net">Home</a></li>
+						<li><a href="http://vip.animea.net/login.php">Login</a></li>
+						<li><a href="http://vip.animea.net/signup.php">Sign up</a></li>
+						<li><a href="http://vip.animea.net/list/">Downloads</a></li>
+						<li><a href="http://vip.animea.net/support.php">Support</a></li>
+					</ul>
+				</li>
+				<li> <a href="http://manga.animea.net">Manga</a>
+					<ul>
+						<li><a href="http://manga.animea.net">Read Manga</a></li>
+						<li><a href="http://manga.animea.net/browse.html">Manga List (a-z)</a></li>
+						<li><a href="http://manga.animea.net/hotchapters.html">Popular Manga</a></li>
+						<li><a href="http://manga.animea.net/stats.html">Top uploaders</a></li>
+						<li><a href="http://manga.animea.net/upload.html">Upload</a></li>
+					</ul>
+				</li>
+				<li><a href="http://www.animea.net/forums">Forums</a>
+					<ul>
+						<li><a href="http://www.animea.net/forums">Forum index</a></li>
+						<li><a href="http://www.animea.net/forums/search.php?do=getdaily">Today's topics</a></li>
+						<li><a href="http://www.animea.net/forums/search.php">Search</a></li>
+					</ul>
+				</li>
+				<li><a href="mailto:scoutz@animea.net">Contact us</a></li>
+			</ul>
+
+		</div>
+	</div>
+	<div class="crumble">
+		<form class="usermenu" action="http://www.animea.net/search" method="get"><input class="searchinput" autocomplete="off" name="q" id="searchquick" type="text" value="Search..." onclick="this.value='';onclick=''" />Welcome <a href="http://www.animea.net/forums/member.php?u=0"><a href="http://www.animea.net/forums/login.php">Login</a> | <a href="http://www.animea.net/forums/register.php">Register</a> </form>
+		<a href="http://www.animea.net/">Index</a> &raquo; <a href="http://manga.animea.net/">Manga</a> &raquo; <a href="http://manga.animea.net/browse.html">Browse</a> &raquo; Papillon - Hana to Chou	</div>
+	<div class="content" style="padding:15px; width:922px;">
+	
+<!--div class="response" style="margin-left:-14px;">
+</div-->
+
+      <h1>Papillon - Hana to Chou manga </h1>	      <div class="mpreview_holder">
+          <h2>Preview</h2>
+          <div class="manga_preview" id="mangapreview">
+		<img src="http://manga.animea.net/images/series/thumbs/5338_1.jpg" alt="preview Papillon - Hana to Chou" />
+		<img style="display:hidden;" src="http://manga.animea.net/images/series/thumbs/5338_2.jpg" alt="preview Papillon - Hana to Chou" />
+		<img style="display:hidden;" src="http://manga.animea.net/images/series/thumbs/5338_3.jpg" alt="preview Papillon - Hana to Chou" />
+		<img style="display:hidden;" src="http://manga.animea.net/images/series/thumbs/5338_4.jpg" alt="preview Papillon - Hana to Chou" /> 
+		<img style="display:hidden;" src="http://manga.animea.net/images/series/thumbs/5338_5.jpg" alt="preview Papillon - Hana to Chou" />
+		</div>
+	</div>
+<div style="float:left; width:600px;">
+<table width="310" cellpadding="0" cellspacing="0" class="mangainfo">
+		<tr>
+    	<td align="right" nowrap="nowrap" width="10" style="width:10px;"><strong>Alternative title(s):</strong></td>
+    	<td>パピヨン 花と蝶, 花与蝶, Butterfly - Flower and Butterfly, Papillon (UEDA Miwa)</td>
+    </tr>
+    	<tr>
+    	<td align="right" nowrap="nowrap"><strong>Released in:</strong></td>
+    	<td>2006</td>
+    </tr>
+		<tr>
+    	<td align="right" nowrap="nowrap"><strong>Author(s):</strong></td>
+    	<td>UEDA Miwa</td>
+    </tr>
+    	<tr>
+    	<td align="right" nowrap="nowrap"><strong>Artist(s):</strong></td>
+    	<td>UEDA Miwa</td>
+    </tr>
+    	<tr>
+    	<td align="right" nowrap="nowrap"><strong>Type:</strong></td>
+    	<td>Manga</td>
+    </tr>
+    	<tr>
+    	<td align="right" nowrap="nowrap"><strong>Genre(s):</strong></td>
+    	<td><a href="http://manga.animea.net/genre/drama">Drama</a>, <a href="http://manga.animea.net/genre/romance"> Romance</a>, <a href="http://manga.animea.net/genre/school life"> School Life</a>, <a href="http://manga.animea.net/genre/shoujo"> Shoujo</a></td>
+    </tr>
+    	<tr>
+    	<td align="right" nowrap="nowrap"><strong>Status:</strong></td>
+    	<td>Completed</td>
+    </tr>
+	<tr>
+    	<td align="right" nowrap="nowrap"><strong>Scanlation Status:</strong></td>
+    	<td>Ongoing</td>
+    </tr>
+	<tr>
+	  <td align="right" nowrap="nowrap">Keep track of this manga</td>
+	  <td><a href="?follow=1">Follow this manga (NEW)</a></td>
+    </tr>
+    <tr>
+    <td></td>
+    <td><div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=113799252039867&amp;xfbml=1"></script><fb:like href="" send="false" layout="button_count" width="50" show_faces="true" font=""></fb:like><!-- Place this tag in your head or just before your close body tag -->
+<script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
+
+<!-- Place this tag where you want the +1 button to render -->
+<g:plusone size="small"></g:plusone></td>
+    </tr>
+    </table>
+  <p style="width:570px; padding:5px;">Ageha, an ordinary (and rather unpopular) girl, is constantly overshadowed by her popular and beautiful twin sister, Hana. Because Ageha grew up in the countryside with their grandmother while Hana was raised by their parents, the two girls ended up with drastically different personalities.
+
+For the most part, Ageha remains a silent and hidden student in the school, with only one friend (who isn't all that nice either). In fact, nobody even really knows that she is Hana's twin sister, because despite looking alike, there is still a large gap between their levels of beauty and popularity. When Hana finds out that Ageha has a crush on a cute boy named Ryuusei (who is actually Ageha's childhood friend from the countryside), Hana becomes curious about their relationship.
+
+However, after hearing that Ryuusei hates people like Hana, Hana becomes irritated and using her charming personality, actually manages to snag Ryuusei as her boyfriend! Ageha is left with no one, but thanks to the strange new school counselor, and some unexpected allies, Ageha decides to do her best to get Ryuusei back.</p>
+	
+    <h2><a href="http://manga.animea.net/related/papillon-hana-to-chou.html" style="float:right;">More recommendations</a>Related manga</h2><p>People who read Papillon - Hana to Chou also liked the following titles.</p><ul class="relatedmanga"><li><a href="http://manga.animea.net/kyou-koi-wo-hajimemasu.html">Kyou, Koi wo Hajimemasu</a> (Comedy, Drama, Romance, School Life, Shoujo, Smut)</li><li><a href="http://manga.animea.net/dakara-ore-ni-shina-yo.html">Dakara Ore ni Shina yo</a> (Drama, Romance, School Life, Shoujo)</li><li><a href="http://manga.animea.net/momoiro-heaven-.html">Momoiro Heaven!</a> (Comedy, Drama, Romance, School Life, Shoujo, Smut)</li><li><a href="http://manga.animea.net/i-love-hs.html">I ♥ HS</a> (Comedy, Drama, Romance, School Life, Shoujo)</li><li><a href="http://manga.animea.net/ai-girl.html">Ai Girl</a> (Drama, Mature, Romance, School Life, Shoujo, Smut, Tragedy)</li><li><a href="http://manga.animea.net/forbidden-wedding.html">Kindan Wedding</a> (Comedy, Drama, Romance, School Life, Shoujo, Smut)</li></ul></div>
+<h2>Chapters</h2>
+<p><img src="/images/14.png" alt="Read" class="icon" /> Read online <img src="/images/43.png" alt="Download" class="icon" /> Download</p>
+<p style="float:right; padding:5px; font-weight:bold;"><img src="http://animea.net/images/bullet_toggle_plus.png" class="icon" /> <a href="/upload.html?mangaid=5338">Upload chapter(s)</a></p><table width="100%" border="0" cellspacing="0" cellpadding="0" style="width:928px; clear:both;" id="chapterslist" class="cleantable">
+                          <tr>
+						  	<th width="10"></th>
+                            <th>Chapter</th>
+                            <th></th>
+							<th width="80">Scanlator</th>
+							<th width="80" nowrap="nowrap">Uploader</th>
+                            <th width="50"></th>
+                          </tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 6</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-29-page-1.html">Papillon - Hana to Chou 29</a> The Truth <span class="uploaddate" style="display:inline;">80 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">Lizarazu</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 6</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-28-page-1.html">Papillon - Hana to Chou 28</a> Remorse <span class="uploaddate" style="display:inline;">107 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">Lizarazu</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 6</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-27-page-1.html">Papillon - Hana to Chou 27</a> The seat of Happiness <span class="uploaddate" style="display:inline;">109 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">Lizarazu</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 6</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-26-page-1.html">Papillon - Hana to Chou 26</a> The meaning of Kissing <span class="uploaddate" style="display:inline;">143 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">marvy</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 5</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-25-page-1.html">Papillon - Hana to Chou 25</a> Changing <span class="uploaddate" style="display:inline;">144 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">marvy</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 5</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-24-page-1.html">Papillon - Hana to Chou 24</a> A fast approach <span class="uploaddate">239 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">Lizarazu</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 5</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-23-page-1.html">Papillon - Hana to Chou 23</a> Insensitivity <span class="uploaddate">317 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">Lizarazu</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 5</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-22-page-1.html">Papillon - Hana to Chou 22</a> The Past <span class="uploaddate">322 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">Lizarazu</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 5</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-21-page-1.html">Papillon - Hana to Chou 21</a> Ex-boyfriend <span class="uploaddate">323 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">Lizarazu</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 4</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-20-page-1.html">Papillon - Hana to Chou 20</a> Attack <span class="uploaddate">524 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">latoshan32</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 4</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-19-page-1.html">Papillon - Hana to Chou 19</a> Shift <span class="uploaddate">588 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">Lizarazu</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 4</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-18-page-1.html">Papillon - Hana to Chou 18</a> Scent <span class="uploaddate">588 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">Lizarazu</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 4</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-17-page-1.html">Papillon - Hana to Chou 17</a> Chrysalis and Butterfly <span class="uploaddate">617 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">joujou</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 4</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-16-page-1.html">Papillon - Hana to Chou 16</a> Dying Ember Glows Again <span class="uploaddate">599 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">Lizarazu</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 3</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-15-page-1.html">Papillon - Hana to Chou 15</a> Kiss <span class="uploaddate">649 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">Alvi-chan</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 3</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-14-page-1.html">Papillon - Hana to Chou 14</a> Uneasy Happiness <span class="uploaddate">651 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">vin</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 3</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-13-page-1.html">Papillon - Hana to Chou 13</a> Chance Missed <span class="uploaddate">675 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">Alvi-chan</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 3</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-12-page-1.html">Papillon - Hana to Chou 12</a> Refuse <span class="uploaddate">694 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">LadyJezebel</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 3</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-11-page-1.html">Papillon - Hana to Chou 11</a> Couples?! <span class="uploaddate">706 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">Lizarazu</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 2</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-10-page-1.html">Papillon - Hana to Chou 10</a> Stimulant Date <span class="uploaddate">710 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">Lizarazu</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 2</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-9-page-1.html">Papillon - Hana to Chou 9</a> Problem <span class="uploaddate">744 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">Tankjan</td><td></td></tr><tr><td nowrap="nowrap"><img src="/images/14.png" alt="Read" class="icon" />  <img src="/images/43.png" alt="Download" class="icon" /> </td><td><span style="float:right">Volume 2</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-8-page-1.html">Papillon - Hana to Chou 8</a> Self Confidence <span class="uploaddate">744 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/evil-flowers.html">Evil Flowers</a></td><td nowrap="nowrap">Tankjan</td><td></td></tr><tr><td nowrap="nowrap"><img src="/images/14.png" alt="Read" class="icon" />  <img src="/images/43.png" alt="Download" class="icon" /> </td><td><span style="float:right">Volume 2</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-7-page-1.html">Papillon - Hana to Chou 7</a> 16 years of Tears <span class="uploaddate">806 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/fuuchi-fighters.html">Fuuchi Fighters</a></td><td nowrap="nowrap">fornalina</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 2</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-6-page-1.html">Papillon - Hana to Chou 6</a> Wound <span class="uploaddate">806 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/fuuchi-fighters.html">Fuuchi Fighters</a></td><td nowrap="nowrap">fornalina</td><td></td></tr><tr><td nowrap="nowrap"><img src="/images/14.png" alt="Read" class="icon" />  <img src="/images/43.png" alt="Download" class="icon" /> </td><td><span style="float:right">Volume 1</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-5-page-1.html">Papillon - Hana to Chou 5</a> Metamorphosis <span class="uploaddate">806 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/fuuchi-fighters.html">Fuuchi Fighters</a></td><td nowrap="nowrap">fornalina</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 1</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-4-page-1.html">Papillon - Hana to Chou 4</a> Magic Spell <span class="uploaddate">806 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/fuuchi-fighters.html">Fuuchi Fighters</a></td><td nowrap="nowrap">fornalina</td><td></td></tr><tr><td nowrap="nowrap"><img src="/images/14.png" alt="Read" class="icon" />  <img src="/images/43.png" alt="Download" class="icon" /> </td><td><span style="float:right">Volume 1</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-3-page-1.html">Papillon - Hana to Chou 3</a> Goodbye, Unrequited Love <span class="uploaddate">806 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/fuuchi-fighters.html">Fuuchi Fighters</a></td><td nowrap="nowrap">fornalina</td><td></td></tr><tr><td><img src="/images/14.png" alt="Read" class="icon" /> </td><td><span style="float:right">Volume 1</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-2-page-1.html">Papillon - Hana to Chou 2</a> The Depressing First Date <span class="uploaddate">806 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/fuuchi-fighters.html">Fuuchi Fighters</a></td><td nowrap="nowrap">fornalina</td><td></td></tr><tr><td nowrap="nowrap"><img src="/images/14.png" alt="Read" class="icon" />  <img src="/images/43.png" alt="Download" class="icon" /> </td><td><span style="float:right">Volume 1</span><a href="http://manga.animea.net/papillon-hana-to-chou-chapter-1-page-1.html">Papillon - Hana to Chou 1</a> Wish <span class="uploaddate">806 days ago</span></td><td>&nbsp;</td><td nowrap="nowrap"><a href="http://manga.animea.net/scanlator/fuuchi-fighters.html">Fuuchi Fighters</a></td><td nowrap="nowrap">fornalina</td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></table><h2>Feedback</h2>
+<p>Is this manga missing chapters, or is any other information about this manga incorrect? Please submit the feedback form!</p>
+
+<form id="form2" name="form2" method="post" action="?">
+    <textarea name="feedback" cols="" rows="" style="width:600px; height: 100px;"></textarea><br/>
+    <input name="submit" type="submit" value="Submit feedback" />
+</form>		
+	</div>
+	<div class="footer" id="footx">
+		<div class="footer_box" style="margin-left:20px;">
+			<h2>AnimeA</h2>
+			<ul>
+				<li><a href="http://www.animea.net/privacypolicy.html">Privacy policy</a></li>
+				<li><a href="http://www.animea.net/tos.html">Terms of Serivce</a></li>
+				<li><a href="http://www.animea.net/legaldisclaimer.html">Legal Disclaimer</a></li>
+				<li><a href="http://www.animea.net/contact.html">Contact Us</a></li>
+			</ul>
+		</div><div class="footer_box">
+        <h2>Popular Anime</h2>
+    	<ul><li><a href="http://www.animea.net/download/335/Naruto.html">Naruto</a></li><li><a href="http://www.animea.net/download/39/Bleach.html">Bleach</a></li><li><a href="http://www.animea.net/download/354/Death+Note.html">Death Note</a></li><li><a href="http://www.animea.net/download/219/InuYasha.html">InuYasha</a></li><li><a href="http://www.animea.net/download/217/Prince+of+tennis.html">Prince of tennis</a></li></ul>
+    </div><div class="footer_box">
+        <h2>New Anime</h2>
+    	<ul><li><a href="http://www.animea.net/download/2219/Higurashi+no+Naku+Koro+ni+Kira.html">Higurashi no Naku Koro ni Kira</a></li><li><a href="http://www.animea.net/download/2218/Appleseed+XIII.html">Appleseed XIII</a></li><li><a href="http://www.animea.net/download/2217/Nekogami+Yaoyorozu.html">Nekogami Yaoyorozu</a></li><li><a href="http://www.animea.net/download/2216/Boku+wa+Imouto+ni+Koi+o+Suru+.html">Boku wa Imouto ni Koi o Suru </a></li><li><a href="http://www.animea.net/download/2215/Karigurashi+no+Arrietty.html">Karigurashi no Arrietty</a></li></ul>
+    </div>
+    <div class="footer_box">
+        <h2>Popular Manga</h2>
+    	<ul><li><a href="http://manga.animea.net/naruto.html">Naruto</a></li><li><a href="http://manga.animea.net/bleach.html">Bleach</a></li><li><a href="http://manga.animea.net/one-piece.html">One Piece</a></li><li><a href="http://manga.animea.net/nana-to-kaoru.html">Nana to Kaoru</a></li><li><a href="http://manga.animea.net/berserk.html">Berserk</a></li></ul>
+    </div><div class="footer_box">
+			<h2>The Forums</h2>
+			<ul>
+				<li><a href="http://www.animea.net/privacypolicy.html">Privacy policy</a></li>
+				<li><a href="http://www.animea.net/tos.html">Terms of Serivce</a></li>
+				<li><a href="http://www.animea.net/legaldisclaimer.html">Legal Disclaimer</a></li>
+				<li><a href="http://www.animea.net/contact.html">Contact Us</a></li>
+			</ul>
+		</div>	
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2458720-5");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</body>
+</html>
