@@ -28,6 +28,21 @@ public class ScraperTest extends InstrumentationTestCase {
     private Context testContext;
     private File tempDir;
 
+    private class OperationProgress
+            implements Scraper.OnOperationStatus {
+        public boolean started, complete;
+
+        @Override
+        public void operationStarted() {
+            started = true;
+        }
+
+        @Override
+        public void operationComplete(boolean success) {
+            complete = true;
+        }
+    }
+
     private class DownloadProgress
             implements Scraper.OnChapterDownloadProgress {
         public boolean started, complete;
@@ -147,6 +162,32 @@ public class ScraperTest extends InstrumentationTestCase {
                      res.get(0).url);
         assertEquals("http://manga.animea.net/papillon-hana-to-chou-chapter-29-page-1.html",
                      res.get(28).url);
+    }
+
+    public void testMangaUpdate() throws Throwable {
+        final long mangaId = setUpTestManga();
+        final Scraper scraper = new Scraper(db, downloader);
+        final OperationProgress progress = new OperationProgress();
+
+        class UiTask implements Runnable {
+            @Override
+            public void run() {
+                scraper.updateManga(
+                    mangaId, progress);
+            }
+        }
+
+        UiTask uiTask = new UiTask();
+
+        runTestOnUiThread(uiTask);
+
+        while (!progress.complete)
+            Thread.sleep(500);
+
+        assertTrue(progress.started);
+        assertTrue(progress.complete);
+
+        // TODO test manga chapters have been updated
     }
 
     public void testFullDownload() throws Throwable {

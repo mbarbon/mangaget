@@ -53,6 +53,21 @@ public class Scraper {
             public void downloadComplete(boolean success) { }
         };
 
+    private static final OnOperationStatus dummyStatusListener =
+        new OnOperationStatus() {
+            @Override
+            public void operationStarted() { }
+
+            @Override
+            public void operationComplete(boolean success) { }
+        };
+
+    private class MangaInfo {
+        public long id;
+        public ContentValues manga;
+        public OnOperationStatus listener;
+    }
+
     private class ChapterDownload {
         public long id;
         public ContentValues chapter;
@@ -66,6 +81,48 @@ public class Scraper {
         public String imageUrl;
         public String targetPath;
         public int status;
+    }
+
+    private class MangaInfoUpdater
+            extends Downloader.OnDownloadProgressAdapter {
+        private MangaInfo info;
+        private Downloader.DownloadDestination target;
+
+        public MangaInfoUpdater(MangaInfo _info) {
+            super();
+
+            info = _info;
+        }
+
+        public void start() {
+            target = downloader.requestDownload(
+                info.manga.getAsString(DB.MANGA_URL), this);
+        }
+
+        @Override
+        public void downloadStarted() {
+            info.listener.operationStarted();
+        }
+
+        @Override
+        public void downloadComplete(boolean success) {
+            super.downloadComplete(success);
+
+            if (!success) {
+                info.listener.operationComplete(success);
+
+                return;
+            }
+
+            List<ChapterInfo> chapters = scrapeMangaPage(target);
+
+            for (int i = 0; i < chapters.size(); ++i)
+                db.insertOrUpdateChapter(info.id, i + 1, -1,
+                                         chapters.get(i).title,
+                                         chapters.get(i).url);
+
+            info.listener.operationComplete(success);
+        }
     }
 
     private class ChapterDownloader
@@ -254,9 +311,27 @@ public class Scraper {
         public void downloadComplete(boolean success);
     }
 
+    public interface OnOperationStatus {
+        public void operationStarted();
+        public void operationComplete(boolean success);
+    }
+
     public Scraper(DB _db, Downloader _downloader) {
         db = _db;
         downloader = _downloader;
+    }
+
+    public void updateManga(long mangaId, OnOperationStatus listener) {
+        ContentValues manga = db.getManga(mangaId);
+        MangaInfo info = new MangaInfo();
+
+        info.id = mangaId;
+        info.manga = manga;
+        info.listener = listener != null ? listener : dummyStatusListener;
+
+        MangaInfoUpdater mangaUpdater = new MangaInfoUpdater(info);
+
+        mangaUpdater.start();
     }
 
     public void downloadChapter(long chapterId, String targetPath,
