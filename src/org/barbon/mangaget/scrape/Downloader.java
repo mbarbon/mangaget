@@ -216,6 +216,7 @@ public class Downloader {
                     params[0]);
             }
             catch (Exception e) {
+                e.printStackTrace(); // TODO better diagnostics
                 client.close();
 
                 return false;
@@ -234,6 +235,7 @@ public class Downloader {
                 downloadTarget.completeDownload();
             }
             catch(Exception e) {
+                e.printStackTrace(); // TODO better diagnostics
                 try {
                     downloadTarget.abortDownload();
                 }
