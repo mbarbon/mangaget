@@ -184,4 +184,5 @@ public class ScraperTest extends InstrumentationTestCase {
     // TODO test partial downloads
     //      page URLs already filled in
     //      all pages downloaded
+    //      page marked downloaded but no file there
 }
