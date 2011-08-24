@@ -143,6 +143,24 @@ public class DB {
         return values;
     }
 
+    public long getChapterId(long mangaId, int index) {
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+        Cursor cursor = db.rawQuery(
+            "SELECT id AS _id" +
+            "    FROM chapters" +
+            "    WHERE manga_id = ? AND number = ?",
+            new String[] { Long.toString(mangaId), Long.toString(index)});
+
+        long id = -1;
+
+        if (cursor.moveToNext())
+            id = cursor.getLong(0);
+
+        cursor.close();
+
+        return id;
+    }
+
     public ContentValues getChapter(long chapterId) {
         SQLiteDatabase db = openHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery(
