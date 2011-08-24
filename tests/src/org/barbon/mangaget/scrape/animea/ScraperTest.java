@@ -28,7 +28,8 @@ public class ScraperTest extends InstrumentationTestCase {
     private Context testContext;
     private File tempDir;
 
-    private class Progress implements Scraper.OnChapterDownloadProgress {
+    private class DownloadProgress
+            implements Scraper.OnChapterDownloadProgress {
         public boolean started, complete;
 
         @Override
@@ -155,7 +156,7 @@ public class ScraperTest extends InstrumentationTestCase {
             .getAbsolutePath();
         final String tempDirString = tempDir.getAbsolutePath();
         final Scraper scraper = new Scraper(db, downloader);
-        final Progress progress = new Progress();
+        final DownloadProgress progress = new DownloadProgress();
 
         class UiTask implements Runnable {
             @Override
