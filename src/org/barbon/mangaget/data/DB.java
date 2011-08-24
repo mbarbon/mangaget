@@ -24,6 +24,7 @@ public class DB {
 
     public static final String MANGA_TITLE = "title";
     public static final String MANGA_PATTERN = "pattern";
+    public static final String MANGA_URL = "url";
 
     public static final String CHAPTER_MANGA_ID = "manga_id";
     public static final String CHAPTER_NUMBER = "number";
@@ -122,7 +123,7 @@ public class DB {
     public ContentValues getManga(long mangaId) {
         SQLiteDatabase db = openHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery(
-            "SELECT id AS _id, title, pattern" +
+            "SELECT id AS _id, title, pattern, url" +
             "    FROM manga" +
             "    WHERE id = ?",
             new String[] { Long.toString(mangaId)});
@@ -134,6 +135,7 @@ public class DB {
 
             values.put("title", cursor.getInt(1));
             values.put("pattern", cursor.getString(2));
+            values.put("url", cursor.getString(3));
         }
 
         cursor.close();
