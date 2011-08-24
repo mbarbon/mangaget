@@ -14,6 +14,9 @@ import java.io.File;
 import java.io.InputStream;
 import java.io.IOException;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -332,6 +335,18 @@ public class Scraper {
         public String title;
     }
 
+    public static String absoluteUrl(String url, String base) {
+        try {
+            if (!url.startsWith("http://"))
+                url = new URI(base).resolve(url).toString();
+        }
+        catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
+
+        return url;
+    }
+
     public static List<String> scrapeChapterPages(
             Downloader.DownloadDestination target) {
         Document doc;
@@ -351,7 +366,9 @@ public class Scraper {
         String urlTemplate = page.attr("onchange");
         List<String> result = new ArrayList<String>();
 
-        urlTemplate = urlTemplate.replaceFirst(".*(http:.*\\.html).*", "$1");
+        urlTemplate = urlTemplate.replaceFirst(
+            "javascript:window.location='(.*\\.html).*", "$1");
+        urlTemplate = absoluteUrl(urlTemplate, target.baseUrl);
 
         for (Element option : options) {
             if (!option.hasAttr("value"))
@@ -374,7 +391,7 @@ public class Scraper {
             throw new RuntimeException(e);
         }
 
-        Element img = doc.select("img.chapter_img").first();
+        Element img = doc.select("img.mangaimg").first();
 
         if (!img.hasAttr("src"))
             return null;
@@ -449,7 +466,7 @@ public class Scraper {
             throw new RuntimeException(e);
         }
 
-        Elements links = doc.select("table#chapterslist td > a");
+        Elements links = doc.select("ul.chapters_list li > a");
         List<ChapterInfo> chapters = new ArrayList<ChapterInfo>();
 
         for (Element link : links) {
