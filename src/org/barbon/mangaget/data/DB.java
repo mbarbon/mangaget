@@ -241,6 +241,29 @@ public class DB {
         return db.insertOrThrow("chapters", null, values);
     }
 
+    public long insertOrUpdateChapter(long mangaId, int number, int pages,
+                                      String title, String url) {
+        long chapterId = getChapterId(mangaId, number);
+
+        if (chapterId == -1)
+            return insertChapter(mangaId, number, pages, title, url);
+
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("manga_id", mangaId);
+        values.put("number", number);
+        values.put("pages", pages);
+        values.put("title", title);
+        values.put("url", url);
+        values.put("download_status", DB.DOWNLOAD_STOPPED);
+
+        db.update("chapters", values, "id = ?",
+                  new String[] { Long.toString(chapterId) });
+
+        return chapterId;
+    }
+
     public long insertPage(long chapterId, int number, String url,
                            String imageUrl, int downloadStatus) {
         SQLiteDatabase db = openHelper.getWritableDatabase();
