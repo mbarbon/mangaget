@@ -7,6 +7,9 @@
   <!-- Manga list -->
   <string name="no_manga">Select manga</string>
 
+  <!-- Manga list menu -->
+  <string name="refresh">Refresh</string>
+
   <!-- Chapter list -->
   <string name="no_chapter">Select manga</string>
 </resources>
