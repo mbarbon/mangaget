@@ -7,10 +7,14 @@ package org.barbon.mangaget.fragments;
 
 import android.os.Bundle;
 
+import android.view.View;
+
 import android.widget.SimpleCursorAdapter;
+import android.widget.ListView;
 
 import android.support.v4.app.ListFragment;
 
+import org.barbon.mangaget.Download;
 import org.barbon.mangaget.R;
 
 import org.barbon.mangaget.data.DB;
@@ -45,5 +49,13 @@ public class ChapterList extends ListFragment {
         DB db = DB.getInstance(getActivity());
 
         adapter.changeCursor(db.getChapterList(mangaId));
+    }
+
+    // event handlers
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        // TODO check if re-download and ask for confirmation
+        Download.startChapterDownload(getActivity(), id);
     }
 }
