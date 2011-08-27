@@ -336,6 +336,7 @@ public class Scraper {
         // TODO actually support paging throught long search results
 
         public ResultPager(String title, OnSearchResults _listener) {
+            // TODO handle spaces
             startUrl = "http://manga.animea.net/search.html?title=" + title;
             listener = _listener;
         }
