@@ -12,4 +12,8 @@
 
   <!-- Chapter list -->
   <string name="no_chapter">Select manga</string>
+
+  <!-- Search dialog -->
+  <string name="search_hint">Manga title</string>
+  <string name="add_manga">Add manga</string>
 </resources>

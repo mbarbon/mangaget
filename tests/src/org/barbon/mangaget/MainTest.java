@@ -7,7 +7,8 @@ package org.barbon.mangaget;
 
 import android.test.ActivityInstrumentationTestCase2;
 
-// TODO add tests for Main activity and fragments, and Download service
+// TODO add tests for Main activity and fragments,
+//      MangaSearch activity and Download service
 public class MainTest extends ActivityInstrumentationTestCase2<Main> {
     public MainTest() {
         super("org.barbon.mangaget", Main.class);
