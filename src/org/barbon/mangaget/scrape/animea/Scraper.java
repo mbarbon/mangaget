@@ -62,20 +62,20 @@ public class Scraper {
             public void operationComplete(boolean success) { }
         };
 
-    private class MangaInfo {
+    private static class MangaInfoDownload {
         public long id;
         public ContentValues manga;
         public OnOperationStatus listener;
     }
 
-    private class ChapterDownload {
+    private static class ChapterDownload {
         public long id;
         public ContentValues chapter;
         public String targetPath, tempDir;
         public OnChapterDownloadProgress listener;
     }
 
-    private class PageDownload {
+    private static class PageDownload {
         public long id;
         public String url;
         public String imageUrl;
@@ -85,10 +85,10 @@ public class Scraper {
 
     private class MangaInfoUpdater
             extends Downloader.OnDownloadProgressAdapter {
-        private MangaInfo info;
+        private MangaInfoDownload info;
         private Downloader.DownloadDestination target;
 
-        public MangaInfoUpdater(MangaInfo _info) {
+        public MangaInfoUpdater(MangaInfoDownload _info) {
             super();
 
             info = _info;
@@ -323,7 +323,7 @@ public class Scraper {
 
     public void updateManga(long mangaId, OnOperationStatus listener) {
         ContentValues manga = db.getManga(mangaId);
-        MangaInfo info = new MangaInfo();
+        MangaInfoDownload info = new MangaInfoDownload();
 
         info.id = mangaId;
         info.manga = manga;
