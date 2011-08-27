@@ -5,14 +5,22 @@
 
 package org.barbon.mangaget;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.ContentValues;
 import android.content.Intent;
 
 import android.os.Environment;
 import android.os.IBinder;
+
+import android.view.View;
+
+import android.widget.RemoteViews;
 
 import java.io.File;
 
@@ -98,19 +106,101 @@ public class Download extends Service {
         scraper.updateManga(mangaId, null);
     }
 
+    private class DownloadProgress
+            implements Scraper.OnChapterDownloadProgress {
+        private Notification notification;
+        private NotificationManager manager;
+        private RemoteViews contentView;
+        private ContentValues manga, chapter;
+
+        public DownloadProgress(ContentValues _manga, ContentValues _chapter) {
+            manga = _manga;
+            chapter = _chapter;
+        }
+
+        @Override
+        public void downloadStarted() {
+            String ticker =
+                getResources().getString(R.string.manga_downloading_ticker);
+
+            Intent notificationIntent = new Intent(Intent.ACTION_MAIN);
+
+            notificationIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+            // TODO avoid hardcoding PerfectViewer
+            notificationIntent.setComponent(
+                ComponentName.unflattenFromString(
+                    "com.rookiestudio.perfectviewer/.TStartup"));
+
+            manager = (NotificationManager)
+                getSystemService(Context.NOTIFICATION_SERVICE);
+            notification = new Notification(R.drawable.stat_download_anim,
+                                            ticker,
+                                            System.currentTimeMillis());
+            notification.contentView = contentView =
+                new RemoteViews(getPackageName(), R.layout.download_progress);
+            notification.contentIntent =
+               PendingIntent.getActivity(Download.this, 0,
+                                         notificationIntent, 0);
+
+            contentView.setTextViewText(
+                R.id.download_description,
+                formatMsg(R.string.manga_downloading_progress));
+            contentView.setProgressBar(R.id.download_progress, 0, 0, true);
+
+            manager.notify(notification.hashCode(), notification);
+        }
+
+        @Override
+        public void downloadProgress(int current, int total) {
+            notification.iconLevel = current % 6;
+            contentView.setProgressBar(
+                R.id.download_progress, total, current, false);
+
+            manager.notify(notification.hashCode(), notification);
+        }
+
+        @Override
+        public void downloadComplete(boolean success) {
+            notification.iconLevel = 0;
+            notification.tickerText =
+                getResources().getString(R.string.manga_downloaded_ticker);
+            contentView.setTextViewText(
+                R.id.download_description,
+                formatMsg(R.string.manga_downloaded_progress));
+            contentView.setViewVisibility(
+                R.id.download_progress_parent, View.INVISIBLE);
+
+            manager.notify(notification.hashCode(), notification);
+        }
+
+        // implementation
+
+        private String formatMsg(int id) {
+            String pattern = getResources().getString(id);
+            String result = new Formatter()
+                .format(pattern,
+                        manga.getAsString(DB.MANGA_TITLE),
+                        chapter.getAsInteger(DB.CHAPTER_NUMBER))
+                .toString();
+
+            return result;
+        }
+    }
+
     private void downloadChapter(long chapterId) {
         ContentValues chapter = db.getChapter(chapterId);
         ContentValues manga = db.getManga(chapter.getAsLong(
                                               DB.CHAPTER_MANGA_ID));
         Scraper scraper = new Scraper(db, downloader);
         File externalStorage = Environment.getExternalStorageDirectory();
-        String targetPath = new  Formatter()
+        String targetPath = new Formatter()
             .format(manga.getAsString(DB.MANGA_PATTERN),
                     chapter.getAsInteger(DB.CHAPTER_NUMBER))
             .toString();
         File fullPath = new File(externalStorage, targetPath);
+        DownloadProgress progress = new DownloadProgress(manga, chapter);
 
         scraper.downloadChapter(chapterId, fullPath.getAbsolutePath(),
-                                downloadTemp.getAbsolutePath(), null);
+                                downloadTemp.getAbsolutePath(), progress);
     }
 }
