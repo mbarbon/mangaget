@@ -102,7 +102,7 @@ public class DB {
         SQLiteDatabase db = openHelper.getWritableDatabase();
 
         return db.rawQuery(
-            "SELECT id AS _id, number, title" +
+            "SELECT id AS _id, number, title, download_status" +
             "    FROM chapters" +
             "    WHERE manga_id = ?" +
             "    ORDER BY number",
