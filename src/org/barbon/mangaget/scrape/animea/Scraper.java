@@ -503,7 +503,11 @@ public class Scraper {
             if (   item.children().size() == 0
                 && (   !item.hasAttr("class")
                     || !item.attr("class").equals("totalmanga"))) {
-                currentPage = Integer.valueOf(item.text());
+                String num = item.text();
+
+                if (   !num.equalsIgnoreCase("previous")
+                    && !num.equalsIgnoreCase("next"))
+                    currentPage = Integer.valueOf(num);
             }
             else if (   item.children().size() == 1
                      && item.child(0).tag() == Tag.valueOf("a")) {

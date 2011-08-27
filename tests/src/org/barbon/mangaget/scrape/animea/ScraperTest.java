@@ -130,7 +130,7 @@ public class ScraperTest extends InstrumentationTestCase {
 
     public void testScrapeResults() {
         String searchPage =
-            "http://manga.animea.net/search.html?title=papillon";
+            "http://manga.animea.net/search.html?title=";
         Scraper.SearchResultPage res =
             Scraper.scrapeSearchResults(getPage(R.raw.animea_results_html,
                                                 searchPage));
@@ -149,6 +149,19 @@ public class ScraperTest extends InstrumentationTestCase {
                      res.titles.get(0));
         assertEquals("A House in Venice",
                      res.titles.get(47));
+    }
+
+    public void testScrapeEmptyResults() {
+        String searchPage =
+            "http://manga.animea.net/search.html?title=pavillon";
+        Scraper.SearchResultPage res =
+            Scraper.scrapeSearchResults(getPage(R.raw.animea_results_empty_html,
+                                                searchPage));
+
+        assertEquals(-1, res.currentPage);
+        assertEquals(null, res.pagingUrl);
+        assertEquals(0, res.urls.size());
+        assertEquals(0, res.titles.size());
     }
 
     public void testScrapeMangaPage() {

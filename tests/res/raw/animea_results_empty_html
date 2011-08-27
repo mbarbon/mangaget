@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+AnimeA - Search</title>
+<meta name="Description" content="" />
+<meta name="Keywords" content=",  manga,  chapter,  chapters,  read online,  read,  download" />
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans&v2' rel='stylesheet' type='text/css'>
+<link href="http://cdn.animea-server.net/mgfx/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'873f4489-159f-4fc9-9c29-03e12175e930'});</script>
+<meta name="google-site-verification" content="8m-5ow039Yzg8t_6sRky4b7e7nXJjQo0NZyuiGm6Jbg" />
+<script type='text/javascript' src='http://cdn.animea-server.net/combined.js'></script>
+<script type="text/javascript">
+$().ready(function() {
+	function formatItem(row) {
+		return " <a href=\"/"+row[1]+"\">" + row[0] + "</a>";
+	}
+	function formatResult(row) {
+		return row[0].replace(/(<.+?>)/gi, '');
+	}
+
+	$("#searchquick").autocomplete("/search-autocomplete.php", {
+		width: 212,		
+		scrollHeight: 500,
+		selectFirst: false,		
+		formatItem: formatItem,
+		formatResult: formatResult,
+		max: 50,
+		delay: 400,
+		cacheLength: 0
+	}).result(function(event, row) {
+	    location.href = "/"+row[1];
+	  });
+	$("#searchquick").result(function(event, data, formatted) {
+		if (data)
+			$(this).parent().next().find("input").val(data[1]);
+	});
+	
+	
+});
+</script>
+
+</head>
+
+<body>
+<div class="loginheader" id="loginheader" style="display:none;">
+<script type="text/javascript" src="http://www.animea.net/forums/clientscript/vbulletin_md5.js"></script>
+    <form action="http://www.animea.net/forums/login.php?do=login" id="loginform" method="post" onsubmit="md5hash(vb_login_password, vb_login_md5password, vb_login_md5password_utf, {vb:raw show.nopasswordempty})">
+     <div class="right">
+     	<a href="javascript:void(0);" onclick="$('#loginheader').css('display','none');"><img src="/img/fam/cross.png" style="margin-top:8px;" width="16" height="16" alt="Close" /></a>
+     </div>
+      <input type="text" class="login_username" name="vb_login_username" id="navbar_username" maxlength="100" size="10" accesskey="u" tabindex="1" value="Username" />
+      <input type="password" class="login_username" tabindex="2" name="vb_login_password" id="navbar_password" size="10" />
+        <input type="text" class="textbox default-value" tabindex="102" name="vb_login_password_hint" id="navbar_password_hint" size="10" value="Password" style="display:none;" />
+        <input name="" type="submit" value="Login" />
+        <input type="hidden" name="cookieuser" value="1" />
+        <input type="hidden" name="s" value="" />
+        <input type="hidden" name="securitytoken" value="guest" />
+        <input type="hidden" name="do" value="login" />
+        <input type="hidden" name="vb_login_md5password" />
+        <input type="hidden" name="vb_login_md5password_utf" />
+    </form>
+</div>
+<div id="header_container">
+    <div class="header">
+    <a href="/"><img src="/img/logo.png" alt="AnimeA" /></a>
+      <ul class="menu_header">
+        <li class="manga_button"><a href="http://www.animea.net">Anime</a></li>
+          <li class="anime_button"><a href="/">Manga</a></li>
+        <li class="forum_button"><a href="http://www.animea.net/forums">Forum</a></li>
+        <li class="login_register"><a href="javascript:void(0);" onclick="$('#loginheader').css('display','block');">Login</a> or <a href="/register.html">Register</a></li>
+      </ul>
+    </div>
+</div>
+<div id="sub_menu_blue">
+	<div class="sub_menu">
+        <div class="search"><a href="/random.php">Surpise Me!</a><input name="q" id="searchquick" type="text" value="Search..." onclick="this.value='';onclick=''" class="search_box" /></div>
+    	<ul class="submenuul">
+        	<li><a href="/">Home</a></li>
+        	<li><a href="/browse.html">Browse</a></li>
+        	<li><a href="/search.html">Search</a></li>
+        	<li><a href="/bookmarks.html">Bookmarks</a></li>
+        	<li><a href="/history.html">History</a></li>
+        	<li><a href="/upload.html">Upload</a></li>
+        </ul>
+    </div>
+</div>
+<div id="content">
+	<div class="contents">
+
+	<h1>Search</h1>
+<div class="center clear">
+<iframe width="728" height="90" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://img.manga.animea.net/do/728_af.html"></iframe></div>
+<form id="form1" name="form1" method="get" action="/search.html#results">
+<ul class="advsearch">
+	<li><label for="title">Manga title: </label><input type="text" name="title" id="title" class="inputfield" /></li>
+	<li><label for="title">Completed: </label>
+	 
+	      <input type="radio" name="completed" value="2" id="completed_0" />
+	      Yes
+	      <input type="radio" name="completed" value="1" id="completed_1" />
+	      No
+	      <input name="completed" type="radio" id="completed_2" value="0" checked />
+	      Either
+	</li>
+	<li>
+	  <label for="yor">Year of Release: </label><select name="yor_range" class="inputrange">
+	  <option value="0" selected>On</option>
+	  <option value="1">After</option>
+	  <option value="2">Before</option>
+	</select><input type="text" name="yor" id="title" class="inputfield" style="width:50px;" /></li>
+    <li>
+      <label for="type">Type:</label>
+      <ul><li><input type="radio" name="type" value="manga" id="type_0" />
+      Japanese Manga</li><li><input type="radio" name="type" value="manhwa" id="type_1" />
+      Korean Manhwa</li><li><input type="radio" name="type" value="manhua" id="type_2" />
+      Chinese Manhua</li><li><input name="type" type="radio" id="type_2" value="any" checked />
+      Any</li></ul></li>
+	<li><label for="author">Author: </label><input type="text" name="author" id="title" class="inputfield" /></li>
+	<li><label for="artist">Artist: </label><input type="text" name="artist" id="title" class="inputfield" /></li>
+    <li><label for="genres">Genre: </label>
+      <ul class="genrelist">
+            <li>
+            <label>
+            <input name="genre[Action]" value="0" id="checkbox" type="text" ><a href="javascript:void(0);" onclick="triggergenre(this);">Action</a></label>
+            </li>
+            <li><label>
+                <input name="genre[Adventure]" value="0" id="checkbox3" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Adventure</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Comedy]" value="0" id="checkbox4" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Comedy</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Doujinshi]" value="0" id="checkbox5" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Doujinshi</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Drama]" value="0" id="checkbox6" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Drama</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Ecchi]" value="0" id="checkbox7" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Ecchi</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Fantasy]" value="0" id="checkbox29" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Fantasy</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Gender_Bender]" value="0" id="checkbox8" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Gender Bender</a></label>
+            </li>
+            <li>
+            <label>
+            <input name="genre[Harem]" value="0" id="checkbox9" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Harem</a></label>
+            </li>
+            <li><label>
+                <input name="genre[Historical]" value="0" id="checkbox11" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Historical</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Horror]" value="0" id="checkbox12" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Horror</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Josei]" value="0" id="checkbox13" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Josei</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Martial_Arts]" value="0" id="checkbox30" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Martial Arts</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Mature]" value="0" id="checkbox15" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Mature</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Mecha]" value="0" id="checkbox16" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Mecha</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Mystery]" value="0" id="checkbox17" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Mystery</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Psychological]" value="0" id="checkbox18" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Psychological</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Romance]" value="0" id="checkbox19" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Romance</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[School_Life]" value="0" id="checkbox20" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">School Life</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Sci-fi]" value="0" id="checkbox21" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Sci-fi</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Seinen]" value="0" id="checkbox31" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Seinen</a></label>
+            </li>
+            <li>
+            <label>
+            <input name="genre[Shotacon]" value="0" id="checkbox22" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Shotacon</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Shoujo]" value="0" id="checkbox23" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Shoujo</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Shoujo_Ai]" value="0" id="checkbox24" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Shoujo Ai</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Shounen]" value="0" id="checkbox25" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Shounen</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Shounen_Ai]" value="0" id="checkbox26" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Shounen Ai</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Slice_of_Life]" value="0" id="checkbox27" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Slice of Life</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Smut]" value="0" id="checkbox28" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Smut</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Sports]" value="0" id="checkbox32" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Sports</a></label>
+
+            </li>
+            <li>
+              <label>
+                <input name="genre[Supernatural]" value="0" id="checkbox33" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Supernatural</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Tragedy]" value="0" id="checkbox34" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Tragedy</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Yaoi]" value="0" id="checkbox35" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Yaoi</a></label>
+            </li>
+            <li>
+              <label>
+                <input name="genre[Yuri]" value="0" id="checkbox36" type="text" /><a href="javascript:void(0);" onclick="triggergenre(this);">Yuri</a></label>
+            </li>
+          </ul>
+</li>
+<li><label></label><input name="" type="submit" value="Search" class="searchbutton" /></li>
+</ul>
+</form>
+<script type="text/javascript">
+function triggergenre(genre)
+{
+	var text = genre.innerHTML.replace(" ", "_");
+	text = text.replace(" ", "_");
+	if($('input[name=genre\\['+text+'\\]]').attr('value') == '2')
+	{
+		$(genre).css("background-image", "url(/img/fam/bullet_black.png)");
+		$('input[name=genre\\['+text+'\\]]').val('0');
+	}
+	else
+	{
+		if($('input[name=genre\\['+text+'\\]]').attr('value') == '1')
+		{
+			$(genre).css("background-image", "url(/img/fam/cross.png)");
+			$('input[name=genre\\['+text+'\\]]').val('2');
+		}
+		else
+		{
+			if($('input[name=genre\\['+text+'\\]]').attr('value') == '0')
+			{
+				$(genre).css("background-image", "url(/img/fam/tick.png)");
+				$('input[name=genre\\['+text+'\\]]').val('1');
+			}
+		}
+	}
+	return false;
+}
+
+</script>
+
+<div class="clear"> </div>
+<h2 style="clear:both;" id="results">Search results</h2>
+<div class="pagingdiv"><ul class="paging"><li class="totalmanga">0 manga</li><li>previous</li><li>Next</li></ul>
+<ul class="paging order" style="float:left;">
+<li>Order by:</li>
+<li class="bold"><a href="http://manga.animea.net/search.html?title=pavillon&orderby=title">Title</a></li>
+<li><a href="http://manga.animea.net/search.html?title=pavillon&orderby=update">Update</a></li>
+<li><a href="http://manga.animea.net/search.html?title=pavillon&orderby=views">Views</a></li>
+<li><a href="http://manga.animea.net/search.html?title=pavillon&orderby=chapters">Chapters</a></li></ul></div><ul class="mangalist">
+</ul>   
+<div class="pagingdiv"><ul class="paging"><li class="totalmanga">0 manga</li><li>previous</li><li>Next</li></ul><ul class="paging order" style="float:left;"><li>Order by:</li><li class="bold"><a href="http://manga.animea.net/search.html?title=pavillon&orderby=title">Title</a></li><li><a href="http://manga.animea.net/search.html?title=pavillon&orderby=update">Update</a></li><li><a href="http://manga.animea.net/search.html?title=pavillon&orderby=views">Views</a></li><li><a href="http://manga.animea.net/search.html?title=pavillon&orderby=chapters">Chapters</a></li></ul></div>       
+
+
+<script type="text/javascript">
+function bookmarkmanga(mangaid, manga)
+{
+	$.get("/bookmark.php", { mangaid: "", action: "add" },
+			   function(){
+					$("#heart"+mangaid).attr("src", "/img/fam/tick.png");
+					
+   });
+}
+</script>
+  </div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2458720-5");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</body>
+</html>
+<!-- Auth:	 -->
+<!-- Page:	0.000602 -->
+<!-- Total:	0.000602 sec. -->
