@@ -62,6 +62,16 @@ public class ScraperTest extends InstrumentationTestCase {
         }
     }
 
+    private class SearchProgress
+            implements Scraper.OnSearchResults {
+        public boolean complete;
+
+        @Override
+        public void resultsUpdated() {
+            complete = true;
+        }
+    }
+
     @Override
     public void setUp() throws Exception {
         testContext = getInstrumentation().getContext()
@@ -72,7 +82,7 @@ public class ScraperTest extends InstrumentationTestCase {
         final String baseImage = "http://s2-a.animea-server.net";
 
         // set up dummy search results
-        downloader.addUrl(baseUrl + "search.html?title=",
+        downloader.addUrl(baseUrl + "/search.html?title=",
                           R.raw.animea_results_html);
 
         // set up dummy pages
@@ -239,4 +249,31 @@ public class ScraperTest extends InstrumentationTestCase {
     //      page URLs already filled in
     //      all pages downloaded
     //      page marked downloaded but no file there
+
+    public void testSearchPager() throws Throwable {
+        final Scraper scraper = new Scraper(db, downloader);
+        final SearchProgress progress = new SearchProgress();
+
+        class UiTask implements Runnable {
+            public Scraper.ResultPager pager;
+
+            @Override
+            public void run() {
+                pager = scraper.searchManga("", progress);
+                assertEquals(0, pager.getCount()); // start the download
+            }
+        }
+
+        UiTask uiTask = new UiTask();
+
+        runTestOnUiThread(uiTask);
+
+        while (!progress.complete)
+            Thread.sleep(500);
+
+        assertTrue(progress.complete);
+        assertEquals(48, uiTask.pager.getCount());
+        assertEquals("2 Kaime no Hajimete no Koi",
+                     uiTask.pager.getItem(0).title);
+    }
 }

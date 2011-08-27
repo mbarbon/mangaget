@@ -305,6 +305,78 @@ public class Scraper {
         }
     }
 
+    public static class MangaInfo {
+        public final String title;
+        public final String url;
+
+        public MangaInfo(String _title, String _url) {
+            title = _title;
+            url = _url;
+        }
+    }
+
+    private static final MangaInfo EMPTY_ITEM = new MangaInfo(null, null);
+
+    public class ResultPager extends Downloader.OnDownloadProgressAdapter {
+        private Downloader.DownloadDestination target;
+        private String startUrl;
+        private OnSearchResults listener;
+        private List<MangaInfo> items;
+
+        // TODO actually support paging throught long search results
+
+        public ResultPager(String title, OnSearchResults _listener) {
+            startUrl = "http://manga.animea.net/search.html?title=" + title;
+            listener = _listener;
+        }
+
+        public int getCount() {
+            if (items != null)
+                return items.size();
+
+            startDownload();
+
+            return 0;
+        }
+
+        public MangaInfo getItem(int index) {
+            if (items != null)
+                return items.get(index);
+
+            startDownload();
+
+            return EMPTY_ITEM;
+        }
+
+        @Override
+        public void downloadComplete(boolean success) {
+            super.downloadComplete(success);
+
+            if (!success) {
+                target = null;
+
+                return;
+            }
+
+            SearchResultPage results = scrapeSearchResults(target);
+
+            items = new ArrayList<MangaInfo>();
+
+            for (int i = 0; i < results.titles.size(); ++i)
+                items.add(new MangaInfo(results.titles.get(i),
+                                        results.urls.get(i)));
+
+            listener.resultsUpdated();
+        }
+
+        private void startDownload() {
+            if (target != null)
+                return;
+
+            target = downloader.requestDownload(startUrl, this);
+        }
+    }
+
     public interface OnChapterDownloadProgress {
         public void downloadStarted();
         public void downloadProgress(int current, int total);
@@ -316,9 +388,19 @@ public class Scraper {
         public void operationComplete(boolean success);
     }
 
+    public interface OnSearchResults {
+        public void resultsUpdated();
+    }
+
     public Scraper(DB _db, Downloader _downloader) {
         db = _db;
         downloader = _downloader;
+    }
+
+    public ResultPager searchManga(String title, OnSearchResults listener) {
+        ResultPager pager = new ResultPager(title, listener);
+
+        return pager;
     }
 
     public void updateManga(long mangaId, OnOperationStatus listener) {
