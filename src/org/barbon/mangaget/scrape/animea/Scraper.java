@@ -307,11 +307,16 @@ public class Scraper {
 
     public static class MangaInfo {
         public final String title;
+        public final String pattern;
         public final String url;
 
         public MangaInfo(String _title, String _url) {
             title = _title;
             url = _url;
+            if (title != null)
+                pattern = title.replaceAll("[\\s\\W]+" ,"-").toLowerCase();
+            else
+                pattern = null;
         }
     }
 

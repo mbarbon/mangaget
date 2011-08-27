@@ -275,5 +275,7 @@ public class ScraperTest extends InstrumentationTestCase {
         assertEquals(48, uiTask.pager.getCount());
         assertEquals("2 Kaime no Hajimete no Koi",
                      uiTask.pager.getItem(0).title);
+        assertEquals("2-kaime-no-hajimete-no-koi",
+                     uiTask.pager.getItem(0).pattern);
     }
 }
