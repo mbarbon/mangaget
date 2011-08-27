@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Mattia Barbon <mattia@barbon.org>
+     distributed under the terms of the MIT license -->
+<level-list xmlns:android="http://schemas.android.com/apk/res/android" >
+  <item
+      android:drawable="@drawable/stat_sys_download_anim0"
+      android:maxLevel="0" />
+  <item
+      android:drawable="@drawable/stat_sys_download_anim1"
+      android:maxLevel="1" />
+  <item
+      android:drawable="@drawable/stat_sys_download_anim2"
+      android:maxLevel="2" />
+  <item
+      android:drawable="@drawable/stat_sys_download_anim3"
+      android:maxLevel="3" />
+  <item
+      android:drawable="@drawable/stat_sys_download_anim4"
+      android:maxLevel="4" />
+  <item
+      android:drawable="@drawable/stat_sys_download_anim5"
+      android:maxLevel="5" />
+</level-list>
