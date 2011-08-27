@@ -105,7 +105,8 @@ public class Download extends Service {
         Scraper scraper = new Scraper(db, downloader);
         File externalStorage = Environment.getExternalStorageDirectory();
         String targetPath = new  Formatter()
-            .format(manga.getAsString(DB.MANGA_PATTERN), chapterId)
+            .format(manga.getAsString(DB.MANGA_PATTERN),
+                    chapter.getAsInteger(DB.CHAPTER_NUMBER))
             .toString();
         File fullPath = new File(externalStorage, targetPath);
 
