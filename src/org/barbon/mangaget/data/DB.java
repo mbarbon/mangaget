@@ -164,7 +164,7 @@ public class DB {
     public ContentValues getChapter(long chapterId) {
         SQLiteDatabase db = openHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery(
-            "SELECT id AS _id, manga_id, title, url, download_status" +
+            "SELECT id AS _id, manga_id, title, number, url, download_status" +
             "    FROM chapters" +
             "    WHERE id = ?",
             new String[] { Long.toString(chapterId)});
@@ -176,8 +176,9 @@ public class DB {
 
             values.put("manga_id", cursor.getInt(1));
             values.put("title", cursor.getString(2));
-            values.put("url", cursor.getString(3));
-            values.put("download_status", cursor.getString(4));
+            values.put("number", cursor.getString(3));
+            values.put("url", cursor.getString(4));
+            values.put("download_status", cursor.getString(5));
         }
 
         cursor.close();
