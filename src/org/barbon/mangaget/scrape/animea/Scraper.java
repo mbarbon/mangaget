@@ -651,7 +651,9 @@ public class Scraper {
                 continue;
             int dash = url.lastIndexOf('-', url.length() - 13);
             String indexS = url.substring(dash + 1, url.length() - 12);
-            int index = Integer.valueOf(indexS) - 1;
+
+            // TODO store indexS in the chapter table and use to correlate
+            //      chapters when updating entries
 
             int elementIndex = link.parent().childNodes().indexOf(link);
             Node text = link.parent().childNode(elementIndex + 1);
@@ -665,10 +667,8 @@ public class Scraper {
             info.title = title;
             info.url = url;
 
-            while (chapters.size() <= index)
-                chapters.add(null);
-
-            chapters.set(index, info);
+            // assumes chapters are listed in reverse order
+            chapters.add(0, info);
         }
 
         return chapters;
