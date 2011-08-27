@@ -210,6 +210,7 @@ public class Scraper {
 
                 count -= 1;
 
+                download.listener.downloadProgress(total - count, total);
                 downloadPageImage(page);
             }
         }
@@ -255,12 +256,14 @@ public class Scraper {
 
                 if (count == 0)
                     downloadFinished();
+                else
+                    download.listener.downloadProgress(total - count, total);
             }
         }
 
         private ChapterDownload download;
         private List<PageDownload> pages;
-        private int count;
+        private int count, total;
 
         public PageDownloader(ChapterDownload _download,
                               List<PageDownload> _pages) {
@@ -271,12 +274,12 @@ public class Scraper {
         public void start() {
             for (PageDownload page : pages) {
                 if (page.imageUrl == null) {
-                    count += 2;
+                    total = count += 2;
 
                     downloadPageInfo(page);
                 }
                 else if (page.status != DB.DOWNLOAD_COMPLETE) {
-                    count += 1;
+                    total = count += 1;
 
                     downloadPageImage(page);
                 }

@@ -45,7 +45,7 @@ public class ScraperTest extends InstrumentationTestCase {
 
     private class DownloadProgress
             implements Scraper.OnChapterDownloadProgress {
-        public boolean started, complete;
+        public boolean started, progress, complete;
 
         @Override
         public void downloadStarted() {
@@ -54,6 +54,7 @@ public class ScraperTest extends InstrumentationTestCase {
 
         @Override
         public void downloadProgress(int current, int total) {
+            progress = true;
         }
 
         @Override
@@ -241,6 +242,7 @@ public class ScraperTest extends InstrumentationTestCase {
         System.out.println("Target: " + targetCbz);
 
         assertTrue(progress.started);
+        assertTrue(progress.progress);
         assertTrue(progress.complete);
         assertTrue(new File(targetCbz).exists());
     }
