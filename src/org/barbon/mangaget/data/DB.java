@@ -133,7 +133,7 @@ public class DB {
         if (cursor.moveToNext()) {
             values = new ContentValues();
 
-            values.put("title", cursor.getInt(1));
+            values.put("title", cursor.getString(1));
             values.put("pattern", cursor.getString(2));
             values.put("url", cursor.getString(3));
         }
