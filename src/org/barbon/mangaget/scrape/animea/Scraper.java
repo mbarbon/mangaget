@@ -95,8 +95,10 @@ public class Scraper {
         }
 
         public void start() {
+            // TODO proper URL manipulation
+            // skip=1 is to skip the "Mature content" warning
             target = downloader.requestDownload(
-                info.manga.getAsString(DB.MANGA_URL), this);
+                info.manga.getAsString(DB.MANGA_URL) + "?skip=1", this);
         }
 
         @Override
