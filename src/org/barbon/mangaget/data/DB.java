@@ -81,7 +81,7 @@ public class DB {
         if (theInstance != null)
             return theInstance;
 
-        return new DB(context, DB_NAME);
+        return theInstance = new DB(context, DB_NAME);
     }
 
     private DB(Context context, String name) {
