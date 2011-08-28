@@ -6,6 +6,7 @@
 package org.barbon.mangaget.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
 
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -26,8 +27,23 @@ import org.barbon.mangaget.R;
 import org.barbon.mangaget.data.DB;
 
 public class MangaList extends ListFragment {
+    private static final String SELECTED_ID = "mangaId";
+
     private SimpleCursorAdapter adapter;
     private OnMangaSelected onMangaSelected;
+    private long currentSelection = -1;
+
+    private Runnable notifySelection =
+        new Runnable() {
+            @Override
+            public void run() {
+                // using currentSelection could have implications if
+                // the member changes while multiple notifications are
+                // in progress; this should never be the case
+                if (onMangaSelected != null)
+                    onMangaSelected.onMangaSelected(currentSelection);
+            }
+        };
 
     public interface OnMangaSelected {
         public void onMangaSelected(long mangaId);
@@ -44,6 +60,9 @@ public class MangaList extends ListFragment {
             new String[] { DB.MANGA_TITLE },
             new int[] { R.id.item_text });
         setListAdapter(adapter);
+
+        if (savedInstanceState != null)
+            setSelectedId(savedInstanceState.getLong(SELECTED_ID), true);
 
         registerForContextMenu(getListView());
     }
@@ -65,18 +84,38 @@ public class MangaList extends ListFragment {
             adapter.getCursor().requery();
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putLong(SELECTED_ID, currentSelection);
+    }
+
     // public interface
 
     public void setOnMangaSelected(OnMangaSelected listener) {
         onMangaSelected = listener;
     }
 
+    // implementation
+
+    private void setSelectedId(final long id, boolean delayed) {
+        currentSelection = id;
+
+        if (onMangaSelected == null)
+            return;
+
+        if (!delayed)
+            onMangaSelected.onMangaSelected(currentSelection);
+        else
+            new Handler().post(notifySelection);
+    }
+
     // event handlers
 
     @Override
     public void onListItemClick (ListView l, View v, int position, long id) {
-        if (onMangaSelected != null)
-            onMangaSelected.onMangaSelected(id);
+        setSelectedId(id, false);
     }
 
     @Override
