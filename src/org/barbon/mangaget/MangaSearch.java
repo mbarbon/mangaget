@@ -50,6 +50,11 @@ public class MangaSearch extends ListActivity {
         }
 
         @Override
+        public boolean isEmpty() {
+            return pager.isEmpty();
+        }
+
+        @Override
         public View getView(int position, View view, ViewGroup parent) {
             LayoutInflater inflater = getLayoutInflater();
 
@@ -75,6 +80,7 @@ public class MangaSearch extends ListActivity {
         super.onCreate(savedInstanceState);
         handleIntent(getIntent());
 
+        setContentView(R.layout.manga_search);
         registerForContextMenu(getListView());
     }
 

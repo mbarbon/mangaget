@@ -341,6 +341,10 @@ public class Scraper {
             listener = _listener;
         }
 
+        public boolean isEmpty() {
+            return items == null;
+        }
+
         public int getCount() {
             if (items != null)
                 return items.size();
