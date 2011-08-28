@@ -39,6 +39,7 @@ public class DB {
     private static DB theInstance;
 
     private DBOpenHelper openHelper;
+    private SQLiteDatabase database;
 
     private static final String CREATE_MANGA_TABLE =
         "CREATE TABLE manga (" +
@@ -88,8 +89,15 @@ public class DB {
         openHelper = new DBOpenHelper(context, name);
     }
 
+    private synchronized SQLiteDatabase getDatabase() {
+        if (database != null)
+            return database;
+
+        return database = openHelper.getWritableDatabase();
+    }
+
     public Cursor getMangaList() {
-        SQLiteDatabase db = openHelper.getWritableDatabase();
+        SQLiteDatabase db = getDatabase();
 
         return db.rawQuery(
             "SELECT id AS _id, title" +
@@ -99,7 +107,7 @@ public class DB {
     }
 
     public Cursor getChapterList(long mangaId) {
-        SQLiteDatabase db = openHelper.getWritableDatabase();
+        SQLiteDatabase db = getDatabase();
 
         return db.rawQuery(
             "SELECT id AS _id, number, title, download_status" +
@@ -110,7 +118,7 @@ public class DB {
     }
 
     public Cursor getPages(long chapterId) {
-        SQLiteDatabase db = openHelper.getWritableDatabase();
+        SQLiteDatabase db = getDatabase();
 
         return db.rawQuery(
             "SELECT id AS _id, number, url, image_url, download_status" +
@@ -121,7 +129,7 @@ public class DB {
     }
 
     public ContentValues getManga(long mangaId) {
-        SQLiteDatabase db = openHelper.getWritableDatabase();
+        SQLiteDatabase db = getDatabase();
         Cursor cursor = db.rawQuery(
             "SELECT id AS _id, title, pattern, url" +
             "    FROM manga" +
@@ -144,7 +152,7 @@ public class DB {
     }
 
     public long getChapterId(long mangaId, int index) {
-        SQLiteDatabase db = openHelper.getWritableDatabase();
+        SQLiteDatabase db = getDatabase();
         Cursor cursor = db.rawQuery(
             "SELECT id AS _id" +
             "    FROM chapters" +
@@ -162,7 +170,7 @@ public class DB {
     }
 
     public ContentValues getChapter(long chapterId) {
-        SQLiteDatabase db = openHelper.getWritableDatabase();
+        SQLiteDatabase db = getDatabase();
         Cursor cursor = db.rawQuery(
             "SELECT id AS _id, manga_id, title, number, url, download_status" +
             "    FROM chapters" +
@@ -187,7 +195,7 @@ public class DB {
     }
 
     public boolean updateChapterStatus(long chapterId, int downloadStatus) {
-        SQLiteDatabase db = openHelper.getWritableDatabase();
+        SQLiteDatabase db = getDatabase();
         ContentValues values = new ContentValues();
 
         values.put("download_status", downloadStatus);
@@ -197,7 +205,7 @@ public class DB {
     }
 
     public boolean updatePageStatus(long pageId, int downloadStatus) {
-        SQLiteDatabase db = openHelper.getWritableDatabase();
+        SQLiteDatabase db = getDatabase();
         ContentValues values = new ContentValues();
 
         values.put("download_status", downloadStatus);
@@ -207,7 +215,7 @@ public class DB {
     }
 
     public boolean updatePageImage(long pageId, String imageUrl) {
-        SQLiteDatabase db = openHelper.getWritableDatabase();
+        SQLiteDatabase db = getDatabase();
         ContentValues values = new ContentValues();
 
         values.put("image_url", imageUrl);
@@ -217,7 +225,7 @@ public class DB {
     }
 
     public long insertManga(String title, String pattern, String url) {
-        SQLiteDatabase db = openHelper.getWritableDatabase();
+        SQLiteDatabase db = getDatabase();
         ContentValues values = new ContentValues();
 
         values.put("title", title);
@@ -229,7 +237,7 @@ public class DB {
 
     public long insertChapter(long mangaId, int number, int pages,
                               String title, String url) {
-        SQLiteDatabase db = openHelper.getWritableDatabase();
+        SQLiteDatabase db = getDatabase();
         ContentValues values = new ContentValues();
 
         values.put("manga_id", mangaId);
@@ -249,7 +257,7 @@ public class DB {
         if (chapterId == -1)
             return insertChapter(mangaId, number, pages, title, url);
 
-        SQLiteDatabase db = openHelper.getWritableDatabase();
+        SQLiteDatabase db = getDatabase();
         ContentValues values = new ContentValues();
 
         values.put("manga_id", mangaId);
@@ -267,7 +275,7 @@ public class DB {
 
     public long insertPage(long chapterId, int number, String url,
                            String imageUrl, int downloadStatus) {
-        SQLiteDatabase db = openHelper.getWritableDatabase();
+        SQLiteDatabase db = getDatabase();
         ContentValues values = new ContentValues();
 
         values.put("chapter_id", chapterId);
