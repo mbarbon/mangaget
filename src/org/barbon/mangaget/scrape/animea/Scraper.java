@@ -116,6 +116,7 @@ public class Scraper {
                 return;
             }
 
+            // TODO do the scraping in a background thread
             List<ChapterInfo> chapters = scrapeMangaPage(target);
 
             for (int i = 0; i < chapters.size(); ++i)
@@ -161,6 +162,7 @@ public class Scraper {
                 return;
             }
 
+            // TODO do the scraping in a background thread
             List<String> pageUrls = scrapeChapterPages(target);
 
             int index = 0;
@@ -207,6 +209,7 @@ public class Scraper {
                     return;
                 }
 
+                // TODO do the scraping in a background thread
                 page.imageUrl = scrapeImageUrl(target);
                 db.updatePageImage(page.id, page.imageUrl);
 
@@ -373,6 +376,7 @@ public class Scraper {
                 return;
             }
 
+            // TODO do the scraping in a background thread
             SearchResultPage results = scrapeSearchResults(target);
 
             items = new ArrayList<MangaInfo>();
