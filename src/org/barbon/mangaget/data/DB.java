@@ -289,34 +289,6 @@ public class DB {
             db.execSQL(CREATE_MANGA_TABLE);
             db.execSQL(CREATE_CHAPTERS_TABLE);
             db.execSQL(CREATE_PAGES_TABLE);
-
-            // TODO remove canned data
-            db.execSQL(
-                "INSERT INTO manga (id, title, pattern, url)" +
-                "    VALUES (1, 'Papillon - Hana to Chou'," +
-                "      'Pictures/Comics/Papillon/papillon-hana-to-chou-%02d.cbz'," +
-                "      'http://manga.animea.net/papillon-hana-to-chou.html')");
-
-            db.execSQL(
-                "INSERT INTO chapters (manga_id, number, pages, title," +
-                "                      url, download_status)" +
-                "    VALUES (1, 1, 45, 'Wish'," +
-                "      'http://manga.animea.net/papillon-hana-to-chou-chapter-1-page-1.html'," +
-                "      3)");
-
-            db.execSQL(
-                "INSERT INTO chapters (manga_id, number, pages, title," +
-                "                      url, download_status)" +
-                "    VALUES (1, 2, 27, 'The Depressing First Date'," +
-                "      'http://manga.animea.net/papillon-hana-to-chou-chapter-2-page-1.html'," +
-                "      1)");
-
-            db.execSQL(
-                "INSERT INTO chapters (manga_id, number, pages, title," +
-                "                      url, download_status)" +
-                "    VALUES (1, 3, 29, 'Goodbye, Unrequited Love'," +
-                "      'http://manga.animea.net/papillon-hana-to-chou-chapter-3-page-1.html'," +
-                "      0)");
         }
 
         @Override
