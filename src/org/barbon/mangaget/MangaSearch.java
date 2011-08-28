@@ -110,6 +110,7 @@ public class MangaSearch extends ListActivity {
         // TODO make configurable
         String path = "Pictures/Comics/" + info.pattern + "-%02d.cbz";
 
+        // TODO auto-scan already downloaded comics
         db.insertManga(info.title, path, info.url);
     }
 
