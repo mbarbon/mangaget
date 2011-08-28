@@ -91,6 +91,13 @@ public class MangaList extends ListFragment {
         outState.putLong(SELECTED_ID, currentSelection);
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        adapter.changeCursor(null);
+    }
+
     // public interface
 
     public void setOnMangaSelected(OnMangaSelected listener) {

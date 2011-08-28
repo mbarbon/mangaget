@@ -69,6 +69,13 @@ public class ChapterList extends ListFragment {
             adapter.getCursor().requery();
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        adapter.changeCursor(null);
+    }
+
     // public interface
 
     public void loadChapterList(long mangaId) {
