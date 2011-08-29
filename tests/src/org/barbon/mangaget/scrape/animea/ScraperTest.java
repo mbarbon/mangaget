@@ -22,8 +22,9 @@ import org.barbon.mangaget.tests.R;
 
 import org.barbon.mangaget.scrape.animea.Scraper;
 
+import org.barbon.mangaget.tests.Utils;
+
 public class ScraperTest extends InstrumentationTestCase {
-    private DummyDownloader downloader;
     private DB db;
     private Context testContext;
     private File tempDir;
@@ -75,39 +76,11 @@ public class ScraperTest extends InstrumentationTestCase {
 
     @Override
     public void setUp() throws Exception {
+        Utils.setupTestEnvironment(this);
+
         testContext = getInstrumentation().getContext()
             .createPackageContext("org.barbon.mangaget.tests", 0);
-        downloader = new DummyDownloader(testContext);
-
-        final String baseUrl = "http://manga.animea.net";
-        final String baseImage = "http://s2-a.animea-server.net";
-
-        // set up dummy search results
-        downloader.addUrl(baseUrl + "/search.html?title=",
-                          R.raw.animea_results_html);
-
-        // set up dummy pages
-        String base = baseUrl + "/papillon-hana-to-chou-chapter-1-page-";
-
-        downloader.addUrl(base + "1.html", R.raw.papillon_c1_p1_html);
-
-        for (int i = 2; i < 46; ++i)
-            downloader.addUrl(base + Integer.toString(i) + ".html",
-                              R.raw.papillon_c1_p2_html);
-
-        // set up dummy images
-        String p1 = baseImage + "/5338%2F1_JHMCN%2F00_fuuchifighters.jpg" ;
-        String pn = baseImage + "/5338%2F1_JHMCN%2F001_cover.jpg" ;
-
-        downloader.addUrl(p1, R.raw.papillon_dummy_img);
-        downloader.addUrl(pn, R.raw.papillon_dummy_img);
-
-        // set up dummy database
-        db = DB.getNewInstance(getInstrumentation().getTargetContext(),
-                               "manga_test");
-
-        DB.setInstance(db);
-        Downloader.setInstance(downloader);
+        db = DB.getInstance(null);
 
         // download directory
         File externalStorage = Environment.getExternalStorageDirectory();
