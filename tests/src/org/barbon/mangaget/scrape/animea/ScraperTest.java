@@ -106,6 +106,9 @@ public class ScraperTest extends InstrumentationTestCase {
         db = DB.getNewInstance(getInstrumentation().getTargetContext(),
                                "manga_test");
 
+        DB.setInstance(db);
+        Downloader.setInstance(downloader);
+
         // download directory
         File externalStorage = Environment.getExternalStorageDirectory();
         tempDir = new File(externalStorage, "MangaGetTest");
@@ -190,7 +193,7 @@ public class ScraperTest extends InstrumentationTestCase {
 
     public void testMangaUpdate() throws Throwable {
         final long mangaId = setUpTestManga();
-        final Scraper scraper = new Scraper(db, downloader);
+        final Scraper scraper = Scraper.getInstance(testContext);
         final OperationProgress progress = new OperationProgress();
 
         class UiTask implements Runnable {
@@ -220,7 +223,7 @@ public class ScraperTest extends InstrumentationTestCase {
         final String targetCbz = new File(tempDir, "Dummy-1.cbz")
             .getAbsolutePath();
         final String tempDirString = tempDir.getAbsolutePath();
-        final Scraper scraper = new Scraper(db, downloader);
+        final Scraper scraper = Scraper.getInstance(testContext);
         final DownloadProgress progress = new DownloadProgress();
 
         class UiTask implements Runnable {
@@ -253,7 +256,7 @@ public class ScraperTest extends InstrumentationTestCase {
     //      page marked downloaded but no file there
 
     public void testSearchPager() throws Throwable {
-        final Scraper scraper = new Scraper(db, downloader);
+        final Scraper scraper = Scraper.getInstance(testContext);
         final SearchProgress progress = new SearchProgress();
 
         class UiTask implements Runnable {

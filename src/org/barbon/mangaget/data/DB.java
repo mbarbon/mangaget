@@ -74,6 +74,10 @@ public class DB {
         "        ON DELETE CASCADE" +
         ")";
 
+    public static void setInstance(DB instance) {
+        theInstance = instance;
+    }
+
     public static DB getNewInstance(Context context, String name) {
         return new DB(context, name);
     }

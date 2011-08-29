@@ -40,6 +40,8 @@ import org.jsoup.parser.Tag;
 import org.jsoup.select.Elements;
 
 public class Scraper {
+    private static Scraper theInstance;
+
     private DB db;
     private Downloader downloader;
 
@@ -419,7 +421,19 @@ public class Scraper {
         public void resultsUpdated();
     }
 
-    public Scraper(DB _db, Downloader _downloader) {
+    public static void setInstance(Scraper instance) {
+        theInstance = instance;
+    }
+
+    public static Scraper getInstance(Context context) {
+        if (theInstance != null)
+            return theInstance;
+
+        return theInstance =
+            new Scraper(DB.getInstance(context), Downloader.getInstance());
+    }
+
+    protected Scraper(DB _db, Downloader _downloader) {
         db = _db;
         downloader = _downloader;
     }

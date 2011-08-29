@@ -94,9 +94,7 @@ public class MangaSearch extends ListActivity {
 
     private void handleIntent(Intent intent) {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-            DB db = DB.getInstance(this);
-            Downloader downloader = new Downloader();
-            Scraper scraper = new Scraper(db, downloader);
+            Scraper scraper = Scraper.getInstance(this);
             String query = intent.getStringExtra(SearchManager.QUERY);
 
             setListAdapter(new SearchAdapter(this, scraper, query));

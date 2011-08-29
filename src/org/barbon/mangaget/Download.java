@@ -41,13 +41,11 @@ public class Download extends Service {
     private static final String CHAPTER_ID = "chapterId";
 
     private DB db;
-    private Downloader downloader;
     private File downloadTemp;
 
     @Override
     public void onCreate() {
         db = DB.getInstance(this);
-        downloader = new Downloader();
 
         File externalStorage = Environment.getExternalStorageDirectory();
 
@@ -101,7 +99,7 @@ public class Download extends Service {
     // implementation
 
     private void updateManga(long mangaId) {
-        Scraper scraper = new Scraper(db, downloader);
+        Scraper scraper = Scraper.getInstance(this);
 
         scraper.updateManga(mangaId, null);
     }
@@ -191,7 +189,7 @@ public class Download extends Service {
         ContentValues chapter = db.getChapter(chapterId);
         ContentValues manga = db.getManga(chapter.getAsLong(
                                               DB.CHAPTER_MANGA_ID));
-        Scraper scraper = new Scraper(db, downloader);
+        Scraper scraper = Scraper.getInstance(this);
         File externalStorage = Environment.getExternalStorageDirectory();
         String targetPath = new Formatter()
             .format(manga.getAsString(DB.MANGA_PATTERN),

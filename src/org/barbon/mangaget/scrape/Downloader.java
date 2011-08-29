@@ -282,6 +282,21 @@ public class Downloader {
         }
     }
 
+    private static Downloader theInstance;
+
+    public static void setInstance(Downloader instance) {
+        theInstance = instance;
+    }
+
+    public static Downloader getInstance() {
+        if (theInstance != null)
+            return theInstance;
+
+        return theInstance = new Downloader();
+    }
+
+    protected Downloader() { }
+
     public DownloadDestination requestDownload(
             String url, OnDownloadProgress listener, File path) {
         DownloadDestination destination = new DownloadDestination(path);
