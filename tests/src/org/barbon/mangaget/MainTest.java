@@ -89,8 +89,7 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
         assertEquals(1, chapterList.getListView().getCount());
 
         // select second item
-        for (int i = 1; i <= 1; ++i)
-            sendKeys(KeyEvent.KEYCODE_DPAD_DOWN);
+        sendKeys(KeyEvent.KEYCODE_DPAD_DOWN);
         sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
 
         getInstrumentation().waitForIdleSync();
