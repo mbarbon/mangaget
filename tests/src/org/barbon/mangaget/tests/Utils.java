@@ -41,6 +41,8 @@ public class Utils {
             SQLiteDatabase db = targetContext.openOrCreateDatabase(
                 "manga_test", Context.MODE_PRIVATE, null);
 
+            db.execSQL("DELETE FROM pages");
+            db.execSQL("DELETE FROM chapters");
             db.execSQL("DELETE FROM manga");
 
             return;
