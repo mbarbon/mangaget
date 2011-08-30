@@ -26,6 +26,16 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
     private Main activity;
     private FragmentManager manager;
 
+    private void refreshMembers() {
+        activity = (Main) getActivity();
+        manager = activity.getSupportFragmentManager();
+
+        mangaList = (MangaList)
+            manager.findFragmentById(R.id.manga_list);
+        chapterList = (ChapterList)
+            manager.findFragmentById(R.id.chapter_list);
+    }
+
     public MainTest() {
         super("org.barbon.mangaget", Main.class);
     }
@@ -58,14 +68,7 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
 
         setActivityInitialTouchMode(false);
 
-        activity = (Main) getActivity();
-        manager = activity.getSupportFragmentManager();
-
-        mangaList = (MangaList)
-            manager.findFragmentById(R.id.manga_list);
-        chapterList = (ChapterList)
-            manager.findFragmentById(R.id.chapter_list);
-
+        refreshMembers();
     }
 
     public void testPreconditions() {
