@@ -136,8 +136,31 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
         sendKeys(KeyEvent.KEYCODE_DPAD_DOWN);
         sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
 
+        assertEquals(2, chapterList.getListView().getCount());
+    }
+
+    public void testRestart() throws Throwable {
+        activity.runOnUiThread(
+            new Runnable() {
+                public void run() {
+                    mangaList.getListView().requestFocus();
+                }
+            });
+
+        // select second item
+        sendKeys(KeyEvent.KEYCODE_DPAD_DOWN);
+        sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
+
         getInstrumentation().waitForIdleSync();
 
+        // sanity check
+        assertEquals(2, chapterList.getListView().getCount());
+
+        // force reload
+        setActivity(reloadActivity());
+        refreshMembers();
+
+        // check the activity restored correctly
         assertEquals(2, chapterList.getListView().getCount());
     }
 }
