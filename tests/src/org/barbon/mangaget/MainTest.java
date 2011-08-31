@@ -5,6 +5,15 @@
 
 package org.barbon.mangaget;
 
+import android.app.Activity;
+import android.app.Instrumentation;
+
+import android.content.IntentFilter;
+
+import android.content.pm.ActivityInfo;
+
+import android.content.res.Configuration;
+
 import android.test.ActivityInstrumentationTestCase2;
 
 import android.support.v4.app.FragmentManager;
@@ -34,6 +43,38 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
             manager.findFragmentById(R.id.manga_list);
         chapterList = (ChapterList)
             manager.findFragmentById(R.id.chapter_list);
+    }
+
+    private Activity reloadActivity() {
+        IntentFilter filter = null;
+        Instrumentation instr = getInstrumentation();
+        Instrumentation.ActivityMonitor monitor =
+            instr.addMonitor(filter, null, false);
+        int orientation =
+            activity.getResources().getConfiguration().orientation;
+        int req_orientation;
+
+        switch (orientation) {
+        case Configuration.ORIENTATION_PORTRAIT:
+            req_orientation =
+                ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+            break;
+        case Configuration.ORIENTATION_LANDSCAPE:
+            req_orientation =
+                ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+            break;
+        default:
+            throw new RuntimeException("Unknown orientation " + orientation);
+        }
+
+        activity.setRequestedOrientation(req_orientation);
+
+        // wait for activity to reload
+        Activity activity = monitor.waitForActivity();
+
+        instr.waitForIdleSync();
+
+        return activity;
     }
 
     public MainTest() {
