@@ -5,6 +5,8 @@
 
 package org.barbon.mangaget.fragments;
 
+import android.content.DialogInterface;
+
 import android.database.Cursor;
 
 import android.os.Bundle;
@@ -15,6 +17,7 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 
 import org.barbon.mangaget.Download;
@@ -25,6 +28,36 @@ import org.barbon.mangaget.data.DB;
 public class ChapterList extends ListFragment {
     private static final StatusBinder VIEW_BINDER = new StatusBinder();
     private SimpleCursorAdapter adapter;
+
+    public static class DownloadConfirmationDialog extends ConfirmationDialog {
+        private static final String TAG = "downloadConfirmationDialog";
+
+        public static DownloadConfirmationDialog newInstance(long chapterId) {
+            DownloadConfirmationDialog frag = new DownloadConfirmationDialog();
+            Bundle args = getDialogArguments(R.string.download_title,
+                                             R.string.start_download,
+                                             R.string.cancel);
+
+            args.putLong("chapterId", chapterId);
+
+            frag.setArguments(args);
+
+            return frag;
+        }
+
+        public static DownloadConfirmationDialog find(Fragment f) {
+            return (DownloadConfirmationDialog)
+                f.getFragmentManager().findFragmentByTag(TAG);
+        }
+
+        public void show(Fragment f) {
+            show(f.getFragmentManager(), TAG);
+        }
+
+        public long getChapterId() {
+            return getArguments().getLong("chapterId");
+        }
+    }
 
     private static class StatusBinder
             implements SimpleCursorAdapter.ViewBinder {
@@ -59,6 +92,8 @@ public class ChapterList extends ListFragment {
                         R.id.chapter_downloaded });
         adapter.setViewBinder(VIEW_BINDER);
         setListAdapter(adapter);
+
+        bindConfirmationDialog(DownloadConfirmationDialog.find(this));
     }
 
     @Override
@@ -84,11 +119,34 @@ public class ChapterList extends ListFragment {
         adapter.changeCursor(db.getChapterList(mangaId));
     }
 
+    // implementation
+
+    private void bindConfirmationDialog(DownloadConfirmationDialog dialog) {
+        if (dialog == null)
+            return;
+
+        final long chapterId = dialog.getChapterId();
+
+        DialogInterface.OnClickListener download =
+            new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Download.startChapterDownload(getActivity(), chapterId);
+                }
+            };
+
+        dialog.setPositiveClick(download);
+    }
+
     // event handlers
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        // TODO check if re-download and ask for confirmation
-        Download.startChapterDownload(getActivity(), id);
+        DownloadConfirmationDialog frag =
+            DownloadConfirmationDialog.newInstance(id);
+
+        bindConfirmationDialog(frag);
+
+        frag.show(this);
     }
 }
