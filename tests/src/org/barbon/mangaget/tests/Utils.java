@@ -18,6 +18,7 @@ import org.barbon.mangaget.tests.DummyDownloader;
 
 public class Utils {
     private static boolean setUp = false;
+    public static long firstDummyManga, secondDummyManga;
 
     public static boolean networkConnected(Context context) {
         ConnectivityManager manager =
@@ -84,5 +85,30 @@ public class Utils {
 
         DB.setInstance(db);
         Downloader.setInstance(downloader);
+    }
+
+    public static void setupTestDatabase(InstrumentationTestCase test) {
+        // setup DB before getting the activity
+        DB db = DB.getInstance(null);
+
+        long m1 = db.insertManga(
+            "Title1", "MangaGetTest/Dummy1-%chapter%.cbz",
+            "http://manga.animea.net/dummy1.html");
+        long m2 = db.insertManga(
+            "Title2", "MangaGetTest/Dummy2-%chapter%.cbz",
+            "http://manga.animea.net/dummy2.html");
+
+        long c1 = db.insertChapter(
+            m1, 1, 45, "Chapter 1",
+            "http://manga.animea.net/dummy1-1.html");
+        long c2 = db.insertChapter(
+            m2, 1, 45, "Chapter 1",
+            "http://manga.animea.net/dummy2-1.html");
+        long c3 = db.insertChapter(
+            m2, 2, 45, "Chapter 2",
+            "http://manga.animea.net/dummy2-2.html");
+
+        firstDummyManga = m1;
+        secondDummyManga = m2;
     }
 }

@@ -86,26 +86,7 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
         super.setUp();
 
         Utils.setupTestEnvironment(this);
-
-        // setup DB before getting the activity
-        DB db = DB.getInstance(null);
-
-        long m1 = db.insertManga(
-            "Title1", "MangaGetTest/Dummy1-%chapter%.cbz",
-            "http://manga.animea.net/dummy1.html");
-        long m2 = db.insertManga(
-            "Title2", "MangaGetTest/Dummy2-%chapter%.cbz",
-            "http://manga.animea.net/dummy2.html");
-
-        long c1 = db.insertChapter(
-            m1, 1, 45, "Chapter 1",
-            "http://manga.animea.net/dummy1-1.html");
-        long c2 = db.insertChapter(
-            m2, 1, 45, "Chapter 1",
-            "http://manga.animea.net/dummy2-1.html");
-        long c3 = db.insertChapter(
-            m2, 2, 45, "Chapter 2",
-            "http://manga.animea.net/dummy2-2.html");
+        Utils.setupTestDatabase(this);
 
         setActivityInitialTouchMode(false);
 
