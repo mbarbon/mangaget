@@ -20,6 +20,7 @@ public class DownloadTest extends InstrumentationTestCase {
         super.setUp();
 
         Utils.setupTestEnvironment(this);
+        Utils.setupTestDatabase(this);
     }
 
     @Override
@@ -30,6 +31,26 @@ public class DownloadTest extends InstrumentationTestCase {
         targetContext.stopService(intent);
 
         super.tearDown();
+    }
+
+    private static class DownloadListener implements Download.Listener {
+        public long id;
+        public boolean started, complete;
+        public boolean status;
+
+        @Override
+        public void onMangaUpdateStarted(long mangaId) {
+            started = true;
+            id = mangaId;
+        }
+
+        @Override
+        public void onMangaUpdateComplete(long mangaId,
+                                          boolean success) {
+            complete = true;
+            status = success;
+            id = mangaId;
+        }
     }
 
     public void testListenerManager() throws Exception {
@@ -63,5 +84,64 @@ public class DownloadTest extends InstrumentationTestCase {
             Thread.sleep(500);
 
         System.out.println("Stopped");
+    }
+
+    public void testMangaRefresh() throws Exception {
+        DownloadListener listener = new DownloadListener();
+        Download.ListenerManager mgr = new Download.ListenerManager(listener);
+        Instrumentation instr = getInstrumentation();
+        Context targetContext = instr.getTargetContext();
+
+        mgr.connect(targetContext);
+        instr.waitForIdleSync();
+
+        Download.startMangaUpdate(targetContext, Utils.firstDummyManga);
+
+        System.out.println("Waiting");
+
+        while (!listener.started) {
+            assertFalse(listener.complete);
+            Thread.sleep(500);
+        }
+
+        System.out.println("Started");
+
+        assertEquals(Utils.firstDummyManga, listener.id);
+
+        while (!listener.complete)
+            Thread.sleep(500);
+
+        System.out.println("Complete");
+
+        assertEquals(Utils.firstDummyManga, listener.id);
+        assertEquals(true, listener.status);
+
+        mgr.disconnect(targetContext);
+        instr.waitForIdleSync();
+    }
+
+    public void testMangaRefreshFail() throws Exception {
+        DownloadListener listener = new DownloadListener();
+        Download.ListenerManager mgr = new Download.ListenerManager(listener);
+        Instrumentation instr = getInstrumentation();
+        Context targetContext = instr.getTargetContext();
+
+        mgr.connect(targetContext);
+        instr.waitForIdleSync();
+
+        Download.startMangaUpdate(targetContext, Utils.secondDummyManga);
+
+        System.out.println("Waiting");
+
+        while (!listener.complete)
+            Thread.sleep(500);
+
+        System.out.println("Complete");
+
+        assertEquals(Utils.secondDummyManga, listener.id);
+        assertEquals(false, listener.status);
+
+        mgr.disconnect(targetContext);
+        instr.waitForIdleSync();
     }
 }

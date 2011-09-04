@@ -18,6 +18,8 @@ import org.barbon.mangaget.tests.DummyDownloader;
 
 public class Utils {
     private static boolean setUp = false;
+    private static DummyDownloader downloader;
+
     public static long firstDummyManga, secondDummyManga;
 
     public static boolean networkConnected(Context context) {
@@ -58,7 +60,7 @@ public class Utils {
 
         Context testContext = test.getInstrumentation().getContext()
             .createPackageContext("org.barbon.mangaget.tests", 0);
-        DummyDownloader downloader = new DummyDownloader(testContext);
+        downloader = new DummyDownloader(testContext);
 
         final String baseUrl = "http://manga.animea.net";
         final String baseImage = "http://s2-a.animea-server.net";
@@ -115,5 +117,12 @@ public class Utils {
 
         firstDummyManga = m1;
         secondDummyManga = m2;
+
+        final String baseUrl = "http://manga.animea.net";
+
+        // set up some dummy download pages
+
+        downloader.addUrl(baseUrl + "/dummy1.html?skip=1",
+                          R.raw.papillon_chapters_html);
     }
 }

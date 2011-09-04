@@ -26,6 +26,8 @@ import android.widget.RemoteViews;
 
 import java.io.File;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Formatter;
 
 import org.barbon.mangaget.data.DB;
@@ -44,6 +46,7 @@ public class Download extends Service {
 
     private DB db;
     private File downloadTemp;
+    private List<Listener> listeners = new ArrayList<Listener>();
 
     private class DownloadBinder extends Binder {
         public Download getService() {
@@ -51,10 +54,29 @@ public class Download extends Service {
         }
     }
 
+    public interface Listener {
+        public void onMangaUpdateStarted(long mangaId);
+        public void onMangaUpdateComplete(long mangaId, boolean success);
+    }
+
+    public static class ListenerAdapter implements Listener {
+        @Override
+        public void onMangaUpdateStarted(long mangaId) { }
+
+        @Override
+        public void onMangaUpdateComplete(long mangaId, boolean success) { }
+    }
+
     public static class ListenerManager implements ServiceConnection {
+        private Listener listener;
         private Download service;
 
         public ListenerManager() {
+            listener = null;
+        }
+
+        public ListenerManager(Listener _listener) {
+            listener = _listener;
         }
 
         public void connect(Context context) {
@@ -62,6 +84,9 @@ public class Download extends Service {
         }
 
         public void disconnect(Context context) {
+            if (service != null && listener != null)
+                service.removeListener(listener);
+
             context.unbindService(this);
         }
 
@@ -73,6 +98,9 @@ public class Download extends Service {
         public void onServiceConnected(ComponentName name, IBinder binder) {
             DownloadBinder downloadBinder = (DownloadBinder) binder;
             service = downloadBinder.getService();
+
+            if (listener != null)
+                service.addListener(listener);
         }
 
         @Override
@@ -138,10 +166,28 @@ public class Download extends Service {
 
     // implementation
 
+    private class MangaUpdateProgress implements Scraper.OnOperationStatus {
+        private long mangaId;
+
+        public MangaUpdateProgress(long _mangaId) {
+            mangaId = _mangaId;
+        }
+
+        @Override
+        public void operationStarted() {
+            notifyMangaUpdateStarted(mangaId);
+        }
+
+        @Override
+        public void operationComplete(boolean success) {
+            notifyMangaUpdateComplete(mangaId, success);
+        }
+    }
+
     private void updateManga(long mangaId) {
         Scraper scraper = Scraper.getInstance(this);
 
-        scraper.updateManga(mangaId, null);
+        scraper.updateManga(mangaId, new MangaUpdateProgress(mangaId));
     }
 
     private class DownloadProgress
@@ -240,5 +286,25 @@ public class Download extends Service {
 
         scraper.downloadChapter(chapterId, fullPath.getAbsolutePath(),
                                 downloadTemp.getAbsolutePath(), progress);
+    }
+
+    // notification management
+
+    private void addListener(Listener listener) {
+        listeners.add(listener);
+    }
+
+    private void removeListener(Listener listener) {
+        listeners.remove(listener);
+    }
+
+    private void notifyMangaUpdateStarted(long mangaId) {
+        for (Listener listener : listeners)
+            listener.onMangaUpdateStarted(mangaId);
+    }
+
+    private void notifyMangaUpdateComplete(long mangaId, boolean success) {
+        for (Listener listener : listeners)
+            listener.onMangaUpdateComplete(mangaId, success);
     }
 }
