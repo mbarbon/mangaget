@@ -38,13 +38,18 @@ public class Utils {
         Context targetContext = test.getInstrumentation().getTargetContext();
 
         if (setUp) {
+            // force DB creation
+            DB.getInstance(null).insertManga("", "", "");
+
             // scrub database
             SQLiteDatabase db = targetContext.openOrCreateDatabase(
-                "manga_test", Context.MODE_PRIVATE, null);
+                "manga_test", 0, null);
 
             db.execSQL("DELETE FROM pages");
             db.execSQL("DELETE FROM chapters");
             db.execSQL("DELETE FROM manga");
+
+            db.close();
 
             return;
         }
