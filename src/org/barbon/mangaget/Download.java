@@ -14,7 +14,9 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.ServiceConnection;
 
+import android.os.Binder;
 import android.os.Environment;
 import android.os.IBinder;
 
@@ -42,6 +44,42 @@ public class Download extends Service {
 
     private DB db;
     private File downloadTemp;
+
+    private class DownloadBinder extends Binder {
+        public Download getService() {
+            return Download.this;
+        }
+    }
+
+    public static class ListenerManager implements ServiceConnection {
+        private Download service;
+
+        public ListenerManager() {
+        }
+
+        public void connect(Context context) {
+            context.bindService(new Intent(context, Download.class), this, 0);
+        }
+
+        public void disconnect(Context context) {
+            context.unbindService(this);
+        }
+
+        public Download getService() {
+            return service;
+        }
+
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder binder) {
+            DownloadBinder downloadBinder = (DownloadBinder) binder;
+            service = downloadBinder.getService();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            service = null;
+        }
+    }
 
     @Override
     public void onCreate() {
@@ -71,9 +109,11 @@ public class Download extends Service {
         return START_STICKY;
     }
 
+    private final IBinder binder = new DownloadBinder();
+
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        return binder;
     }
 
     // public interface
