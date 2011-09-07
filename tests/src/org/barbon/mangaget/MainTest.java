@@ -8,11 +8,14 @@ package org.barbon.mangaget;
 import android.app.Activity;
 import android.app.Instrumentation;
 
+import android.content.Context;
 import android.content.IntentFilter;
 
 import android.content.pm.ActivityInfo;
 
 import android.content.res.Configuration;
+
+import android.database.Cursor;
 
 import android.test.ActivityInstrumentationTestCase2;
 
@@ -154,5 +157,38 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
 
         // check the activity restored correctly
         assertEquals(2, chapterList.getListView().getCount());
+    }
+
+    public void testMangaRefresh() throws Throwable {
+        selectListAndMoveToTop();
+
+        DB db = DB.getInstance(null);
+        Context targetContext = getInstrumentation().getTargetContext();
+
+        // select first item
+        selectCurrent();
+
+        // sanity check
+        assertEquals(1, chapterList.getListView().getCount());
+
+        // update manga
+        Download.startMangaUpdate(targetContext, Utils.firstDummyManga);
+
+        // wait until refresh completes
+        for (;;) {
+            Cursor cursor = db.getChapterList(Utils.firstDummyManga);
+            int count = cursor.getCount();
+
+            cursor.close();
+
+            if (count != 1)
+                break;
+
+            Thread.sleep(500);
+        }
+        Thread.sleep(2000);  // blech
+
+        // check chapter list has been refreshed
+        assertEquals(29, chapterList.getListView().getCount());
     }
 }

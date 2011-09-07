@@ -28,6 +28,9 @@ import org.barbon.mangaget.data.DB;
 public class ChapterList extends ListFragment {
     private static final StatusBinder VIEW_BINDER = new StatusBinder();
     private SimpleCursorAdapter adapter;
+    private DownloadListener listener = new DownloadListener();
+    private Download.ListenerManager manager =
+        new Download.ListenerManager(listener);
 
     public static class DownloadConfirmationDialog extends ConfirmationDialog {
         private static final String TAG = "downloadConfirmationDialog";
@@ -56,6 +59,18 @@ public class ChapterList extends ListFragment {
 
         public long getChapterId() {
             return getArguments().getLong("chapterId");
+        }
+    }
+
+    private class DownloadListener extends Download.ListenerAdapter {
+        public long currentManga = -1;
+
+        @Override
+        public void onMangaUpdateComplete(long mangaId, boolean success) {
+            if (!success || mangaId != currentManga)
+                return;
+
+            loadChapterList(mangaId);
         }
     }
 
@@ -102,6 +117,15 @@ public class ChapterList extends ListFragment {
 
         if (adapter.getCursor() != null)
             adapter.getCursor().requery();
+
+        manager.connect(getActivity());
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        manager.disconnect(getActivity());
     }
 
     @Override
@@ -116,6 +140,7 @@ public class ChapterList extends ListFragment {
     public void loadChapterList(long mangaId) {
         DB db = DB.getInstance(getActivity());
 
+        listener.currentManga = mangaId;
         adapter.changeCursor(db.getChapterList(mangaId));
     }
 
