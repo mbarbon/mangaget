@@ -45,6 +45,31 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
             manager.findFragmentById(R.id.chapter_list);
     }
 
+    private void selectListAndMoveToTop() throws Exception {
+        activity.runOnUiThread(
+            new Runnable() {
+                public void run() {
+                    mangaList.getListView().requestFocus();
+                }
+            });
+
+        sendKeys(KeyEvent.KEYCODE_DPAD_UP);
+        sendKeys(KeyEvent.KEYCODE_DPAD_UP);
+        sendKeys(KeyEvent.KEYCODE_DPAD_UP);
+        Thread.sleep(500);
+    }
+
+    private void selectCurrent() throws Exception {
+        sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
+
+        getInstrumentation().waitForIdleSync();
+        Thread.sleep(1000);  // blech
+    }
+
+    private void moveDown() {
+        sendKeys(KeyEvent.KEYCODE_DPAD_DOWN);
+    }
+
     private Activity reloadActivity() {
         IntentFilter filter = null;
         Instrumentation instr = getInstrumentation();
@@ -98,41 +123,27 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
         assertEquals(0, chapterList.getListView().getCount());
     }
 
-    public void testMangaSelection() {
-        activity.runOnUiThread(
-            new Runnable() {
-                public void run() {
-                    mangaList.getListView().requestFocus();
-                }
-            });
+    public void testMangaSelection() throws Throwable {
+        selectListAndMoveToTop();
 
         // select first item
-        sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
-
-        getInstrumentation().waitForIdleSync();
+        selectCurrent();
 
         assertEquals(1, chapterList.getListView().getCount());
 
         // select second item
-        sendKeys(KeyEvent.KEYCODE_DPAD_DOWN);
-        sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
+        moveDown();
+        selectCurrent();
 
         assertEquals(2, chapterList.getListView().getCount());
     }
 
     public void testRestart() throws Throwable {
-        activity.runOnUiThread(
-            new Runnable() {
-                public void run() {
-                    mangaList.getListView().requestFocus();
-                }
-            });
+        selectListAndMoveToTop();
 
         // select second item
-        sendKeys(KeyEvent.KEYCODE_DPAD_DOWN);
-        sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
-
-        getInstrumentation().waitForIdleSync();
+        moveDown();
+        selectCurrent();
 
         // sanity check
         assertEquals(2, chapterList.getListView().getCount());
