@@ -101,13 +101,16 @@ public class MangaSearch extends ListActivity {
         }
     }
 
+    // TODO display manga details on single click
+
     private void addManga(int index) {
         Scraper.MangaInfo info =
             (Scraper.MangaInfo) getListAdapter().getItem(index);
         DB db = DB.getInstance(this);
-        // TODO make configurable
+        // TODO make configurable, check for duplicates
         String path = "Pictures/Comics/" + info.pattern + "-%02d.cbz";
 
+        // TODO auto-refresh chapter list right after inserting manga
         // TODO auto-scan already downloaded comics
         db.insertManga(info.title, path, info.url);
     }
