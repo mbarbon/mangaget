@@ -191,4 +191,36 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
         // check chapter list has been refreshed
         assertEquals(29, chapterList.getListView().getCount());
     }
+
+    public void testRemoveManga() throws Exception {
+        Instrumentation instr = getInstrumentation();
+
+        selectListAndMoveToTop();
+        moveDown();
+        selectCurrent();
+
+        // sanity check
+        assertEquals(2, mangaList.getListView().getCount());
+
+        assertTrue(instr.invokeContextMenuAction(activity, R.id.delete, 0));
+
+        DB db = DB.getInstance(null);
+
+        // wait until refresh completes
+        for (;;) {
+            Cursor cursor = db.getMangaList();
+            int count = cursor.getCount();
+
+            cursor.close();
+
+            if (count == 1)
+                break;
+
+            Thread.sleep(500);
+        }
+        Thread.sleep(2000);  // blech
+
+        // check chapter list has been refreshed
+        assertEquals(1, mangaList.getListView().getCount());
+    }
 }
