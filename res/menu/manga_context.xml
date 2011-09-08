@@ -4,4 +4,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/refresh"
           android:title="@string/refresh_manga" />
+    <item android:id="@+id/delete"
+          android:title="@string/delete_manga" />
 </menu>

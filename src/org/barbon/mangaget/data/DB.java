@@ -291,6 +291,13 @@ public class DB {
         return db.insertOrThrow("pages", null, values);
     }
 
+    public boolean deleteManga(long mangaId) {
+        SQLiteDatabase db = getDatabase();
+
+        return db.delete("manga", "id = ?",
+                         new String[] { Long.toString(mangaId) }) == 1;
+    }
+
     private class DBOpenHelper extends SQLiteOpenHelper {
         public DBOpenHelper(Context context, String name) {
             super(context, name, null, VERSION);

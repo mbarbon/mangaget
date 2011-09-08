@@ -10,6 +10,7 @@
 
   <!-- Manga list menu -->
   <string name="refresh_manga">Refresh manga</string>
+  <string name="delete_manga">Delete manga</string>
 
   <!-- Chapter list -->
   <string name="no_chapter">Select manga</string>

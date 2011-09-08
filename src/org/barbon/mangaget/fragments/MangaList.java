@@ -118,6 +118,16 @@ public class MangaList extends ListFragment {
             new Handler().post(notifySelection);
     }
 
+    private void deleteManga(long id) {
+        DB db = DB.getInstance(getActivity());
+
+        db.deleteManga(id);
+
+        // TODO notify changes around/stop downloads/etc.
+
+        adapter.getCursor().requery();
+    }
+
     // event handlers
 
     @Override
@@ -140,6 +150,10 @@ public class MangaList extends ListFragment {
             (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
+        case R.id.delete:
+            // TODO ask for confirmation before delete
+            deleteManga(info.id);
+            return true;
         case R.id.refresh:
             Download.startMangaUpdate(getActivity(), info.id);
             return true;
