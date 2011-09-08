@@ -3,5 +3,5 @@
      distributed under the terms of the MIT license -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/refresh"
-          android:title="@string/refresh" />
+          android:title="@string/refresh_manga" />
 </menu>
