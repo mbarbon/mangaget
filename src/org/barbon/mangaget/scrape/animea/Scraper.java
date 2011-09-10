@@ -111,23 +111,25 @@ public class Scraper {
         }
 
         @Override
-        public void downloadComplete(boolean success) {
-            super.downloadComplete(success);
+        public void downloadCompleteBackground(boolean success) {
+            super.downloadCompleteBackground(success);
 
-            if (!success) {
-                info.listener.operationComplete(success);
-
+            if (!success)
                 return;
-            }
 
-            // TODO do the scraping in a background thread
             List<ChapterInfo> chapters = scrapeMangaPage(target);
 
             for (int i = 0; i < chapters.size(); ++i)
                 db.insertOrUpdateChapter(info.id, i + 1, -1,
                                          chapters.get(i).title,
                                          chapters.get(i).url);
+        }
 
+        @Override
+        public void downloadComplete(boolean success) {
+            super.downloadComplete(success);
+
+            // TODO handle failure in downloadCompleteBackground
             info.listener.operationComplete(success);
         }
     }
@@ -156,6 +158,23 @@ public class Scraper {
         }
 
         @Override
+        public void downloadCompleteBackground(boolean success) {
+            super.downloadCompleteBackground(success);
+
+            if (!success)
+                return;
+
+            List<String> pageUrls = scrapeChapterPages(target);
+
+            int index = 0;
+            for (String url : pageUrls)
+                db.insertPage(download.id, index++, url, null,
+                              DB.DOWNLOAD_REQUESTED);
+
+            db.updateChapterStatus(download.id, DB.DOWNLOAD_COMPLETE);
+        }
+
+        @Override
         public void downloadComplete(boolean success) {
             super.downloadComplete(success);
 
@@ -166,15 +185,7 @@ public class Scraper {
                 return;
             }
 
-            // TODO do the scraping in a background thread
-            List<String> pageUrls = scrapeChapterPages(target);
-
-            int index = 0;
-            for (String url : pageUrls)
-                db.insertPage(download.id, index++, url, null,
-                              DB.DOWNLOAD_REQUESTED);
-
-            db.updateChapterStatus(download.id, DB.DOWNLOAD_COMPLETE);
+            // TODO handle failure in downloadCompleteBackground
             downloadPages(download);
         }
     }
@@ -201,6 +212,17 @@ public class Scraper {
             }
 
             @Override
+            public void downloadCompleteBackground(boolean success) {
+                super.downloadCompleteBackground(success);
+
+                if (!success)
+                    return;
+
+                page.imageUrl = scrapeImageUrl(target);
+                db.updatePageImage(page.id, page.imageUrl);
+            }
+
+            @Override
             public void downloadComplete(boolean success) {
                 super.downloadComplete(success);
 
@@ -213,10 +235,7 @@ public class Scraper {
                     return;
                 }
 
-                // TODO do the scraping in a background thread
-                page.imageUrl = scrapeImageUrl(target);
-                db.updatePageImage(page.id, page.imageUrl);
-
+                // TODO handle failure in downloadCompleteBackground
                 count -= 1;
 
                 download.listener.downloadProgress(total - count, total);
@@ -377,16 +396,12 @@ public class Scraper {
         }
 
         @Override
-        public void downloadComplete(boolean success) {
-            super.downloadComplete(success);
+        public void downloadCompleteBackground(boolean success) {
+            super.downloadCompleteBackground(success);
 
-            if (!success) {
-                target = null;
-
+            if (!success)
                 return;
-            }
 
-            // TODO do the scraping in a background thread
             SearchResultPage results = scrapeSearchResults(target);
 
             items = new ArrayList<MangaInfo>();
@@ -394,7 +409,15 @@ public class Scraper {
             for (int i = 0; i < results.titles.size(); ++i)
                 items.add(new MangaInfo(results.titles.get(i),
                                         results.urls.get(i)));
+        }
 
+        @Override
+        public void downloadComplete(boolean success) {
+            super.downloadComplete(success);
+
+            target = null;
+
+            // TODO handle failure in downloadCompleteBackground
             listener.resultsUpdated();
         }
 
