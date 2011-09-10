@@ -97,6 +97,43 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
         assertEquals(2, chapterList.getListView().getCount());
     }
 
+    public void testConfirmationDialogRestart() {
+        // select second manga
+        UiUtils.selectListAndMoveToTop(mangaList.getListView());
+        UiUtils.moveDown();
+        UiUtils.selectCurrent();
+
+        // sanity check
+        assertEquals(2, chapterList.getListView().getCount());
+
+        // select second chapter
+        UiUtils.selectListAndMoveToTop(chapterList.getListView());
+        UiUtils.moveDown();
+        UiUtils.selectCurrent();
+
+        DB db = DB.getInstance(null);
+
+        // check dialog is popped up
+        ChapterList.DownloadConfirmationDialog dlg =
+            ChapterList.DownloadConfirmationDialog.find(chapterList);
+
+        // check chapter id is correct
+        assertNotNull(dlg);
+        assertEquals(db.getChapterId(Utils.secondDummyManga, 2),
+                     dlg.getChapterId());
+
+        // force reload
+        setActivity(UiUtils.reloadActivity(activity));
+        refreshMembers();
+
+        // check the dialog restored correctly
+        dlg = ChapterList.DownloadConfirmationDialog.find(chapterList);
+
+        assertNotNull(dlg);
+        assertEquals(db.getChapterId(Utils.secondDummyManga, 2),
+                     dlg.getChapterId());
+    }
+
     public void testMangaRefresh() {
         UiUtils.selectListAndMoveToTop(mangaList.getListView());
 
