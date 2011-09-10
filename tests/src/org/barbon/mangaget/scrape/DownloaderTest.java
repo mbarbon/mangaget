@@ -13,7 +13,7 @@ public class DownloaderTest extends InstrumentationTestCase {
     private Downloader downloader = new Downloader();
 
     private class Progress implements Downloader.OnDownloadProgress {
-        public boolean started, complete, successful;
+        public boolean started, complete, complete_background, successful;
         public int callCount = -1, byteCount = -1;
 
         @Override
@@ -31,6 +31,11 @@ public class DownloaderTest extends InstrumentationTestCase {
         public void downloadComplete(boolean success) {
             successful = success;
             complete = true;
+        }
+
+        @Override
+        public void downloadCompleteBackground(boolean success) {
+            complete_background = true;
         }
     }
 
@@ -59,6 +64,7 @@ public class DownloaderTest extends InstrumentationTestCase {
 
         assertTrue(progress.started);
         assertTrue(progress.complete);
+        assertTrue(progress.complete_background);
         assertTrue(progress.callCount > 0);
         assertTrue(progress.successful);
         assertEquals(5141, progress.byteCount);

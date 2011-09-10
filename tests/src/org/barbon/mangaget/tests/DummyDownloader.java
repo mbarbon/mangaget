@@ -62,6 +62,8 @@ public class DummyDownloader extends Downloader {
                                              params[0]);
             }
             catch (Exception e) {
+                progressListener.downloadCompleteBackground(false);
+
                 return false;
             }
 
@@ -78,8 +80,12 @@ public class DummyDownloader extends Downloader {
                 downloadTarget.completeDownload();
             }
             catch(Exception e) {
+                progressListener.downloadCompleteBackground(false);
+
                 return false;
             }
+
+            progressListener.downloadCompleteBackground(true);
 
             return true;
         }

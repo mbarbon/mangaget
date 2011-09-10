@@ -75,6 +75,7 @@ public class Downloader {
         public void downloadStarted();
         public void downloadProgress(long downloaded, long total);
         public void downloadComplete(boolean success);
+        public void downloadCompleteBackground(boolean success);
     }
 
     public interface DownloadTarget {
@@ -94,6 +95,7 @@ public class Downloader {
         @Override public void downloadStarted() { }
         @Override public void downloadProgress(long downloaded, long total) { }
         @Override public void downloadComplete(boolean success) { }
+        @Override public void downloadCompleteBackground(boolean success) { }
     }
 
     public class StringDownloadTarget implements DownloadTarget {
@@ -218,6 +220,8 @@ public class Downloader {
             catch (Exception e) {
                 e.printStackTrace(); // TODO better diagnostics
                 client.close();
+                // TODO handle exception
+                progressListener.downloadCompleteBackground(false);
 
                 return false;
             }
@@ -244,11 +248,15 @@ public class Downloader {
                 }
 
                 client.close();
+                // TODO handle exception
+                progressListener.downloadCompleteBackground(false);
 
                 return false;
             }
 
             client.close();
+            // TODO handle exception
+            progressListener.downloadCompleteBackground(true);
 
             return true;
         }
