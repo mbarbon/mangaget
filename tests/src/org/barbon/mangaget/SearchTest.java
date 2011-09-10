@@ -16,6 +16,7 @@ import android.test.ActivityInstrumentationTestCase2;
 
 import android.widget.ListView;
 
+import org.barbon.mangaget.tests.UiUtils;
 import org.barbon.mangaget.tests.Utils;
 
 public class SearchTest extends ActivityInstrumentationTestCase2<MangaSearch> {
@@ -39,19 +40,20 @@ public class SearchTest extends ActivityInstrumentationTestCase2<MangaSearch> {
     protected void setUp() throws Exception {
         super.setUp();
 
+        UiUtils.setInstrumentation(getInstrumentation());
         Utils.setupTestEnvironment(this);
         Utils.setupTestDatabase(this);
 
         setActivityInitialTouchMode(false);
     }
 
-    public void testSimpleSearch() throws Exception {
+    public void testSimpleSearch() {
         setActivityIntent(searchIntent(""));
         activity = (MangaSearch) getActivity();
         ListView resultList = activity.getListView();
 
         while (resultList.getCount() == 0)
-            Thread.sleep(500);
+            UiUtils.sleep(500);
 
         assertEquals(48, resultList.getCount());
     }
