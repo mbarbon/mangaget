@@ -36,6 +36,8 @@ import org.barbon.mangaget.scrape.Downloader;
 
 import org.barbon.mangaget.scrape.animea.Scraper;
 
+// TODO handle download errors/missing network connection
+
 public class Download extends Service {
     private static final int COMMAND_DOWNLOAD_CHAPTER = 1;
     private static final int COMMAND_UPDATE_MANGA = 2;
