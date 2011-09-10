@@ -9,11 +9,6 @@ import android.app.Activity;
 import android.app.Instrumentation;
 
 import android.content.Context;
-import android.content.IntentFilter;
-
-import android.content.pm.ActivityInfo;
-
-import android.content.res.Configuration;
 
 import android.database.Cursor;
 
@@ -21,13 +16,12 @@ import android.test.ActivityInstrumentationTestCase2;
 
 import android.support.v4.app.FragmentManager;
 
-import android.view.KeyEvent;
-
 import org.barbon.mangaget.data.DB;
 
 import org.barbon.mangaget.fragments.ChapterList;
 import org.barbon.mangaget.fragments.MangaList;
 
+import org.barbon.mangaget.tests.UiUtils;
 import org.barbon.mangaget.tests.Utils;
 
 // TODO add tests for Main activity and fragments,
@@ -48,63 +42,6 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
             manager.findFragmentById(R.id.chapter_list);
     }
 
-    private void selectListAndMoveToTop() throws Exception {
-        activity.runOnUiThread(
-            new Runnable() {
-                public void run() {
-                    mangaList.getListView().requestFocus();
-                }
-            });
-
-        sendKeys(KeyEvent.KEYCODE_DPAD_UP);
-        sendKeys(KeyEvent.KEYCODE_DPAD_UP);
-        sendKeys(KeyEvent.KEYCODE_DPAD_UP);
-        Thread.sleep(500);
-    }
-
-    private void selectCurrent() throws Exception {
-        sendKeys(KeyEvent.KEYCODE_DPAD_CENTER);
-
-        getInstrumentation().waitForIdleSync();
-        Thread.sleep(1000);  // blech
-    }
-
-    private void moveDown() {
-        sendKeys(KeyEvent.KEYCODE_DPAD_DOWN);
-    }
-
-    private Activity reloadActivity() {
-        IntentFilter filter = null;
-        Instrumentation instr = getInstrumentation();
-        Instrumentation.ActivityMonitor monitor =
-            instr.addMonitor(filter, null, false);
-        int orientation =
-            activity.getResources().getConfiguration().orientation;
-        int req_orientation;
-
-        switch (orientation) {
-        case Configuration.ORIENTATION_PORTRAIT:
-            req_orientation =
-                ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-            break;
-        case Configuration.ORIENTATION_LANDSCAPE:
-            req_orientation =
-                ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
-            break;
-        default:
-            throw new RuntimeException("Unknown orientation " + orientation);
-        }
-
-        activity.setRequestedOrientation(req_orientation);
-
-        // wait for activity to reload
-        Activity activity = monitor.waitForActivity();
-
-        instr.waitForIdleSync();
-
-        return activity;
-    }
-
     public MainTest() {
         super("org.barbon.mangaget", Main.class);
     }
@@ -113,6 +50,7 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
     protected void setUp() throws Exception {
         super.setUp();
 
+        UiUtils.setInstrumentation(getInstrumentation());
         Utils.setupTestEnvironment(this);
         Utils.setupTestDatabase(this);
 
@@ -126,47 +64,47 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
         assertEquals(0, chapterList.getListView().getCount());
     }
 
-    public void testMangaSelection() throws Throwable {
-        selectListAndMoveToTop();
+    public void testMangaSelection() {
+        UiUtils.selectListAndMoveToTop(mangaList.getListView());
 
         // select first item
-        selectCurrent();
+        UiUtils.selectCurrent();
 
         assertEquals(1, chapterList.getListView().getCount());
 
         // select second item
-        moveDown();
-        selectCurrent();
+        UiUtils.moveDown();
+        UiUtils.selectCurrent();
 
         assertEquals(2, chapterList.getListView().getCount());
     }
 
-    public void testRestart() throws Throwable {
-        selectListAndMoveToTop();
+    public void testRestart() {
+        UiUtils.selectListAndMoveToTop(mangaList.getListView());
 
         // select second item
-        moveDown();
-        selectCurrent();
+        UiUtils.moveDown();
+        UiUtils.selectCurrent();
 
         // sanity check
         assertEquals(2, chapterList.getListView().getCount());
 
         // force reload
-        setActivity(reloadActivity());
+        setActivity(UiUtils.reloadActivity(activity));
         refreshMembers();
 
         // check the activity restored correctly
         assertEquals(2, chapterList.getListView().getCount());
     }
 
-    public void testMangaRefresh() throws Throwable {
-        selectListAndMoveToTop();
+    public void testMangaRefresh() {
+        UiUtils.selectListAndMoveToTop(mangaList.getListView());
 
         DB db = DB.getInstance(null);
         Context targetContext = getInstrumentation().getTargetContext();
 
         // select first item
-        selectCurrent();
+        UiUtils.selectCurrent();
 
         // sanity check
         assertEquals(1, chapterList.getListView().getCount());
@@ -184,20 +122,20 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
             if (count != 1)
                 break;
 
-            Thread.sleep(500);
+            UiUtils.sleep(500);
         }
-        Thread.sleep(2000);  // blech
+        UiUtils.sleep(2000);  // blech
 
         // check chapter list has been refreshed
         assertEquals(29, chapterList.getListView().getCount());
     }
 
-    public void testRemoveManga() throws Exception {
+    public void testRemoveManga() {
         Instrumentation instr = getInstrumentation();
 
-        selectListAndMoveToTop();
-        moveDown();
-        selectCurrent();
+        UiUtils.selectListAndMoveToTop(mangaList.getListView());
+        UiUtils.moveDown();
+        UiUtils.selectCurrent();
 
         // sanity check
         assertEquals(2, mangaList.getListView().getCount());
@@ -216,9 +154,9 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
             if (count == 1)
                 break;
 
-            Thread.sleep(500);
+            UiUtils.sleep(500);
         }
-        Thread.sleep(2000);  // blech
+        UiUtils.sleep(2000);  // blech
 
         // check chapter list has been refreshed
         assertEquals(1, mangaList.getListView().getCount());
