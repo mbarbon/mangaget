@@ -11,26 +11,10 @@ import android.app.SearchManager;
 
 import android.content.Context;
 import android.content.Intent;
-// import android.content.IntentFilter;
-
-// import android.content.pm.ActivityInfo;
-
-// import android.content.res.Configuration;
-
-// import android.database.Cursor;
 
 import android.test.ActivityInstrumentationTestCase2;
 
-// import android.support.v4.app.FragmentManager;
-
-// import android.view.KeyEvent;
-
 import android.widget.ListView;
-
-// import org.barbon.mangaget.data.DB;
-
-// import org.barbon.mangaget.fragments.ChapterList;
-// import org.barbon.mangaget.fragments.MangaList;
 
 import org.barbon.mangaget.tests.Utils;
 
