@@ -12,9 +12,13 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 
+import android.database.Cursor;
+
 import android.test.ActivityInstrumentationTestCase2;
 
 import android.widget.ListView;
+
+import org.barbon.mangaget.data.DB;
 
 import org.barbon.mangaget.tests.UiUtils;
 import org.barbon.mangaget.tests.Utils;
@@ -56,5 +60,41 @@ public class SearchTest extends ActivityInstrumentationTestCase2<MangaSearch> {
             UiUtils.sleep(500);
 
         assertEquals(48, resultList.getCount());
+    }
+
+    private int mangaCount() {
+        DB db = DB.getInstance(null);
+        Cursor manga = db.getMangaList();
+        int count = manga.getCount();
+
+        manga.close();
+
+        return count;
+    }
+
+    public void testMangaAdd() {
+        Instrumentation instr = getInstrumentation();
+
+        setActivityIntent(searchIntent(""));
+        activity = (MangaSearch) getActivity();
+        ListView resultList = activity.getListView();
+
+        while (resultList.getCount() == 0)
+            UiUtils.sleep(500);
+
+        assertEquals(48, resultList.getCount());
+
+        UiUtils.selectListAndMoveToTop(resultList);
+        UiUtils.moveDown();
+        UiUtils.selectCurrent();
+
+        int prev_count = mangaCount();
+
+        instr.invokeContextMenuAction(activity, R.id.add_manga, 0);
+
+        while (mangaCount() == prev_count)
+            UiUtils.sleep(500);
+
+        assertEquals(prev_count + 1, mangaCount());
     }
 }
