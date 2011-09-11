@@ -130,7 +130,7 @@ public class DummyDownloader extends Downloader {
         DownloadTarget target = new FileDownloadTarget(destination);
         DummyDownloadTask task = new DummyDownloadTask(listener, target);
 
-        task.execute(url);
+        executeLater(task, url);
 
         return destination;
     }
@@ -142,8 +142,18 @@ public class DummyDownloader extends Downloader {
         DownloadTarget target = new StringDownloadTarget(destination);
         DummyDownloadTask task = new DummyDownloadTask(listener, target);
 
-        task.execute(url);
+        executeLater(task, url);
 
         return destination;
+    }
+
+    private void executeLater(final DummyDownloadTask task, final String url) {
+        new android.os.Handler().post(
+            new Runnable() {
+                @Override
+                public void run() {
+                    task.execute(url);
+                }
+            });
     }
 }

@@ -311,7 +311,8 @@ public class Downloader {
         DownloadTarget target = new FileDownloadTarget(destination);
         DownloadTask task = new DownloadTask(listener, target);
 
-        task.execute(url);
+        // avoid potential error condition
+        executeLater(task, url);
 
         return destination;
     }
@@ -322,8 +323,19 @@ public class Downloader {
         DownloadTarget target = new StringDownloadTarget(destination);
         DownloadTask task = new DownloadTask(listener, target);
 
-        task.execute(url);
+        // avoid potential error condition
+        executeLater(task, url);
 
         return destination;
+    }
+
+    private void executeLater(final DownloadTask task, final String url) {
+        new android.os.Handler().post(
+            new Runnable() {
+                @Override
+                public void run() {
+                    task.execute(url);
+                }
+            });
     }
 }
