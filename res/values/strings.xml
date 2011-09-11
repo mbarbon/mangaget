@@ -22,9 +22,11 @@
   <!-- Download notification -->
   <string name="manga_downloading_ticker">Downloading manga...</string>
   <string name="manga_downloaded_ticker">Manga downloaded</string>
+  <string name="manga_download_error_ticker">Manga download error</string>
 
   <string name="manga_downloading_progress">Downloading %1$s chapter %2$d</string>
   <string name="manga_downloaded_progress">Downloaded %1$s chapter %2$d</string>
+  <string name="manga_download_error_progress">Error downloading %1$s chapter %2$d</string>
 
   <!-- Download confirmation dialog -->
   <string name="download_title">Download manga</string>

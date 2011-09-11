@@ -248,11 +248,22 @@ public class Download extends Service {
         @Override
         public void downloadComplete(boolean success) {
             notification.iconLevel = 0;
-            notification.tickerText =
-                getResources().getString(R.string.manga_downloaded_ticker);
+
+            int tickerId, progressId;
+
+            if (success) {
+                tickerId = R.string.manga_downloaded_ticker;
+                progressId = R.string.manga_downloaded_progress;
+            }
+            else {
+                tickerId = R.string.manga_download_error_ticker;
+                progressId = R.string.manga_download_error_progress;
+            }
+
+            notification.tickerText = getResources().getString(tickerId);
             contentView.setTextViewText(
                 R.id.download_description,
-                formatMsg(R.string.manga_downloaded_progress));
+                formatMsg(progressId));
             contentView.setViewVisibility(
                 R.id.download_progress_parent, View.INVISIBLE);
 
