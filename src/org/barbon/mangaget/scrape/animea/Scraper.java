@@ -318,13 +318,13 @@ public class Scraper {
                 downloadFinished();
         }
 
-        public void downloadPageInfo(PageDownload page) {
+        private void downloadPageInfo(PageDownload page) {
             PageInfoDownloader downloader = new PageInfoDownloader(page);
 
             downloader.start();
         }
 
-        public void downloadPageImage(PageDownload page) {
+        private void downloadPageImage(PageDownload page) {
             PageImageDownloader downloader = new PageImageDownloader(page);
 
             downloader.start();
