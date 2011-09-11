@@ -199,6 +199,21 @@ public class Downloader {
             // nothing to do
         }
 
+        private boolean finishDownload(boolean success) {
+            if (!success) {
+                try {
+                    downloadTarget.abortDownload();
+                }
+                catch (Exception e) {
+                    // can only ignore the exception...
+                }
+            }
+
+            progressListener.downloadCompleteBackground(success);
+
+            return success;
+        }
+
         public Boolean doInBackground(String... params) {
             publishProgress(0L);
 
@@ -223,11 +238,11 @@ public class Downloader {
             catch (Exception e) {
                 e.printStackTrace(); // TODO better diagnostics
                 client.close();
-                // TODO handle exception
-                progressListener.downloadCompleteBackground(false);
 
-                return false;
+                return finishDownload(false);
             }
+
+            boolean success = true;
 
             try {
                 for (;;) {
@@ -243,25 +258,13 @@ public class Downloader {
             }
             catch(Exception e) {
                 e.printStackTrace(); // TODO better diagnostics
-                try {
-                    downloadTarget.abortDownload();
-                }
-                catch (Exception e1) {
-                    // can only ignore the exception...
-                }
-
+                success = false;
+            }
+            finally {
                 client.close();
-                // TODO handle exception
-                progressListener.downloadCompleteBackground(false);
-
-                return false;
             }
 
-            client.close();
-            // TODO handle exception
-            progressListener.downloadCompleteBackground(true);
-
-            return true;
+            return finishDownload(success);
         }
 
         @Override
