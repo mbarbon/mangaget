@@ -45,8 +45,7 @@ public class SearchTest extends ActivityInstrumentationTestCase2<MangaSearch> {
         super.setUp();
 
         UiUtils.setInstrumentation(getInstrumentation());
-        Utils.setupTestEnvironment(this);
-        Utils.setupTestDatabase(this);
+        Utils.setupTestAnimeaEnvironment(this);
 
         setActivityInitialTouchMode(false);
     }

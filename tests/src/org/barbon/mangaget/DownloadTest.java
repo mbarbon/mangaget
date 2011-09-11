@@ -19,8 +19,8 @@ public class DownloadTest extends InstrumentationTestCase {
     public void setUp() throws Exception {
         super.setUp();
 
-        Utils.setupTestEnvironment(this);
-        Utils.setupTestDatabase(this);
+        Utils.setupTestAnimeaEnvironment(this);
+        Utils.setupTestAnimeaDatabase(this);
     }
 
     @Override

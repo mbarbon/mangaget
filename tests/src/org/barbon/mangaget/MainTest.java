@@ -51,8 +51,8 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
         super.setUp();
 
         UiUtils.setInstrumentation(getInstrumentation());
-        Utils.setupTestEnvironment(this);
-        Utils.setupTestDatabase(this);
+        Utils.setupTestAnimeaEnvironment(this);
+        Utils.setupTestAnimeaDatabase(this);
 
         setActivityInitialTouchMode(false);
 

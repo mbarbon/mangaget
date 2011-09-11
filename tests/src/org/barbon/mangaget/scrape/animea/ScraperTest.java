@@ -75,7 +75,7 @@ public class ScraperTest extends InstrumentationTestCase {
 
     @Override
     public void setUp() throws Exception {
-        Utils.setupTestEnvironment(this);
+        Utils.setupTestAnimeaEnvironment(this);
 
         testContext = getInstrumentation().getContext()
             .createPackageContext("org.barbon.mangaget.tests", 0);

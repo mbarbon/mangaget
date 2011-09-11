@@ -35,8 +35,7 @@ public class Utils {
         return active != null && active.isConnected();
     }
 
-    public static void setupTestEnvironment(InstrumentationTestCase test)
-            throws Exception {
+    public static void createDatabase(InstrumentationTestCase test) {
         Context targetContext = test.getInstrumentation().getTargetContext();
 
         if (setUp) {
@@ -57,6 +56,18 @@ public class Utils {
         }
 
         setUp = true;
+
+        // set up dummy database
+        targetContext.deleteDatabase("manga_test");
+
+        DB db = DB.getNewInstance(targetContext, "manga_test");
+
+        DB.setInstance(db);
+    }
+
+    public static void setupTestAnimeaEnvironment(InstrumentationTestCase test)
+            throws Exception {
+        createDatabase(test);
 
         Context testContext = test.getInstrumentation().getContext()
             .createPackageContext("org.barbon.mangaget.tests", 0);
@@ -85,16 +96,10 @@ public class Utils {
         downloader.addUrl(p1, R.raw.animea_papillon_dummy_img);
         downloader.addUrl(pn, R.raw.animea_papillon_dummy_img);
 
-        // set up dummy database
-        targetContext.deleteDatabase("manga_test");
-
-        DB db = DB.getNewInstance(targetContext, "manga_test");
-
-        DB.setInstance(db);
         Downloader.setInstance(downloader);
     }
 
-    public static void setupTestDatabase(InstrumentationTestCase test) {
+    public static void setupTestAnimeaDatabase(InstrumentationTestCase test) {
         // setup DB before getting the activity
         DB db = DB.getInstance(null);
 
