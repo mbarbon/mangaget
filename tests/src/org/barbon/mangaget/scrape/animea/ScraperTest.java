@@ -154,7 +154,7 @@ public class ScraperTest extends InstrumentationTestCase {
     public void testScrapeMangaPage() {
         String mangaPage = "http://manga.animea.net/";
         List<Scraper.ChapterInfo> res =
-            Scraper.scrapeMangaPage(getPage(R.raw.papillon_chapters_html,
+            Scraper.scrapeMangaPage(getPage(R.raw.animea_papillon_chapters_html,
                                             mangaPage));
 
         assertEquals(29, res.size());

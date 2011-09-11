@@ -72,18 +72,18 @@ public class Utils {
         // set up dummy pages
         String base = baseUrl + "/papillon-hana-to-chou-chapter-1-page-";
 
-        downloader.addUrl(base + "1.html", R.raw.papillon_c1_p1_html);
+        downloader.addUrl(base + "1.html", R.raw.animea_papillon_c1_p1_html);
 
         for (int i = 2; i < 46; ++i)
             downloader.addUrl(base + Integer.toString(i) + ".html",
-                              R.raw.papillon_c1_p2_html);
+                              R.raw.animea_papillon_c1_p2_html);
 
         // set up dummy images
         String p1 = baseImage + "/5338%2F1_JHMCN%2F00_fuuchifighters.jpg" ;
         String pn = baseImage + "/5338%2F1_JHMCN%2F001_cover.jpg" ;
 
-        downloader.addUrl(p1, R.raw.papillon_dummy_img);
-        downloader.addUrl(pn, R.raw.papillon_dummy_img);
+        downloader.addUrl(p1, R.raw.animea_papillon_dummy_img);
+        downloader.addUrl(pn, R.raw.animea_papillon_dummy_img);
 
         // set up dummy database
         targetContext.deleteDatabase("manga_test");
@@ -123,6 +123,6 @@ public class Utils {
         // set up some dummy download pages
 
         downloader.addUrl(baseUrl + "/dummy1.html?skip=1",
-                          R.raw.papillon_chapters_html);
+                          R.raw.animea_papillon_chapters_html);
     }
 }
