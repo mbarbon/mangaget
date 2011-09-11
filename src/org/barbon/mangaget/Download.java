@@ -234,6 +234,7 @@ public class Download extends Service {
                 formatMsg(R.string.manga_downloading_progress));
             contentView.setProgressBar(R.id.download_progress, 0, 0, true);
 
+            // TODO reuse the same notification id for chapter download
             manager.notify(notification.hashCode(), notification);
         }
 

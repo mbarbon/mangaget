@@ -171,6 +171,8 @@ public class Scraper {
                 db.insertPage(download.id, index++, url, null,
                               DB.DOWNLOAD_REQUESTED);
 
+            // TODO only mark as complete after packing the chapter
+            //      (must fix check below)
             db.updateChapterStatus(download.id, DB.DOWNLOAD_COMPLETE);
         }
 
