@@ -129,7 +129,6 @@ public class Scraper {
         public void downloadComplete(boolean success) {
             super.downloadComplete(success);
 
-            // TODO handle failure in downloadCompleteBackground
             info.listener.operationComplete(success);
         }
     }
@@ -187,7 +186,6 @@ public class Scraper {
                 return;
             }
 
-            // TODO handle failure in downloadCompleteBackground
             downloadPages(download);
         }
     }
@@ -237,7 +235,6 @@ public class Scraper {
                     return;
                 }
 
-                // TODO handle failure in downloadCompleteBackground
                 count -= 1;
 
                 download.listener.downloadProgress(total - count, total);
@@ -439,7 +436,6 @@ public class Scraper {
 
             target = null;
 
-            // TODO handle failure in downloadCompleteBackground
             listener.resultsUpdated();
         }
 

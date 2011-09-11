@@ -209,7 +209,15 @@ public class Downloader {
                 }
             }
 
-            progressListener.downloadCompleteBackground(success);
+            try {
+                progressListener.downloadCompleteBackground(success);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+                // try to handle failures
+
+                return false;
+            }
 
             return success;
         }
@@ -236,7 +244,7 @@ public class Downloader {
                     params[0]);
             }
             catch (Exception e) {
-                e.printStackTrace(); // TODO better diagnostics
+                e.printStackTrace();
                 client.close();
 
                 return finishDownload(false);
@@ -260,7 +268,7 @@ public class Downloader {
                     downloadTarget.completeDownload();
             }
             catch(Exception e) {
-                e.printStackTrace(); // TODO better diagnostics
+                e.printStackTrace();
                 success = false;
             }
             finally {
