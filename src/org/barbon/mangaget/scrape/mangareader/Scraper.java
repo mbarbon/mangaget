@@ -23,6 +23,25 @@ import org.jsoup.select.Elements;
 public class Scraper {
     // pure HTML scraping
 
+    public static String scrapeImageUrl(
+            Downloader.DownloadDestination target) {
+        Document doc;
+
+        try {
+            doc = Jsoup.parse(target.stream, target.encoding, target.baseUrl);
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Element img = doc.select("div#imgholder > a > img").first();
+
+        if (!img.hasAttr("src"))
+            return null;
+
+        return img.attr("abs:src");
+    }
+
     public static HtmlScrape.SearchResultPage scrapeSearchResults(
             Downloader.DownloadDestination target) {
         Document doc;
