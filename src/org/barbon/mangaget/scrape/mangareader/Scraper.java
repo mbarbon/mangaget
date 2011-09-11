@@ -71,4 +71,36 @@ public class Scraper {
 
         return page;
     }
+
+    public static List<HtmlScrape.ChapterInfo> scrapeMangaPage(
+            Downloader.DownloadDestination target) {
+        Document doc;
+
+        try {
+            doc = Jsoup.parse(target.stream, target.encoding, target.baseUrl);
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Elements links = doc.select("div#chapterlist a");
+        List<HtmlScrape.ChapterInfo> chapters =
+            new ArrayList<HtmlScrape.ChapterInfo>();
+
+        for (Element link : links) {
+            if (!link.hasAttr("href"))
+                continue;
+
+            String url = link.attr("abs:href");
+            String title = link.text();
+            HtmlScrape.ChapterInfo info = new HtmlScrape.ChapterInfo();
+
+            info.title = title;
+            info.url = url;
+
+            chapters.add(info);
+        }
+
+        return chapters;
+    }
 }

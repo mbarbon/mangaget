@@ -7,6 +7,8 @@ package org.barbon.mangaget.scrape.mangareader;
 
 import android.test.InstrumentationTestCase;
 
+import java.util.List;
+
 import org.barbon.mangaget.data.DB;
 
 import org.barbon.mangaget.scrape.HtmlScrape;
@@ -52,5 +54,19 @@ public class ScraperTest extends InstrumentationTestCase {
         assertEquals(null, res.pagingUrl);
         assertEquals(0, res.urls.size());
         assertEquals(0, res.titles.size());
+    }
+
+    public void testScrapeMangaPage() {
+        String mangaPage = "http://www.mangareader.net/462/goong.html";
+        List<HtmlScrape.ChapterInfo> res =
+            Scraper.scrapeMangaPage(
+                Utils.getPage(this, R.raw.mangareader_goong_chapters_html,
+                              mangaPage));
+
+        assertEquals(140, res.size());
+        assertEquals("http://www.mangareader.net/462-28574-1/goong/chapter-1.html",
+                     res.get(0).url);
+        assertEquals("http://www.mangareader.net/goong/140",
+                     res.get(139).url);
     }
 }
