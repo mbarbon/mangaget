@@ -565,6 +565,7 @@ public class Scraper {
 
     // pure HTML scraping
 
+    // TODO use HtmlScraper classes
     public static class SearchResultPage {
         public List<String> urls;
         public List<String> titles;
