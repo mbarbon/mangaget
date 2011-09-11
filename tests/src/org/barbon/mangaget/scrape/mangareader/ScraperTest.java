@@ -39,4 +39,18 @@ public class ScraperTest extends InstrumentationTestCase {
         assertEquals("Black Cat",
                      res.titles.get(29));
     }
+
+    public void testScrapeEmptyResults() {
+        String searchPage =
+            "http://www.mangareader.net/search/?w=trzrt";
+        HtmlScrape.SearchResultPage res =
+            Scraper.scrapeSearchResults(
+                Utils.getPage(this, R.raw.mangareader_results_empty_html,
+                              searchPage));
+
+        assertEquals(-1, res.currentPage);
+        assertEquals(null, res.pagingUrl);
+        assertEquals(0, res.urls.size());
+        assertEquals(0, res.titles.size());
+    }
 }

@@ -45,8 +45,11 @@ public class Scraper {
 
         Elements links = doc.select("div#sp > a");
         Element current = doc.select("div#sp > strong").first();
-        int currentPage = Integer.valueOf(current.text());
+        int currentPage = -1;
         String pagingUrl = null;
+
+        if (current != null)
+            currentPage = Integer.valueOf(current.text());
 
         for (Element link : links) {
             String href = link.attr("abs:href");
