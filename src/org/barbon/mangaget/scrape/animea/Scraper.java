@@ -239,7 +239,7 @@ public class Scraper {
                 count -= 1;
 
                 download.listener.downloadProgress(total - count, total);
-                downloadPageImage(page);
+                downloadStep();
             }
         }
 
@@ -276,6 +276,7 @@ public class Scraper {
                     return;
                 }
 
+                page.status = DB.DOWNLOAD_COMPLETE;
                 db.updatePageStatus(page.id, DB.DOWNLOAD_COMPLETE);
                 count -= 1;
 
@@ -284,8 +285,11 @@ public class Scraper {
 
                 if (count == 0)
                     downloadFinished();
-                else
+                else {
                     download.listener.downloadProgress(total - count, total);
+
+                    downloadStep();
+                }
             }
         }
 
@@ -301,21 +305,37 @@ public class Scraper {
 
         public void start() {
             for (PageDownload page : pages) {
-                if (page.imageUrl == null) {
+                if (page.imageUrl == null)
                     total = count += 2;
-
-                    downloadPageInfo(page);
-                }
-                else if (page.status != DB.DOWNLOAD_COMPLETE) {
+                else if (   page.status != DB.DOWNLOAD_COMPLETE
+                         || !new File(page.targetPath).exists())
                     total = count += 1;
-
-                    downloadPageImage(page);
-                }
             }
 
-            // all done!
+            // start download
             if (count == 0)
                 downloadFinished();
+            else {
+                download.listener.downloadProgress(0, total);
+
+                downloadStep();
+            }
+        }
+
+        private void downloadStep() {
+            for (PageDownload page : pages) {
+                if (page.imageUrl == null) {
+                    downloadPageInfo(page);
+
+                    break;
+                }
+                else if (   page.status != DB.DOWNLOAD_COMPLETE
+                         || !new File(page.targetPath).exists()) {
+                    downloadPageImage(page);
+
+                    break;
+                }
+            }
         }
 
         private void downloadPageInfo(PageDownload page) {

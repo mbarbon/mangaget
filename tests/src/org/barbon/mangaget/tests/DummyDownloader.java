@@ -87,6 +87,8 @@ public class DummyDownloader extends Downloader {
 
             progressListener.downloadCompleteBackground(true);
 
+            System.out.println("Download complete for " + params[0]);
+
             return true;
         }
 
