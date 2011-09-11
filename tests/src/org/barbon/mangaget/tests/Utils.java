@@ -2,6 +2,8 @@ package org.barbon.mangaget.tests;
 
 import android.content.Context;
 
+import android.content.pm.PackageManager;
+
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -129,5 +131,27 @@ public class Utils {
 
         downloader.addUrl(baseUrl + "/dummy1.html?skip=1",
                           R.raw.animea_papillon_chapters_html);
+    }
+
+    public static Downloader.DownloadDestination getPage(
+            InstrumentationTestCase test, int resource, String base) {
+        Context testContext;
+
+        try {
+            testContext = test.getInstrumentation().getContext()
+                .createPackageContext("org.barbon.mangaget.tests", 0);
+        }
+        catch (PackageManager.NameNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        Downloader.DownloadDestination dest =
+            new Downloader.DownloadDestination();
+
+        dest.stream = testContext.getResources().openRawResource(resource);
+        dest.encoding = "utf-8";
+        dest.baseUrl = base;
+
+        return dest;
     }
 }
