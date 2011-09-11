@@ -20,7 +20,7 @@ import org.jsoup.nodes.Element;
 
 import org.jsoup.select.Elements;
 
-public class Scraper {
+public class MangareaderScraper {
     // pure HTML scraping
 
     public static List<String> scrapeChapterPages(

@@ -20,7 +20,7 @@ public class ScraperTest extends InstrumentationTestCase {
     public void testScrapeChapterPages() {
         String chapterPage =
             "http://www.mangareader.net/462-28574-1/goong/chapter-1.html";
-        List<String> urls = Scraper.scrapeChapterPages(
+        List<String> urls = MangareaderScraper.scrapeChapterPages(
             Utils.getPage(this, R.raw.mangareader_goong_c1_p1_html,
                           chapterPage));
 
@@ -34,7 +34,7 @@ public class ScraperTest extends InstrumentationTestCase {
     public void testScrapeImageUrl() {
         String chapterPage =
             "http://www.mangareader.net/462-28574-1/goong/chapter-1.html";
-        String url = Scraper.scrapeImageUrl(
+        String url = MangareaderScraper.scrapeImageUrl(
             Utils.getPage(this, R.raw.mangareader_goong_c1_p1_html,
                           chapterPage));
 
@@ -46,7 +46,7 @@ public class ScraperTest extends InstrumentationTestCase {
         String searchPage =
             "http://www.mangareader.net/search/?w=&p=30";
         HtmlScrape.SearchResultPage res =
-            Scraper.scrapeSearchResults(
+            MangareaderScraper.scrapeSearchResults(
                 Utils.getPage(this, R.raw.mangareader_results_html,
                               searchPage));
 
@@ -71,7 +71,7 @@ public class ScraperTest extends InstrumentationTestCase {
         String searchPage =
             "http://www.mangareader.net/search/?w=trzrt";
         HtmlScrape.SearchResultPage res =
-            Scraper.scrapeSearchResults(
+            MangareaderScraper.scrapeSearchResults(
                 Utils.getPage(this, R.raw.mangareader_results_empty_html,
                               searchPage));
 
@@ -84,7 +84,7 @@ public class ScraperTest extends InstrumentationTestCase {
     public void testScrapeMangaPage() {
         String mangaPage = "http://www.mangareader.net/462/goong.html";
         List<HtmlScrape.ChapterInfo> res =
-            Scraper.scrapeMangaPage(
+            MangareaderScraper.scrapeMangaPage(
                 Utils.getPage(this, R.raw.mangareader_goong_chapters_html,
                               mangaPage));
 
