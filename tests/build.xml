@@ -41,6 +41,17 @@
         <run-tests-helper />
     </target>
 
+    <target name="run-test-classes" depends="install"
+            description="Runs single test class without rebuilding the tested application">
+        <run-tests-helper>
+          <extra-instrument-args>
+            <arg value="-e" />
+            <arg value="class" />
+            <arg value="${test.classes}" />
+          </extra-instrument-args>
+        </run-tests-helper>
+    </target>
+
 <!-- extension targets. Uncomment the ones where you want to do custom work
      in between standard targets -->
 <!--
