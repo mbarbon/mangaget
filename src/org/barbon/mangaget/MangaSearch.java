@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) Mattia Barbon <mattia@barbon.org>
+ * distributed under the terms of the MIT license
+ */
+
 package org.barbon.mangaget;
 
 import android.app.ListActivity;
@@ -21,7 +26,7 @@ import android.widget.TextView;
 
 import org.barbon.mangaget.data.DB;
 
-import org.barbon.mangaget.scrape.animea.Scraper;
+import org.barbon.mangaget.scrape.Scraper;
 
 import org.barbon.mangaget.scrape.Downloader;
 

@@ -16,7 +16,7 @@ import org.barbon.mangaget.scrape.HtmlScrape;
 import org.barbon.mangaget.tests.R;
 import org.barbon.mangaget.tests.Utils;
 
-public class ScraperTest extends InstrumentationTestCase {
+public class MangareaderScraperTest extends InstrumentationTestCase {
     public void testScrapeChapterPages() {
         String chapterPage =
             "http://www.mangareader.net/462-28574-1/goong/chapter-1.html";

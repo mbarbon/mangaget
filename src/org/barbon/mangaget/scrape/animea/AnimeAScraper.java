@@ -3,15 +3,28 @@
  * distributed under the terms of the MIT license
  */
 
-package org.barbon.mangaget.scrape.mangareader;
+package org.barbon.mangaget.scrape.animea;
 
+import android.content.ContentValues;
+import android.content.Context;
+
+import android.database.Cursor;
+
+import java.io.File;
+import java.io.InputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URLEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.barbon.mangaget.CBZFile;
+
+import org.barbon.mangaget.data.DB;
 
 import org.barbon.mangaget.scrape.Downloader;
 import org.barbon.mangaget.scrape.HtmlScrape;
@@ -21,16 +34,27 @@ import org.jsoup.Jsoup;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Node;
+import org.jsoup.nodes.TextNode;
+
+import org.jsoup.parser.Tag;
 
 import org.jsoup.select.Elements;
 
-public class MangareaderScraper {
+public class AnimeAScraper {
     // scraper interface
     public static class Provider extends Scraper.Provider {
         @Override
+        public String composeMangaUrl(String url) {
+            // TODO proper URL manipulation
+            // skip=1 is to skip the "Mature content" warning
+            return url + "?skip=1";
+        }
+
+        @Override
         public String composeSearchUrl(String title) {
             try {
-                return "http://www.mangareader.net/search/?w=" +
+                return "http://manga.animea.net/search.html?title=" +
                     URLEncoder.encode(title, "UTF-8");
             }
             catch (UnsupportedEncodingException e) {
@@ -41,25 +65,25 @@ public class MangareaderScraper {
         @Override
         public List<String> scrapeChapterPages(
                 Downloader.DownloadDestination target) {
-            return MangareaderScraper.scrapeChapterPages(target);
+            return AnimeAScraper.scrapeChapterPages(target);
         }
 
         @Override
         public String scrapeImageUrl(
                 Downloader.DownloadDestination target) {
-            return MangareaderScraper.scrapeImageUrl(target);
+            return AnimeAScraper.scrapeImageUrl(target);
         }
 
         @Override
         public HtmlScrape.SearchResultPage scrapeSearchResults(
                 Downloader.DownloadDestination target) {
-            return MangareaderScraper.scrapeSearchResults(target);
+            return AnimeAScraper.scrapeSearchResults(target);
         }
 
         @Override
         public List<HtmlScrape.ChapterInfo> scrapeMangaPage(
                 Downloader.DownloadDestination target) {
-            return MangareaderScraper.scrapeMangaPage(target);
+            return AnimeAScraper.scrapeMangaPage(target);
         }
     }
 
@@ -76,23 +100,30 @@ public class MangareaderScraper {
             throw new RuntimeException(e);
         }
 
-        Element pageMenu = doc.select("select#pageMenu").first();
+        Element page = doc.select("select[name=page]").first();
 
-        Elements options = pageMenu.select("option");
+        if (!page.hasAttr("onchange"))
+            return null;
+        Elements options = page.select("option");
+        String urlTemplate = page.attr("onchange");
         List<String> result = new ArrayList<String>();
+
+        urlTemplate = urlTemplate.replaceFirst(
+            "javascript:window.location='(.*\\.html).*", "$1");
+        urlTemplate = HtmlScrape.absoluteUrl(urlTemplate, target.baseUrl);
 
         for (Element option : options) {
             if (!option.hasAttr("value"))
                 continue;
-            result.add(HtmlScrape.absoluteUrl(
-                           option.attr("value"), target.baseUrl));
+            result.add(urlTemplate.replaceFirst(
+                           "'\\s*\\+\\s*this\\.value\\s*\\+\\s*\\'",
+                           option.attr("value")));
         }
 
         return result;
     }
 
-    public static String scrapeImageUrl(
-            Downloader.DownloadDestination target) {
+    public static String scrapeImageUrl(Downloader.DownloadDestination target) {
         Document doc;
 
         try {
@@ -102,7 +133,7 @@ public class MangareaderScraper {
             throw new RuntimeException(e);
         }
 
-        Element img = doc.select("div#imgholder > a > img").first();
+        Element img = doc.select("img.mangaimg").first();
 
         if (!img.hasAttr("src"))
             return null;
@@ -121,7 +152,7 @@ public class MangareaderScraper {
             throw new RuntimeException(e);
         }
 
-        Elements mangas = doc.select("div.manga_name a");
+        Elements mangas = doc.select("a.manga_title");
         List<String> urls = new ArrayList<String>();
         List<String> titles = new ArrayList<String>();
 
@@ -130,23 +161,34 @@ public class MangareaderScraper {
             titles.add(manga.text());
         }
 
-        Elements links = doc.select("div#sp > a");
-        Element current = doc.select("div#sp > strong").first();
+        Elements items = doc.select("div.pagingdiv > ul:not(.order) > li");
         int currentPage = -1;
         String pagingUrl = null;
 
-        if (current != null)
-            currentPage = Integer.valueOf(current.text());
+        for (Element item : items) {
+            if (   item.children().size() == 0
+                && (   !item.hasAttr("class")
+                    || !item.attr("class").equals("totalmanga"))) {
+                String num = item.text();
 
-        for (Element link : links) {
-            String href = link.attr("abs:href");
-            int index = href.lastIndexOf("&p=");
+                if (   !num.equalsIgnoreCase("previous")
+                    && !num.equalsIgnoreCase("next"))
+                    currentPage = Integer.valueOf(num);
+            }
+            else if (   item.children().size() == 1
+                     && item.child(0).tag() == Tag.valueOf("a")) {
+                Element link = item.child(0);
+                String href = link.attr("abs:href");
+                int index = href.lastIndexOf("&page=");
 
-            if (index == -1)
-                continue;
+                if (index == -1)
+                    continue;
 
-            pagingUrl = href.substring(0, index + 3) + "%d";
-            break;
+                pagingUrl = href.substring(0, index + 6) + "%d";
+            }
+
+            if (currentPage != -1 && pagingUrl != null)
+                break;
         }
 
         HtmlScrape.SearchResultPage page = new HtmlScrape.SearchResultPage();
@@ -170,7 +212,7 @@ public class MangareaderScraper {
             throw new RuntimeException(e);
         }
 
-        Elements links = doc.select("div#chapterlist a");
+        Elements links = doc.select("ul.chapters_list li > a");
         List<HtmlScrape.ChapterInfo> chapters =
             new ArrayList<HtmlScrape.ChapterInfo>();
 
@@ -179,13 +221,29 @@ public class MangareaderScraper {
                 continue;
 
             String url = link.attr("abs:href");
-            String title = link.text();
+
+            if (!url.endsWith("-page-1.html"))
+                continue;
+            int dash = url.lastIndexOf('-', url.length() - 13);
+            String indexS = url.substring(dash + 1, url.length() - 12);
+
+            // TODO store indexS in the chapter table and use to correlate
+            //      chapters when updating entries
+
+            int elementIndex = link.parent().childNodes().indexOf(link);
+            Node text = link.parent().childNode(elementIndex + 1);
+
+            if (!(text instanceof TextNode))
+                continue;
+
+            String title = ((TextNode)text).text();
             HtmlScrape.ChapterInfo info = new HtmlScrape.ChapterInfo();
 
             info.title = title;
             info.url = url;
 
-            chapters.add(info);
+            // assumes chapters are listed in reverse order
+            chapters.add(0, info);
         }
 
         return chapters;

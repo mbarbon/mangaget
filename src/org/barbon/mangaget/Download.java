@@ -34,7 +34,7 @@ import org.barbon.mangaget.data.DB;
 
 import org.barbon.mangaget.scrape.Downloader;
 
-import org.barbon.mangaget.scrape.animea.Scraper;
+import org.barbon.mangaget.scrape.Scraper;
 
 // TODO handle download errors/missing network connection
 
