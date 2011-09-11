@@ -549,6 +549,8 @@ public class Scraper {
             pageList.add(page);
         }
 
+        pageCursor.close();
+
         PageDownloader pages = new PageDownloader(download, pageList);
 
         pages.start();
