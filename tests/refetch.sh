@@ -12,7 +12,7 @@ animea_papillon_c1_p1_html	http://manga.animea.net/papillon-hana-to-chou-chapter
 animea_papillon_c1_p2_html	http://manga.animea.net/papillon-hana-to-chou-chapter-1-page-2.html
 animea_papillon_chapters_html	http://manga.animea.net/papillon-hana-to-chou.html
 mangareader_results_empty_html	http://www.mangareader.net/search/?w=trzrt
-mangareader_results_html	http://www.mangareader.net/search/?w=
+mangareader_results_html	http://www.mangareader.net/search/?w=&p=30
 mangareader_goong_c1_p1_html	http://www.mangareader.net/462-28574-1/goong/chapter-1.html
 mangareader_goong_c1_p2_html	http://www.mangareader.net/462-28574-2/goong/chapter-1.html
 mangareader_goong_chapters_html	http://www.mangareader.net/462/goong.html

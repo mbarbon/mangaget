@@ -335,414 +335,158 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <h2>Manga/Manhwa Results</h2>
 <div class="mangaresultitem">
 <div class="mangaresultinner">
-<div class="c3">1.</div>
-<div class="imgsearchresults" style="background-image:url('http://s2.mangareader.net/cover/naruto/naruto-r0.jpg')"></div><div class="result_info c4">
+<div class="c3">31.</div>
+<div class="imgsearchresults" style="background-image:url('http://s1.mangareader.net/cover/yotsubato/yotsubato-r1.jpg')"></div><div class="result_info c4">
 <div class="manga_name">
 <div>
-<h3><a href="/93/naruto.html">Naruto</a></h3>
-</div>
-</div>
-<div class="chapter_count">554&nbsp;Chapters Published. (Ongoing)</div>
-<div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Action, Drama, Fantasy, Martial Arts, Shounen, Super Power, Supernatural</div>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="mangaresultitem">
-<div class="mangaresultinner">
-<div class="c3">2.</div>
-<div class="imgsearchresults" style="background-image:url('http://s2.mangareader.net/cover/bleach/bleach-r0.jpg')"></div><div class="result_info c4">
-<div class="manga_name">
-<div>
-<h3><a href="/94/bleach.html">Bleach</a></h3>
-</div>
-</div>
-<div class="chapter_count">465&nbsp;Chapters Published. (Ongoing)</div>
-<div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Action, Comedy, Drama, Fantasy, Shounen, Super Power, Supernatural</div>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="mangaresultitem">
-<div class="mangaresultinner">
-<div class="c3">3.</div>
-<div class="imgsearchresults" style="background-image:url('http://s2.mangareader.net/cover/berserk/berserk-r0.jpg')"></div><div class="result_info c4">
-<div class="manga_name">
-<div>
-<h3><a href="/96/berserk.html">Berserk</a></h3>
-</div>
-</div>
-<div class="chapter_count">60&nbsp;Chapters Published. (Ongoing)</div>
-<div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Action, Horror</div>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="mangaresultitem">
-<div class="mangaresultinner">
-<div class="c3">4.</div>
-<div class="imgsearchresults" style="background-image:url('http://s3.mangareader.net/cover/gantz/gantz-r0.jpg')"></div><div class="result_info c4">
-<div class="manga_name">
-<div>
-<h3><a href="/97/gantz.html">Gantz</a></h3>
-</div>
-</div>
-<div class="chapter_count">347&nbsp;Chapters Published. (Ongoing)</div>
-<div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Action, Sci-Fi, Seinen, Supernatural</div>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="mangaresultitem">
-<div class="mangaresultinner">
-<div class="c3">5.</div>
-<div class="imgsearchresults" style="background-image:url('http://s3.mangareader.net/cover/monster/monster-r0.jpg')"></div><div class="result_info c4">
-<div class="manga_name">
-<div>
-<h3><a href="/99/monster.html">Monster</a></h3>
-</div>
-</div>
-<div class="chapter_count">162&nbsp;Chapters Published. (Completed)</div>
-<div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Mystery</div>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="mangaresultitem">
-<div class="mangaresultinner">
-<div class="c3">6.</div>
-<div class="imgsearchresults" style="background-image:url('http://s3.mangareader.net/cover/vagabond/vagabond-r0.jpg')"></div><div class="result_info c4">
-<div class="manga_name">
-<div>
-<h3><a href="/100/vagabond.html">Vagabond</a></h3>
-</div>
-</div>
-<div class="chapter_count">300&nbsp;Chapters Published. (Ongoing)</div>
-<div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Action, Drama, Historical, Martial Arts, Mature, Seinen</div>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="mangaresultitem">
-<div class="mangaresultinner">
-<div class="c3">7.</div>
-<div class="imgsearchresults" style="background-image:url('http://s4.mangareader.net/cover/akira/akira-r0.jpg')"></div><div class="result_info c4">
-<div class="manga_name">
-<div>
-<h3><a href="/101/akira.html">Akira</a></h3>
-</div>
-</div>
-<div class="chapter_count">6&nbsp;Chapters Published. (Completed)</div>
-<div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Sci-Fi</div>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="mangaresultitem">
-<div class="mangaresultinner">
-<div class="c3">8.</div>
-<div class="imgsearchresults" style="background-image:url('http://s4.mangareader.net/cover/kuroshitsuji/kuroshitsuji-r0.jpg')"></div><div class="result_info c4">
-<div class="manga_name">
-<div>
-<h3><a href="/102/kuroshitsuji.html">Kuroshitsuji</a></h3>
-</div>
-</div>
-<div class="chapter_count">61&nbsp;Chapters Published. (Ongoing)</div>
-<div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Comedy, Fantasy, Supernatural</div>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="mangaresultitem">
-<div class="mangaresultinner">
-<div class="c3">9.</div>
-<div class="imgsearchresults" style="background-image:url('http://s4.mangareader.net/cover/one-piece/one-piece-r1.jpg')"></div><div class="result_info c4">
-<div class="manga_name">
-<div>
-<h3><a href="/103/one-piece.html">One Piece</a></h3>
-</div>
-</div>
-<div class="chapter_count">639&nbsp;Chapters Published. (Ongoing)</div>
-<div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Action, Adventure, Comedy, Drama, Fantasy, Shounen</div>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="mangaresultitem">
-<div class="mangaresultinner">
-<div class="c3">10.</div>
-<div class="imgsearchresults" style="background-image:url('http://s5.mangareader.net/cover/vampire-knight/vampire-knight-r0.jpg')"></div><div class="result_info c4">
-<div class="manga_name">
-<div>
-<h3><a href="/104/vampire-knight.html">Vampire Knight</a></h3>
+<h3><a href="/132/yotsubato.html">Yotsubato!</a></h3>
 </div>
 </div>
 <div class="chapter_count">77&nbsp;Chapters Published. (Ongoing)</div>
 <div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Drama, Mystery, Romance, Shoujo, Supernatural</div>
+<div class="manga_genre">Comedy, Slice of Life</div>
 </div>
 <div class="clear"></div>
 </div>
 </div>
 <div class="mangaresultitem">
 <div class="mangaresultinner">
-<div class="c3">11.</div>
-<div class="imgsearchresults" style="background-image:url('http://s5.mangareader.net/cover/dragon-ball/dragon-ball-r0.jpg')"></div><div class="result_info c4">
+<div class="c3">32.</div>
+<div class="imgsearchresults" style="background-image:url('http://s2.mangareader.net/cover/junjou-romantica/junjou-romantica-r0.jpg')"></div><div class="result_info c4">
 <div class="manga_name">
 <div>
-<h3><a href="/105/dragon-ball.html">Dragon Ball</a></h3>
+<h3><a href="/133/junjou-romantica.html">Junjou Romantica</a></h3>
 </div>
 </div>
-<div class="chapter_count">520&nbsp;Chapters Published. (Completed)</div>
+<div class="chapter_count">38&nbsp;Chapters Published. (Ongoing)</div>
 <div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Action, Adventure, Comedy, Fantasy, Historical, Martial Arts, Shounen, Supernatural</div>
+<div class="manga_genre">Comedy, Drama, Mature, Romance, Yaoi</div>
 </div>
 <div class="clear"></div>
 </div>
 </div>
 <div class="mangaresultitem">
 <div class="mangaresultinner">
-<div class="c3">12.</div>
-<div class="imgsearchresults" style="background-image:url('http://s5.mangareader.net/cover/blade-of-the-immortal/blade-of-the-immortal-r0.jpg')"></div><div class="result_info c4">
+<div class="c3">33.</div>
+<div class="imgsearchresults" style="background-image:url('http://s2.mangareader.net/cover/eyeshield-21/eyeshield-21-r0.jpg')"></div><div class="result_info c4">
 <div class="manga_name">
 <div>
-<h3><a href="/109/blade-of-the-immortal.html">Blade of the Immortal</a></h3>
+<h3><a href="/134/eyeshield-21.html">Eyeshield 21</a></h3>
 </div>
 </div>
-<div class="chapter_count">159&nbsp;Chapters Published. (Ongoing)</div>
+<div class="chapter_count">334&nbsp;Chapters Published. (Completed)</div>
 <div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Historical, Horror, Supernatural</div>
+<div class="manga_genre">Comedy, Drama, Shounen, Sports</div>
 </div>
 <div class="clear"></div>
 </div>
 </div>
 <div class="mangaresultitem">
 <div class="mangaresultinner">
-<div class="c3">13.</div>
-<div class="imgsearchresults" style="background-image:url('http://s1.mangareader.net/cover/the-bride-of-the-water-god/the-bride-of-the-water-god-r0.jpg')"></div><div class="result_info c4">
+<div class="c3">34.</div>
+<div class="imgsearchresults" style="background-image:url('http://s2.mangareader.net/cover/fairy-tail/fairy-tail-r0.jpg')"></div><div class="result_info c4">
 <div class="manga_name">
 <div>
-<h3><a href="/110/the-bride-of-the-water-god.html">The Bride of the Water God</a></h3>
+<h3><a href="/135/fairy-tail.html">Fairy Tail</a></h3>
 </div>
 </div>
-<div class="chapter_count">105&nbsp;Chapters Published. (Ongoing)</div>
+<div class="chapter_count">252&nbsp;Chapters Published. (Ongoing)</div>
+<div class="manga_type">Manga (Read Right to Left)</div>
+<div class="manga_genre">Action, Adventure, Comedy, Drama, Ecchi, Fantasy, Shounen, Supernatural</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="mangaresultitem">
+<div class="mangaresultinner">
+<div class="c3">35.</div>
+<div class="imgsearchresults" style="background-image:url('http://s3.mangareader.net/cover/air-gear/air-gear-r0.jpg')"></div><div class="result_info c4">
+<div class="manga_name">
+<div>
+<h3><a href="/137/air-gear.html">Air Gear</a></h3>
+</div>
+</div>
+<div class="chapter_count">326&nbsp;Chapters Published. (Ongoing)</div>
 <div class="manga_type">Manhwa (Read Left to Right)</div>
-<div class="manga_genre">Drama, Fantasy, Romance, Shoujo</div>
+<div class="manga_genre">Action, Comedy, Ecchi, Shounen, Sports</div>
 </div>
 <div class="clear"></div>
 </div>
 </div>
 <div class="mangaresultitem">
 <div class="mangaresultinner">
-<div class="c3">14.</div>
-<div class="imgsearchresults" style="background-image:url('http://s1.mangareader.net/cover/20th-century-boys/20th-century-boys-r0.jpg')"></div><div class="result_info c4">
+<div class="c3">36.</div>
+<div class="imgsearchresults" style="background-image:url('http://s3.mangareader.net/cover/shaman-king/shaman-king-r0.jpg')"></div><div class="result_info c4">
 <div class="manga_name">
 <div>
-<h3><a href="/111/20th-century-boys.html">20th Century Boys</a></h3>
+<h3><a href="/138/shaman-king.html">Shaman King</a></h3>
 </div>
 </div>
-<div class="chapter_count">242&nbsp;Chapters Published. (Completed)</div>
+<div class="chapter_count">300&nbsp;Chapters Published. (Completed)</div>
 <div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Action, Drama, Historical, Mystery, Sci-Fi, Seinen, Supernatural</div>
+<div class="manga_genre">Action, Adventure, Comedy, Shounen, Supernatural</div>
 </div>
 <div class="clear"></div>
 </div>
 </div>
 <div class="mangaresultitem">
 <div class="mangaresultinner">
-<div class="c3">15.</div>
-<div class="imgsearchresults" style="background-image:url('http://s1.mangareader.net/cover/yokohama-kaidashi-kikou/yokohama-kaidashi-kikou-r0.jpg')"></div><div class="result_info c4">
+<div class="c3">37.</div>
+<div class="imgsearchresults" style="background-image:url('http://s3.mangareader.net/cover/detective-conan/detective-conan-r0.jpg')"></div><div class="result_info c4">
 <div class="manga_name">
 <div>
-<h3><a href="/112/yokohama-kaidashi-kikou.html">Yokohama Kaidashi Kikou</a></h3>
+<h3><a href="/139/detective-conan.html">Detective Conan</a></h3>
 </div>
 </div>
-<div class="chapter_count">141&nbsp;Chapters Published. (Completed)</div>
+<div class="chapter_count">787&nbsp;Chapters Published. (Ongoing)</div>
 <div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Drama, Sci-Fi, Seinen, Slice of Life</div>
+<div class="manga_genre">Mystery, Shounen</div>
 </div>
 <div class="clear"></div>
 </div>
 </div>
 <div class="mangaresultitem">
 <div class="mangaresultinner">
-<div class="c3">16.</div>
-<div class="imgsearchresults" style="background-image:url('http://s2.mangareader.net/cover/death-note/death-note-r0.jpg')"></div><div class="result_info c4">
+<div class="c3">38.</div>
+<div class="imgsearchresults" style="background-image:url('http://s4.mangareader.net/cover/to-love-ru/to-love-ru-r0.jpg')"></div><div class="result_info c4">
 <div class="manga_name">
 <div>
-<h3><a href="/113/death-note.html">Death Note</a></h3>
+<h3><a href="/140/to-love-ru.html">To-LOVE-Ru</a></h3>
 </div>
 </div>
-<div class="chapter_count">109&nbsp;Chapters Published. (Completed)</div>
+<div class="chapter_count">162&nbsp;Chapters Published. (Ongoing)</div>
 <div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Drama, Mystery, Shounen, Supernatural</div>
+<div class="manga_genre">Comedy, Ecchi, Fantasy, Gender Bender, Harem, Romance, Sci-Fi, Shounen</div>
 </div>
 <div class="clear"></div>
 </div>
 </div>
 <div class="mangaresultitem">
 <div class="mangaresultinner">
-<div class="c3">17.</div>
-<div class="imgsearchresults" style="background-image:url('http://s2.mangareader.net/cover/great-teacher-onizuka/great-teacher-onizuka-r0.jpg')"></div><div class="result_info c4">
+<div class="c3">39.</div>
+<div class="imgsearchresults" style="background-image:url('http://s4.mangareader.net/cover/kekkaishi/kekkaishi-r0.jpg')"></div><div class="result_info c4">
 <div class="manga_name">
 <div>
-<h3><a href="/114/great-teacher-onizuka.html">Great Teacher Onizuka</a></h3>
+<h3><a href="/144/kekkaishi.html">Kekkaishi</a></h3>
 </div>
 </div>
-<div class="chapter_count">200&nbsp;Chapters Published. (Completed)</div>
+<div class="chapter_count">335&nbsp;Chapters Published. (Ongoing)</div>
 <div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Action, Comedy, Drama, Ecchi, Shounen</div>
+<div class="manga_genre">Action, Adventure, Comedy, Fantasy, Shounen, Supernatural</div>
 </div>
 <div class="clear"></div>
 </div>
 </div>
 <div class="mangaresultitem">
 <div class="mangaresultinner">
-<div class="c3">18.</div>
-<div class="imgsearchresults" style="background-image:url('http://s2.mangareader.net/cover/hajime-no-ippo/hajime-no-ippo-r0.jpg')"></div><div class="result_info c4">
+<div class="c3">40.</div>
+<div class="imgsearchresults" style="background-image:url('http://s4.mangareader.net/cover/kyou-koi-wo-hajimemasu/kyou-koi-wo-hajimemasu-r0.jpg')"></div><div class="result_info c4">
 <div class="manga_name">
 <div>
-<h3><a href="/115/hajime-no-ippo.html">Hajime no Ippo</a></h3>
+<h3><a href="/145/kyou-koi-wo-hajimemasu.html">Kyou Koi wo Hajimemasu</a></h3>
 </div>
 </div>
-<div class="chapter_count">947&nbsp;Chapters Published. (Ongoing)</div>
-<div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Action, Comedy, Shounen, Sports</div>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="mangaresultitem">
-<div class="mangaresultinner">
-<div class="c3">19.</div>
-<div class="imgsearchresults" style="background-image:url('http://s3.mangareader.net/cover/full-metal-alchemist/full-metal-alchemist-r0.jpg')"></div><div class="result_info c4">
-<div class="manga_name">
-<div>
-<h3><a href="/116/full-metal-alchemist.html">Full Metal Alchemist</a></h3>
-</div>
-</div>
-<div class="chapter_count">108&nbsp;Chapters Published. (Ongoing)</div>
-<div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Action, Adventure, Comedy, Drama, Fantasy, Shounen, Supernatural, Tragedy</div>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="mangaresultitem">
-<div class="mangaresultinner">
-<div class="c3">20.</div>
-<div class="imgsearchresults" style="background-image:url('http://s3.mangareader.net/cover/skip-beat/skip-beat-r0.jpg')"></div><div class="result_info c4">
-<div class="manga_name">
-<div>
-<h3><a href="/117/skip-beat.html">Skip Beat</a></h3>
-</div>
-</div>
-<div class="chapter_count">179&nbsp;Chapters Published. (Ongoing)</div>
-<div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Comedy, Drama, Shoujo, Slice of Life</div>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="mangaresultitem">
-<div class="mangaresultinner">
-<div class="c3">21.</div>
-<div class="imgsearchresults" style="background-image:url('http://s3.mangareader.net/cover/rurouni-kenshin/rurouni-kenshin-r0.jpg')"></div><div class="result_info c4">
-<div class="manga_name">
-<div>
-<h3><a href="/118/rurouni-kenshin.html">Rurouni Kenshin</a></h3>
-</div>
-</div>
-<div class="chapter_count">258&nbsp;Chapters Published. (Completed)</div>
-<div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Action, Drama, Fantasy, Historical, Shounen</div>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="mangaresultitem">
-<div class="mangaresultinner">
-<div class="c3">22.</div>
-<div class="imgsearchresults" style="background-image:url('http://s4.mangareader.net/cover/slam-dunk/slam-dunk-r0.jpg')"></div><div class="result_info c4">
-<div class="manga_name">
-<div>
-<h3><a href="/119/slam-dunk.html">Slam Dunk</a></h3>
-</div>
-</div>
-<div class="chapter_count">276&nbsp;Chapters Published. (Completed)</div>
-<div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Comedy, Shounen, Sports</div>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="mangaresultitem">
-<div class="mangaresultinner">
-<div class="c3">23.</div>
-<div class="imgsearchresults" style="background-image:url('http://s4.mangareader.net/cover/the-world-god-only-knows/the-world-god-only-knows-r0.jpg')"></div><div class="result_info c4">
-<div class="manga_name">
-<div>
-<h3><a href="/120/the-world-god-only-knows.html">The World God Only Knows</a></h3>
-</div>
-</div>
-<div class="chapter_count">159&nbsp;Chapters Published. (Ongoing)</div>
-<div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Comedy, Fantasy, Romance, Shounen</div>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="mangaresultitem">
-<div class="mangaresultinner">
-<div class="c3">24.</div>
-<div class="imgsearchresults" style="background-image:url('http://s4.mangareader.net/cover/i-accept-you/i-accept-you-r0.jpg')"></div><div class="result_info c4">
-<div class="manga_name">
-<div>
-<h3><a href="/121/i-accept-you.html">I Accept You</a></h3>
-</div>
-</div>
-<div class="chapter_count">24&nbsp;Chapters Published. (Ongoing)</div>
-<div class="manga_type">Manhwa (Read Left to Right)</div>
-<div class="manga_genre">Romance, Shoujo</div>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="mangaresultitem">
-<div class="mangaresultinner">
-<div class="c3">25.</div>
-<div class="imgsearchresults" style="background-image:url('http://s5.mangareader.net/cover/gakuen-alice/gakuen-alice-r0.jpg')"></div><div class="result_info c4">
-<div class="manga_name">
-<div>
-<h3><a href="/122/gakuen-alice.html">Gakuen Alice</a></h3>
-</div>
-</div>
-<div class="chapter_count">157&nbsp;Chapters Published. (Ongoing)</div>
-<div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Comedy, Drama, Fantasy, Romance, Shoujo, Supernatural</div>
-</div>
-<div class="clear"></div>
-</div>
-</div>
-<div class="mangaresultitem">
-<div class="mangaresultinner">
-<div class="c3">26.</div>
-<div class="imgsearchresults" style="background-image:url('http://s5.mangareader.net/cover/dengeki-daisy/dengeki-daisy-r0.jpg')"></div><div class="result_info c4">
-<div class="manga_name">
-<div>
-<h3><a href="/123/dengeki-daisy.html">Dengeki Daisy</a></h3>
-</div>
-</div>
-<div class="chapter_count">39&nbsp;Chapters Published. (Ongoing)</div>
+<div class="chapter_count">70&nbsp;Chapters Published. (Ongoing)</div>
 <div class="manga_type">Manga (Read Right to Left)</div>
 <div class="manga_genre">Comedy, Drama, Romance, Shoujo, Slice of Life</div>
 </div>
@@ -751,64 +495,320 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </div>
 <div class="mangaresultitem">
 <div class="mangaresultinner">
-<div class="c3">27.</div>
-<div class="imgsearchresults" style="background-image:url('http://s5.mangareader.net/cover/21st-century-boys/21st-century-boys-r0.jpg')"></div><div class="result_info c4">
+<div class="c3">41.</div>
+<div class="imgsearchresults" style="background-image:url('http://s5.mangareader.net/cover/hana-to-akuma/hana-to-akuma-r0.jpg')"></div><div class="result_info c4">
 <div class="manga_name">
 <div>
-<h3><a href="/124/21st-century-boys.html">21st Century Boys</a></h3>
+<h3><a href="/146/hana-to-akuma.html">Hana to Akuma</a></h3>
 </div>
 </div>
-<div class="chapter_count">16&nbsp;Chapters Published. (Completed)</div>
+<div class="chapter_count">60&nbsp;Chapters Published. (Ongoing)</div>
 <div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Action, Drama, Mystery, Sci-Fi, Seinen</div>
+<div class="manga_genre">Comedy, Fantasy, Romance, Shoujo, Supernatural</div>
 </div>
 <div class="clear"></div>
 </div>
 </div>
 <div class="mangaresultitem">
 <div class="mangaresultinner">
-<div class="c3">28.</div>
-<div class="imgsearchresults" style="background-image:url('http://s1.mangareader.net/cover/vinland-saga/vinland-saga-r0.jpg')"></div><div class="result_info c4">
+<div class="c3">42.</div>
+<div class="imgsearchresults" style="background-image:url('http://s5.mangareader.net/cover/kaichou-wa-maid-sama/kaichou-wa-maid-sama-r0.jpg')"></div><div class="result_info c4">
 <div class="manga_name">
 <div>
-<h3><a href="/125/vinland-saga.html">Vinland Saga</a></h3>
+<h3><a href="/147/kaichou-wa-maid-sama.html">Kaichou wa Maid-sama!</a></h3>
 </div>
 </div>
-<div class="chapter_count">76&nbsp;Chapters Published. (Ongoing)</div>
+<div class="chapter_count">67&nbsp;Chapters Published. (Ongoing)</div>
 <div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Action, Adventure, Historical, Seinen</div>
+<div class="manga_genre">Comedy, Drama, Romance, Shoujo</div>
 </div>
 <div class="clear"></div>
 </div>
 </div>
 <div class="mangaresultitem">
 <div class="mangaresultinner">
-<div class="c3">29.</div>
-<div class="imgsearchresults" style="background-image:url('http://s1.mangareader.net/cover/pluto/pluto-r0.jpg')"></div><div class="result_info c4">
+<div class="c3">43.</div>
+<div class="imgsearchresults" style="background-image:url('http://s5.mangareader.net/cover/faster-than-a-kiss/faster-than-a-kiss-r0.jpg')"></div><div class="result_info c4">
 <div class="manga_name">
 <div>
-<h3><a href="/126/pluto.html">Pluto</a></h3>
+<h3><a href="/148/faster-than-a-kiss.html">Faster than a Kiss</a></h3>
 </div>
 </div>
-<div class="chapter_count">65&nbsp;Chapters Published. (Completed)</div>
+<div class="chapter_count">44&nbsp;Chapters Published. (Ongoing)</div>
 <div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Action, Drama, Mecha, Mystery, Sci-Fi, Seinen</div>
+<div class="manga_genre">Comedy, Drama, Romance, Shoujo</div>
 </div>
 <div class="clear"></div>
 </div>
 </div>
 <div class="mangaresultitem">
 <div class="mangaresultinner">
-<div class="c3">30.</div>
-<div class="imgsearchresults" style="background-image:url('http://s1.mangareader.net/cover/nodame-cantabile/nodame-cantabile-r0.jpg')"></div><div class="result_info c4">
+<div class="c3">44.</div>
+<div class="imgsearchresults" style="background-image:url('http://s1.mangareader.net/cover/nana/nana-r0.jpg')"></div><div class="result_info c4">
 <div class="manga_name">
 <div>
-<h3><a href="/128/nodame-cantabile.html">Nodame Cantabile</a></h3>
+<h3><a href="/149/nana.html">Nana</a></h3>
 </div>
 </div>
-<div class="chapter_count">139&nbsp;Chapters Published. (Ongoing)</div>
+<div class="chapter_count">31&nbsp;Chapters Published. (Ongoing)</div>
 <div class="manga_type">Manga (Read Right to Left)</div>
-<div class="manga_genre">Comedy, Drama, Josei, Romance, Slice of Life</div>
+<div class="manga_genre">Comedy, Drama, Josei, Romance, Slice of Life, Tragedy</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="mangaresultitem">
+<div class="mangaresultinner">
+<div class="c3">45.</div>
+<div class="imgsearchresults" style="background-image:url('http://s1.mangareader.net/cover/the-one/the-one-r0.jpg')"></div><div class="result_info c4">
+<div class="manga_name">
+<div>
+<h3><a href="/150/the-one.html">The One</a></h3>
+</div>
+</div>
+<div class="chapter_count">88&nbsp;Chapters Published. (Ongoing)</div>
+<div class="manga_type">Manga (Read Right to Left)</div>
+<div class="manga_genre">Comedy, Drama, Romance, Shoujo, Slice of Life</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="mangaresultitem">
+<div class="mangaresultinner">
+<div class="c3">46.</div>
+<div class="imgsearchresults" style="background-image:url('http://s1.mangareader.net/cover/kaikan-phrase/kaikan-phrase-r1.jpg')"></div><div class="result_info c4">
+<div class="manga_name">
+<div>
+<h3><a href="/151/kaikan-phrase.html">Kaikan Phrase</a></h3>
+</div>
+</div>
+<div class="chapter_count">93&nbsp;Chapters Published. (Completed)</div>
+<div class="manga_type">Manga (Read Right to Left)</div>
+<div class="manga_genre">Drama, Mature, Romance, School Life, Shoujo, Smut</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="mangaresultitem">
+<div class="mangaresultinner">
+<div class="c3">47.</div>
+<div class="imgsearchresults" style="background-image:url('http://s2.mangareader.net/cover/momo/momo-r0.jpg')"></div><div class="result_info c4">
+<div class="manga_name">
+<div>
+<h3><a href="/152/momo.html">Momo</a></h3>
+</div>
+</div>
+<div class="chapter_count">24&nbsp;Chapters Published. (Ongoing)</div>
+<div class="manga_type">Manga (Read Right to Left)</div>
+<div class="manga_genre">Drama, Fantasy, Romance, Shoujo, Supernatural</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="mangaresultitem">
+<div class="mangaresultinner">
+<div class="c3">48.</div>
+<div class="imgsearchresults" style="background-image:url('http://s2.mangareader.net/cover/fly-high/fly-high-r0.jpg')"></div><div class="result_info c4">
+<div class="manga_name">
+<div>
+<h3><a href="/153/fly-high.html">Fly High!</a></h3>
+</div>
+</div>
+<div class="chapter_count">14&nbsp;Chapters Published. (Ongoing)</div>
+<div class="manga_type">Manga (Read Right to Left)</div>
+<div class="manga_genre">Action, Comedy, Romance, Shoujo</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="mangaresultitem">
+<div class="mangaresultinner">
+<div class="c3">49.</div>
+<div class="imgsearchresults" style="background-image:url('http://s2.mangareader.net/cover/absolute-boyfriend/absolute-boyfriend-r0.jpg')"></div><div class="result_info c4">
+<div class="manga_name">
+<div>
+<h3><a href="/154/absolute-boyfriend.html">Absolute Boyfriend</a></h3>
+</div>
+</div>
+<div class="chapter_count">34&nbsp;Chapters Published. (Completed)</div>
+<div class="manga_type">Manga (Read Right to Left)</div>
+<div class="manga_genre">Comedy, Drama, Ecchi, Romance, Sci-Fi, Shoujo, Tragedy</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="mangaresultitem">
+<div class="mangaresultinner">
+<div class="c3">50.</div>
+<div class="imgsearchresults" style="background-image:url('http://s3.mangareader.net/cover/soul-eater/soul-eater-r0.jpg')"></div><div class="result_info c4">
+<div class="manga_name">
+<div>
+<h3><a href="/157/soul-eater.html">Soul Eater</a></h3>
+</div>
+</div>
+<div class="chapter_count">89&nbsp;Chapters Published. (Ongoing)</div>
+<div class="manga_type">Manga (Read Right to Left)</div>
+<div class="manga_genre">Action, Comedy, Ecchi, Fantasy, Shounen, Supernatural</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="mangaresultitem">
+<div class="mangaresultinner">
+<div class="c3">51.</div>
+<div class="imgsearchresults" style="background-image:url('http://s3.mangareader.net/cover/first-girl/first-girl-r0.jpg')"></div><div class="result_info c4">
+<div class="manga_name">
+<div>
+<h3><a href="/158/first-girl.html">First Girl</a></h3>
+</div>
+</div>
+<div class="chapter_count">21&nbsp;Chapters Published. (Completed)</div>
+<div class="manga_type">Manga (Read Right to Left)</div>
+<div class="manga_genre">Adventure, Drama, Josei, Mature, Romance, Shoujo, Smut, Tragedy</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="mangaresultitem">
+<div class="mangaresultinner">
+<div class="c3">52.</div>
+<div class="imgsearchresults" style="background-image:url('http://s3.mangareader.net/cover/aiki/aiki-r0.jpg')"></div><div class="result_info c4">
+<div class="manga_name">
+<div>
+<h3><a href="/159/aiki.html">Aiki</a></h3>
+</div>
+</div>
+<div class="chapter_count">74&nbsp;Chapters Published. (Ongoing)</div>
+<div class="manga_type">Manga (Read Right to Left)</div>
+<div class="manga_genre">Action, Comedy, Ecchi, Harem, Martial Arts, Mature, Seinen</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="mangaresultitem">
+<div class="mangaresultinner">
+<div class="c3">53.</div>
+<div class="imgsearchresults" style="background-image:url('http://s4.mangareader.net/cover/xxxholic/xxxholic-r0.jpg')"></div><div class="result_info c4">
+<div class="manga_name">
+<div>
+<h3><a href="/160/xxxholic.html">xxxHolic</a></h3>
+</div>
+</div>
+<div class="chapter_count">214&nbsp;Chapters Published. (Ongoing)</div>
+<div class="manga_type">Manga (Read Right to Left)</div>
+<div class="manga_genre">Comedy, Drama, Fantasy, Mystery, Seinen, Supernatural</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="mangaresultitem">
+<div class="mangaresultinner">
+<div class="c3">54.</div>
+<div class="imgsearchresults" style="background-image:url('http://s4.mangareader.net/cover/ah-my-goddess/ah-my-goddess-r0.jpg')"></div><div class="result_info c4">
+<div class="manga_name">
+<div>
+<h3><a href="/161/ah-my-goddess.html">Ah My Goddess</a></h3>
+</div>
+</div>
+<div class="chapter_count">273&nbsp;Chapters Published. (Ongoing)</div>
+<div class="manga_type">Manga (Read Right to Left)</div>
+<div class="manga_genre">Comedy, Fantasy, Romance, Seinen</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="mangaresultitem">
+<div class="mangaresultinner">
+<div class="c3">55.</div>
+<div class="imgsearchresults" style="background-image:url('http://s4.mangareader.net/cover/sekirei/sekirei-r0.jpg')"></div><div class="result_info c4">
+<div class="manga_name">
+<div>
+<h3><a href="/163/sekirei.html">Sekirei</a></h3>
+</div>
+</div>
+<div class="chapter_count">119&nbsp;Chapters Published. (Ongoing)</div>
+<div class="manga_type">Manga (Read Right to Left)</div>
+<div class="manga_genre">Action, Comedy, Ecchi, Gender Bender, Harem, Mature, Romance, Seinen, Supernatural</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="mangaresultitem">
+<div class="mangaresultinner">
+<div class="c3">56.</div>
+<div class="imgsearchresults" style="background-image:url('http://s5.mangareader.net/cover/liar-game/liar-game-r0.jpg')"></div><div class="result_info c4">
+<div class="manga_name">
+<div>
+<h3><a href="/164/liar-game.html">Liar Game</a></h3>
+</div>
+</div>
+<div class="chapter_count">132&nbsp;Chapters Published. (Ongoing)</div>
+<div class="manga_type">Manga (Read Right to Left)</div>
+<div class="manga_genre">Drama, Mystery, Seinen</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="mangaresultitem">
+<div class="mangaresultinner">
+<div class="c3">57.</div>
+<div class="imgsearchresults" style="background-image:url('http://s5.mangareader.net/cover/change-123/change-123-r0.jpg')"></div><div class="result_info c4">
+<div class="manga_name">
+<div>
+<h3><a href="/165/change-123.html">Change 123</a></h3>
+</div>
+</div>
+<div class="chapter_count">60&nbsp;Chapters Published. (Completed)</div>
+<div class="manga_type">Manga (Read Right to Left)</div>
+<div class="manga_genre">Action, Comedy, Ecchi, Harem, Martial Arts, Mature, Romance, Seinen</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="mangaresultitem">
+<div class="mangaresultinner">
+<div class="c3">58.</div>
+<div class="imgsearchresults" style="background-image:url('http://s5.mangareader.net/cover/umi-no-misaki/umi-no-misaki-r0.jpg')"></div><div class="result_info c4">
+<div class="manga_name">
+<div>
+<h3><a href="/166/umi-no-misaki.html">Umi No Misaki</a></h3>
+</div>
+</div>
+<div class="chapter_count">87&nbsp;Chapters Published. (Ongoing)</div>
+<div class="manga_type">Manga (Read Right to Left)</div>
+<div class="manga_genre">Comedy, Ecchi, Harem, Mystery, Romance, Seinen</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="mangaresultitem">
+<div class="mangaresultinner">
+<div class="c3">59.</div>
+<div class="imgsearchresults" style="background-image:url('http://s1.mangareader.net/cover/black-god/black-god-r0.jpg')"></div><div class="result_info c4">
+<div class="manga_name">
+<div>
+<h3><a href="/167/black-god.html">Black God</a></h3>
+</div>
+</div>
+<div class="chapter_count">83&nbsp;Chapters Published. (Ongoing)</div>
+<div class="manga_type">Manga (Read Right to Left)</div>
+<div class="manga_genre">Action, Fantasy, Seinen, Supernatural</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="mangaresultitem">
+<div class="mangaresultinner">
+<div class="c3">60.</div>
+<div class="imgsearchresults" style="background-image:url('http://s1.mangareader.net/cover/black-cat/black-cat-r0.jpg')"></div><div class="result_info c4">
+<div class="manga_name">
+<div>
+<h3><a href="/168/black-cat.html">Black Cat</a></h3>
+</div>
+</div>
+<div class="chapter_count">185&nbsp;Chapters Published. (Completed)</div>
+<div class="manga_type">Manga (Read Right to Left)</div>
+<div class="manga_genre">Action, Comedy, Drama, Sci-Fi, Shounen</div>
 </div>
 <div class="clear"></div>
 </div>
@@ -817,114 +817,26 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <div id="authorresults">
 <h2>Author/Artist Results</h2>
 <div class="mangaresultauthoritem">
-<div class="c5">1.</div>
+<div class="c5">31.</div>
 <div class="result_infoauthor">
 <div class="c6">
 <div>
-<h3>Kishimoto Masashi</h3>
+<h3>Oh! Great</h3>
 </div>
 </div>
 <div class="c7">
 <ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s1.mangareader.net/cover/naruto/naruto-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/93/naruto.html">Naruto</a></div>
-<div class="authorgenre">Action, Drama, Fantasy, Martial Arts, Shounen, Super Power, Supernatural</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">2.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Kubo Tite</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s1.mangareader.net/cover/bleach/bleach-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/94/bleach.html">Bleach</a></div>
-<div class="authorgenre">Action, Comedy, Drama, Fantasy, Shounen, Super Power, Supernatural</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">3.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Kentarou Miura</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s1.mangareader.net/cover/berserk/berserk-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/96/berserk.html">Berserk</a></div>
-<div class="authorgenre">Action, Horror</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">4.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Oku, Hiroya (Story &amp; Art)</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s2.mangareader.net/cover/gantz/gantz-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/97/gantz.html">Gantz</a></div>
-<div class="authorgenre">Action, Sci-Fi, Seinen, Supernatural</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">5.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Urasawa, Naoki (Story &amp; Art)</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s2.mangareader.net/cover/monster/monster-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/99/monster.html">Monster</a></div>
-<div class="authorgenre">Mystery</div>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s1.mangareader.net/cover/air-gear/air-gear-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/137/air-gear.html">Air Gear</a></div>
+<div class="authorgenre">Action, Comedy, Ecchi, Shounen, Sports</div>
 </div>
 <div class="clear"></div>
 </div>
 </li>
 <li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s2.mangareader.net/cover/billy-bat/billy-bat-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/492/billy-bat.html">Billy Bat</a></div>
-<div class="authorgenre">Drama, Mystery, Seinen</div>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s1.mangareader.net/cover/tenjo-tenge/tenjo-tenge-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/657/tenjo-tenge.html">Tenjo Tenge</a></div>
+<div class="authorgenre">Action, Ecchi, Martial Arts, Mature, Romance, School Life, Seinen, Supernatural</div>
 </div>
 <div class="clear"></div>
 </div>
@@ -935,18 +847,18 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <div class="clear"></div>
 </div>
 <div class="mangaresultauthoritem">
-<div class="c5">6.</div>
+<div class="c5">32.</div>
 <div class="result_infoauthor">
 <div class="c6">
 <div>
-<h3>Inoue, Takehiko (Story &amp; Art)</h3>
+<h3>Takei Hiroyuki</h3>
 </div>
 </div>
 <div class="c7">
 <ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s3.mangareader.net/cover/vagabond/vagabond-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/100/vagabond.html">Vagabond</a></div>
-<div class="authorgenre">Action, Drama, Historical, Martial Arts, Mature, Seinen</div>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s1.mangareader.net/cover/shaman-king/shaman-king-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/138/shaman-king.html">Shaman King</a></div>
+<div class="authorgenre">Action, Adventure, Comedy, Shounen, Supernatural</div>
 </div>
 <div class="clear"></div>
 </div>
@@ -957,18 +869,18 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <div class="clear"></div>
 </div>
 <div class="mangaresultauthoritem">
-<div class="c5">7.</div>
+<div class="c5">33.</div>
 <div class="result_infoauthor">
 <div class="c6">
 <div>
-<h3>Otomo, Katsuhiro (Story)</h3>
+<h3>Aoyama Gosho</h3>
 </div>
 </div>
 <div class="c7">
 <ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s3.mangareader.net/cover/akira/akira-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/101/akira.html">Akira</a></div>
-<div class="authorgenre">Sci-Fi</div>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s2.mangareader.net/cover/detective-conan/detective-conan-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/139/detective-conan.html">Detective Conan</a></div>
+<div class="authorgenre">Mystery, Shounen</div>
 </div>
 <div class="clear"></div>
 </div>
@@ -979,18 +891,18 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <div class="clear"></div>
 </div>
 <div class="mangaresultauthoritem">
-<div class="c5">8.</div>
+<div class="c5">34.</div>
 <div class="result_infoauthor">
 <div class="c6">
 <div>
-<h3>Toboso, Yana (Story &amp; Art)</h3>
+<h3>Yabuki Kentaro</h3>
 </div>
 </div>
 <div class="c7">
 <ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s3.mangareader.net/cover/kuroshitsuji/kuroshitsuji-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/102/kuroshitsuji.html">Kuroshitsuji</a></div>
-<div class="authorgenre">Comedy, Fantasy, Supernatural</div>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s2.mangareader.net/cover/black-cat/black-cat-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/168/black-cat.html">Black Cat</a></div>
+<div class="authorgenre">Action, Comedy, Drama, Sci-Fi, Shounen</div>
 </div>
 <div class="clear"></div>
 </div>
@@ -1001,18 +913,18 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <div class="clear"></div>
 </div>
 <div class="mangaresultauthoritem">
-<div class="c5">9.</div>
+<div class="c5">35.</div>
 <div class="result_infoauthor">
 <div class="c6">
 <div>
-<h3>Oda, Eiichiro</h3>
+<h3>Tanabe Yellow</h3>
 </div>
 </div>
 <div class="c7">
 <ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s4.mangareader.net/cover/one-piece/one-piece-s1.jpg')"></div><div class="authorinfo">
-<div><a href="/103/one-piece.html">One Piece</a></div>
-<div class="authorgenre">Action, Adventure, Comedy, Drama, Fantasy, Shounen</div>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s2.mangareader.net/cover/kekkaishi/kekkaishi-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/144/kekkaishi.html">Kekkaishi</a></div>
+<div class="authorgenre">Action, Adventure, Comedy, Fantasy, Shounen, Supernatural</div>
 </div>
 <div class="clear"></div>
 </div>
@@ -1023,363 +935,17 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <div class="clear"></div>
 </div>
 <div class="mangaresultauthoritem">
-<div class="c5">10.</div>
+<div class="c5">36.</div>
 <div class="result_infoauthor">
 <div class="c6">
 <div>
-<h3>Hino, Matsuri</h3>
+<h3>Minami Kanan</h3>
 </div>
 </div>
 <div class="c7">
 <ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s4.mangareader.net/cover/vampire-knight/vampire-knight-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/104/vampire-knight.html">Vampire Knight</a></div>
-<div class="authorgenre">Drama, Mystery, Romance, Shoujo, Supernatural</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">11.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Akira Toriyama</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s4.mangareader.net/cover/dragon-ball/dragon-ball-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/105/dragon-ball.html">Dragon Ball</a></div>
-<div class="authorgenre">Action, Adventure, Comedy, Fantasy, Historical, Martial Arts, Shounen, Supernatural</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-<li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s5.mangareader.net/cover/kintoki/kintoki-s2.jpg')"></div><div class="authorinfo">
-<div><a href="/kintoki">Kintoki</a></div>
-<div class="authorgenre">Action, Adventure, Drama, Fantasy, Shounen, Super Power, Supernatural</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">12.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Hiroaki Samura</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s5.mangareader.net/cover/blade-of-the-immortal/blade-of-the-immortal-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/109/blade-of-the-immortal.html">Blade of the Immortal</a></div>
-<div class="authorgenre">Historical, Horror, Supernatural</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">13.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Urasawa Naoki</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s5.mangareader.net/cover/20th-century-boys/20th-century-boys-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/111/20th-century-boys.html">20th Century Boys</a></div>
-<div class="authorgenre">Action, Drama, Historical, Mystery, Sci-Fi, Seinen, Supernatural</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-<li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s1.mangareader.net/cover/21st-century-boys/21st-century-boys-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/124/21st-century-boys.html">21st Century Boys</a></div>
-<div class="authorgenre">Action, Drama, Mystery, Sci-Fi, Seinen</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">14.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Ashinano Hitoshi</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s1.mangareader.net/cover/yokohama-kaidashi-kikou/yokohama-kaidashi-kikou-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/112/yokohama-kaidashi-kikou.html">Yokohama Kaidashi Kikou</a></div>
-<div class="authorgenre">Drama, Sci-Fi, Seinen, Slice of Life</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">15.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Obata Takeshi</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s1.mangareader.net/cover/death-note/death-note-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/113/death-note.html">Death Note</a></div>
-<div class="authorgenre">Drama, Mystery, Shounen, Supernatural</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">16.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Fujisawa Tohru</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s2.mangareader.net/cover/great-teacher-onizuka/great-teacher-onizuka-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/114/great-teacher-onizuka.html">Great Teacher Onizuka</a></div>
-<div class="authorgenre">Action, Comedy, Drama, Ecchi, Shounen</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">17.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Morikawa Jyoji</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s2.mangareader.net/cover/hajime-no-ippo/hajime-no-ippo-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/115/hajime-no-ippo.html">Hajime no Ippo</a></div>
-<div class="authorgenre">Action, Comedy, Shounen, Sports</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">18.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Arakawa Hiromu</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s2.mangareader.net/cover/full-metal-alchemist/full-metal-alchemist-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/116/full-metal-alchemist.html">Full Metal Alchemist</a></div>
-<div class="authorgenre">Action, Adventure, Comedy, Drama, Fantasy, Shounen, Supernatural, Tragedy</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">19.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Nakamura Yoshiki</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s3.mangareader.net/cover/skip-beat/skip-beat-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/117/skip-beat.html">Skip Beat</a></div>
-<div class="authorgenre">Comedy, Drama, Shoujo, Slice of Life</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">20.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Watsuki Nobuhiro</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s3.mangareader.net/cover/rurouni-kenshin/rurouni-kenshin-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/118/rurouni-kenshin.html">Rurouni Kenshin</a></div>
-<div class="authorgenre">Action, Drama, Fantasy, Historical, Shounen</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">21.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Inoue Takehiko</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s3.mangareader.net/cover/slam-dunk/slam-dunk-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/119/slam-dunk.html">Slam Dunk</a></div>
-<div class="authorgenre">Comedy, Shounen, Sports</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">22.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Wakaki Tamiki</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s4.mangareader.net/cover/the-world-god-only-knows/the-world-god-only-knows-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/120/the-world-god-only-knows.html">The World God Only Knows</a></div>
-<div class="authorgenre">Comedy, Fantasy, Romance, Shounen</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">23.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Kwon Yeul Hee</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s4.mangareader.net/cover/i-accept-you/i-accept-you-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/121/i-accept-you.html">I Accept You</a></div>
-<div class="authorgenre">Romance, Shoujo</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">24.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Higuchi Tachibana</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s4.mangareader.net/cover/gakuen-alice/gakuen-alice-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/122/gakuen-alice.html">Gakuen Alice</a></div>
-<div class="authorgenre">Comedy, Drama, Fantasy, Romance, Shoujo, Supernatural</div>
-</div>
-<div class="clear"></div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<div class="mangaresultauthoritem">
-<div class="c5">25.</div>
-<div class="result_infoauthor">
-<div class="c6">
-<div>
-<h3>Motomi Kyousuke</h3>
-</div>
-</div>
-<div class="c7">
-<ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s5.mangareader.net/cover/dengeki-daisy/dengeki-daisy-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/123/dengeki-daisy.html">Dengeki Daisy</a></div>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s3.mangareader.net/cover/kyou-koi-wo-hajimemasu/kyou-koi-wo-hajimemasu-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/145/kyou-koi-wo-hajimemasu.html">Kyou Koi wo Hajimemasu</a></div>
 <div class="authorgenre">Comedy, Drama, Romance, Shoujo, Slice of Life</div>
 </div>
 <div class="clear"></div>
@@ -1391,18 +957,18 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <div class="clear"></div>
 </div>
 <div class="mangaresultauthoritem">
-<div class="c5">26.</div>
+<div class="c5">37.</div>
 <div class="result_infoauthor">
 <div class="c6">
 <div>
-<h3>Yukimura Makoto</h3>
+<h3>Oto Hisamu</h3>
 </div>
 </div>
 <div class="c7">
 <ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s5.mangareader.net/cover/vinland-saga/vinland-saga-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/125/vinland-saga.html">Vinland Saga</a></div>
-<div class="authorgenre">Action, Adventure, Historical, Seinen</div>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s3.mangareader.net/cover/hana-to-akuma/hana-to-akuma-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/146/hana-to-akuma.html">Hana to Akuma</a></div>
+<div class="authorgenre">Comedy, Fantasy, Romance, Shoujo, Supernatural</div>
 </div>
 <div class="clear"></div>
 </div>
@@ -1413,18 +979,18 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <div class="clear"></div>
 </div>
 <div class="mangaresultauthoritem">
-<div class="c5">27.</div>
+<div class="c5">38.</div>
 <div class="result_infoauthor">
 <div class="c6">
 <div>
-<h3>Ninomiya Tomoko</h3>
+<h3>Fujiwara Hiro</h3>
 </div>
 </div>
 <div class="c7">
 <ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s5.mangareader.net/cover/nodame-cantabile/nodame-cantabile-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/128/nodame-cantabile.html">Nodame Cantabile</a></div>
-<div class="authorgenre">Comedy, Drama, Josei, Romance, Slice of Life</div>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s3.mangareader.net/cover/kaichou-wa-maid-sama/kaichou-wa-maid-sama-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/147/kaichou-wa-maid-sama.html">Kaichou wa Maid-sama!</a></div>
+<div class="authorgenre">Comedy, Drama, Romance, Shoujo</div>
 </div>
 <div class="clear"></div>
 </div>
@@ -1435,18 +1001,18 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <div class="clear"></div>
 </div>
 <div class="mangaresultauthoritem">
-<div class="c5">28.</div>
+<div class="c5">39.</div>
 <div class="result_infoauthor">
 <div class="c6">
 <div>
-<h3>Nakamura Shungiku</h3>
+<h3>Tanaka Meca</h3>
 </div>
 </div>
 <div class="c7">
 <ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s1.mangareader.net/cover/junjou-romantica/junjou-romantica-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/133/junjou-romantica.html">Junjou Romantica</a></div>
-<div class="authorgenre">Comedy, Drama, Mature, Romance, Yaoi</div>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s4.mangareader.net/cover/faster-than-a-kiss/faster-than-a-kiss-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/148/faster-than-a-kiss.html">Faster than a Kiss</a></div>
+<div class="authorgenre">Comedy, Drama, Romance, Shoujo</div>
 </div>
 <div class="clear"></div>
 </div>
@@ -1457,18 +1023,18 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <div class="clear"></div>
 </div>
 <div class="mangaresultauthoritem">
-<div class="c5">29.</div>
+<div class="c5">40.</div>
 <div class="result_infoauthor">
 <div class="c6">
 <div>
-<h3>Murata Yuusuke</h3>
+<h3>Yazawa Ai</h3>
 </div>
 </div>
 <div class="c7">
 <ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s1.mangareader.net/cover/eyeshield-21/eyeshield-21-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/134/eyeshield-21.html">Eyeshield 21</a></div>
-<div class="authorgenre">Comedy, Drama, Shounen, Sports</div>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s4.mangareader.net/cover/nana/nana-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/149/nana.html">Nana</a></div>
+<div class="authorgenre">Comedy, Drama, Josei, Romance, Slice of Life, Tragedy</div>
 </div>
 <div class="clear"></div>
 </div>
@@ -1479,18 +1045,444 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <div class="clear"></div>
 </div>
 <div class="mangaresultauthoritem">
-<div class="c5">30.</div>
+<div class="c5">41.</div>
 <div class="result_infoauthor">
 <div class="c6">
 <div>
-<h3>Mashima Hiro</h3>
+<h3>Lee Nicky</h3>
 </div>
 </div>
 <div class="c7">
 <ol class="authorpublish"><li>
-<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s1.mangareader.net/cover/rave/rave-s0.jpg')"></div><div class="authorinfo">
-<div><a href="/426/rave.html">Rave</a></div>
-<div class="authorgenre">Action, Adventure, Comedy, Fantasy, Shounen</div>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s4.mangareader.net/cover/the-one/the-one-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/150/the-one.html">The One</a></div>
+<div class="authorgenre">Comedy, Drama, Romance, Shoujo, Slice of Life</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">42.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Sakai Mayu</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s5.mangareader.net/cover/momo/momo-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/152/momo.html">Momo</a></div>
+<div class="authorgenre">Drama, Fantasy, Romance, Shoujo, Supernatural</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">43.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Oouchi Natsumi</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s5.mangareader.net/cover/fly-high/fly-high-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/153/fly-high.html">Fly High!</a></div>
+<div class="authorgenre">Action, Comedy, Romance, Shoujo</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">44.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Watase Yuu</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s5.mangareader.net/cover/absolute-boyfriend/absolute-boyfriend-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/154/absolute-boyfriend.html">Absolute Boyfriend</a></div>
+<div class="authorgenre">Comedy, Drama, Ecchi, Romance, Sci-Fi, Shoujo, Tragedy</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">45.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Ookubo Atsushi</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s1.mangareader.net/cover/soul-eater/soul-eater-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/157/soul-eater.html">Soul Eater</a></div>
+<div class="authorgenre">Action, Comedy, Ecchi, Fantasy, Shounen, Supernatural</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">46.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Saitou Chiho</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s1.mangareader.net/cover/first-girl/first-girl-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/158/first-girl.html">First Girl</a></div>
+<div class="authorgenre">Adventure, Drama, Josei, Mature, Romance, Shoujo, Smut, Tragedy</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">47.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Isutoshi</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s1.mangareader.net/cover/aiki/aiki-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/159/aiki.html">Aiki</a></div>
+<div class="authorgenre">Action, Comedy, Ecchi, Harem, Martial Arts, Mature, Seinen</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">48.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Apapa Mokona, Nekoi Tsubaki, Clamp</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s2.mangareader.net/cover/xxxholic/xxxholic-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/160/xxxholic.html">xxxHolic</a></div>
+<div class="authorgenre">Comedy, Drama, Fantasy, Mystery, Seinen, Supernatural</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">49.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Kosuke Fujishima</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s2.mangareader.net/cover/ah-my-goddess/ah-my-goddess-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/161/ah-my-goddess.html">Ah My Goddess</a></div>
+<div class="authorgenre">Comedy, Fantasy, Romance, Seinen</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+<li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s2.mangareader.net/cover/you-are-under-arrest/you-are-under-arrest-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/you-are-under-arrest">You are Under Arrest!</a></div>
+<div class="authorgenre">Action, Comedy, Shounen</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">50.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Gokurakuin Sakurako</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s3.mangareader.net/cover/sekirei/sekirei-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/163/sekirei.html">Sekirei</a></div>
+<div class="authorgenre">Action, Comedy, Ecchi, Gender Bender, Harem, Mature, Romance, Seinen, Supernatural</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">51.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Kaitani Shinobu</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s3.mangareader.net/cover/liar-game/liar-game-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/164/liar-game.html">Liar Game</a></div>
+<div class="authorgenre">Drama, Mystery, Seinen</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">52.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Iwasawa Shiuri</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s3.mangareader.net/cover/change-123/change-123-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/165/change-123.html">Change 123</a></div>
+<div class="authorgenre">Action, Comedy, Ecchi, Harem, Martial Arts, Mature, Romance, Seinen</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">53.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Fumizuki Kou</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s4.mangareader.net/cover/umi-no-misaki/umi-no-misaki-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/166/umi-no-misaki.html">Umi No Misaki</a></div>
+<div class="authorgenre">Comedy, Ecchi, Harem, Mystery, Romance, Seinen</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">54.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Park, Sung Woo, Im, Dal Young</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s4.mangareader.net/cover/black-god/black-god-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/167/black-god.html">Black God</a></div>
+<div class="authorgenre">Action, Fantasy, Seinen, Supernatural</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">55.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Kouga Yun</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s4.mangareader.net/cover/loveless/loveless-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/169/loveless.html">Loveless</a></div>
+<div class="authorgenre">Drama, Fantasy, Josei, Mystery, Shounenai, Slice of Life, Tragedy</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">56.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Daisuke Satou, Shouji Satou</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s5.mangareader.net/cover/high-school-of-the-dead/high-school-of-the-dead-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/170/high-school-of-the-dead.html">High School of the Dead</a></div>
+<div class="authorgenre">Action, Adventure, Ecchi, Horror</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">57.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Park Sung Woo</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s5.mangareader.net/cover/zero/zero-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/171/zero.html">Zero</a></div>
+<div class="authorgenre">Action, Drama, Ecchi, Martial Arts, Mature, Romance, Sci-Fi, Seinen, Supernatural</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">58.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Kusunoki Kei</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s5.mangareader.net/cover/bitter-virgin/bitter-virgin-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/172/bitter-virgin.html">Bitter Virgin</a></div>
+<div class="authorgenre">Drama, Mature, Romance, Slice of Life, Tragedy</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">59.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Maki Youko</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s1.mangareader.net/cover/aishiteruze-baby/aishiteruze-baby-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/173/aishiteruze-baby.html">Aishiteruze Baby</a></div>
+<div class="authorgenre">Comedy, Drama, Romance, Shoujo, Slice of Life</div>
+</div>
+<div class="clear"></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="mangaresultauthoritem">
+<div class="c5">60.</div>
+<div class="result_infoauthor">
+<div class="c6">
+<div>
+<h3>Segawa Masaki</h3>
+</div>
+</div>
+<div class="c7">
+<ol class="authorpublish"><li>
+<div class="authormangaresult"><div class="imgauthor" style="background-image:url('http://s1.mangareader.net/cover/basilisk/basilisk-s0.jpg')"></div><div class="authorinfo">
+<div><a href="/174/basilisk.html">Basilisk</a></div>
+<div class="authorgenre">Action, Adventure, Drama, Fantasy, Historical, Martial Arts, Mature, Romance, Seinen, Supernatural, Tragedy</div>
 </div>
 <div class="clear"></div>
 </div>
@@ -1502,7 +1494,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </div>
 </div>
 <div class="clear"></div>
-<div id="sp">&nbsp;<strong>1</strong>&nbsp;<a href="30">2</a>&nbsp;<a href="60">3</a>&nbsp;<a href="30">&gt;</a>&nbsp;&nbsp;<a href="2220">Last &rsaquo;</a></div></div>
+<div id="sp">&nbsp;<a href="/search/?w=&p=0">&lt;</a>&nbsp;<a href="/search/?w=&p=0">1</a>&nbsp;<strong>2</strong>&nbsp;<a href="/search/?w=&p=60">3</a>&nbsp;<a href="/search/?w=&p=90">4</a>&nbsp;<a href="/search/?w=&p=60">&gt;</a>&nbsp;&nbsp;<a href="/search/?w=&p=2220">Last &rsaquo;</a></div></div>
 </div>
 <div class="clear"></div>
 <div id="adfooter"><iframe width="300" height="250" scrolling="no" frameborder="0" id="adbottomleft" src="/ad/left1" name="adbottomleft"></iframe> <iframe width="300" height="250" scrolling="no" frameborder="0" id="adbottomright" src="/ad/right1" name="adbottomright"></iframe></div>
