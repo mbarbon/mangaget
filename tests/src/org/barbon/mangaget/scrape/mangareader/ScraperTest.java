@@ -17,6 +17,20 @@ import org.barbon.mangaget.tests.R;
 import org.barbon.mangaget.tests.Utils;
 
 public class ScraperTest extends InstrumentationTestCase {
+    public void testScrapeChapterPages() {
+        String chapterPage =
+            "http://www.mangareader.net/462-28574-1/goong/chapter-1.html";
+        List<String> urls = Scraper.scrapeChapterPages(
+            Utils.getPage(this, R.raw.mangareader_goong_c1_p1_html,
+                          chapterPage));
+
+        assertEquals(27, urls.size());
+        assertEquals("http://www.mangareader.net/462-28574-1/goong/chapter-1.html",
+                     urls.get(0));
+        assertEquals("http://www.mangareader.net/462-28574-27/goong/chapter-1.html",
+                     urls.get(26));
+    }
+
     public void testScrapeImageUrl() {
         String chapterPage =
             "http://www.mangareader.net/462-28574-1/goong/chapter-1.html";

@@ -7,6 +7,9 @@ package org.barbon.mangaget.scrape;
 
 import java.util.List;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 public class HtmlScrape {
     public static class SearchResultPage {
         public List<String> urls;
@@ -18,5 +21,17 @@ public class HtmlScrape {
     public static class ChapterInfo {
         public String url;
         public String title;
+    }
+
+    public static String absoluteUrl(String url, String base) {
+        try {
+            if (!url.startsWith("http://"))
+                url = new URI(base).resolve(url).toString();
+        }
+        catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
+
+        return url;
     }
 }

@@ -23,6 +23,32 @@ import org.jsoup.select.Elements;
 public class Scraper {
     // pure HTML scraping
 
+    public static List<String> scrapeChapterPages(
+            Downloader.DownloadDestination target) {
+        Document doc;
+
+        try {
+            doc = Jsoup.parse(target.stream, target.encoding, target.baseUrl);
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Element pageMenu = doc.select("select#pageMenu").first();
+
+        Elements options = pageMenu.select("option");
+        List<String> result = new ArrayList<String>();
+
+        for (Element option : options) {
+            if (!option.hasAttr("value"))
+                continue;
+            result.add(HtmlScrape.absoluteUrl(
+                           option.attr("value"), target.baseUrl));
+        }
+
+        return result;
+    }
+
     public static String scrapeImageUrl(
             Downloader.DownloadDestination target) {
         Document doc;
