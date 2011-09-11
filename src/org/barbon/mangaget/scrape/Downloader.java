@@ -254,7 +254,10 @@ public class Downloader {
                     publishProgress(1L, byteCounter.getCount(), totalSize);
                 }
 
-                downloadTarget.completeDownload();
+                if (totalSize > 0 && byteCounter.getCount() != totalSize)
+                    success = false;
+                else
+                    downloadTarget.completeDownload();
             }
             catch(Exception e) {
                 e.printStackTrace(); // TODO better diagnostics
