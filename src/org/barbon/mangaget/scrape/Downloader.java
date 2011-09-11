@@ -177,6 +177,9 @@ public class Downloader {
         @Override
         public void abortDownload() throws IOException {
             out.close();
+
+            // remove target path
+            destination.path.delete();
         }
     }
 
