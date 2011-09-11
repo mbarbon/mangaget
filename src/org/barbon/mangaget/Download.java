@@ -222,6 +222,7 @@ public class Download extends Service {
             notification = new Notification(R.drawable.stat_download_anim,
                                             ticker,
                                             System.currentTimeMillis());
+            notification.flags |= Notification.FLAG_ONGOING_EVENT;
             notification.contentView = contentView =
                 new RemoteViews(getPackageName(), R.layout.download_progress);
             notification.contentIntent =
@@ -248,6 +249,7 @@ public class Download extends Service {
         @Override
         public void downloadComplete(boolean success) {
             notification.iconLevel = 0;
+            notification.flags &= ~Notification.FLAG_ONGOING_EVENT;
 
             int tickerId, progressId;
 
