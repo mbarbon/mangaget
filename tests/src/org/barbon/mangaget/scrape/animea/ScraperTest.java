@@ -3,7 +3,7 @@
  * distributed under the terms of the MIT license
  */
 
-package org.barbon.mangaget.scrape;
+package org.barbon.mangaget.scrape.animea;
 
 import android.content.Context;
 
@@ -17,11 +17,10 @@ import java.util.List;
 
 import org.barbon.mangaget.data.DB;
 
+import org.barbon.mangaget.scrape.Downloader;
+
 import org.barbon.mangaget.tests.DummyDownloader;
 import org.barbon.mangaget.tests.R;
-
-import org.barbon.mangaget.scrape.animea.Scraper;
-
 import org.barbon.mangaget.tests.Utils;
 
 public class ScraperTest extends InstrumentationTestCase {
