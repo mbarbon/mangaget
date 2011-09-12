@@ -259,6 +259,7 @@ public class Download extends Service {
                 progressId = R.string.manga_downloaded_progress;
             }
             else {
+                // TODO set intent to restart download
                 tickerId = R.string.manga_download_error_ticker;
                 progressId = R.string.manga_download_error_progress;
             }
