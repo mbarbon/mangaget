@@ -22,6 +22,7 @@ import org.barbon.mangaget.data.DB;
 import org.barbon.mangaget.scrape.Downloader;
 
 import org.barbon.mangaget.scrape.animea.AnimeAScraper;
+import org.barbon.mangaget.scrape.mangareader.MangareaderScraper;
 
 public class Scraper {
     private static final String ANIMEA_URL = "http://manga.animea.net/";
@@ -30,6 +31,12 @@ public class Scraper {
 
     public static final int PROVIDER_ANIMEA = 1;
     public static final int PROVIDER_MANGAREADER = 2;
+
+    private static final Scraper.Provider[] PROVIDERS =
+        new Scraper.Provider[] {
+            new AnimeAScraper.Provider(),
+            new MangareaderScraper.Provider(),
+        };
 
     public static abstract class Provider {
         // URL manipulation
@@ -87,9 +94,7 @@ public class Scraper {
     }
 
     public ResultPager searchManga(String title, OnSearchResults listener) {
-        // TODO add Mangareader provider
-        Provider provider = new AnimeAScraper.Provider();
-        ResultPager pager = new ResultPager(provider, title, listener);
+        ResultPager pager = new ResultPager(title, listener);
 
         return pager;
     }
@@ -156,17 +161,48 @@ public class Scraper {
         }
     }
 
-    public class ResultPager extends Downloader.OnDownloadProgressAdapter {
-        private Downloader.DownloadDestination target;
-        private String startUrl;
+    public class ResultPager {
+        private int pending;
+        private String title;
         private OnSearchResults listener;
         private List<MangaInfo> items;
 
         // TODO actually support paging throught long search results
 
-        public ResultPager(Provider provider, String title,
-                           OnSearchResults _listener) {
-            startUrl = provider.composeSearchUrl(title);
+        private class SearchRequest
+                extends Downloader.OnDownloadProgressAdapter {
+            public Downloader.DownloadDestination target;
+
+            @Override
+            public void downloadCompleteBackground(boolean success) {
+                super.downloadCompleteBackground(success);
+
+                if (!success)
+                    return;
+
+                HtmlScrape.SearchResultPage results =
+                    getProvider(target).scrapeSearchResults(target);
+
+                if (items == null)
+                    items = new ArrayList<MangaInfo>();
+
+                for (int i = 0; i < results.titles.size(); ++i)
+                    items.add(new MangaInfo(results.titles.get(i),
+                                            results.urls.get(i)));
+            }
+
+            @Override
+            public void downloadComplete(boolean success) {
+                super.downloadComplete(success);
+
+                pending -= 1;
+
+                listener.resultsUpdated();
+            }
+        }
+
+        public ResultPager(String _title, OnSearchResults _listener) {
+            title = _title;
             listener = _listener;
         }
 
@@ -192,37 +228,19 @@ public class Scraper {
             return EMPTY_ITEM;
         }
 
-        @Override
-        public void downloadCompleteBackground(boolean success) {
-            super.downloadCompleteBackground(success);
-
-            if (!success)
-                return;
-
-            HtmlScrape.SearchResultPage results =
-                getProvider(target).scrapeSearchResults(target);
-
-            items = new ArrayList<MangaInfo>();
-
-            for (int i = 0; i < results.titles.size(); ++i)
-                items.add(new MangaInfo(results.titles.get(i),
-                                        results.urls.get(i)));
-        }
-
-        @Override
-        public void downloadComplete(boolean success) {
-            super.downloadComplete(success);
-
-            target = null;
-
-            listener.resultsUpdated();
-        }
-
         private void startDownload() {
-            if (target != null)
+            if (pending != 0)
                 return;
 
-            target = downloader.requestDownload(startUrl, this);
+            items = null;
+            pending = PROVIDERS.length;
+
+            for (Scraper.Provider provider : PROVIDERS) {
+                SearchRequest req = new SearchRequest();
+                String startUrl = provider.composeSearchUrl(title);
+
+                req.target = downloader.requestDownload(startUrl, req);
+            }
         }
     }
 
@@ -284,7 +302,7 @@ public class Scraper {
         public void start() {
             String url = info.manga.getAsString(DB.MANGA_URL);
             target = downloader.requestDownload(
-                getProvider(target).composeMangaUrl(url), this);
+                getProvider(url).composeMangaUrl(url), this);
         }
 
         @Override
@@ -593,7 +611,15 @@ public class Scraper {
 
     private static Provider getProvider(
             Downloader.DownloadDestination target) {
-        // TODO add Mangareader provider
-        return new AnimeAScraper.Provider();
+        return getProvider(target.baseUrl);
+    }
+
+    private static Provider getProvider(String url) {
+        if (url.startsWith(ANIMEA_URL))
+            return new AnimeAScraper.Provider();
+        else if (url.startsWith(MANGAREADER_URL))
+            return new MangareaderScraper.Provider();
+        else
+            throw new RuntimeException("Unknown URL " + url);
     }
 }

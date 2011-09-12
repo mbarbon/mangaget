@@ -65,11 +65,11 @@ public class ScraperTest extends InstrumentationTestCase {
 
     private class SearchProgress
             implements Scraper.OnSearchResults {
-        public boolean complete;
+        public int updateCount;
 
         @Override
         public void resultsUpdated() {
-            complete = true;
+            updateCount += 1;
         }
     }
 
@@ -185,10 +185,11 @@ public class ScraperTest extends InstrumentationTestCase {
 
         runTestOnUiThread(uiTask);
 
-        while (!progress.complete)
+        while (progress.updateCount < 2)
             Thread.sleep(500);
 
-        assertTrue(progress.complete);
+        // uses the fact the only registered URLs are for AnimeA
+        assertEquals(2, progress.updateCount);
         assertEquals(48, uiTask.pager.getCount());
         assertEquals("2 Kaime no Hajimete no Koi",
                      uiTask.pager.getItem(0).title);
