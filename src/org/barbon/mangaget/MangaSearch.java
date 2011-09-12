@@ -64,12 +64,14 @@ public class MangaSearch extends ListActivity {
             LayoutInflater inflater = getLayoutInflater();
 
             if (view == null)
-                view = inflater.inflate(android.R.layout.simple_list_item_1,
+                view = inflater.inflate(android.R.layout.simple_list_item_2,
                                         parent, false);
 
             TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+            TextView text2 = (TextView) view.findViewById(android.R.id.text2);
 
             text1.setText(pager.getItem(position).title);
+            text2.setText(pager.getItem(position).provider);
 
             return view;
         }

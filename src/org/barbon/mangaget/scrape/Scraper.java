@@ -24,6 +24,10 @@ import org.barbon.mangaget.scrape.Downloader;
 import org.barbon.mangaget.scrape.animea.AnimeAScraper;
 
 public class Scraper {
+    private static final String ANIMEA_URL = "http://manga.animea.net/";
+    private static final String MANGAREADER_URL =
+        "http://www.mangareader.net/";
+
     public static final int PROVIDER_ANIMEA = 1;
     public static final int PROVIDER_MANGAREADER = 2;
 
@@ -129,6 +133,7 @@ public class Scraper {
         public final String title;
         public final String pattern;
         public final String url;
+        public final String provider;
 
         public MangaInfo(String _title, String _url) {
             title = _title;
@@ -137,6 +142,17 @@ public class Scraper {
                 pattern = title.replaceAll("[\\s\\W]+" ,"-").toLowerCase();
             else
                 pattern = null;
+
+            if (url != null) {
+                // TODO use Enum
+                if (url.startsWith(ANIMEA_URL))
+                    provider = "AnimeA";
+                else if (url.startsWith(MANGAREADER_URL))
+                    provider = "MangaReader";
+                else
+                    provider = "";
+            } else
+                provider = "";
         }
     }
 

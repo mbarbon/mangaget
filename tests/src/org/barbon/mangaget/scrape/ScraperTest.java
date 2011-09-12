@@ -194,5 +194,7 @@ public class ScraperTest extends InstrumentationTestCase {
                      uiTask.pager.getItem(0).title);
         assertEquals("2-kaime-no-hajimete-no-koi",
                      uiTask.pager.getItem(0).pattern);
+        assertEquals("AnimeA",
+                     uiTask.pager.getItem(0).provider);
     }
 }
