@@ -34,7 +34,7 @@ public class DB {
     public static final String PAGE_URL = "url";
     public static final String PAGE_IMAGE_URL = "image_url";
 
-    private static final int VERSION = 1;
+    private static final int VERSION = 2;
     private static final String DB_NAME = "manga";
     private static DB theInstance;
 
@@ -70,7 +70,7 @@ public class DB {
         "    url TEXT NOT NULL," +
         "    image_url TEXT," +
         "    download_status INTEGER NOT NULL," +
-        "    FOREIGN KEY (chapter_id) REFERENCES chapter(id)" +
+        "    FOREIGN KEY (chapter_id) REFERENCES chapters(id)" +
         "        ON DELETE CASCADE" +
         ")";
 
@@ -312,7 +312,46 @@ public class DB {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int from, int to) {
-            throw new UnsupportedOperationException("Upgrade not supported");
+            for (int i = from; i < to; ++i) {
+                switch (i) {
+                case 1:
+                    upgrade1To2(db);
+                    break;
+                }
+            }
+        }
+
+        private void upgrade1To2(SQLiteDatabase db) {
+            db.beginTransaction();
+
+            try {
+                db.execSQL(
+                    "ALTER TABLE pages" +
+                    "    RENAME TO pages_tmp");
+                db.execSQL(
+                    "CREATE TABLE pages (" +
+                    "    id INTEGER PRIMARY KEY," +
+                    "    chapter_id INTEGER NOT NULL," +
+                    "    number INTEGER NOT NULL," +
+                    "    url TEXT NOT NULL," +
+                    "    image_url TEXT," +
+                    "    download_status INTEGER NOT NULL," +
+                    "    FOREIGN KEY (chapter_id) REFERENCES chapters(id)" +
+                    "        ON DELETE CASCADE" +
+                    ")");
+                db.execSQL(
+                    "INSERT INTO pages" +
+                    "    (id, chapter_id, number, url, image_url," +
+                    "     download_status)" +
+                    "    SELECT id, chapter_id, number, url, image_url, " +
+                    "        download_status" +
+                    "    FROM pages_tmp");
+                db.execSQL(
+                    "DROP TABLE pages_tmp");
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
         }
     }
 }
