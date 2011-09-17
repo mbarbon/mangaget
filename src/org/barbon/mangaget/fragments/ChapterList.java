@@ -11,8 +11,12 @@ import android.database.Cursor;
 
 import android.os.Bundle;
 
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
+import android.widget.AdapterView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -34,36 +38,6 @@ public class ChapterList extends ListFragment {
     private DownloadListener listener = new DownloadListener();
     private Download.ListenerManager manager =
         new Download.ListenerManager(listener);
-
-    public static class DownloadConfirmationDialog extends ConfirmationDialog {
-        private static final String TAG = "downloadConfirmationDialog";
-
-        public static DownloadConfirmationDialog newInstance(long chapterId) {
-            DownloadConfirmationDialog frag = new DownloadConfirmationDialog();
-            Bundle args = getDialogArguments(R.string.download_title,
-                                             R.string.start_download,
-                                             R.string.cancel);
-
-            args.putLong("chapterId", chapterId);
-
-            frag.setArguments(args);
-
-            return frag;
-        }
-
-        public static DownloadConfirmationDialog find(Fragment f) {
-            return (DownloadConfirmationDialog)
-                f.getFragmentManager().findFragmentByTag(TAG);
-        }
-
-        public void show(Fragment f) {
-            show(f.getFragmentManager(), TAG);
-        }
-
-        public long getChapterId() {
-            return getArguments().getLong("chapterId");
-        }
-    }
 
     private class DownloadListener extends Download.ListenerAdapter {
         @Override
@@ -117,7 +91,8 @@ public class ChapterList extends ListFragment {
 
         setEmptyText(getString(R.string.no_chapter));
         setListAdapter(adapter);
-        bindConfirmationDialog(DownloadConfirmationDialog.find(this));
+
+        registerForContextMenu(getListView());
     }
 
     @Override
@@ -160,34 +135,28 @@ public class ChapterList extends ListFragment {
         adapter.changeCursor(db.getChapterList(mangaId));
     }
 
-    // implementation
-
-    private void bindConfirmationDialog(DownloadConfirmationDialog dialog) {
-        if (dialog == null)
-            return;
-
-        final long chapterId = dialog.getChapterId();
-
-        DialogInterface.OnClickListener download =
-            new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    Download.startChapterDownload(getActivity(), chapterId);
-                }
-            };
-
-        dialog.setPositiveClick(download);
-    }
-
     // event handlers
 
     @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
-        DownloadConfirmationDialog frag =
-            DownloadConfirmationDialog.newInstance(id);
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getActivity().getMenuInflater();
 
-        bindConfirmationDialog(frag);
+        inflater.inflate(R.menu.chapters_context, menu);
+    }
 
-        frag.show(this);
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info =
+            (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
+        switch (item.getItemId()) {
+        case R.id.download_chapter:
+            Download.startChapterDownload(getActivity(), info.id);
+            return true;
+        default:
+            return super.onContextItemSelected(item);
+        }
     }
 }
