@@ -7,13 +7,6 @@
     android:layout_height="match_parent"
     >
   <fragment
-      android:id="@+id/manga_list"
-      android:name="org.barbon.mangaget.fragments.MangaList"
-      android:layout_weight="1"
-      android:layout_width="0dp"
-      android:layout_height="match_parent"
-      />
-  <fragment
       android:id="@+id/chapter_list"
       android:name="org.barbon.mangaget.fragments.ChapterList"
       android:layout_weight="1"
@@ -21,4 +14,3 @@
       android:layout_height="match_parent"
       />
 </LinearLayout>
-

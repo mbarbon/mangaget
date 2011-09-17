@@ -5,6 +5,8 @@
 
 package org.barbon.mangaget;
 
+import android.content.Intent;
+
 import android.os.Bundle;
 
 import android.view.View;
@@ -26,11 +28,29 @@ public class Main extends FragmentActivity {
         final ChapterList chapterList = (ChapterList)
             getSupportFragmentManager().findFragmentById(R.id.chapter_list);
 
-        mangaList.setOnMangaSelected(
-            new MangaList.OnMangaSelected() {
-                public void onMangaSelected(long mangaId) {
-                    chapterList.loadChapterList(mangaId);
-                }
-            });
+        if (   mangaList != null && chapterList != null
+            && chapterList.isInLayout()) {
+            // landscape
+            mangaList.setOnMangaSelected(
+                new MangaList.OnMangaSelected() {
+                    public void onMangaSelected(long mangaId) {
+                        chapterList.loadChapterList(mangaId);
+                    }
+                });
+        }
+        else {
+            // portrait
+            mangaList.setOnMangaSelected(
+                new MangaList.OnMangaSelected() {
+                    private Intent chapters =
+                        new Intent(Main.this, Chapters.class);
+
+                    public void onMangaSelected(long mangaId) {
+                        chapters.putExtra(Chapters.MANGA_ID, mangaId);
+
+                        startActivity(chapters);
+                    }
+                });
+        }
     }
 }
