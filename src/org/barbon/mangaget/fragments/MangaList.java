@@ -33,20 +33,18 @@ public class MangaList extends ListFragment {
     private OnMangaSelected onMangaSelected;
     private long currentSelection = -1;
 
-    private Runnable notifySelection =
-        new Runnable() {
-            @Override
-            public void run() {
-                // using currentSelection could have implications if
-                // the member changes while multiple notifications are
-                // in progress; this should never be the case
-                if (onMangaSelected != null)
-                    onMangaSelected.onMangaSelected(currentSelection);
-            }
-        };
-
     public interface OnMangaSelected {
         public void onMangaSelected(long mangaId);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        adapter = new SimpleCursorAdapter(
+            getActivity(), R.layout.list_item, null,
+            new String[] { DB.MANGA_TITLE },
+            new int[] { R.id.item_text });
     }
 
     @Override
@@ -54,15 +52,10 @@ public class MangaList extends ListFragment {
         super.onActivityCreated(savedInstanceState);
 
         setEmptyText(getString(R.string.no_manga));
-
-        adapter = new SimpleCursorAdapter(
-            getActivity(), R.layout.list_item, null,
-            new String[] { DB.MANGA_TITLE },
-            new int[] { R.id.item_text });
         setListAdapter(adapter);
 
         if (savedInstanceState != null)
-            setSelectedId(savedInstanceState.getLong(SELECTED_ID), true);
+            setSelectedId(savedInstanceState.getLong(SELECTED_ID));
 
         registerForContextMenu(getListView());
     }
@@ -106,16 +99,13 @@ public class MangaList extends ListFragment {
 
     // implementation
 
-    private void setSelectedId(final long id, boolean delayed) {
+    private void setSelectedId(final long id) {
         currentSelection = id;
 
         if (onMangaSelected == null)
             return;
 
-        if (!delayed)
-            onMangaSelected.onMangaSelected(currentSelection);
-        else
-            new Handler().post(notifySelection);
+        onMangaSelected.onMangaSelected(id);
     }
 
     private void deleteManga(long id) {
@@ -132,7 +122,7 @@ public class MangaList extends ListFragment {
 
     @Override
     public void onListItemClick (ListView l, View v, int position, long id) {
-        setSelectedId(id, false);
+        setSelectedId(id);
     }
 
     @Override

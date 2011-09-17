@@ -95,10 +95,8 @@ public class ChapterList extends ListFragment {
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        setEmptyText(getString(R.string.no_chapter));
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         adapter = new SimpleCursorAdapter(
             getActivity(), R.layout.chapter_item, null,
@@ -107,8 +105,14 @@ public class ChapterList extends ListFragment {
             new int[] { R.id.chapter_number, R.id.chapter_title,
                         R.id.chapter_downloaded });
         adapter.setViewBinder(VIEW_BINDER);
-        setListAdapter(adapter);
+    }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        setEmptyText(getString(R.string.no_chapter));
+        setListAdapter(adapter);
         bindConfirmationDialog(DownloadConfirmationDialog.find(this));
     }
 
