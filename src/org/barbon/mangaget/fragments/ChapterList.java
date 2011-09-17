@@ -26,8 +26,11 @@ import org.barbon.mangaget.R;
 import org.barbon.mangaget.data.DB;
 
 public class ChapterList extends ListFragment {
+    private static final String SELECTED_ID = "mangaId";
     private static final StatusBinder VIEW_BINDER = new StatusBinder();
+
     private SimpleCursorAdapter adapter;
+    private long currentManga = -1;
     private DownloadListener listener = new DownloadListener();
     private Download.ListenerManager manager =
         new Download.ListenerManager(listener);
@@ -63,8 +66,6 @@ public class ChapterList extends ListFragment {
     }
 
     private class DownloadListener extends Download.ListenerAdapter {
-        public long currentManga = -1;
-
         @Override
         public void onMangaUpdateComplete(long mangaId, boolean success) {
             if (!success || mangaId != currentManga)
@@ -111,6 +112,9 @@ public class ChapterList extends ListFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        if (savedInstanceState != null)
+            loadChapterList(savedInstanceState.getLong(SELECTED_ID));
+
         setEmptyText(getString(R.string.no_chapter));
         setListAdapter(adapter);
         bindConfirmationDialog(DownloadConfirmationDialog.find(this));
@@ -124,6 +128,13 @@ public class ChapterList extends ListFragment {
             adapter.getCursor().requery();
 
         manager.connect(getActivity());
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putLong(SELECTED_ID, currentManga);
     }
 
     @Override
@@ -145,7 +156,7 @@ public class ChapterList extends ListFragment {
     public void loadChapterList(long mangaId) {
         DB db = DB.getInstance(getActivity());
 
-        listener.currentManga = mangaId;
+        currentManga = mangaId;
         adapter.changeCursor(db.getChapterList(mangaId));
     }
 
