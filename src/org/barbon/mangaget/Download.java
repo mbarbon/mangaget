@@ -37,6 +37,7 @@ import org.barbon.mangaget.scrape.Downloader;
 import org.barbon.mangaget.scrape.Scraper;
 
 // TODO handle download errors/missing network connection
+// TODO allow stopping download
 
 public class Download extends Service {
     private static final int COMMAND_DOWNLOAD_CHAPTER = 1;
