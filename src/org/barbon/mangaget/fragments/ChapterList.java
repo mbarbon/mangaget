@@ -6,6 +6,7 @@
 package org.barbon.mangaget.fragments;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 
 import android.database.Cursor;
 
@@ -26,6 +27,7 @@ import android.support.v4.app.ListFragment;
 
 import org.barbon.mangaget.Download;
 import org.barbon.mangaget.R;
+import org.barbon.mangaget.Utils;
 
 import org.barbon.mangaget.data.DB;
 
@@ -136,6 +138,14 @@ public class ChapterList extends ListFragment {
     }
 
     // event handlers
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        // TODO handle the case when chapter has not been downloaded yet
+        Intent view = Utils.viewChapterIntent(getActivity(), id);
+
+        getActivity().startActivity(view);
+    }
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v,
