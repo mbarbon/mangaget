@@ -46,6 +46,7 @@ public class ScraperTest extends InstrumentationTestCase {
     private class DownloadProgress
             implements Scraper.OnChapterDownloadProgress {
         public boolean started, progress, complete;
+        public int totalCount;
 
         @Override
         public void downloadStarted() {
@@ -55,6 +56,7 @@ public class ScraperTest extends InstrumentationTestCase {
         @Override
         public void downloadProgress(int current, int total) {
             progress = true;
+            totalCount = total;
         }
 
         @Override
@@ -97,6 +99,13 @@ public class ScraperTest extends InstrumentationTestCase {
         return db.insertChapter(
             mangaId, 1, 45, "Chapter title",
             "http://manga.animea.net/papillon-hana-to-chou-chapter-1-page-1.html");
+    }
+
+    private long setUpTestPage(long chapterId, int index) {
+        return db.insertPage(
+            chapterId, index,
+            "http://manga.animea.net/papillon-hana-to-chou-chapter-1-page-" +
+            Integer.toString(index + 1) + ".html", null, DB.DOWNLOAD_REQUESTED);
     }
 
     @Override
@@ -159,11 +168,50 @@ public class ScraperTest extends InstrumentationTestCase {
         assertTrue(progress.started);
         assertTrue(progress.progress);
         assertTrue(progress.complete);
+        assertEquals(90, progress.totalCount);
+        assertTrue(new File(targetCbz).exists());
+    }
+
+    public void testOnlyDownloadPages() throws Throwable {
+        final long mangaId = setUpTestManga();
+        final long chapterId = setUpTestChapter(mangaId);
+        final String targetCbz = new File(tempDir, "Dummy-1.cbz")
+            .getAbsolutePath();
+        final String tempDirString = tempDir.getAbsolutePath();
+        final Scraper scraper = Scraper.getInstance(testContext);
+        final DownloadProgress progress = new DownloadProgress();
+
+        setUpTestPage(chapterId, 0);
+        setUpTestPage(chapterId, 1);
+        setUpTestPage(chapterId, 2);
+        setUpTestPage(chapterId, 3);
+
+        class UiTask implements Runnable {
+            @Override
+            public void run() {
+                scraper.downloadChapter(
+                    chapterId, targetCbz, tempDirString, progress);
+            }
+        }
+
+        UiTask uiTask = new UiTask();
+
+        runTestOnUiThread(uiTask);
+
+        while (!progress.complete)
+            Thread.sleep(500);
+
+        System.out.println("Temp dir: " + tempDirString);
+        System.out.println("Target: " + targetCbz);
+
+        assertTrue(progress.started);
+        assertTrue(progress.progress);
+        assertTrue(progress.complete);
+        assertEquals(8, progress.totalCount);
         assertTrue(new File(targetCbz).exists());
     }
 
     // TODO test partial downloads
-    //      page URLs already filled in
     //      all pages downloaded
     //      page marked downloaded but no file there
 

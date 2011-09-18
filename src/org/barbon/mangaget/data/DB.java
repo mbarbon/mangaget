@@ -132,6 +132,15 @@ public class DB {
             new String[] { Long.toString(chapterId) });
     }
 
+    public int getPageCount(long chapterId) {
+        Cursor pages = getPages(chapterId);
+        int count = pages.getCount();
+
+        pages.close();
+
+        return count;
+    }
+
     public ContentValues getManga(long mangaId) {
         SQLiteDatabase db = getDatabase();
         Cursor cursor = db.rawQuery(

@@ -128,7 +128,7 @@ public class Scraper {
         // TODO notify when it really starts
         download.listener.downloadStarted();
 
-        if (chapter.getAsInteger(DB.DOWNLOAD_STATUS) != DB.DOWNLOAD_COMPLETE)
+        if (db.getPageCount(chapterId) == 0)
             downloadPageListAndPages(download);
         else
             downloadPages(download);
@@ -348,6 +348,7 @@ public class Scraper {
         public void start() {
             target = downloader.requestDownload(
                 download.chapter.getAsString(DB.CHAPTER_URL), this);
+            db.updateChapterStatus(download.id, DB.DOWNLOAD_REQUESTED);
         }
 
         @Override
@@ -371,10 +372,6 @@ public class Scraper {
             for (String url : pageUrls)
                 db.insertPage(download.id, index++, url, null,
                               DB.DOWNLOAD_REQUESTED);
-
-            // TODO only mark as complete after packing the chapter
-            //      (must fix check below)
-            db.updateChapterStatus(download.id, DB.DOWNLOAD_COMPLETE);
         }
 
         @Override
@@ -382,7 +379,6 @@ public class Scraper {
             super.downloadComplete(success);
 
             if (!success) {
-                db.updateChapterStatus(download.id, DB.DOWNLOAD_REQUESTED);
                 download.listener.downloadComplete(success);
 
                 return;
@@ -553,6 +549,8 @@ public class Scraper {
 
         private void downloadFinished() {
             createChapterArchive(download, pages);
+            db.updateChapterStatus(download.id, DB.DOWNLOAD_COMPLETE);
+
             download.listener.downloadComplete(true);
         }
     }
