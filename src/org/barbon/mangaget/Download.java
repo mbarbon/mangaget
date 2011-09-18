@@ -150,12 +150,7 @@ public class Download extends Service {
     // public interface
 
     public static void startChapterDownload(Context context, long chapterId) {
-        Intent intent = new Intent(context, Download.class);
-
-        intent.putExtra(COMMAND, COMMAND_DOWNLOAD_CHAPTER);
-        intent.putExtra(CHAPTER_ID, chapterId);
-
-        context.startService(intent);
+        context.startService(chapterDownloadIntent(context, chapterId));
     }
 
     public static void startMangaUpdate(Context context, long mangaId) {
@@ -168,6 +163,16 @@ public class Download extends Service {
     }
 
     // implementation
+
+    private static Intent chapterDownloadIntent(
+            Context context, long chapterId) {
+        Intent intent = new Intent(context, Download.class);
+
+        intent.putExtra(COMMAND, COMMAND_DOWNLOAD_CHAPTER);
+        intent.putExtra(CHAPTER_ID, chapterId);
+
+        return intent;
+    }
 
     private class MangaUpdateProgress implements Scraper.OnOperationStatus {
         private long mangaId;
@@ -254,7 +259,12 @@ public class Download extends Service {
                 progressId = R.string.manga_downloaded_progress;
             }
             else {
-                // TODO set intent to restart download
+                Intent startDownload = chapterDownloadIntent(
+                    Download.this, chapter.getAsLong(DB.ID));
+
+                // re-download when fail notification clicked
+                notification.contentIntent = PendingIntent.getService(
+                    Download.this, 0, startDownload, 0);
                 tickerId = R.string.manga_download_error_ticker;
                 progressId = R.string.manga_download_error_progress;
             }
