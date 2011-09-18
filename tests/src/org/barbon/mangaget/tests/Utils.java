@@ -91,6 +91,10 @@ public class Utils {
             downloader.addUrl(base + Integer.toString(i) + ".html",
                               R.raw.animea_papillon_c1_p2_html);
 
+        // chapter list page
+        downloader.addUrl(baseUrl + "/papillon-hana-to-chou.html?skip=1",
+                          R.raw.animea_papillon_chapters_html);
+
         // set up dummy images
         String p1 = baseImage + "/5338%2F1_JHMCN%2F00_fuuchifighters.jpg" ;
         String pn = baseImage + "/5338%2F1_JHMCN%2F001_cover.jpg" ;
