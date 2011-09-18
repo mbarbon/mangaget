@@ -5,6 +5,8 @@
 
 package org.barbon.mangaget.fragments;
 
+import android.database.Cursor;
+
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -17,11 +19,16 @@ import android.view.ViewGroup;
 
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.SimpleCursorAdapter;
 
 import android.support.v4.app.ListFragment;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.barbon.mangaget.Download;
+import org.barbon.mangaget.Notifier;
 import org.barbon.mangaget.R;
 
 import org.barbon.mangaget.data.DB;
@@ -32,9 +39,57 @@ public class MangaList extends ListFragment {
     private SimpleCursorAdapter adapter;
     private OnMangaSelected onMangaSelected;
     private long currentSelection = -1;
+    private StatusBinder viewBinder = new StatusBinder();
+    private MangaListener listener = new MangaListener();
 
     public interface OnMangaSelected {
         public void onMangaSelected(long mangaId);
+    }
+
+    private class MangaListener extends Notifier.OperationNotificationAdapter {
+        @Override
+        public void onMangaUpdateStarted(long mangaId) {
+            viewBinder.setStatus(mangaId, true);
+            adapter.getCursor().requery();
+        }
+
+        @Override
+        public void onMangaUpdateComplete(long mangaId, boolean success) {
+            viewBinder.setStatus(mangaId, false);
+            adapter.getCursor().requery();
+        }
+    }
+
+    private static class StatusBinder
+            implements SimpleCursorAdapter.ViewBinder {
+        private Set<Long> active = new HashSet<Long>();
+
+        @Override
+        public boolean setViewValue(View view, Cursor cursor, int column) {
+            if (view.getId() == R.id.manga_progress)
+                return bindProgress((ProgressBar) view, cursor, column);
+
+            return false;
+        }
+
+        public void setStatus(long mangaId, boolean started) {
+            if (started)
+                active.add(mangaId);
+            else
+                active.remove(mangaId);
+        }
+
+        private boolean bindProgress(ProgressBar progress, Cursor cursor,
+                                    int column) {
+            long id = cursor.getLong(column);
+
+            if (active.contains(id))
+                progress.setVisibility(View.VISIBLE);
+            else
+                progress.setVisibility(View.INVISIBLE);
+
+            return true;
+        }
     }
 
     @Override
@@ -42,9 +97,10 @@ public class MangaList extends ListFragment {
         super.onCreate(savedInstanceState);
 
         adapter = new SimpleCursorAdapter(
-            getActivity(), R.layout.list_item, null,
-            new String[] { DB.MANGA_TITLE },
-            new int[] { R.id.item_text });
+            getActivity(), R.layout.manga_item, null,
+            new String[] { DB.MANGA_TITLE, DB.ID },
+            new int[] { R.id.manga_title, R.id.manga_progress });
+        adapter.setViewBinder(viewBinder);
     }
 
     @Override
@@ -73,6 +129,8 @@ public class MangaList extends ListFragment {
     public void onResume() {
         super.onResume();
 
+        Notifier.getInstance().add(listener);
+
         if (adapter.getCursor() != null)
             adapter.getCursor().requery();
     }
@@ -82,6 +140,13 @@ public class MangaList extends ListFragment {
         super.onSaveInstanceState(outState);
 
         outState.putLong(SELECTED_ID, currentSelection);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        Notifier.getInstance().remove(listener);
     }
 
     @Override

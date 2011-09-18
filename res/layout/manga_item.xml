@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Mattia Barbon <mattia@barbon.org>
+     distributed under the terms of the MIT license -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    >
+  <ProgressBar
+      android:id="@+id/manga_progress"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:visibility="invisible"
+      />
+  <TextView
+      android:id="@+id/manga_title"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:padding="6dp"
+      android:textSize="22sp"
+      />
+</LinearLayout>
