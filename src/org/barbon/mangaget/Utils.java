@@ -7,17 +7,47 @@ package org.barbon.mangaget;
 
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.ContentValues;
 import android.content.Intent;
 
-public class Utils {
-    public static Intent viewChapterIntent(Context context, long chapterId) {
-        Intent view = new Intent(Intent.ACTION_MAIN);
+import android.net.Uri;
 
-        view.addCategory(Intent.CATEGORY_LAUNCHER);
+import android.os.Environment;
+
+import java.io.File;
+
+import java.util.Formatter;
+
+import org.barbon.mangaget.data.DB;
+
+public class Utils {
+    public static String getChapterPath(Context context, long chapterId) {
+        DB db = DB.getInstance(context);
+        ContentValues chapter = db.getChapter(chapterId);
+        ContentValues manga = db.getManga(chapter.getAsLong(
+                                              DB.CHAPTER_MANGA_ID));
+        File externalStorage = Environment.getExternalStorageDirectory();
+        String targetPath = new Formatter()
+            .format(manga.getAsString(DB.MANGA_PATTERN),
+                    chapter.getAsInteger(DB.CHAPTER_NUMBER))
+            .toString();
+        File fullPath = new File(externalStorage, targetPath);
+
+        return fullPath.getAbsolutePath();
+    }
+
+    public static Intent viewChapterIntent(Context context, long chapterId) {
+        Intent view = new Intent(Intent.ACTION_VIEW);
+        Uri chapter = new Uri.Builder()
+            .scheme("file")
+            .path(Utils.getChapterPath(context, chapterId))
+            .build();
+
         // TODO avoid hardcoding PerfectViewer
         view.setComponent(
             ComponentName.unflattenFromString(
-                "com.rookiestudio.perfectviewer/.TStartup"));
+                "com.rookiestudio.perfectviewer/.TViewerMain"));
+        view.setData(chapter);
 
         return view;
     }
