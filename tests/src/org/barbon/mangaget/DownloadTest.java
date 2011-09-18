@@ -33,7 +33,8 @@ public class DownloadTest extends InstrumentationTestCase {
         super.tearDown();
     }
 
-    private static class DownloadListener implements Download.Listener {
+    private static class DownloadListener
+            implements Notifier.OperationNotification {
         public long id;
         public boolean started, complete;
         public boolean status;
@@ -53,8 +54,9 @@ public class DownloadTest extends InstrumentationTestCase {
         }
     }
 
-    public void testListenerManager() throws Exception {
-        Download.ListenerManager mgr = new Download.ListenerManager();
+
+    public void testServiceManager() throws Exception {
+        Download.ServiceManager mgr = new Download.ServiceManager();
         Instrumentation instr = getInstrumentation();
         Context targetContext = instr.getTargetContext();
 
@@ -88,12 +90,10 @@ public class DownloadTest extends InstrumentationTestCase {
 
     public void testMangaRefresh() throws Exception {
         DownloadListener listener = new DownloadListener();
-        Download.ListenerManager mgr = new Download.ListenerManager(listener);
         Instrumentation instr = getInstrumentation();
         Context targetContext = instr.getTargetContext();
 
-        mgr.connect(targetContext);
-        instr.waitForIdleSync();
+        Notifier.getInstance().add(listener);
 
         Download.startMangaUpdate(targetContext, Utils.firstDummyManga);
 
@@ -116,18 +116,15 @@ public class DownloadTest extends InstrumentationTestCase {
         assertEquals(Utils.firstDummyManga, listener.id);
         assertEquals(true, listener.status);
 
-        mgr.disconnect(targetContext);
-        instr.waitForIdleSync();
+        Notifier.getInstance().remove(listener);
     }
 
     public void testMangaRefreshFail() throws Exception {
         DownloadListener listener = new DownloadListener();
-        Download.ListenerManager mgr = new Download.ListenerManager(listener);
         Instrumentation instr = getInstrumentation();
         Context targetContext = instr.getTargetContext();
 
-        mgr.connect(targetContext);
-        instr.waitForIdleSync();
+        Notifier.getInstance().add(listener);
 
         Download.startMangaUpdate(targetContext, Utils.secondDummyManga);
 
@@ -141,7 +138,6 @@ public class DownloadTest extends InstrumentationTestCase {
         assertEquals(Utils.secondDummyManga, listener.id);
         assertEquals(false, listener.status);
 
-        mgr.disconnect(targetContext);
-        instr.waitForIdleSync();
+        Notifier.getInstance().remove(listener);
     }
 }

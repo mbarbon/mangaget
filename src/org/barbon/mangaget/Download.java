@@ -49,7 +49,6 @@ public class Download extends Service {
 
     private DB db;
     private File downloadTemp;
-    private List<Listener> listeners = new ArrayList<Listener>();
 
     private class DownloadBinder extends Binder {
         public Download getService() {
@@ -57,39 +56,14 @@ public class Download extends Service {
         }
     }
 
-    public interface Listener {
-        public void onMangaUpdateStarted(long mangaId);
-        public void onMangaUpdateComplete(long mangaId, boolean success);
-    }
-
-    public static class ListenerAdapter implements Listener {
-        @Override
-        public void onMangaUpdateStarted(long mangaId) { }
-
-        @Override
-        public void onMangaUpdateComplete(long mangaId, boolean success) { }
-    }
-
-    public static class ListenerManager implements ServiceConnection {
-        private Listener listener;
+    public static class ServiceManager implements ServiceConnection {
         private Download service;
-
-        public ListenerManager() {
-            listener = null;
-        }
-
-        public ListenerManager(Listener _listener) {
-            listener = _listener;
-        }
 
         public void connect(Context context) {
             context.bindService(new Intent(context, Download.class), this, 0);
         }
 
         public void disconnect(Context context) {
-            if (service != null && listener != null)
-                service.removeListener(listener);
-
             context.unbindService(this);
         }
 
@@ -101,9 +75,6 @@ public class Download extends Service {
         public void onServiceConnected(ComponentName name, IBinder binder) {
             DownloadBinder downloadBinder = (DownloadBinder) binder;
             service = downloadBinder.getService();
-
-            if (listener != null)
-                service.addListener(listener);
         }
 
         @Override
@@ -183,12 +154,12 @@ public class Download extends Service {
 
         @Override
         public void operationStarted() {
-            notifyMangaUpdateStarted(mangaId);
+            Notifier.getInstance().notifyMangaUpdateStarted(mangaId);
         }
 
         @Override
         public void operationComplete(boolean success) {
-            notifyMangaUpdateComplete(mangaId, success);
+            Notifier.getInstance().notifyMangaUpdateComplete(mangaId, success);
 
             if (success)
                 Notifier.getInstance().notifyChapterListUpdate(mangaId);
@@ -311,25 +282,5 @@ public class Download extends Service {
 
         scraper.downloadChapter(chapterId, fullPath.getAbsolutePath(),
                                 downloadTemp.getAbsolutePath(), progress);
-    }
-
-    // notification management
-
-    private void addListener(Listener listener) {
-        listeners.add(listener);
-    }
-
-    private void removeListener(Listener listener) {
-        listeners.remove(listener);
-    }
-
-    private void notifyMangaUpdateStarted(long mangaId) {
-        for (Listener listener : listeners)
-            listener.onMangaUpdateStarted(mangaId);
-    }
-
-    private void notifyMangaUpdateComplete(long mangaId, boolean success) {
-        for (Listener listener : listeners)
-            listener.onMangaUpdateComplete(mangaId, success);
     }
 }
