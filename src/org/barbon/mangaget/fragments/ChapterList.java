@@ -26,6 +26,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 
 import org.barbon.mangaget.Download;
+import org.barbon.mangaget.Notifier;
 import org.barbon.mangaget.R;
 import org.barbon.mangaget.Utils;
 
@@ -37,17 +38,23 @@ public class ChapterList extends ListFragment {
 
     private SimpleCursorAdapter adapter;
     private long currentManga = -1;
-    private DownloadListener listener = new DownloadListener();
-    private Download.ListenerManager manager =
-        new Download.ListenerManager(listener);
+    private ChapterListener listener = new ChapterListener();
 
-    private class DownloadListener extends Download.ListenerAdapter {
+    private class ChapterListener extends Notifier.DBNotificationAdapter {
         @Override
-        public void onMangaUpdateComplete(long mangaId, boolean success) {
-            if (!success || mangaId != currentManga)
+        public void onChapterListUpdate(long mangaId) {
+            if (mangaId != currentManga)
                 return;
 
-            loadChapterList(mangaId);
+            adapter.getCursor().requery();
+        }
+
+        @Override
+        public void onChapterUpdate(long mangaId, long chapterId) {
+            if (mangaId != currentManga)
+                return;
+
+            adapter.getCursor().requery();
         }
     }
 
@@ -102,10 +109,10 @@ public class ChapterList extends ListFragment {
     public void onResume() {
         super.onResume();
 
+        Notifier.getInstance().add(listener);
+
         if (adapter.getCursor() != null)
             adapter.getCursor().requery();
-
-        manager.connect(getActivity());
     }
 
     @Override
@@ -119,7 +126,7 @@ public class ChapterList extends ListFragment {
     public void onPause() {
         super.onPause();
 
-        manager.disconnect(getActivity());
+        Notifier.getInstance().remove(listener);
     }
 
     @Override

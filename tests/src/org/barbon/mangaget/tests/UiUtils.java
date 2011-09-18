@@ -57,6 +57,12 @@ public class UiUtils {
         instr.waitForIdleSync();
     }
 
+    public static void waitForIdle(int msec) {
+        sleep(msec);
+
+        instr.waitForIdleSync();
+    }
+
     public static Activity reloadActivity(Activity activity) {
         IntentFilter filter = null;
         Instrumentation.ActivityMonitor monitor =

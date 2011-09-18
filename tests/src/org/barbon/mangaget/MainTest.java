@@ -125,7 +125,8 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
 
             UiUtils.sleep(500);
         }
-        UiUtils.sleep(2000);  // blech
+
+        UiUtils.waitForIdle(2000);
 
         // check chapter list has been refreshed
         assertEquals(29, chapterList.getListView().getCount());
@@ -157,7 +158,8 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
 
             UiUtils.sleep(500);
         }
-        UiUtils.sleep(2000);  // blech
+
+        UiUtils.waitForIdle(2000);
 
         // check chapter list has been refreshed
         assertEquals(1, mangaList.getListView().getCount());

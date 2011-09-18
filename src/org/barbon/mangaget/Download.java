@@ -189,6 +189,9 @@ public class Download extends Service {
         @Override
         public void operationComplete(boolean success) {
             notifyMangaUpdateComplete(mangaId, success);
+
+            if (success)
+                Notifier.getInstance().notifyChapterListUpdate(mangaId);
         }
     }
 
