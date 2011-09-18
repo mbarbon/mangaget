@@ -382,6 +382,9 @@ public class Scraper {
             super.downloadComplete(success);
 
             if (!success) {
+                db.updateChapterStatus(download.id, DB.DOWNLOAD_REQUESTED);
+                notifyChapterUpdate(download);
+
                 download.listener.downloadComplete(success);
 
                 return;
