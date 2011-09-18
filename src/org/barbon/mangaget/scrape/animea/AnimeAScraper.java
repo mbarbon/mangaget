@@ -236,7 +236,7 @@ public class AnimeAScraper {
             if (!(text instanceof TextNode))
                 continue;
 
-            String title = ((TextNode)text).text();
+            String title = ((TextNode)text).text().trim();
             HtmlScrape.ChapterInfo info = new HtmlScrape.ChapterInfo();
 
             info.title = title;
