@@ -21,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
@@ -62,18 +63,39 @@ public class ChapterList extends ListFragment {
             implements SimpleCursorAdapter.ViewBinder {
         @Override
         public boolean setViewValue(View view, Cursor cursor, int column) {
-            if (view.getId() != R.id.chapter_downloaded)
-                return false;
+            if (view.getId() == R.id.chapter_downloaded)
+                return bindImage((ImageView) view, cursor, column);
+            if (view.getId() == R.id.chapter_progress)
+                return bindProgress((ProgressBar) view, cursor, column);
 
-            ImageView image = (ImageView) view;
+            return false;
+        }
+
+        private boolean bindImage(ImageView image, Cursor cursor, int column) {
             int status = cursor.getInt(column);
+
+            image.setVisibility(View.VISIBLE);
 
             if (status == DB.DOWNLOAD_COMPLETE)
                 image.setImageResource(R.drawable.btn_check_buttonless_on);
             else if (status == DB.DOWNLOAD_STOPPED)
                 image.setImageResource(R.drawable.btn_check_buttonless_off);
-            else
+            else if (status == DB.DOWNLOAD_REQUESTED)
                 image.setImageResource(R.drawable.btn_circle_pressed);
+            else
+                image.setVisibility(View.GONE);
+
+            return true;
+        }
+
+        private boolean bindProgress(ProgressBar progress, Cursor cursor,
+                                    int column) {
+            int status = cursor.getInt(column);
+
+            if (status == DB.DOWNLOAD_STARTED)
+                progress.setVisibility(View.VISIBLE);
+            else
+                progress.setVisibility(View.GONE);
 
             return true;
         }
@@ -86,9 +108,9 @@ public class ChapterList extends ListFragment {
         adapter = new SimpleCursorAdapter(
             getActivity(), R.layout.chapter_item, null,
             new String[] { DB.CHAPTER_NUMBER, DB.CHAPTER_TITLE,
-                           DB.DOWNLOAD_STATUS },
+                           DB.DOWNLOAD_STATUS, DB.DOWNLOAD_STATUS },
             new int[] { R.id.chapter_number, R.id.chapter_title,
-                        R.id.chapter_downloaded });
+                        R.id.chapter_downloaded, R.id.chapter_progress });
         adapter.setViewBinder(VIEW_BINDER);
     }
 
