@@ -209,14 +209,8 @@ public class Download extends Service {
         public void downloadStarted() {
             String ticker =
                 getResources().getString(R.string.manga_downloading_ticker);
-
-            Intent notificationIntent = new Intent(Intent.ACTION_MAIN);
-
-            notificationIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-            // TODO avoid hardcoding PerfectViewer
-            notificationIntent.setComponent(
-                ComponentName.unflattenFromString(
-                    "com.rookiestudio.perfectviewer/.TStartup"));
+            Intent notificationIntent = Utils.viewChapterIntent(
+                Download.this, chapter.getAsLong(DB.ID));
 
             manager = (NotificationManager)
                 getSystemService(Context.NOTIFICATION_SERVICE);

@@ -145,6 +145,7 @@ public class DB {
         if (cursor.moveToNext()) {
             values = new ContentValues();
 
+            values.put("_id", mangaId);
             values.put("title", cursor.getString(1));
             values.put("pattern", cursor.getString(2));
             values.put("url", cursor.getString(3));
@@ -186,6 +187,7 @@ public class DB {
         if (cursor.moveToNext()) {
             values = new ContentValues();
 
+            values.put("_id", chapterId);
             values.put("manga_id", cursor.getInt(1));
             values.put("title", cursor.getString(2));
             values.put("number", cursor.getString(3));
