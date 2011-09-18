@@ -280,7 +280,6 @@ public class DB {
         values.put("pages", pages);
         values.put("title", title);
         values.put("url", url);
-        values.put("download_status", DB.DOWNLOAD_STOPPED);
 
         db.update("chapters", values, "id = ?",
                   new String[] { Long.toString(chapterId) });

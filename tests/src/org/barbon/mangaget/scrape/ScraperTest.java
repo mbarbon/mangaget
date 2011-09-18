@@ -5,7 +5,10 @@
 
 package org.barbon.mangaget.scrape;
 
+import android.content.ContentValues;
 import android.content.Context;
+
+import android.database.Cursor;
 
 import android.os.Environment;
 
@@ -96,9 +99,18 @@ public class ScraperTest extends InstrumentationTestCase {
     }
 
     private long setUpTestChapter(long mangaId) {
-        return db.insertChapter(
-            mangaId, 1, 45, "Chapter title",
-            "http://manga.animea.net/papillon-hana-to-chou-chapter-1-page-1.html");
+        return setUpTestChapter(mangaId, 1, DB.DOWNLOAD_STOPPED);
+    }
+
+    private long setUpTestChapter(long mangaId, int index, int status) {
+        long id = db.insertChapter(
+            mangaId, index, 45, "Chapter title",
+            "http://manga.animea.net/papillon-hana-to-chou-chapter-" +
+            Integer.toString(index) + "-page-1.html");
+
+        db.updateChapterStatus(id, status);
+
+        return id;
     }
 
     private long setUpTestPage(long chapterId, int index) {
@@ -112,10 +124,24 @@ public class ScraperTest extends InstrumentationTestCase {
     public void tearDown() throws Exception {
     }
 
+    private int getChapterCount(long mangaId) {
+        DB db = DB.getInstance(null);
+        Cursor chapters = db.getChapterList(mangaId);
+        int count = chapters.getCount();
+
+        chapters.close();
+
+        return count;
+    }
+
     public void testMangaUpdate() throws Throwable {
         final long mangaId = setUpTestManga();
         final Scraper scraper = Scraper.getInstance(testContext);
         final OperationProgress progress = new OperationProgress();
+
+        setUpTestChapter(mangaId, 1, DB.DOWNLOAD_COMPLETE);
+        setUpTestChapter(mangaId, 2, DB.DOWNLOAD_REQUESTED);
+        setUpTestChapter(mangaId, 3, DB.DOWNLOAD_STOPPED);
 
         class UiTask implements Runnable {
             @Override
@@ -124,6 +150,8 @@ public class ScraperTest extends InstrumentationTestCase {
                     mangaId, progress);
             }
         }
+
+        assertEquals(3, getChapterCount(mangaId));
 
         UiTask uiTask = new UiTask();
 
@@ -134,8 +162,25 @@ public class ScraperTest extends InstrumentationTestCase {
 
         assertTrue(progress.started);
         assertTrue(progress.complete);
+        assertEquals(29, getChapterCount(mangaId));
 
-        // TODO test manga chapters have been updated
+        ContentValues chapter;
+
+        // chapter 1 (already present)
+        chapter = db.getChapter(db.getChapterId(mangaId, 1));
+
+        assertEquals("Vol. 1 Wish",
+                     chapter.getAsString(DB.CHAPTER_TITLE));
+        assertEquals(DB.DOWNLOAD_COMPLETE,
+                     (long) chapter.getAsInteger(DB.DOWNLOAD_STATUS));
+
+        // chapter 4 (new)
+        chapter = db.getChapter(db.getChapterId(mangaId, 4));
+
+        assertEquals("Vol. 1 Magic Spell",
+                     chapter.getAsString(DB.CHAPTER_TITLE));
+        assertEquals(DB.DOWNLOAD_STOPPED,
+                     (long) chapter.getAsInteger(DB.DOWNLOAD_STATUS));
     }
 
     public void testFullDownload() throws Throwable {
