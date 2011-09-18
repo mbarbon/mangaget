@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.barbon.mangaget.CBZFile;
+import org.barbon.mangaget.Notifier;
 
 import org.barbon.mangaget.data.DB;
 
@@ -349,6 +350,7 @@ public class Scraper {
             target = downloader.requestDownload(
                 download.chapter.getAsString(DB.CHAPTER_URL), this);
             db.updateChapterStatus(download.id, DB.DOWNLOAD_REQUESTED);
+            notifyChapterUpdate(download);
         }
 
         @Override
@@ -356,6 +358,7 @@ public class Scraper {
             super.downloadStarted();
 
             db.updateChapterStatus(download.id, DB.DOWNLOAD_STARTED);
+            notifyChapterUpdate(download);
         }
 
         @Override
@@ -552,6 +555,7 @@ public class Scraper {
             db.updateChapterStatus(download.id, DB.DOWNLOAD_COMPLETE);
 
             download.listener.downloadComplete(true);
+            notifyChapterUpdate(download);
         }
     }
 
@@ -619,5 +623,11 @@ public class Scraper {
             return new MangareaderScraper.Provider();
         else
             throw new RuntimeException("Unknown URL " + url);
+    }
+
+    private static void notifyChapterUpdate(ChapterDownload download) {
+        Notifier.getInstance().notifyChapterUpdate(
+            download.chapter.getAsLong(DB.CHAPTER_MANGA_ID),
+            download.id);
     }
 }
