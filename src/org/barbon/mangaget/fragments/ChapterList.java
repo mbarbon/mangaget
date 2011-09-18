@@ -61,11 +61,12 @@ public class ChapterList extends ListFragment {
             ImageView image = (ImageView) view;
             int status = cursor.getInt(column);
 
-            // TODO add another icon for the partially downloaded status
             if (status == DB.DOWNLOAD_COMPLETE)
                 image.setImageResource(R.drawable.btn_check_buttonless_on);
-            else
+            else if (status == DB.DOWNLOAD_STOPPED)
                 image.setImageResource(R.drawable.btn_check_buttonless_off);
+            else
+                image.setImageResource(R.drawable.btn_circle_pressed);
 
             return true;
         }
