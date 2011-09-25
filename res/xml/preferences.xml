@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Mattia Barbon <mattia@barbon.org>
+     distributed under the terms of the MIT license -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="main_preferencescreen">
+  <CheckBoxPreference
+      android:key="useMangaSubdir"
+      android:defaultValue="true"
+      android:title="Use per-manga directory" />
+</PreferenceScreen>

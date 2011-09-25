@@ -115,8 +115,12 @@ public class MangaSearch extends ListActivity {
             (Scraper.MangaInfo) getListAdapter().getItem(index);
         DB db = DB.getInstance(this);
         // TODO make configurable, check for duplicates
-        String path = "Pictures/Comics/" + info.pattern + "-%02d.cbz";
+        String basePath = "Pictures/Comics/";
 
+        if (Preferences.getUseMangaSubdir(this))
+            basePath = basePath + info.title.replaceAll("/" ,"-") + "/";
+
+        String path = basePath + info.pattern + "-%02d.cbz";
         long mangaId = db.insertManga(info.title, path, info.url);
 
         Download.startMangaUpdate(this, mangaId);
