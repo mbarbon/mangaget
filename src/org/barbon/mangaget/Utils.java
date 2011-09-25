@@ -26,12 +26,7 @@ public class Utils {
         ContentValues chapter = db.getChapter(chapterId);
         ContentValues manga = db.getManga(chapter.getAsLong(
                                               DB.CHAPTER_MANGA_ID));
-        File externalStorage = Environment.getExternalStorageDirectory();
-        String targetPath = new Formatter()
-            .format(manga.getAsString(DB.MANGA_PATTERN),
-                    chapter.getAsInteger(DB.CHAPTER_NUMBER))
-            .toString();
-        File fullPath = new File(externalStorage, targetPath);
+        File fullPath = getChapterPath(manga, chapter);
 
         return fullPath.getAbsolutePath();
     }
@@ -50,5 +45,23 @@ public class Utils {
         view.setData(chapter);
 
         return view;
+    }
+
+    // internal
+
+    private static File getChapterPath(ContentValues manga,
+                                       ContentValues chapter) {
+        return getChapterPath(manga.getAsString(DB.MANGA_PATTERN),
+                              chapter.getAsInteger(DB.CHAPTER_NUMBER));
+    }
+
+    private static File getChapterPath(String pattern, int chapter) {
+        File externalStorage = Environment.getExternalStorageDirectory();
+        String targetPath = new Formatter()
+            .format(pattern, chapter)
+            .toString();
+        File fullPath = new File(externalStorage, targetPath);
+
+        return fullPath;
     }
 }
