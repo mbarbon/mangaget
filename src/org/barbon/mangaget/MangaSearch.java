@@ -117,9 +117,9 @@ public class MangaSearch extends ListActivity {
         // TODO make configurable, check for duplicates
         String path = "Pictures/Comics/" + info.pattern + "-%02d.cbz";
 
-        // TODO auto-refresh chapter list right after inserting manga
-        // TODO auto-scan already downloaded comics
-        db.insertManga(info.title, path, info.url);
+        long mangaId = db.insertManga(info.title, path, info.url);
+
+        Download.startMangaUpdate(this, mangaId);
     }
 
     // event handlers
