@@ -17,6 +17,13 @@ public class CBZFile {
         ZipOutputStream stream = null;
 
         try {
+            // create parent directory if needed
+            File basePath = new File(fullPath).getParentFile();
+
+            if (!basePath.exists())
+                basePath.mkdirs();
+
+            // create CBZ file
             FileOutputStream file = new FileOutputStream(fullPath);
 
             stream = new ZipOutputStream(file);
