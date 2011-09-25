@@ -4,6 +4,7 @@
 <resources>
   <string name="app_name">Manga Get</string>
   <string name="cancel">Cancel</string>
+  <string name="preferences">Preferences</string>
 
   <!-- Manga list -->
   <string name="no_manga">Select manga</string>

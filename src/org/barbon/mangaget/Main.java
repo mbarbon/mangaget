@@ -9,6 +9,9 @@ import android.content.Intent;
 
 import android.os.Bundle;
 
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import android.support.v4.app.FragmentActivity;
@@ -51,6 +54,30 @@ public class Main extends FragmentActivity {
                         startActivity(chapters);
                     }
                 });
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if (!super.onCreateOptionsMenu(menu))
+            return false;
+
+        MenuInflater inflater = new MenuInflater(this);
+
+        inflater.inflate(R.menu.main, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        case R.id.preferences:
+            startActivity(new Intent(this, Preferences.class));
+
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
         }
     }
 }
