@@ -161,8 +161,11 @@ public class Download extends Service {
         public void operationComplete(boolean success) {
             Notifier.getInstance().notifyMangaUpdateComplete(mangaId, success);
 
-            if (success)
+            if (success) {
+                // check already downloaded chapter before notifying
+                Utils.updateChapterStatus(Download.this, mangaId);
                 Notifier.getInstance().notifyChapterListUpdate(mangaId);
+            }
         }
     }
 

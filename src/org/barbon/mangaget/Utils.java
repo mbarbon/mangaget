@@ -10,6 +10,8 @@ import android.content.Context;
 import android.content.ContentValues;
 import android.content.Intent;
 
+import android.database.Cursor;
+
 import android.net.Uri;
 
 import android.os.Environment;
@@ -45,6 +47,29 @@ public class Utils {
         view.setData(chapter);
 
         return view;
+    }
+
+    public static void updateChapterStatus(Context context, long mangaId) {
+        DB db = DB.getInstance(context);
+        String pattern = db.getManga(mangaId).getAsString(DB.MANGA_PATTERN);
+        Cursor chapters = db.getChapterList(mangaId);
+        int idI = chapters.getColumnIndex(DB.ID);
+        int statusI = chapters.getColumnIndex(DB.DOWNLOAD_STATUS);
+        int numberI = chapters.getColumnIndex(DB.CHAPTER_NUMBER);
+
+        while (chapters.moveToNext()) {
+            int status = chapters.getInt(statusI);
+            int number = chapters.getInt(numberI);
+            int id = chapters.getInt(idI);
+
+            if (status != DB.DOWNLOAD_COMPLETE &&
+                getChapterPath(pattern, number).exists()) {
+                db.updateChapterStatus(id, DB.DOWNLOAD_COMPLETE);
+                Notifier.getInstance().notifyChapterUpdate(mangaId, id);
+            }
+        }
+
+        chapters.close();
     }
 
     // internal
