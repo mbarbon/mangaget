@@ -235,6 +235,7 @@ public class Download extends Service {
         public void downloadComplete(boolean success) {
             notification.iconLevel = 0;
             notification.flags &= ~Notification.FLAG_ONGOING_EVENT;
+            notification.flags |= Notification.FLAG_AUTO_CANCEL;
 
             int tickerId, progressId;
 
