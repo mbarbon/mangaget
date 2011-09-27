@@ -17,6 +17,7 @@ import java.util.List;
 
 import org.barbon.mangaget.CBZFile;
 import org.barbon.mangaget.Notifier;
+import org.barbon.mangaget.PendingTask;
 
 import org.barbon.mangaget.data.DB;
 
@@ -113,9 +114,9 @@ public class Scraper {
         mangaUpdater.start();
     }
 
-    public void downloadChapter(long chapterId, String targetPath,
-                                String tempDir,
-                                OnChapterDownloadProgress listener) {
+    public PendingTask downloadChapter(long chapterId, String targetPath,
+                                       String tempDir,
+                                       OnChapterDownloadProgress listener) {
         ContentValues chapter = db.getChapter(chapterId);
         ChapterDownload download = new ChapterDownload();
 
@@ -135,6 +136,8 @@ public class Scraper {
             downloadPageListAndPages(download);
         else
             downloadPages(download);
+
+        return download;
     }
 
     public static class MangaInfo {
@@ -276,11 +279,17 @@ public class Scraper {
         public OnOperationStatus listener;
     }
 
-    private static class ChapterDownload {
+    private static class ChapterDownload implements PendingTask {
         public long id;
         public ContentValues chapter;
         public String targetPath, tempDir;
         public OnChapterDownloadProgress listener;
+        public boolean cancelled;
+
+        @Override
+        public void cancel() {
+            cancelled = true;
+        }
     }
 
     private static class PageDownload {
@@ -520,6 +529,12 @@ public class Scraper {
         }
 
         private void downloadStep() {
+            if (download.cancelled) {
+                downloadCancelled();
+
+                return;
+            }
+
             for (PageDownload page : pages) {
                 if (page.imageUrl == null) {
                     downloadPageInfo(page);
@@ -545,6 +560,13 @@ public class Scraper {
             PageImageDownloader downloader = new PageImageDownloader(page);
 
             downloader.start();
+        }
+
+        private void downloadCancelled() {
+            db.updateChapterStatus(download.id, DB.DOWNLOAD_STOPPED);
+
+            download.listener.downloadComplete(false);
+            notifyChapterUpdate(download);
         }
 
         private void downloadFinished() {

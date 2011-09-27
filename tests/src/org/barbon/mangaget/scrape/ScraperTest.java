@@ -261,6 +261,7 @@ public class ScraperTest extends InstrumentationTestCase {
     // TODO test partial downloads
     //      all pages downloaded
     //      page marked downloaded but no file there
+    //      download cancellation
 
     public void testSearchPager() throws Throwable {
         final Scraper scraper = Scraper.getInstance(testContext);
