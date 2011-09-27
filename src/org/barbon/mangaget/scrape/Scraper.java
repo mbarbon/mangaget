@@ -127,7 +127,9 @@ public class Scraper {
         download.targetPath = targetPath;
 
         // TODO notify when it really starts
+        db.updateChapterStatus(chapterId, DB.DOWNLOAD_STARTED);
         download.listener.downloadStarted();
+        notifyChapterUpdate(download);
 
         if (db.getPageCount(chapterId) == 0)
             downloadPageListAndPages(download);
@@ -350,14 +352,6 @@ public class Scraper {
             target = downloader.requestDownload(
                 download.chapter.getAsString(DB.CHAPTER_URL), this);
             db.updateChapterStatus(download.id, DB.DOWNLOAD_REQUESTED);
-            notifyChapterUpdate(download);
-        }
-
-        @Override
-        public void downloadStarted() {
-            super.downloadStarted();
-
-            db.updateChapterStatus(download.id, DB.DOWNLOAD_STARTED);
             notifyChapterUpdate(download);
         }
 

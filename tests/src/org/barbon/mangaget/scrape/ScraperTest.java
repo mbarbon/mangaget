@@ -246,6 +246,8 @@ public class ScraperTest extends InstrumentationTestCase {
         while (!progress.complete)
             Thread.sleep(500);
 
+        // TODO test DB status during download
+
         System.out.println("Temp dir: " + tempDirString);
         System.out.println("Target: " + targetCbz);
 
