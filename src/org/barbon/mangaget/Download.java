@@ -27,7 +27,9 @@ import android.widget.RemoteViews;
 import java.io.File;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Formatter;
 
 import org.barbon.mangaget.data.DB;
@@ -49,6 +51,8 @@ public class Download extends Service {
 
     private DB db;
     private File downloadTemp;
+    private Map<Long, PendingTask> chapterDownloads =
+        new HashMap<Long, PendingTask>();
 
     private class DownloadBinder extends Binder {
         public Download getService() {
@@ -233,6 +237,8 @@ public class Download extends Service {
 
         @Override
         public void downloadComplete(boolean success) {
+            chapterDownloads.remove(chapter.getAsLong(DB.ID));
+
             notification.iconLevel = 0;
             notification.flags &= ~Notification.FLAG_ONGOING_EVENT;
             notification.flags |= Notification.FLAG_AUTO_CANCEL;
@@ -279,6 +285,9 @@ public class Download extends Service {
     }
 
     private void downloadChapter(long chapterId) {
+        if (chapterDownloads.containsKey(chapterId))
+            return;
+
         ContentValues chapter = db.getChapter(chapterId);
         ContentValues manga = db.getManga(chapter.getAsLong(
                                               DB.CHAPTER_MANGA_ID));
