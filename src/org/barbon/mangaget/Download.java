@@ -97,6 +97,13 @@ public class Download extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        // resume pending downloads on restart
+        if (intent == null) {
+            resumeDownloads();
+
+            return START_STICKY;
+        }
+
         int command = intent.getIntExtra(COMMAND, -1);
 
         switch (command) {
@@ -285,5 +292,9 @@ public class Download extends Service {
 
         scraper.downloadChapter(chapterId, fullPath.getAbsolutePath(),
                                 downloadTemp.getAbsolutePath(), progress);
+    }
+
+    private void resumeDownloads() {
+        // TODO restart pending downloads
     }
 }
