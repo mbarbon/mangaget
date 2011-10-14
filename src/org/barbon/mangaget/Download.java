@@ -287,6 +287,13 @@ public class Download extends Service {
         }
     }
 
+    private void stopDownloadChapter(long chapterId) {
+        if (!chapterDownloads.containsKey(chapterId))
+            return;
+
+        chapterDownloads.get(chapterId).cancel();
+    }
+
     private void downloadChapter(long chapterId) {
         if (chapterDownloads.containsKey(chapterId))
             return;
@@ -303,8 +310,11 @@ public class Download extends Service {
         File fullPath = new File(externalStorage, targetPath);
         DownloadProgress progress = new DownloadProgress(manga, chapter);
 
-        scraper.downloadChapter(chapterId, fullPath.getAbsolutePath(),
-                                downloadTemp.getAbsolutePath(), progress);
+        PendingTask task = scraper.downloadChapter(
+            chapterId, fullPath.getAbsolutePath(),
+            downloadTemp.getAbsolutePath(), progress);
+
+        chapterDownloads.put(chapterId, task);
     }
 
     private void resumeDownloads() {
