@@ -74,14 +74,15 @@ public class ChapterList extends ListFragment {
         private boolean bindImage(ImageView image, Cursor cursor, int column) {
             int status = cursor.getInt(column);
 
-            image.setVisibility(View.VISIBLE);
-
             if (status == DB.DOWNLOAD_COMPLETE)
                 image.setImageResource(R.drawable.btn_check_buttonless_on);
             else if (status == DB.DOWNLOAD_STOPPED)
                 image.setImageResource(R.drawable.btn_check_buttonless_off);
             else if (status == DB.DOWNLOAD_REQUESTED)
                 image.setImageResource(R.drawable.btn_circle_pressed);
+
+            if (status != DB.DOWNLOAD_STARTED)
+                image.setVisibility(View.VISIBLE);
             else
                 image.setVisibility(View.GONE);
 
