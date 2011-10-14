@@ -386,9 +386,9 @@ public class Scraper {
 
             if (!success) {
                 db.updateChapterStatus(download.id, DB.DOWNLOAD_REQUESTED);
-                notifyChapterUpdate(download);
 
                 download.listener.downloadComplete(success);
+                notifyChapterUpdate(download);
 
                 return;
             }
@@ -435,9 +435,7 @@ public class Scraper {
 
                 if (!success) {
                     db.updatePageStatus(page.id, DB.DOWNLOAD_REQUESTED);
-                    download.listener.downloadComplete(success);
-
-                    // TODO stop all downloads
+                    downloadError();
 
                     return;
                 }
@@ -475,9 +473,7 @@ public class Scraper {
 
                 if (!success) {
                     db.updatePageStatus(page.id, DB.DOWNLOAD_REQUESTED);
-                    download.listener.downloadComplete(success);
-
-                    // TODO stop all downloads
+                    downloadError();
 
                     return;
                 }
@@ -560,6 +556,13 @@ public class Scraper {
             PageImageDownloader downloader = new PageImageDownloader(page);
 
             downloader.start();
+        }
+
+        private void downloadError() {
+            db.updateChapterStatus(download.id, DB.DOWNLOAD_REQUESTED);
+
+            download.listener.downloadComplete(false);
+            notifyChapterUpdate(download);
         }
 
         private void downloadCancelled() {
