@@ -43,6 +43,7 @@ import org.barbon.mangaget.scrape.Scraper;
 
 public class Download extends Service {
     private static final int COMMAND_DOWNLOAD_CHAPTER = 1;
+    private static final int COMMAND_STOP_DOWNLOAD_CHAPTER = 3;
     private static final int COMMAND_UPDATE_MANGA = 2;
 
     private static final String COMMAND = "command";
@@ -117,6 +118,9 @@ public class Download extends Service {
         case COMMAND_DOWNLOAD_CHAPTER:
             downloadChapter(intent.getLongExtra(CHAPTER_ID, -1L));
             break;
+        case COMMAND_STOP_DOWNLOAD_CHAPTER:
+            stopDownloadChapter(intent.getLongExtra(CHAPTER_ID, -1L));
+            break;
         }
 
         return START_STICKY;
@@ -135,6 +139,10 @@ public class Download extends Service {
         context.startService(chapterDownloadIntent(context, chapterId));
     }
 
+    public static void stopChapterDownload(Context context, long chapterId) {
+        context.startService(chapterStopDownloadIntent(context, chapterId));
+    }
+
     public static void startMangaUpdate(Context context, long mangaId) {
         Intent intent = new Intent(context, Download.class);
 
@@ -151,6 +159,16 @@ public class Download extends Service {
         Intent intent = new Intent(context, Download.class);
 
         intent.putExtra(COMMAND, COMMAND_DOWNLOAD_CHAPTER);
+        intent.putExtra(CHAPTER_ID, chapterId);
+
+        return intent;
+    }
+
+    private static Intent chapterStopDownloadIntent(
+            Context context, long chapterId) {
+        Intent intent = new Intent(context, Download.class);
+
+        intent.putExtra(COMMAND, COMMAND_STOP_DOWNLOAD_CHAPTER);
         intent.putExtra(CHAPTER_ID, chapterId);
 
         return intent;
@@ -203,8 +221,8 @@ public class Download extends Service {
             long chapterId = chapter.getAsLong(DB.ID);
             String ticker =
                 getResources().getString(R.string.manga_downloading_ticker);
-            Intent notificationIntent = Utils.viewChapterIntent(
-                Download.this, chapter.getAsLong(DB.ID));
+            Intent stopDownload = chapterStopDownloadIntent(
+                Download.this, chapterId);
 
             manager = (NotificationManager)
                 getSystemService(Context.NOTIFICATION_SERVICE);
@@ -248,6 +266,13 @@ public class Download extends Service {
             long chapterId = chapter.getAsLong(DB.ID);
 
             if (success) {
+                Intent viewChapter = Utils.viewChapterIntent(
+                    Download.this, chapterId);
+
+                // display chapter when success notification clicked
+                notification.contentIntent = PendingIntent.getActivity(
+                    Download.this, (int) chapterId, viewChapter,
+                    PendingIntent.FLAG_CANCEL_CURRENT);
                 tickerId = R.string.manga_downloaded_ticker;
                 progressId = R.string.manga_downloaded_progress;
             }
