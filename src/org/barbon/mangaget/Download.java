@@ -215,7 +215,8 @@ public class Download extends Service {
             notification.contentView = contentView =
                 new RemoteViews(getPackageName(), R.layout.download_progress);
             notification.contentIntent = PendingIntent.getService(
-                Download.this, (int) chapterId, notificationIntent, 0);
+                Download.this, (int) chapterId, stopDownload,
+                PendingIntent.FLAG_CANCEL_CURRENT);
 
             contentView.setTextViewText(
                 R.id.download_description,
@@ -256,7 +257,8 @@ public class Download extends Service {
 
                 // re-download when fail notification clicked
                 notification.contentIntent = PendingIntent.getService(
-                    Download.this, (int) chapterId, startDownload, 0);
+                    Download.this, (int) chapterId, startDownload,
+                    PendingIntent.FLAG_CANCEL_CURRENT);
                 tickerId = R.string.manga_download_error_ticker;
                 progressId = R.string.manga_download_error_progress;
             }
