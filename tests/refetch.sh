@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if test "$1" == ""; then
-    echo "Usage: $0 [animea|mangareader]"
+    echo "Usage: $0 [animea|mangareader|naver]"
     exit 1
 fi
 
@@ -16,6 +16,10 @@ mangareader_results_html	http://www.mangareader.net/search/?w=&p=30
 mangareader_goong_c1_p1_html	http://www.mangareader.net/462-28574-1/goong/chapter-1.html
 mangareader_goong_c1_p2_html	http://www.mangareader.net/462-28574-2/goong/chapter-1.html
 mangareader_goong_chapters_html	http://www.mangareader.net/462/goong.html
+naver_results_empty_html	http://comic.naver.com/search.nhn?m=all&keyword=iufioasjfdoasdf
+naver_results_html		http://comic.naver.com/search.nhn?m=all&keyword=%ED%95%91%ED%81%AC%EB%A0%88%EC%9D%B4%EB%94%94
+naver_pink_lady_chapters_html	http://comic.naver.com/webtoon/list.nhn?titleId=22896
+naver_pink_lady_c1_p1_html		http://comic.naver.com/webtoon/detail.nhn?titleId=22896&no=1&weekday=mon
 EOF
 
 while read name url; do
