@@ -121,6 +121,16 @@ public class DB {
             new String[] { Long.toString(mangaId) });
     }
 
+    public Cursor getAllChapterList() {
+        SQLiteDatabase db = getDatabase();
+
+        return db.rawQuery(
+            "SELECT id AS _id, number, title, download_status, manga_id" +
+            "    FROM chapters" +
+            "    ORDER BY number",
+            null);
+    }
+
     public Cursor getPages(long chapterId) {
         SQLiteDatabase db = getDatabase();
 
