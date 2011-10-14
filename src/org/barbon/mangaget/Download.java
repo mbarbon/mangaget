@@ -200,6 +200,7 @@ public class Download extends Service {
 
         @Override
         public void downloadStarted() {
+            long chapterId = chapter.getAsLong(DB.ID);
             String ticker =
                 getResources().getString(R.string.manga_downloading_ticker);
             Intent notificationIntent = Utils.viewChapterIntent(
@@ -213,9 +214,8 @@ public class Download extends Service {
             notification.flags |= Notification.FLAG_ONGOING_EVENT;
             notification.contentView = contentView =
                 new RemoteViews(getPackageName(), R.layout.download_progress);
-            notification.contentIntent =
-               PendingIntent.getActivity(Download.this, 0,
-                                         notificationIntent, 0);
+            notification.contentIntent = PendingIntent.getService(
+                Download.this, (int) chapterId, notificationIntent, 0);
 
             contentView.setTextViewText(
                 R.id.download_description,
@@ -244,6 +244,7 @@ public class Download extends Service {
             notification.flags |= Notification.FLAG_AUTO_CANCEL;
 
             int tickerId, progressId;
+            long chapterId = chapter.getAsLong(DB.ID);
 
             if (success) {
                 tickerId = R.string.manga_downloaded_ticker;
@@ -251,11 +252,11 @@ public class Download extends Service {
             }
             else {
                 Intent startDownload = chapterDownloadIntent(
-                    Download.this, chapter.getAsLong(DB.ID));
+                    Download.this, chapterId);
 
                 // re-download when fail notification clicked
                 notification.contentIntent = PendingIntent.getService(
-                    Download.this, 0, startDownload, 0);
+                    Download.this, (int) chapterId, startDownload, 0);
                 tickerId = R.string.manga_download_error_ticker;
                 progressId = R.string.manga_download_error_progress;
             }
