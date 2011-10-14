@@ -360,7 +360,7 @@ public class Scraper {
         public void start() {
             target = downloader.requestDownload(
                 download.chapter.getAsString(DB.CHAPTER_URL), this);
-            db.updateChapterStatus(download.id, DB.DOWNLOAD_REQUESTED);
+            db.updateChapterStatus(download.id, DB.DOWNLOAD_STARTED);
             notifyChapterUpdate(download);
         }
 
