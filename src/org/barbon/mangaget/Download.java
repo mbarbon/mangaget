@@ -241,17 +241,18 @@ public class Download extends Service {
                 formatMsg(R.string.manga_downloading_progress));
             contentView.setProgressBar(R.id.download_progress, 0, 0, true);
 
-            // TODO reuse the same notification id for chapter download
-            manager.notify(notification.hashCode(), notification);
+            manager.notify(chapterNotificationId(chapterId), notification);
         }
 
         @Override
         public void downloadProgress(int current, int total) {
+            long chapterId = chapter.getAsLong(DB.ID);
+
             notification.iconLevel = current % 6;
             contentView.setProgressBar(
                 R.id.download_progress, total, current, false);
 
-            manager.notify(notification.hashCode(), notification);
+            manager.notify(chapterNotificationId(chapterId), notification);
         }
 
         @Override
@@ -260,7 +261,6 @@ public class Download extends Service {
 
             notification.iconLevel = 0;
             notification.flags &= ~Notification.FLAG_ONGOING_EVENT;
-            notification.flags |= Notification.FLAG_AUTO_CANCEL;
 
             int tickerId, progressId;
             long chapterId = chapter.getAsLong(DB.ID);
@@ -295,7 +295,7 @@ public class Download extends Service {
             contentView.setViewVisibility(
                 R.id.download_progress_parent, View.INVISIBLE);
 
-            manager.notify(notification.hashCode(), notification);
+            manager.notify(chapterNotificationId(chapterId), notification);
         }
 
         // implementation
@@ -344,5 +344,9 @@ public class Download extends Service {
 
     private void resumeDownloads() {
         // TODO restart pending downloads
+    }
+
+    private static int chapterNotificationId(long chapterId) {
+        return (int) chapterId;
     }
 }
