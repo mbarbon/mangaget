@@ -42,12 +42,18 @@
 		
 		    
 <script type="text/javascript">var loggedIn = "N";var authenticate = "N";</script>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="/javascript/jindo2.all.js"></script>
+<script type="text/javascript" src="/javascript/jindo_component.js"></script>
+<script type="text/javascript">
 
-<style type="text/css">
-	.resultMore{clear:both; text-align:right; padding:10px 15px 11px 0;}
-	.resultMore a{color:#1e4fad; text-decoration:underline;}
-</style>
+    $Fn(loadThisWindow).attach(window,"load");
+
+    function loadThisWindow() {
+        artistAction = new Artist();
+    }
+    
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 </head>
 <body>
@@ -80,7 +86,7 @@
 		<div class="sub_info"> 
 		
 			
-		<p class="ani_poll"><a onclick="clickcr(this,'STA.txt','','',event)" href="http://comic.naver.com/webtoon/list.nhn?titleId=374973">고려남녀 인간갱생 정신의료 공상만화 '문아'</a></p>
+		<p class="ani_poll"><a onclick="clickcr(this,'STA.txt','','',event)" href="http://comic.naver.com/webtoon/list.nhn?titleId=387518&weekday=fri">센스돋는 공감 에피소드 만화 '달콤한 인생'</a></p>
 		
 		<!-- 110304 +Mobile 추가 --> 
            <div class="btn_mobile"><span>|</span><a onclick="clickcr(this,'STA.mobile','','',event)" href="#"><img onmouseover="javascript:fn_MobileSetTime();" onmouseout="javascript:fn_MobileClearTime();javascript:fn_lyrMobileLayerNoneSetTime()" height="19" width="55"  alt="+Mobile" title="+Mobile" src="http://static.comic.naver.com/staticImages/COMICWEB/NAVER/img/common/btn_mobile.gif"></a></div> 
@@ -156,8 +162,8 @@
 					<div class="select_box">
 						<div class="selectbox-applied"  id="comic_select_bar">
 							<select name="m" class="selectbox-source" style="display:none">
-								<option value="all" selected="selected">전체</option>
-								<option value="webtoon" >웹툰</option>
+								<option value="all" >전체</option>
+								<option value="webtoon" selected="selected">웹툰</option>
 								<option value="bestChallenge"  >베스트도전</option>
 								<option value="challenge"  >도전만화</option>
 								<option value="charge" >단행본 만화</option>
@@ -169,13 +175,13 @@
 							
 							
 							
-							<div class="selectbox-box" style="display:block;"><span class="selectbox-label" style="display:block;">전체</span></div>
+							<div class="selectbox-box" style="display:block;"><span class="selectbox-label" style="display:block;">웹툰</span></div>
 							<div class="selectbox-layer"  style="display:none;"><ul class="selectbox-list"></ul></div>
 						</div>
 					</div>
 					<div class="fl" /> 
 					<input id="search_bar_keyword" name="keyword" type="text" maxlength="18" class="keyword" title="검색어" accesskey="s" value="iufioasjfdoasdf" >
-					
+					<input type="hidden" name="type" value="all" /> 
 					<a onclick="clickcr(this,'LNB.ser','','',event)" href="#" id="search_bar_button"><img id="search_bar_button" src="http://static.comic.naver.com/staticImages/COMICWEB/NAVER/img/common/btn_search.gif" width="45" height="23" title="검색" class="btn_search"></a>
 				</form>
 			</fieldset>		
@@ -189,75 +195,41 @@
 			<div class="searchTxt">
 				&prime;<strong>iufioasjfdoasdf</strong>&prime;에 대한 만화 서비스 내 검색결과 입니다.
 				<ul class="searchChoice"><!-- 선택된 메뉴에 choice 클래스를 사용해주세요 -->
-					<li><a href="/search.nhn?m=all&keyword=iufioasjfdoasdf"  class="choice" >전체</a></li>
-					<li><a href="/search.nhn?m=webtoon&keyword=iufioasjfdoasdf&type=all"  >웹툰</a></li>
+					<li><a href="/search.nhn?m=all&keyword=iufioasjfdoasdf"  >전체</a></li>
+					<li><a href="/search.nhn?m=webtoon&keyword=iufioasjfdoasdf&type=all"  class="choice" >웹툰</a></li>
 					<li><a href="/search.nhn?m=bestChallenge&keyword=iufioasjfdoasdf&type=all"  >베스트도전만화</a></li>
 					<li><a href="/search.nhn?m=challenge&keyword=iufioasjfdoasdf&type=all"  >도전만화</a></li>
-					<li><a href="/search.nhn?m=charge&serviceType=COMIC&keyword=iufioasjfdoasdf">단행본 만화</a></li>
-					<li><a href="/search.nhn?m=novel&serviceType=NOVEL&keyword=iufioasjfdoasdf">장르소설</a></li>
-										
+					<li><a href="/search.nhn?m=charge&serviceTypeCode=COMIC&keyword=iufioasjfdoasdf">단행본 만화</a></li>
+					<li><a href="/search.nhn?m=novel&serviceTypeCode=NOVEL&keyword=iufioasjfdoasdf">장르소설</a></li>					
 				</ul>
 			</div>
 			<!-- //검색헤더 -->
 			<!-- 검색결과_웹툰 -->
 			<div class="resultBox">
-				<h4 class="resultItem">웹툰 <span class="total">(0건)</span></h4>
+				<h4 class="resultItem"> 웹툰<span class="total"> (0 / 0 건)</span></h4>
+				<ul class="resultChoice">
+					<li><a href="/search.nhn?m=webtoon&keyword=iufioasjfdoasdf&type=all&page=1" class="choice" >전체검색</a></li>
+					<li><a href="/search.nhn?m=webtoon&keyword=iufioasjfdoasdf&type=title&page=1"  >타이틀검색</a></li>
+					<li><a href="/search.nhn?m=webtoon&keyword=iufioasjfdoasdf&type=artist&page=1"  >작가정보검색</a></li>
+					<li><a href="/search.nhn?m=webtoon&keyword=iufioasjfdoasdf&type=article&page=1"  >회별검색</a></li>
+				</ul>
 				<ul class="resultList">
+				
 							
 			
 				
-				검색 결과가 없습니다.	
-				</ul>				
-				<div class="resultMore"></div>
-				
+				검색 결과가 없습니다.												
+				</ul>
 			</div>
 			<!-- //검색결과_웹툰 -->
-			<!-- 검색결과_베스트도전만화 -->
-			<div class="resultBox">
-				<h4 class="resultItem">베스트도전만화 <span class="total">(0건)</span></h4>
-				<ul class="resultList">
+			<div class="pagenavigation pgSearch">
+						
 							
-			
-				
-				검색 결과가 없습니다.
-				</ul>
-				
-				<div class="resultMore"></div>
-				
-			</div>
-			<!-- //검색결과_베스트도전만화 -->
-			<!-- 검색결과_도전만화 -->
-			<div class="resultBox">
-				<h4 class="resultItem">도전만화 <span class="total">(0건)</span></h4>
-				<ul class="resultList">
+							<span class="current">1</span>
+
 							
-			
-				
-				검색 결과가 없습니다.
-				</ul>				
-				<div class="resultMore"></div>				
+						
 			</div>
-			<!-- //검색결과_도전만화 -->
-			<!-- 검색결과_단행본 만화 -->
-			<div class="resultBox">
-				<h4 class="resultItem">단행본 만화 <span class="total">(0건)</span></h4>
-				<ul class="resultList">
-				
-				검색 결과가 없습니다.									
-				</ul>			
-				<div class="resultMore"></div>				
-			</div>
-			<!-- //검색결과_단행본 만화 -->
-			<!-- 검색결과_장르소설 -->
-			<div class="resultBox">
-				<h4 class="resultItem">장르소설 <span class="total">(0건)</span></h4>
-				<ul class="resultList">
-				
-				검색 결과가 없습니다.									
-				</ul>			
-				<div class="resultMore"></div>				
-			</div>
-			<!-- //검색결과_장르소설 -->
 		</div>
 		<!-- side menu -->
 		<div id="aside">
@@ -289,7 +261,7 @@
 			<!-- 롤링이미지 -->
 			
 			<div class="asideRolling">
-				<a onclick="clickcr(this,'olk.banner','','',event)" href="http://comic.naver.com/webtoon/list.nhn?titleId=374970&weekday=thu" ><img src="http://static.comic.naver.com/staticImages/COMICWEB/NAVER/banner/20110929/20110929164935.jpg" width="240" height="97"></a>
+				<a onclick="clickcr(this,'olk.banner','','',event)" href="http://campaign.naver.com/newnaverapp"  target="_blank"><img src="http://static.comic.naver.com/staticImages/COMICWEB/NAVER/banner/20110909/20110909115609.jpg" width="240" height="97"></a>
 
 			</div>
 				
@@ -312,7 +284,7 @@
 					
 										
 					<li class="rank1">					
-					<a onclick="clickcr(this,'rnk*p.cont','395442','1',event)" href="/webtoon/detail.nhn?titleId=395442&no=1" title="격투기특성화사립고교극지고-1화" >격투기특성화사립고교..</a> 
+					<a onclick="clickcr(this,'rnk*p.cont','285855','1',event)" href="/webtoon/detail.nhn?titleId=285855&no=39" title="용의 아들 최창식-36화 알보칠 마을의 비극(마지막화)" >용의 아들 최창식-36..</a> 
 					<span class="rankBox">
 					<img src="http://static.comic.naver.com/staticImages/COMICWEB/NAVER/img/common/arrow_no.gif" title="변동없음" width="7" height="10"> 0
 					</span>
@@ -320,7 +292,7 @@
 					
 										
 					<li class="rank2">					
-					<a onclick="clickcr(this,'rnk*p.cont','81482','2',event)" href="/webtoon/detail.nhn?titleId=81482&no=223" title="놓지마 정신줄-205화 배드민턴" >놓지마 정신줄-205화 ..</a> 
+					<a onclick="clickcr(this,'rnk*p.cont','374974','2',event)" href="/webtoon/detail.nhn?titleId=374974&no=7" title="심심한 마왕-6화" >심심한 마왕-6화</a> 
 					<span class="rankBox">
 					<img src="http://static.comic.naver.com/staticImages/COMICWEB/NAVER/img/common/arrow_no.gif" title="변동없음" width="7" height="10"> 0
 					</span>
@@ -328,7 +300,7 @@
 					
 										
 					<li class="rank3">					
-					<a onclick="clickcr(this,'rnk*p.cont','316914','3',event)" href="/webtoon/detail.nhn?titleId=316914&no=51" title="혈액형에 관한 간단한 고찰-50화" >혈액형에 관한 간단한..</a> 
+					<a onclick="clickcr(this,'rnk*p.cont','55150','3',event)" href="/webtoon/detail.nhn?titleId=55150&no=265" title="남기한엘리트만들기-263화 그곳에 있다" >남기한엘리트만들기-2..</a> 
 					<span class="rankBox">
 					<img src="http://static.comic.naver.com/staticImages/COMICWEB/NAVER/img/common/arrow_no.gif" title="변동없음" width="7" height="10"> 0
 					</span>
@@ -336,7 +308,7 @@
 					
 										
 					<li class="rank4">					
-					<a onclick="clickcr(this,'rnk*p.cont','22045','4',event)" href="/webtoon/detail.nhn?titleId=22045&no=332" title="낢이사는이야기-회식 전후" >낢이사는이야기-회식 ..</a> 
+					<a onclick="clickcr(this,'rnk*p.cont','395444','4',event)" href="/webtoon/detail.nhn?titleId=395444&no=1" title="이현세, 이두호의 지옥캠프 단편선-1화 재난과 아저씨와 괴물 - 현예지 작가" >이현세, 이두호의 지..</a> 
 					<span class="rankBox">
 					<img src="http://static.comic.naver.com/staticImages/COMICWEB/NAVER/img/common/arrow_no.gif" title="변동없음" width="7" height="10"> 0
 					</span>
@@ -344,7 +316,7 @@
 					
 										
 					<li class="rank5">					
-					<a onclick="clickcr(this,'rnk*p.cont','350217','5',event)" href="/webtoon/detail.nhn?titleId=350217&no=31" title="2011 미스테리 단편-[ENG ver.] Bongcheon-Dong Ghost - HORANG (봉천동귀신 영문판)" >2011 미스테리 단편-[..</a> 
+					<a onclick="clickcr(this,'rnk*p.cont','358422','5',event)" href="/webtoon/detail.nhn?titleId=358422&no=11" title="소녀더와일즈-10화" >소녀더와일즈-10화</a> 
 					<span class="rankBox">
 					<img src="http://static.comic.naver.com/staticImages/COMICWEB/NAVER/img/common/arrow_no.gif" title="변동없음" width="7" height="10"> 0
 					</span>
@@ -352,7 +324,7 @@
 					
 										
 					<li class="rank6">					
-					<a onclick="clickcr(this,'rnk*p.cont','387517','6',event)" href="/webtoon/detail.nhn?titleId=387517&no=5" title="나란의사 그런의사-4화" >나란의사 그런의사-4..</a> 
+					<a onclick="clickcr(this,'rnk*p.cont','26316','6',event)" href="/webtoon/detail.nhn?titleId=26316&no=346" title="와라! 편의점-346화 그녀만의 깁밥 고르기" >와라! 편의점-346화 ..</a> 
 					<span class="rankBox">
 					<img src="http://static.comic.naver.com/staticImages/COMICWEB/NAVER/img/common/arrow_no.gif" title="변동없음" width="7" height="10"> 0
 					</span>
@@ -360,7 +332,7 @@
 					
 										
 					<li class="rank7">					
-					<a onclick="clickcr(this,'rnk*p.cont','25613','7',event)" href="/webtoon/detail.nhn?titleId=25613&no=387" title="생활의참견-385화 팬의 마음" >생활의참견-385화 팬..</a> 
+					<a onclick="clickcr(this,'rnk*p.cont','316911','7',event)" href="/webtoon/detail.nhn?titleId=316911&no=29" title="탈(TAL)-28화" >탈(TAL)-28화</a> 
 					<span class="rankBox">
 					<img src="http://static.comic.naver.com/staticImages/COMICWEB/NAVER/img/common/arrow_no.gif" title="변동없음" width="7" height="10"> 0
 					</span>
@@ -368,7 +340,7 @@
 					
 										
 					<li class="rank8">					
-					<a onclick="clickcr(this,'rnk*p.cont','52946','8',event)" href="/webtoon/detail.nhn?titleId=52946&no=314" title="스쿨홀릭-314화 뿌리깊은 나무" >스쿨홀릭-314화 뿌리..</a> 
+					<a onclick="clickcr(this,'rnk*p.cont','131385','8',event)" href="/webtoon/detail.nhn?titleId=131385&no=89" title="쿠베라-85화" >쿠베라-85화</a> 
 					<span class="rankBox">
 					<img src="http://static.comic.naver.com/staticImages/COMICWEB/NAVER/img/common/arrow_no.gif" title="변동없음" width="7" height="10"> 0
 					</span>
@@ -376,7 +348,7 @@
 					
 										
 					<li class="rank9">					
-					<a onclick="clickcr(this,'rnk*p.cont','20853','9',event)" href="/webtoon/detail.nhn?titleId=20853&no=568" title="마음의소리-564. 조빵" >마음의소리-564. 조빵</a> 
+					<a onclick="clickcr(this,'rnk*p.cont','72497','9',event)" href="/webtoon/detail.nhn?titleId=72497&no=116" title="비흔-111화" >비흔-111화</a> 
 					<span class="rankBox">
 					<img src="http://static.comic.naver.com/staticImages/COMICWEB/NAVER/img/common/arrow_no.gif" title="변동없음" width="7" height="10"> 0
 					</span>
@@ -384,7 +356,7 @@
 					
 										
 					<li class="rank10">					
-					<a onclick="clickcr(this,'rnk*p.cont','64997','10',event)" href="/webtoon/detail.nhn?titleId=64997&no=105" title="나이트런-Another ep. 23화" >나이트런-Another ep..</a> 
+					<a onclick="clickcr(this,'rnk*p.cont','22897','10',event)" href="/webtoon/detail.nhn?titleId=22897&no=224" title="호랭총각-5 부 호 권 - 74. 완전한 방어태세" >호랭총각-5 부 호 권 ..</a> 
 					<span class="rankBox">
 					<img src="http://static.comic.naver.com/staticImages/COMICWEB/NAVER/img/common/arrow_no.gif" title="변동없음" width="7" height="10"> 0
 					</span>
@@ -395,72 +367,72 @@
 					
 															
 					<li class="rank1">					
-					<a onclick="clickcr(this,'rnk*u.cont','391087','1',event)" href="/challenge/detail.nhn?titleId=391087&no=5" title="[4컷] 크로닉 아츠-21-22">[4컷] 크로닉 아츠-21..</a> 
+					<a onclick="clickcr(this,'rnk*u.cont','397343','1',event)" href="/challenge/detail.nhn?titleId=397343&no=1" title="오독! 오도독!-1화&gt;  안녕하세요~">오독! 오도독!-1화&gt; ..</a> 
 					<span class="timeBox">
-					9분전
+					8분전
 					</span></li>
 					
 															
 					<li class="rank2">					
-					<a onclick="clickcr(this,'rnk*u.cont','272502','2',event)" href="/bestChallenge/detail.nhn?titleId=272502&no=23" title="벨벳 모멘트-#18.Just Another Psycho">벨벳 모멘트-#18.Jus..</a> 
+					<a onclick="clickcr(this,'rnk*u.cont','388966','2',event)" href="/challenge/detail.nhn?titleId=388966&no=45" title="사랑비-사랑비 6화">사랑비-사랑비 6화</a> 
 					<span class="timeBox">
 					9분전
 					</span></li>
 					
 															
 					<li class="rank3">					
-					<a onclick="clickcr(this,'rnk*u.cont','381821','3',event)" href="/challenge/detail.nhn?titleId=381821&no=31" title="[1진]케로로-2화[푸루루의사랑]">[1진]케로로-2화[푸루..</a> 
+					<a onclick="clickcr(this,'rnk*u.cont','395319','3',event)" href="/challenge/detail.nhn?titleId=395319&no=3" title="내 옆에서-1.개학하기전날 (1)">내 옆에서-1.개학하기..</a> 
 					<span class="timeBox">
-					23분전
+					16분전
 					</span></li>
 					
 															
 					<li class="rank4">					
-					<a onclick="clickcr(this,'rnk*u.cont','396916','4',event)" href="/challenge/detail.nhn?titleId=396916&no=1" title="그렇고 그런것들-뒤바뀜">그렇고 그런것들-뒤바..</a> 
+					<a onclick="clickcr(this,'rnk*u.cont','374183','4',event)" href="/bestChallenge/detail.nhn?titleId=374183&no=5" title="어느 오래된 도서관의 비밀-포로">어느 오래된 도서관의..</a> 
+					<span class="timeBox">
+					20분전
+					</span></li>
+					
+															
+					<li class="rank5">					
+					<a onclick="clickcr(this,'rnk*u.cont','397344','5',event)" href="/challenge/detail.nhn?titleId=397344&no=1" title="안녕 똘끼-인물소개">안녕 똘끼-인물소개</a> 
+					<span class="timeBox">
+					30분전
+					</span></li>
+					
+															
+					<li class="rank6">					
+					<a onclick="clickcr(this,'rnk*u.cont','389530','6',event)" href="/challenge/detail.nhn?titleId=389530&no=10" title="사랑에 미치다-천둥이  치고 비가 오는 날">사랑에 미치다-천둥이..</a> 
 					<span class="timeBox">
 					41분전
 					</span></li>
 					
 															
-					<li class="rank5">					
-					<a onclick="clickcr(this,'rnk*u.cont','396915','5',event)" href="/challenge/detail.nhn?titleId=396915&no=1" title="내게만 잔혹한 인생-드디어 시작이구나,,">내게만 잔혹한 인생-..</a> 
-					<span class="timeBox">
-					51분전
-					</span></li>
-					
-															
-					<li class="rank6">					
-					<a onclick="clickcr(this,'rnk*u.cont','396910','6',event)" href="/challenge/detail.nhn?titleId=396910&no=5" title="어린인생재미없다-4화 심심한데 친구나 부를까!">어린인생재미없다-4화..</a> 
-					<span class="timeBox">
-					1시간전
-					</span></li>
-					
-															
 					<li class="rank7">					
-					<a onclick="clickcr(this,'rnk*u.cont','396913','7',event)" href="/challenge/detail.nhn?titleId=396913&no=1" title="스토리투척-뿌잉?">스토리투척-뿌잉?</a> 
+					<a onclick="clickcr(this,'rnk*u.cont','397342','7',event)" href="/challenge/detail.nhn?titleId=397342&no=1" title="싸우스포-싸우스포 예고">싸우스포-싸우스포 예..</a> 
 					<span class="timeBox">
-					1시간전
+					42분전
 					</span></li>
 					
 															
 					<li class="rank8">					
-					<a onclick="clickcr(this,'rnk*u.cont','396912','8',event)" href="/challenge/detail.nhn?titleId=396912&no=1" title="이쪽 세계 저쪽 세계-만나다.">이쪽 세계 저쪽 세계-..</a> 
+					<a onclick="clickcr(this,'rnk*u.cont','109569','8',event)" href="/challenge/detail.nhn?titleId=109569&no=113" title="그림 그림~-만화구상이나 다시한번...">그림 그림~-만화구상..</a> 
 					<span class="timeBox">
-					1시간전
+					55분전
 					</span></li>
 					
 															
 					<li class="rank9">					
-					<a onclick="clickcr(this,'rnk*u.cont','395963','9',event)" href="/challenge/detail.nhn?titleId=395963&no=13" title="토닥토닥 그라피티-토닥토닥 13">토닥토닥 그라피티-토..</a> 
+					<a onclick="clickcr(this,'rnk*u.cont','381243','9',event)" href="/challenge/detail.nhn?titleId=381243&no=18" title="[bl] 고양이 키우기-5. 그 녀석이 좋아.">[bl] 고양이 키우기-5..</a> 
 					<span class="timeBox">
-					2시간전
+					57분전
 					</span></li>
 					
 															
 					<li class="rank10">					
-					<a onclick="clickcr(this,'rnk*u.cont','396910','10',event)" href="/challenge/detail.nhn?titleId=396910&no=4" title="어린인생재미없다-3화  어떡하지?????">어린인생재미없다-3화..</a> 
+					<a onclick="clickcr(this,'rnk*u.cont','397340','10',event)" href="/challenge/detail.nhn?titleId=397340&no=2" title="독고다이-(1화) 시작">독고다이-(1화) 시작</a> 
 					<span class="timeBox">
-					2시간전
+					1시간전
 					</span></li>
 										
 					</ol>
