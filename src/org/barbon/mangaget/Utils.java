@@ -45,7 +45,7 @@ public class Utils {
         // TODO avoid hardcoding PerfectViewer
         view.setComponent(
             ComponentName.unflattenFromString(
-                "com.rookiestudio.perfectviewer/.TViewerMain"));
+                "com.rookiestudio.perfectviewer/.TStartup"));
         view.setData(chapter);
 
         return view;
