@@ -10,13 +10,17 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
 
 import android.database.Cursor;
+
+import android.net.ConnectivityManager;
 
 import android.os.Binder;
 import android.os.Environment;
@@ -63,6 +67,19 @@ public class Download extends Service {
     private class DownloadBinder extends Binder {
         public Download getService() {
             return Download.this;
+        }
+    }
+
+    private static class ConnectivityReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            boolean noConnectivity = intent.getBooleanExtra(
+                ConnectivityManager.EXTRA_NO_CONNECTIVITY, false);
+
+            if (noConnectivity)
+                return;
+
+            context.startService(resumeDownloadsIntent(context));
         }
     }
 
@@ -167,6 +184,12 @@ public class Download extends Service {
     public static void initialize(Context context) {
         if (initialized)
             return;
+
+        // listen for connectivity status changes
+        IntentFilter filter =
+            new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+
+        context.registerReceiver(new ConnectivityReceiver(), filter);
 
         // resume pending dowloads
         if (Utils.isNetworkConnected(context))
