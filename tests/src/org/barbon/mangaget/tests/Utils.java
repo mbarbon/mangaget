@@ -110,10 +110,10 @@ public class Utils {
         DB db = DB.getInstance(null);
 
         long m1 = db.insertManga(
-            "Title1", "MangaGetTest/Dummy1-%chapter%.cbz",
+            "Title1", "MangaGetTest/Dummy1-%03d.cbz",
             "http://manga.animea.net/dummy1.html");
         long m2 = db.insertManga(
-            "Title2", "MangaGetTest/Dummy2-%chapter%.cbz",
+            "Title2", "MangaGetTest/Dummy2-%03d.cbz",
             "http://manga.animea.net/dummy2.html");
 
         long c1 = db.insertChapter(
