@@ -12,6 +12,8 @@ import android.content.Intent;
 
 import android.database.Cursor;
 
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 
 import android.os.Environment;
@@ -70,6 +72,15 @@ public class Utils {
         }
 
         chapters.close();
+    }
+
+    public static boolean isNetworkConnected(Context context) {
+        ConnectivityManager manager =
+            (ConnectivityManager) context.getSystemService(
+                Context.CONNECTIVITY_SERVICE);
+        NetworkInfo active = manager.getActiveNetworkInfo();
+
+        return active != null && active.isConnected();
     }
 
     // internal
