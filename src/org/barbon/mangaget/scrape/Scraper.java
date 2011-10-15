@@ -52,7 +52,7 @@ public class Scraper {
             Downloader.DownloadDestination target);
         public abstract HtmlScrape.SearchResultPage scrapeSearchResults(
             Downloader.DownloadDestination target);
-        public abstract List<HtmlScrape.ChapterInfo> scrapeMangaPage(
+        public abstract HtmlScrape.ChapterPage scrapeMangaPage(
             Downloader.DownloadDestination target);
     }
 
@@ -330,7 +330,7 @@ public class Scraper {
                 return;
 
             List<HtmlScrape.ChapterInfo> chapters =
-                getProvider(target).scrapeMangaPage(target);
+                getProvider(target).scrapeMangaPage(target).chapters;
 
             for (int i = 0; i < chapters.size(); ++i)
                 db.insertOrUpdateChapter(info.id, i + 1, -1,

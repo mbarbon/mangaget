@@ -81,9 +81,10 @@ public class AnimeAScraper {
         }
 
         @Override
-        public List<HtmlScrape.ChapterInfo> scrapeMangaPage(
+        public HtmlScrape.ChapterPage scrapeMangaPage(
                 Downloader.DownloadDestination target) {
-            return AnimeAScraper.scrapeMangaPage(target);
+            return new HtmlScrape.ChapterPage(
+                AnimeAScraper.scrapeMangaPage(target));
         }
     }
 

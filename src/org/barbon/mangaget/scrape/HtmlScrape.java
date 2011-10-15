@@ -23,6 +23,16 @@ public class HtmlScrape {
         public String title;
     }
 
+    public static class ChapterPage {
+        public ChapterPage(List<ChapterInfo> _chapters) {
+            chapters = _chapters;
+        }
+
+        public List<ChapterInfo> chapters;
+        public String previousPage;
+        public String nextPage;
+    }
+
     public static String absoluteUrl(String url, String base) {
         try {
             if (!url.startsWith("http://"))
