@@ -107,7 +107,8 @@ public class Download extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         // resume pending downloads on restart
         if (intent == null) {
-            resumeDownloads();
+            if (Utils.isNetworkConnected(this))
+                resumeDownloads();
 
             // should never happen
             stopIfIdle();
