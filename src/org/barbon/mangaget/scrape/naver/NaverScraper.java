@@ -6,6 +6,7 @@
 package org.barbon.mangaget.scrape.naver;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import java.io.IOException;
@@ -67,5 +68,45 @@ public class NaverScraper {
         page.currentPage = currentPage;
 
         return page;
+    }
+
+    public static HtmlScrape.ChapterPage scrapeMangaPage(
+            Downloader.DownloadDestination target) {
+        Document doc;
+
+        try {
+            doc = Jsoup.parse(target.stream, target.encoding, target.baseUrl);
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Elements links = doc.select("table.viewList td.title a");
+        List<HtmlScrape.ChapterInfo> chapters =
+            new ArrayList<HtmlScrape.ChapterInfo>();
+        HtmlScrape.ChapterPage chapterPage =
+            new HtmlScrape.ChapterPage(chapters);
+
+        for (Element link : links) {
+            String url = link.attr("abs:href");
+            String title = link.text();
+            HtmlScrape.ChapterInfo info = new HtmlScrape.ChapterInfo();
+
+            info.title = title;
+            info.url = url;
+
+            chapters.add(info);
+        }
+
+        Collections.reverse(chapters);
+
+        // navigation link
+        Element next = doc.select("div.pagenavigation > a.next").first();
+
+        if (next != null)
+            // the "next" link goes to previous chapters...
+            chapterPage.previousPage = next.attr("abs:href");
+
+        return chapterPage;
     }
 }

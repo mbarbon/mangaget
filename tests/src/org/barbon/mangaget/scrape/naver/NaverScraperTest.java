@@ -7,6 +7,8 @@ package org.barbon.mangaget.scrape.naver;
 
 import android.test.InstrumentationTestCase;
 
+import java.util.List;
+
 import org.barbon.mangaget.scrape.HtmlScrape;
 
 import org.barbon.mangaget.tests.R;
@@ -37,5 +39,27 @@ public class NaverScraperTest extends InstrumentationTestCase {
                      res.titles.get(0));
         assertEquals("핑크레이디 클래식",
                      res.titles.get(1));
+    }
+
+    public void testScrapeMangaPage() {
+        String mangaPage =
+            "http://comic.naver.com/webtoon/list.nhn?titleId=22896";
+        HtmlScrape.ChapterPage list =
+            NaverScraper.scrapeMangaPage(
+                Utils.getPage(this, R.raw.naver_pink_lady_chapters_html,
+                              mangaPage));
+        List<HtmlScrape.ChapterInfo> res = list.chapters;
+
+        assertEquals(10, res.size());
+        assertEquals("http://comic.naver.com/webtoon/detail.nhn?" +
+                     "titleId=22896&no=79&weekday=mon",
+                     res.get(0).url);
+        assertEquals("http://comic.naver.com/webtoon/detail.nhn?" +
+                     "titleId=22896&no=88&weekday=mon",
+                     res.get(9).url);
+
+        assertEquals(null, list.nextPage);
+        assertEquals("http://comic.naver.com/webtoon/list.nhn?titleId=22896&page=2",
+                     list.previousPage);
     }
 }
