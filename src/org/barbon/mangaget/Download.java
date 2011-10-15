@@ -16,6 +16,8 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.content.ServiceConnection;
 
+import android.database.Cursor;
+
 import android.os.Binder;
 import android.os.Environment;
 import android.os.IBinder;
@@ -355,7 +357,22 @@ public class Download extends Service {
     }
 
     private void resumeDownloads() {
-        // TODO restart pending downloads
+        Cursor chapters = db.getAllChapterList();
+        int statusI = chapters.getColumnIndex(DB.DOWNLOAD_STATUS);
+        int idI = chapters.getColumnIndex(DB.ID);
+
+        while (chapters.moveToNext()) {
+            int status = chapters.getInt(statusI);
+            long chapterId = chapters.getLong(idI);
+
+            if (status != DB.DOWNLOAD_REQUESTED &&
+                    status != DB.DOWNLOAD_STARTED)
+                continue;
+
+            downloadChapter(chapterId);
+        }
+
+        chapters.close();
     }
 
     private boolean isOperationInProgress() {
