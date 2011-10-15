@@ -47,6 +47,7 @@ public class Download extends Service {
     private static final int COMMAND_DOWNLOAD_CHAPTER = 1;
     private static final int COMMAND_STOP_DOWNLOAD_CHAPTER = 3;
     private static final int COMMAND_UPDATE_MANGA = 2;
+    private static final int COMMAND_RESUME_DOWNLOADS = 4;
 
     private static final String COMMAND = "command";
     private static final String MANGA_ID = "mangaId";
@@ -128,6 +129,9 @@ public class Download extends Service {
         case COMMAND_STOP_DOWNLOAD_CHAPTER:
             stopDownloadChapter(intent.getLongExtra(CHAPTER_ID, -1L));
             break;
+        case COMMAND_RESUME_DOWNLOADS:
+            resumeDownloads();
+            break;
         }
 
         return START_STICKY;
@@ -177,6 +181,14 @@ public class Download extends Service {
 
         intent.putExtra(COMMAND, COMMAND_STOP_DOWNLOAD_CHAPTER);
         intent.putExtra(CHAPTER_ID, chapterId);
+
+        return intent;
+    }
+
+    private static Intent resumeDownloadsIntent(Context context) {
+        Intent intent = new Intent(context, Download.class);
+
+        intent.putExtra(COMMAND, COMMAND_RESUME_DOWNLOADS);
 
         return intent;
     }
