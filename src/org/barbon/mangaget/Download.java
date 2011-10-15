@@ -54,6 +54,7 @@ public class Download extends Service {
     private File downloadTemp;
     private Map<Long, PendingTask> chapterDownloads =
         new HashMap<Long, PendingTask>();
+    private int operationCount;
 
     private class DownloadBinder extends Binder {
         public Download getService() {
@@ -105,6 +106,9 @@ public class Download extends Service {
         // resume pending downloads on restart
         if (intent == null) {
             resumeDownloads();
+
+            // should never happen
+            stopIfIdle();
 
             return START_STICKY;
         }
@@ -195,11 +199,17 @@ public class Download extends Service {
                 Utils.updateChapterStatus(Download.this, mangaId);
                 Notifier.getInstance().notifyChapterListUpdate(mangaId);
             }
+
+            --operationCount;
+
+            stopIfIdle();
         }
     }
 
     private void updateManga(long mangaId) {
         Scraper scraper = Scraper.getInstance(this);
+
+        ++operationCount;
 
         scraper.updateManga(mangaId, new MangaUpdateProgress(mangaId));
     }
@@ -296,6 +306,8 @@ public class Download extends Service {
                 R.id.download_progress_parent, View.INVISIBLE);
 
             manager.notify(chapterNotificationId(chapterId), notification);
+
+            stopIfIdle();
         }
 
         // implementation
@@ -344,6 +356,15 @@ public class Download extends Service {
 
     private void resumeDownloads() {
         // TODO restart pending downloads
+    }
+
+    private boolean isOperationInProgress() {
+        return (operationCount + chapterDownloads.size()) > 0;
+    }
+
+    private void stopIfIdle() {
+        if (!isOperationInProgress())
+            stopSelf();
     }
 
     private static int chapterNotificationId(long chapterId) {
