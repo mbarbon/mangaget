@@ -58,6 +58,7 @@ public class Download extends Service {
     private Map<Long, PendingTask> chapterDownloads =
         new HashMap<Long, PendingTask>();
     private int operationCount;
+    private static boolean initialized;
 
     private class DownloadBinder extends Binder {
         public Download getService() {
@@ -161,6 +162,15 @@ public class Download extends Service {
         intent.putExtra(MANGA_ID, mangaId);
 
         context.startService(intent);
+    }
+
+    public static void initialize(Context context) {
+        if (initialized)
+            return;
+
+        // resume pending dowloads
+        if (Utils.isNetworkConnected(context))
+            context.startService(resumeDownloadsIntent(context));
     }
 
     // implementation

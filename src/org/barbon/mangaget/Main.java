@@ -55,6 +55,10 @@ public class Main extends FragmentActivity {
                     }
                 });
         }
+
+        // start listening for network connectivity changes and resume
+        // pending downloads if any
+        Download.initialize(this);
     }
 
     @Override
