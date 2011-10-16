@@ -284,11 +284,11 @@ public class ScraperTest extends InstrumentationTestCase {
 
         runTestOnUiThread(uiTask);
 
-        while (progress.updateCount < 2)
+        while (progress.updateCount < 3)
             Thread.sleep(500);
 
         // uses the fact the only registered URLs are for AnimeA
-        assertEquals(2, progress.updateCount);
+        assertEquals(3, progress.updateCount);
         assertEquals(48, uiTask.pager.getCount());
         assertEquals("2 Kaime no Hajimete no Koi",
                      uiTask.pager.getItem(0).title);

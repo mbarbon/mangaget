@@ -6,6 +6,9 @@
 package org.barbon.mangaget.scrape.naver;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+
+import java.net.URLEncoder;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,6 +16,7 @@ import java.util.List;
 
 import org.barbon.mangaget.scrape.Downloader;
 import org.barbon.mangaget.scrape.HtmlScrape;
+import org.barbon.mangaget.scrape.Scraper;
 
 import org.jsoup.Jsoup;
 
@@ -22,6 +26,51 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class NaverScraper {
+    // scraper interface
+    public static class Provider extends Scraper.Provider {
+        @Override
+        public String composeSearchUrl(String title) {
+            try {
+                return "http://comic.naver.com/search.nhn?m=webtoon&keyword=" +
+                    URLEncoder.encode(title, "UTF-8");
+            }
+            catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        @Override
+        public List<String> scrapeChapterPages(
+                Downloader.DownloadDestination target) {
+            // Naver has all chapter images in the same HTML page...
+            List<String> urls = new ArrayList<String>(1);
+
+            urls.add(target.baseUrl);
+
+            return urls;
+        }
+
+        @Override
+        public List<String> scrapeImageUrls(
+                Downloader.DownloadDestination target) {
+            return NaverScraper.scrapeImageUrls(target);
+        }
+
+        @Override
+        public HtmlScrape.SearchResultPage scrapeSearchResults(
+                Downloader.DownloadDestination target) {
+            return NaverScraper.scrapeSearchResults(target);
+        }
+
+        @Override
+        public HtmlScrape.ChapterPage scrapeMangaPage(
+                Downloader.DownloadDestination target) {
+            return NaverScraper.scrapeMangaPage(target);
+        }
+    }
+
+    // pure HTML scraping
+
     public static List<String> scrapeImageUrls(
             Downloader.DownloadDestination target) {
         Document doc;
