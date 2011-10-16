@@ -26,6 +26,8 @@ import org.barbon.mangaget.tests.DummyDownloader;
 import org.barbon.mangaget.tests.R;
 import org.barbon.mangaget.tests.Utils;
 
+// TODO test multiple HTML pages per chapter (Naver)
+
 public class ScraperTest extends InstrumentationTestCase {
     private DB db;
     private Context testContext;

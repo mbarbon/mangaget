@@ -304,6 +304,9 @@ public class Scraper {
             extends Downloader.OnDownloadProgressAdapter {
         private MangaInfoDownload info;
         private Downloader.DownloadDestination target;
+        private int pagingDirection;
+        private List<HtmlScrape.ChapterInfo> chapters;
+        private String nextUrl;
 
         public MangaInfoUpdater(MangaInfoDownload _info) {
             super();
@@ -312,14 +315,13 @@ public class Scraper {
         }
 
         public void start() {
-            String url = info.manga.getAsString(DB.MANGA_URL);
-            target = downloader.requestDownload(
-                getProvider(url).composeMangaUrl(url), this);
+            startDownload(info.manga.getAsString(DB.MANGA_URL));
         }
 
         @Override
         public void downloadStarted() {
-            info.listener.operationStarted();
+            if (pagingDirection == 0)
+                info.listener.operationStarted();
         }
 
         @Override
@@ -329,20 +331,58 @@ public class Scraper {
             if (!success)
                 return;
 
-            List<HtmlScrape.ChapterInfo> chapters =
-                getProvider(target).scrapeMangaPage(target).chapters;
+            HtmlScrape.ChapterPage page =
+                getProvider(target).scrapeMangaPage(target);
 
-            for (int i = 0; i < chapters.size(); ++i)
-                db.insertOrUpdateChapter(info.id, i + 1, -1,
-                                         chapters.get(i).title,
-                                         chapters.get(i).url);
+            // update chapter list
+            if (chapters == null)
+                chapters = page.chapters;
+            else if (pagingDirection == -1)
+                chapters.addAll(0, page.chapters);
+            else
+                chapters.addAll(page.chapters);
+
+            // handle paging
+            if (page.nextPage != null) {
+                pagingDirection = 1;
+                nextUrl = page.nextPage;
+            }
+            else if (page.previousPage != null) {
+                pagingDirection = -1;
+                nextUrl = page.previousPage;
+            }
+            else {
+                // completed fetching chapters;
+                pagingDirection = 0;
+                nextUrl = null;
+
+                insertChapters();
+            }
         }
 
         @Override
         public void downloadComplete(boolean success) {
-            super.downloadComplete(success);
+            if (pagingDirection == 0) {
+                super.downloadComplete(success);
 
-            info.listener.operationComplete(success);
+                info.listener.operationComplete(success);
+            }
+            else
+                startDownload(nextUrl);
+        }
+
+        // implementation
+
+        private void startDownload(String url) {
+            target = downloader.requestDownload(
+                getProvider(url).composeMangaUrl(url), this);
+        }
+
+        private void insertChapters() {
+            for (int i = 0; i < chapters.size(); ++i)
+                db.insertOrUpdateChapter(info.id, i + 1, -1,
+                                         chapters.get(i).title,
+                                         chapters.get(i).url);
         }
     }
 
