@@ -28,15 +28,6 @@ import org.barbon.mangaget.scrape.mangareader.MangareaderScraper;
 import org.barbon.mangaget.scrape.naver.NaverScraper;
 
 public class Scraper {
-    private static final String ANIMEA_URL = "http://manga.animea.net/";
-    private static final String MANGAREADER_URL =
-        "http://www.mangareader.net/";
-    private static final String NAVER_URL = "http://comic.naver.com/";
-
-    public static final int PROVIDER_ANIMEA = 1;
-    public static final int PROVIDER_MANGAREADER = 2;
-    public static final int PROVIDER_NAVER = 3;
-
     private static final Scraper.Provider[] PROVIDERS =
         new Scraper.Provider[] {
             new AnimeAScraper.Provider(),
@@ -45,6 +36,10 @@ public class Scraper {
         };
 
     public static abstract class Provider {
+        // selection/identification
+        public abstract boolean canHandleUrl(String url);
+        public abstract String getName();
+
         // URL manipulation
         public String composeMangaUrl(String url) { return url; }
         public abstract String composeSearchUrl(String title);
@@ -158,17 +153,9 @@ public class Scraper {
             else
                 pattern = null;
 
-            if (url != null) {
-                // TODO use Enum/add to provider
-                if (url.startsWith(ANIMEA_URL))
-                    provider = "AnimeA";
-                else if (url.startsWith(MANGAREADER_URL))
-                    provider = "MangaReader";
-                else if (url.startsWith(NAVER_URL))
-                    provider = "Naver";
-                else
-                    provider = "";
-            } else
+            if (url != null)
+                provider = getProvider(url).getName();
+            else
                 provider = "";
         }
     }
@@ -711,14 +698,11 @@ public class Scraper {
     }
 
     private static Provider getProvider(String url) {
-        if (url.startsWith(ANIMEA_URL))
-            return new AnimeAScraper.Provider();
-        else if (url.startsWith(MANGAREADER_URL))
-            return new MangareaderScraper.Provider();
-        else if (url.startsWith(NAVER_URL))
-            return new NaverScraper.Provider();
-        else
-            throw new RuntimeException("Unknown URL " + url);
+        for (Provider provider : PROVIDERS)
+            if (provider.canHandleUrl(url))
+                return provider;
+
+        throw new RuntimeException("Unknown URL " + url);
     }
 
     private static void notifyChapterUpdate(ChapterDownload download) {

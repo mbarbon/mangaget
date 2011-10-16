@@ -28,6 +28,18 @@ import org.jsoup.select.Elements;
 public class NaverScraper {
     // scraper interface
     public static class Provider extends Scraper.Provider {
+        private static final String NAVER_URL = "http://comic.naver.com/";
+
+        @Override
+        public boolean canHandleUrl(String url) {
+            return url.startsWith(NAVER_URL);
+        }
+
+        @Override
+        public String getName() {
+            return "Naver";
+        }
+
         @Override
         public String composeSearchUrl(String title) {
             try {

@@ -27,6 +27,19 @@ import org.jsoup.select.Elements;
 public class MangareaderScraper {
     // scraper interface
     public static class Provider extends Scraper.Provider {
+        private static final String MANGAREADER_URL =
+            "http://www.mangareader.net/";
+
+        @Override
+        public boolean canHandleUrl(String url) {
+            return url.startsWith(MANGAREADER_URL);
+        }
+
+        @Override
+        public String getName() {
+            return "MangaReader";
+        }
+
         @Override
         public String composeSearchUrl(String title) {
             try {

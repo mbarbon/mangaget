@@ -44,6 +44,18 @@ import org.jsoup.select.Elements;
 public class AnimeAScraper {
     // scraper interface
     public static class Provider extends Scraper.Provider {
+        private static final String ANIMEA_URL = "http://manga.animea.net/";
+
+        @Override
+        public boolean canHandleUrl(String url) {
+            return url.startsWith(ANIMEA_URL);
+        }
+
+        @Override
+        public String getName() {
+            return "AnimeA";
+        }
+
         @Override
         public String composeMangaUrl(String url) {
             // TODO proper URL manipulation
