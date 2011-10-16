@@ -109,6 +109,8 @@ public class MangareaderScraper {
         return img.attr("abs:src");
     }
 
+    // TODO filter search results (for example when searching "핑크 레이디")
+
     public static HtmlScrape.SearchResultPage scrapeSearchResults(
             Downloader.DownloadDestination target) {
         Document doc = HtmlScrape.parseHtmlPage(target);
