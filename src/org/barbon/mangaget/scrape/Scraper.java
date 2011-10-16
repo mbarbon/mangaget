@@ -638,14 +638,7 @@ public class Scraper {
             page.url = pageCursor.getString(urlI);
             page.imageUrl = pageCursor.getString(imageUrlI);
             page.status = pageCursor.getInt(statusI);
-
-            String imgName =
-                download.chapter.getAsString(DB.CHAPTER_MANGA_ID) + "-" +
-                Long.toString(download.id) + "-" +
-                Long.toString(page.id) + ".jpg";
-
-            page.targetPath = new File(download.tempDir, imgName)
-                .getAbsolutePath();
+            page.targetPath = pageTargetPath(download, page.id);
 
             pageList.add(page);
         }
@@ -655,6 +648,16 @@ public class Scraper {
         PageDownloader pages = new PageDownloader(download, pageList);
 
         pages.start();
+    }
+
+    private String pageTargetPath(ChapterDownload download, long pageId) {
+        String imgName =
+            download.chapter.getAsString(DB.CHAPTER_MANGA_ID) + "-" +
+            Long.toString(download.id) + "-" +
+            Long.toString(pageId) + ".jpg";
+
+        return new File(download.tempDir, imgName)
+            .getAbsolutePath();
     }
 
     private void downloadPageListAndPages(ChapterDownload download) {
