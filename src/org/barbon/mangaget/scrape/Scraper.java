@@ -48,7 +48,7 @@ public class Scraper {
         // scraping
         public abstract List<String> scrapeChapterPages(
             Downloader.DownloadDestination target);
-        public abstract String scrapeImageUrl(
+        public abstract List<String> scrapeImageUrls(
             Downloader.DownloadDestination target);
         public abstract HtmlScrape.SearchResultPage scrapeSearchResults(
             Downloader.DownloadDestination target);
@@ -465,8 +465,31 @@ public class Scraper {
                 if (!success)
                     return;
 
-                page.imageUrl = getProvider(target).scrapeImageUrl(target);
+                List<String> urls = getProvider(target).scrapeImageUrls(target);
+
+                page.imageUrl = urls.get(0);
                 db.updatePageImage(page.id, page.imageUrl);
+
+                // TODO this assumes either multiple pages with a
+                // single image per page or a single page with
+                // multiple images
+                for (int i = 1; i < urls.size(); ++i) {
+                    PageDownload newPage = new PageDownload();
+
+                    long id = db.insertPage(download.id, pages.size(),
+                                            page.url, urls.get(i),
+                                            DB.DOWNLOAD_REQUESTED);
+
+                    newPage.id = id;
+                    newPage.url = page.url;
+                    newPage.imageUrl = urls.get(i);
+                    newPage.status = DB.DOWNLOAD_REQUESTED;
+                    newPage.targetPath = pageTargetPath(download, id);
+
+                    pages.add(newPage);
+                    total += 1;
+                    count += 1;
+                }
             }
 
             @Override

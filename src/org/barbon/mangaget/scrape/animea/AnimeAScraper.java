@@ -69,9 +69,13 @@ public class AnimeAScraper {
         }
 
         @Override
-        public String scrapeImageUrl(
+        public List<String> scrapeImageUrls(
                 Downloader.DownloadDestination target) {
-            return AnimeAScraper.scrapeImageUrl(target);
+            List<String> urls = new ArrayList<String>(1);
+
+            urls.add(AnimeAScraper.scrapeImageUrl(target));
+
+            return urls;
         }
 
         @Override

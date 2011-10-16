@@ -45,9 +45,13 @@ public class MangareaderScraper {
         }
 
         @Override
-        public String scrapeImageUrl(
+        public List<String> scrapeImageUrls(
                 Downloader.DownloadDestination target) {
-            return MangareaderScraper.scrapeImageUrl(target);
+            List<String> urls = new ArrayList<String>(1);
+
+            urls.add(MangareaderScraper.scrapeImageUrl(target));
+
+            return urls;
         }
 
         @Override
