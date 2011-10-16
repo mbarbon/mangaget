@@ -5,7 +5,6 @@
 
 package org.barbon.mangaget.scrape.naver;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import java.net.URLEncoder;
@@ -17,8 +16,6 @@ import java.util.List;
 import org.barbon.mangaget.scrape.Downloader;
 import org.barbon.mangaget.scrape.HtmlScrape;
 import org.barbon.mangaget.scrape.Scraper;
-
-import org.jsoup.Jsoup;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -85,15 +82,7 @@ public class NaverScraper {
 
     public static List<String> scrapeImageUrls(
             Downloader.DownloadDestination target) {
-        Document doc;
-
-        try {
-            doc = Jsoup.parse(target.stream, target.encoding, target.baseUrl);
-        }
-        catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+        Document doc = HtmlScrape.parseHtmlPage(target);
         Elements imgs = doc.select("div.wt_viewer > img");
         List<String> urls = new ArrayList<String>();
 
@@ -109,15 +98,7 @@ public class NaverScraper {
 
     public static HtmlScrape.SearchResultPage scrapeSearchResults(
             Downloader.DownloadDestination target) {
-        Document doc;
-
-        try {
-            doc = Jsoup.parse(target.stream, target.encoding, target.baseUrl);
-        }
-        catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+        Document doc = HtmlScrape.parseHtmlPage(target);
         Elements manhwas = doc.select("div.resultBox ul.resultList li " +
                                       " img + a");
         List<String> urls = new ArrayList<String>();
@@ -157,15 +138,7 @@ public class NaverScraper {
 
     public static HtmlScrape.ChapterPage scrapeMangaPage(
             Downloader.DownloadDestination target) {
-        Document doc;
-
-        try {
-            doc = Jsoup.parse(target.stream, target.encoding, target.baseUrl);
-        }
-        catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+        Document doc = HtmlScrape.parseHtmlPage(target);
         Elements links = doc.select("table.viewList td.title a");
         List<HtmlScrape.ChapterInfo> chapters =
             new ArrayList<HtmlScrape.ChapterInfo>();

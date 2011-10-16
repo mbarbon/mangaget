@@ -5,10 +5,16 @@
 
 package org.barbon.mangaget.scrape;
 
+import java.io.IOException;
+
 import java.util.List;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+
+import org.jsoup.Jsoup;
+
+import org.jsoup.nodes.Document;
 
 public class HtmlScrape {
     public static class SearchResultPage {
@@ -43,5 +49,15 @@ public class HtmlScrape {
         }
 
         return url;
+    }
+
+    public static Document parseHtmlPage(
+            Downloader.DownloadDestination target) {
+        try {
+            return Jsoup.parse(target.stream, target.encoding, target.baseUrl);
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

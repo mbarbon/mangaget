@@ -12,7 +12,6 @@ import android.database.Cursor;
 
 import java.io.File;
 import java.io.InputStream;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import java.net.URI;
@@ -29,8 +28,6 @@ import org.barbon.mangaget.data.DB;
 import org.barbon.mangaget.scrape.Downloader;
 import org.barbon.mangaget.scrape.HtmlScrape;
 import org.barbon.mangaget.scrape.Scraper;
-
-import org.jsoup.Jsoup;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -108,15 +105,7 @@ public class AnimeAScraper {
 
     public static List<String> scrapeChapterPages(
             Downloader.DownloadDestination target) {
-        Document doc;
-
-        try {
-            doc = Jsoup.parse(target.stream, target.encoding, target.baseUrl);
-        }
-        catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+        Document doc = HtmlScrape.parseHtmlPage(target);
         Element page = doc.select("select[name=page]").first();
 
         if (!page.hasAttr("onchange"))
@@ -141,15 +130,7 @@ public class AnimeAScraper {
     }
 
     public static String scrapeImageUrl(Downloader.DownloadDestination target) {
-        Document doc;
-
-        try {
-            doc = Jsoup.parse(target.stream, target.encoding, target.baseUrl);
-        }
-        catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+        Document doc = HtmlScrape.parseHtmlPage(target);
         Element img = doc.select("img.mangaimg").first();
 
         if (!img.hasAttr("src"))
@@ -160,15 +141,7 @@ public class AnimeAScraper {
 
     public static HtmlScrape.SearchResultPage scrapeSearchResults(
             Downloader.DownloadDestination target) {
-        Document doc;
-
-        try {
-            doc = Jsoup.parse(target.stream, target.encoding, target.baseUrl);
-        }
-        catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+        Document doc = HtmlScrape.parseHtmlPage(target);
         Elements mangas = doc.select("a.manga_title");
         List<String> urls = new ArrayList<String>();
         List<String> titles = new ArrayList<String>();
@@ -220,15 +193,7 @@ public class AnimeAScraper {
 
     public static List<HtmlScrape.ChapterInfo> scrapeMangaPage(
             Downloader.DownloadDestination target) {
-        Document doc;
-
-        try {
-            doc = Jsoup.parse(target.stream, target.encoding, target.baseUrl);
-        }
-        catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+        Document doc = HtmlScrape.parseHtmlPage(target);
         Elements links = doc.select("ul.chapters_list li > a");
         List<HtmlScrape.ChapterInfo> chapters =
             new ArrayList<HtmlScrape.ChapterInfo>();
