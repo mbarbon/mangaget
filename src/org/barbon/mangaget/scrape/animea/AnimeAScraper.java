@@ -5,25 +5,12 @@
 
 package org.barbon.mangaget.scrape.animea;
 
-import android.content.ContentValues;
-import android.content.Context;
-
-import android.database.Cursor;
-
-import java.io.File;
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URLEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.barbon.mangaget.CBZFile;
-
-import org.barbon.mangaget.data.DB;
 
 import org.barbon.mangaget.scrape.Downloader;
 import org.barbon.mangaget.scrape.HtmlScrape;
