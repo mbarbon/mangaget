@@ -5,11 +5,11 @@
 
 package org.barbon.mangaget.scrape.naver;
 
+import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import java.io.IOException;
 
 import org.barbon.mangaget.scrape.Downloader;
 import org.barbon.mangaget.scrape.HtmlScrape;
@@ -22,6 +22,30 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class NaverScraper {
+    public static List<String> scrapeImageUrls(
+            Downloader.DownloadDestination target) {
+        Document doc;
+
+        try {
+            doc = Jsoup.parse(target.stream, target.encoding, target.baseUrl);
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Elements imgs = doc.select("div.wt_viewer > img");
+        List<String> urls = new ArrayList<String>();
+
+        for (Element img : imgs) {
+            if (!img.hasAttr("src"))
+                continue;
+
+            urls.add(img.attr("abs:src"));
+        }
+
+        return urls;
+    }
+
     public static HtmlScrape.SearchResultPage scrapeSearchResults(
             Downloader.DownloadDestination target) {
         Document doc;

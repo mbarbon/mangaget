@@ -15,6 +15,20 @@ import org.barbon.mangaget.tests.R;
 import org.barbon.mangaget.tests.Utils;
 
 public class NaverScraperTest extends InstrumentationTestCase {
+    public void testScrapeImageUrls() {
+        String chapterPage =
+            "http://comic.naver.com/webtoon/detail.nhn?titleId=22896&no=1&weekday=mon";
+        List<String> urls = NaverScraper.scrapeImageUrls(
+            Utils.getPage(this, R.raw.naver_pink_lady_c1_p1_html,
+                          chapterPage));
+
+        assertEquals(8, urls.size());
+        assertEquals("http://imgcomic.naver.com/webtoon/22896/1/001.jpg",
+                     urls.get(0));
+        assertEquals("http://imgcomic.naver.com/webtoon/22896/1/008.jpg",
+                     urls.get(7));
+    }
+
     public void testScrapeResults() {
         String searchPage =
             "http://comic.naver.com/search.nhn?m=webtoon&" +
