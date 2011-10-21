@@ -532,12 +532,11 @@ public class Scraper {
             }
 
             @Override
-            public void downloadComplete(boolean success) {
-                super.downloadComplete(success);
+            public void downloadCompleteBackground(boolean success) {
+                super.downloadCompleteBackground(success);
 
                 if (!success) {
                     db.updatePageStatus(page.id, DB.DOWNLOAD_REQUESTED);
-                    downloadError();
 
                     return;
                 }
@@ -548,6 +547,20 @@ public class Scraper {
 
                 // TODO rename the image according to image type
                 //      using magic + content-type + (real) url
+
+                if (count == 0)
+                    createChapterArchive(download, pages);
+            }
+
+            @Override
+            public void downloadComplete(boolean success) {
+                super.downloadComplete(success);
+
+                if (!success) {
+                    downloadError();
+
+                    return;
+                }
 
                 if (count == 0)
                     downloadFinished();
@@ -637,7 +650,6 @@ public class Scraper {
         }
 
         private void downloadFinished() {
-            createChapterArchive(download, pages);
             db.updateChapterStatus(download.id, DB.DOWNLOAD_COMPLETE);
 
             download.listener.downloadComplete(true);
