@@ -16,6 +16,7 @@
   <!-- Chapter list -->
   <string name="no_chapter">Select manga</string>
   <string name="download_chapter">Download chapter</string>
+  <string name="chapter_not_downloaded">Chapter has not been downloaded yet</string>
 
   <!-- Search dialog -->
   <string name="search_hint">Manga title</string>

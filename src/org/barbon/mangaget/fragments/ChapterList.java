@@ -5,6 +5,7 @@
 
 package org.barbon.mangaget.fragments;
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 
@@ -22,6 +23,7 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
@@ -172,7 +174,17 @@ public class ChapterList extends ListFragment {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        // TODO handle the case when chapter has not been downloaded yet
+        DB db = DB.getInstance(getActivity());
+        ContentValues chapter = db.getChapter(id);
+
+        // unobtrusive alert if chapter has not been downloaded
+        if (chapter.getAsInteger(DB.DOWNLOAD_STATUS) != DB.DOWNLOAD_COMPLETE) {
+            Toast.makeText(getActivity(), R.string.chapter_not_downloaded,
+                           Toast.LENGTH_SHORT).show();
+
+            return;
+        }
+
         Intent view = Utils.viewChapterIntent(getActivity(), id);
 
         getActivity().startActivity(view);
