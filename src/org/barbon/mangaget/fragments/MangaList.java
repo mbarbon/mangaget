@@ -21,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 import android.support.v4.app.ListFragment;
 
@@ -32,6 +33,8 @@ import org.barbon.mangaget.Notifier;
 import org.barbon.mangaget.R;
 
 import org.barbon.mangaget.data.DB;
+
+import org.barbon.mangaget.scrape.Scraper;
 
 public class MangaList extends ListFragment {
     private static final String SELECTED_ID = "mangaId";
@@ -68,6 +71,8 @@ public class MangaList extends ListFragment {
         public boolean setViewValue(View view, Cursor cursor, int column) {
             if (view.getId() == R.id.manga_progress)
                 return bindProgress((ProgressBar) view, cursor, column);
+            if (view.getId() == R.id.manga_provider)
+                return bindProvider((TextView) view, cursor, column);
 
             return false;
         }
@@ -90,6 +95,15 @@ public class MangaList extends ListFragment {
 
             return true;
         }
+
+        private boolean bindProvider(TextView view, Cursor cursor,
+                                     int column) {
+            String url = cursor.getString(column);
+
+            view.setText(Scraper.getProviderName(url));
+
+            return true;
+        }
     }
 
     @Override
@@ -98,8 +112,9 @@ public class MangaList extends ListFragment {
 
         adapter = new SimpleCursorAdapter(
             getActivity(), R.layout.manga_item, null,
-            new String[] { DB.MANGA_TITLE, DB.ID },
-            new int[] { R.id.manga_title, R.id.manga_progress });
+            new String[] { DB.MANGA_TITLE, DB.ID, DB.MANGA_URL },
+            new int[] { R.id.manga_title, R.id.manga_progress,
+                        R.id.manga_provider });
         adapter.setViewBinder(viewBinder);
     }
 

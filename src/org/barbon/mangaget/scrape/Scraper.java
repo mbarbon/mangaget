@@ -242,6 +242,10 @@ public class Scraper {
         }
     }
 
+    public static String getProviderName(String url) {
+        return getProvider(url).getName();
+    }
+
     // implementation
 
     private static final OnChapterDownloadProgress dummyDownloadListener =

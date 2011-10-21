@@ -104,7 +104,7 @@ public class DB {
         SQLiteDatabase db = getDatabase();
 
         return db.rawQuery(
-            "SELECT id AS _id, title" +
+            "SELECT id AS _id, title, url" +
             "    FROM manga" +
             "    ORDER BY title",
             null);
