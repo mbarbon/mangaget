@@ -55,10 +55,14 @@ public class Download extends Service {
     private static final String MANGA_ID = "mangaId";
     private static final String CHAPTER_ID = "chapterId";
 
+    // TODO make configurable
+    private static final int MAX_CONCURRENT_DOWNLOADS = 3;
+
     private DB db;
     private File downloadTemp;
     private Map<Long, PendingTask> chapterDownloads =
         new HashMap<Long, PendingTask>();
+    private List<Long> pendingDownloads = new ArrayList<Long>();
     private int operationCount;
     private MangaListener listener = new MangaListener();
 
@@ -386,6 +390,7 @@ public class Download extends Service {
 
             manager.notify(chapterNotificationId(chapterId), notification);
 
+            enqueueNextDownload();
             stopIfIdle();
         }
 
@@ -413,6 +418,20 @@ public class Download extends Service {
     private void downloadChapter(long chapterId) {
         if (chapterDownloads.containsKey(chapterId))
             return;
+        if (pendingDownloads.contains(chapterId))
+            return;
+
+        pendingDownloads.add(chapterId);
+        enqueueNextDownload();
+    }
+
+    private void enqueueNextDownload() {
+        if (pendingDownloads.isEmpty())
+            return;
+        if (chapterDownloads.size() >= MAX_CONCURRENT_DOWNLOADS)
+            return;
+
+        long chapterId = pendingDownloads.remove(0);
 
         ContentValues chapter = db.getChapter(chapterId);
         ContentValues manga = db.getManga(chapter.getAsLong(
@@ -453,7 +472,8 @@ public class Download extends Service {
     }
 
     private boolean isOperationInProgress() {
-        return (operationCount + chapterDownloads.size()) > 0;
+        return (operationCount + chapterDownloads.size() +
+                pendingDownloads.size()) > 0;
     }
 
     private void stopIfIdle() {
