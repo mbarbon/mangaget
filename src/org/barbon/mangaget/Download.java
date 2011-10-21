@@ -193,6 +193,8 @@ public class Download extends Service {
         if (initialized)
             return;
 
+        initialized = true;
+
         // listen for connectivity status changes
         IntentFilter filter =
             new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
