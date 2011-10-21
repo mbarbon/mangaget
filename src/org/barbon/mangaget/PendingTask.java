@@ -7,4 +7,5 @@ package org.barbon.mangaget;
 
 public interface PendingTask {
     public void cancel();
+    public boolean isCancelled();
 }

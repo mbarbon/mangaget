@@ -286,6 +286,11 @@ public class Scraper {
         public void cancel() {
             cancelled = true;
         }
+
+        @Override
+        public boolean isCancelled() {
+            return cancelled;
+        }
     }
 
     private static class PageDownload {

@@ -312,7 +312,8 @@ public class Download extends Service {
 
         @Override
         public void downloadComplete(boolean success) {
-            chapterDownloads.remove(chapter.getAsLong(DB.ID));
+            PendingTask task =
+                chapterDownloads.remove(chapter.getAsLong(DB.ID));
 
             notification.iconLevel = 0;
             notification.flags &= ~Notification.FLAG_ONGOING_EVENT;
@@ -339,8 +340,14 @@ public class Download extends Service {
                 notification.contentIntent = PendingIntent.getService(
                     Download.this, (int) chapterId, startDownload,
                     PendingIntent.FLAG_CANCEL_CURRENT);
-                tickerId = R.string.manga_download_error_ticker;
-                progressId = R.string.manga_download_error_progress;
+                if (task.isCancelled()) {
+                    tickerId = R.string.manga_download_cancelled_ticker;
+                    progressId = R.string.manga_download_cancelled_progress;
+                }
+                else {
+                    tickerId = R.string.manga_download_error_ticker;
+                    progressId = R.string.manga_download_error_progress;
+                }
             }
 
             notification.tickerText = getResources().getString(tickerId);
