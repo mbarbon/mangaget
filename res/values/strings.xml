@@ -32,4 +32,8 @@
   <string name="manga_downloaded_progress">Downloaded %1$s chapter %2$d</string>
   <string name="manga_download_error_progress">Error downloading %1$s chapter %2$d</string>
   <string name="manga_download_cancelled_progress">Download of %1$s chapter %2$d has been cancelled</string>
+
+  <!-- Manga update complete notification -->
+  <string name="manga_info_update_complete_toast">Manga info update complete</string>
+  <string name="manga_info_update_error_toast">Error during manga info update</string>
 </resources>

@@ -225,7 +225,6 @@ public class MangaList extends ListFragment {
             deleteManga(info.id);
             return true;
         case R.id.refresh:
-            // TODO give some feedback when update completes
             Download.startMangaUpdate(getActivity(), info.id);
             return true;
         default:

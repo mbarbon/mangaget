@@ -29,6 +29,7 @@ import android.os.IBinder;
 import android.view.View;
 
 import android.widget.RemoteViews;
+import android.widget.Toast;
 
 import java.io.File;
 
@@ -59,6 +60,8 @@ public class Download extends Service {
     private Map<Long, PendingTask> chapterDownloads =
         new HashMap<Long, PendingTask>();
     private int operationCount;
+    private MangaListener listener = new MangaListener();
+
     private static boolean initialized;
 
     private class DownloadBinder extends Binder {
@@ -117,6 +120,9 @@ public class Download extends Service {
 
         if (!downloadTemp.exists())
             downloadTemp.mkdir();
+
+        // display toast when manga info update completes
+        Notifier.getInstance().add(listener);
     }
 
     @Override
@@ -150,6 +156,11 @@ public class Download extends Service {
         }
 
         return START_STICKY;
+    }
+
+    @Override
+    public void onDestroy() {
+        Notifier.getInstance().remove(listener);
     }
 
     private final IBinder binder = new DownloadBinder();
@@ -221,6 +232,20 @@ public class Download extends Service {
         intent.putExtra(COMMAND, COMMAND_RESUME_DOWNLOADS);
 
         return intent;
+    }
+
+    private class MangaListener extends Notifier.OperationNotificationAdapter {
+        @Override
+        public void onMangaUpdateComplete(long mangaId, boolean success) {
+            int id;
+
+            if (success)
+                id = R.string.manga_info_update_complete_toast;
+            else
+                id = R.string.manga_info_update_error_toast;
+
+            Toast.makeText(Download.this, id, Toast.LENGTH_SHORT).show();
+        }
     }
 
     private class MangaUpdateProgress implements Scraper.OnOperationStatus {
