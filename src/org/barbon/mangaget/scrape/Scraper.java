@@ -126,7 +126,6 @@ public class Scraper {
         download.tempDir = tempDir;
         download.targetPath = targetPath;
 
-        // TODO notify when it really starts
         db.updateChapterStatus(chapterId, DB.DOWNLOAD_STARTED);
         download.listener.downloadStarted();
         notifyChapterUpdate(download);

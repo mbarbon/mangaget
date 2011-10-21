@@ -42,7 +42,6 @@ public class AnimeAScraper {
 
         @Override
         public String composeMangaUrl(String url) {
-            // TODO proper URL manipulation
             // skip=1 is to skip the "Mature content" warning
             return url + "?skip=1";
         }
@@ -195,9 +194,6 @@ public class AnimeAScraper {
                 continue;
             int dash = url.lastIndexOf('-', url.length() - 13);
             String indexS = url.substring(dash + 1, url.length() - 12);
-
-            // TODO store indexS in the chapter table and use to correlate
-            //      chapters when updating entries
 
             int elementIndex = link.parent().childNodes().indexOf(link);
             Node text = link.parent().childNode(elementIndex + 1);
