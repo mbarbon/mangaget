@@ -231,12 +231,16 @@ public class Scraper {
                 return;
 
             items = null;
-            pending = PROVIDERS.length;
+            pending = 0;
 
             for (Scraper.Provider provider : PROVIDERS) {
                 SearchRequest req = new SearchRequest();
                 String startUrl = provider.composeSearchUrl(title);
 
+                if (startUrl == null)
+                    continue;
+
+                ++pending;
                 req.target = downloader.requestDownload(startUrl, req);
             }
         }
