@@ -39,9 +39,25 @@ public class MangareaderScraper {
 
         @Override
         public String composeSearchUrl(String title) {
+            // it seems that Mangareader strips non-ASCII characters
+            // from the search term; do the same (and return a null
+            // search URL if there aren't any ASCII characters)
+            StringBuffer filtered = new StringBuffer();
+
+            for (int i = 0; i < title.length(); ++i) {
+                // keep both ASCII and Latin-1 characters (just in case)
+                if (title.charAt(i) < 255)
+                    filtered.append(title.charAt(i));
+            }
+
+            String filteredTitle = filtered.toString().trim();
+
+            if (filteredTitle.length() == 0 && title.trim().length() != 0)
+                return null;
+
             try {
                 return "http://www.mangareader.net/search/?w=" +
-                    URLEncoder.encode(title, "UTF-8");
+                    URLEncoder.encode(filteredTitle, "UTF-8");
             }
             catch (UnsupportedEncodingException e) {
                 throw new RuntimeException(e);
@@ -108,8 +124,6 @@ public class MangareaderScraper {
 
         return img.attr("abs:src");
     }
-
-    // TODO filter search results (for example when searching "핑크 레이디")
 
     public static HtmlScrape.SearchResultPage scrapeSearchResults(
             Downloader.DownloadDestination target) {
