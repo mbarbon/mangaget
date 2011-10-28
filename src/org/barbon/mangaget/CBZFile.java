@@ -12,6 +12,10 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+// TODO support ComicBookInfo
+//      http://comicrack.17.forumer.com/viewtopic.php?t=133
+//      https://docs.google.com/View?id=dcs4kx8q_756xdtv7gg&pli=1
+
 public class CBZFile {
     public static void createFile(String fullPath, List<String> pages) {
         ZipOutputStream stream = null;
