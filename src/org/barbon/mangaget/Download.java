@@ -418,8 +418,12 @@ public class Download extends Service {
     private void downloadChapter(long chapterId) {
         if (chapterDownloads.containsKey(chapterId))
             return;
-        if (pendingDownloads.contains(chapterId))
+        if (pendingDownloads.contains(chapterId)) {
+            // if the chapter is already enqueued, try to start the download
+            enqueueNextDownload();
+
             return;
+        }
 
         db.updateChapterStatus(chapterId, DB.DOWNLOAD_REQUESTED);
         Notifier.getInstance().notifyChapterUpdate(
