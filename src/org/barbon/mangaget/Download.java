@@ -425,11 +425,7 @@ public class Download extends Service {
             return;
         }
 
-        db.updateChapterStatus(chapterId, DB.DOWNLOAD_REQUESTED);
-        Notifier.getInstance().notifyChapterUpdate(
-            db.getChapter(chapterId).getAsLong(DB.CHAPTER_MANGA_ID),
-            chapterId);
-
+        updateChapterStatus(chapterId, DB.DOWNLOAD_REQUESTED);
         pendingDownloads.add(chapterId);
         enqueueNextDownload();
     }
@@ -494,5 +490,17 @@ public class Download extends Service {
 
     private static int chapterNotificationId(long chapterId) {
         return (int) chapterId;
+    }
+
+    private void updateChapterStatus(long chapterId, int status) {
+        ContentValues chapter = db.getChapter(chapterId);
+
+        if (chapter.getAsInteger(DB.DOWNLOAD_STATUS) == status)
+            return;
+
+        db.updateChapterStatus(chapterId, status);
+        Notifier.getInstance().notifyChapterUpdate(
+            chapter.getAsLong(DB.CHAPTER_MANGA_ID),
+            chapterId);
     }
 }
