@@ -180,10 +180,23 @@ public class ChapterList extends ListFragment {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v,
                                     ContextMenu.ContextMenuInfo menuInfo) {
+        AdapterView.AdapterContextMenuInfo info =
+            (AdapterView.AdapterContextMenuInfo) menuInfo;
+
         super.onCreateContextMenu(menu, v, menuInfo);
         MenuInflater inflater = getActivity().getMenuInflater();
 
         inflater.inflate(R.menu.chapters_context, menu);
+
+        DB db = DB.getInstance(getActivity());
+        int status = db.getChapter(info.id).getAsInteger(DB.DOWNLOAD_STATUS);
+
+        if (status != DB.DOWNLOAD_COMPLETE)
+            menu.removeItem(R.id.view_chapter);
+        if (status != DB.DOWNLOAD_STOPPED)
+            menu.removeItem(R.id.download_chapter);
+        if (status != DB.DOWNLOAD_REQUESTED && status != DB.DOWNLOAD_STARTED)
+            menu.removeItem(R.id.stop_chapter_download);
     }
 
     @Override
@@ -194,6 +207,12 @@ public class ChapterList extends ListFragment {
         switch (item.getItemId()) {
         case R.id.download_chapter:
             Download.startChapterDownload(getActivity(), info.id);
+            return true;
+        case R.id.stop_chapter_download:
+            Download.stopChapterDownload(getActivity(), info.id);
+            return true;
+        case R.id.view_chapter:
+            showChapter(info.id);
             return true;
         default:
             return super.onContextItemSelected(item);
