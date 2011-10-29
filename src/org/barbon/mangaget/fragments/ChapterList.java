@@ -174,20 +174,7 @@ public class ChapterList extends ListFragment {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        DB db = DB.getInstance(getActivity());
-        ContentValues chapter = db.getChapter(id);
-
-        // unobtrusive alert if chapter has not been downloaded
-        if (chapter.getAsInteger(DB.DOWNLOAD_STATUS) != DB.DOWNLOAD_COMPLETE) {
-            Toast.makeText(getActivity(), R.string.chapter_not_downloaded,
-                           Toast.LENGTH_SHORT).show();
-
-            return;
-        }
-
-        Intent view = Utils.viewChapterIntent(getActivity(), id);
-
-        getActivity().startActivity(view);
+        showChapter(id);
     }
 
     @Override
@@ -211,5 +198,24 @@ public class ChapterList extends ListFragment {
         default:
             return super.onContextItemSelected(item);
         }
+    }
+
+    // implementation
+
+    private void showChapter(long chapterId) {
+        DB db = DB.getInstance(getActivity());
+        ContentValues chapter = db.getChapter(chapterId);
+
+        // unobtrusive alert if chapter has not been downloaded
+        if (chapter.getAsInteger(DB.DOWNLOAD_STATUS) != DB.DOWNLOAD_COMPLETE) {
+            Toast.makeText(getActivity(), R.string.chapter_not_downloaded,
+                           Toast.LENGTH_SHORT).show();
+
+            return;
+        }
+
+        Intent view = Utils.viewChapterIntent(getActivity(), chapterId);
+
+        getActivity().startActivity(view);
     }
 }
