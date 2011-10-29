@@ -435,6 +435,8 @@ public class Download extends Service {
             return;
         if (chapterDownloads.size() >= MAX_CONCURRENT_DOWNLOADS)
             return;
+        if (!Utils.isNetworkConnected(this))
+            return;
 
         long chapterId = pendingDownloads.remove(0);
 
