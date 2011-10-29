@@ -36,7 +36,6 @@ $().ready(function() {
 });
 
 var current_chapter = "-chapter-1";
-var manga = "papillon-hana-to-chou";
 var page = 1;
 var pages=45;
 var chapter="-chapter-1";
@@ -63,28 +62,28 @@ var chapter="-chapter-1";
         <input type="hidden" name="vb_login_md5password_utf" />
     </form>
 </div>
-<div class="loginheader">
+<!--div class="loginheader">
 	<form style="text-align:center;">
-    <a href="https://spreadsheets.google.com/viewform?formkey=dFdBZEpLbVYyWVAxZW9LRThfWmJMQUE6MQ" target="_blank"><strong>Please click here to give us some feedback on the new layout thru a simple 2 questions form!</strong></a>
-    <a href="?hide=1">Click here to hide this</a>
+    <a href="https://spreadsheets.google.com/viewform?formkey=dFdBZEpLbVYyWVAxZW9LRThfWmJMQUE6MQ" target="_blank" rel="nofollow"><strong>Please click here to give us some feedback on the new layout thru a simple 2 questions form!</strong></a>
+    <a href="?hide=1" rel="nofollow">Click here to hide this</a>
     </form>
-</div>
+</div-->
 <div id="sub_menu_blue">
 	<div class="sub_menu">
         <div class="search"><a href="/search.html">Advanced Search</a><input name="q" id="searchquick" type="text" value="Search..." onclick="this.value='';onclick=''" class="search_box" /></div>
     	<ul class="submenuul">
-        	<li><a href="/">Home</a></li>
+        	<li><a href="/" title="Read Manga Online">Home</a></li>
         	<li><a href="/browse.html">Browse</a></li>
         	<li><a href="/search.html">Search</a></li>
-        	<li><a href="/bookmarks.html">Bookmarks</a></li>
-        	<li><a href="/upload.html">Upload</a></li>
-        	<li><a href="javascript:void(0);" onclick="$('#loginheader').css('display','block');">Login</a></li>        </ul>
+        	<li><a href="/bookmarks.html" rel="nofollow">Bookmarks</a></li>
+        	<li><a href="/upload.html" rel="nofollow">Upload</a></li>
+        	<li><a href="javascript:void(0);" rel="nofollow" onclick="$('#loginheader').css('display','block');">Login</a></li>        </ul>
     </div>
 </div>
 <div id="content">
 	<div class="contents" style="margin-bottom:0;">
     	<div class="center clear"><iframe width="728" height="90" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://img.manga.animea.net/do/728eu_am.html"></iframe></div>
-    	<h1><div class="right" style="font-size:12px; text-decoration:none;"><a href="?dark=2" class="light">Light version</a><a href="#" id="bookmarkbutton" class="bookmark">Bookmark</a><a href="#" id="deadbutton" class="brokenpage">Report broken</a></div><a href="/papillon-hana-to-chou.html">Papillon - Hana to Chou</a> / Chapter 1</h1>
+    	<h1><div class="right" style="font-size:12px; text-decoration:none;"><a href="?dark=2" rel="nofollow" class="light">Light version</a><a href="#" id="bookmarkbutton" rel="nofollow" class="bookmark">Bookmark</a><a href="#" id="deadbutton" rel="nofollow" class="brokenpage">Report broken</a></div><a href="/papillon-hana-to-chou.html" title="Papillon - Hana to Chou Manga">Papillon - Hana to Chou</a> / Chapter 1</h1>
         
         <div class="navigation">
    <div class="right"><input  onclick="previous_page();" class="backnext" type="button" value="Previous" />    Page
@@ -92,13 +91,13 @@ var chapter="-chapter-1";
 		<option value="1" selected="selected">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option>	</select>
   of 45 <input  onclick="next_page();" type="button" class="backnext" value="Next" /></div>
 
-	<select name="chapter" id="chapterlistheader" class="mangaselecter" onchange="change_chapter(this)"></select>
+	<select name="chapter" id="chapterlistheader" class="mangaselecter" onchange="change_chapter(this)"></select><iframe src="//www.facebook.com/plugins/like.php?app_id=220067141347796&amp;href&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;action=like&amp;colorscheme=dark&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px; margin-bottom:-7px; margin-left:15px;" allowTransparency="true"></iframe>
     </div>
     </div>
     </div>
         <div class="center clear">
         <div class="clear"></div>
-    <a href="papillon-hana-to-chou-chapter-1-page-2.html"><img src="http://s2-a.animea-server.net/5338%2F1_JHMCN%2F00_fuuchifighters.jpg" class="mangaimg"  /></a>
+    <a href="papillon-hana-to-chou-chapter-1-page-2.html"><img src="http://46.21.152.110/5338%2F1_JHMCN%2F00_fuuchifighters.jpg" onerror="this.src='http://94.100.19.194/5338%2F1_JHMCN%2F00_fuuchifighters.jpg'" class="mangaimg"  /></a>
         </div>
      <div id="content"><div class="contents">
          <div class="navigation topborder bottom">
@@ -112,13 +111,13 @@ var chapter="-chapter-1";
     	<h1>Papillon - Hana to Chou 1 - Read Papillon - Hana to Chou chapter 1 online free</h1>
         <p>You're reading Papillon - Hana to Chou 1 online. You can try some of the related manga below or try some other manga from our manga list.</p>
         <h2 style="padding-top:15px">Related manga</h2>
-        <p>Users who read Papillon - Hana to Chou also read <a href="/kyou-koi-wo-hajimemasu.html">Kyou, Koi wo Hajimemasu</a>, <a href="/dakara-ore-ni-shina-yo.html">Dakara Ore ni Shina yo</a>, <a href="/momoiro-heaven-.html">Momoiro Heaven!</a>, <a href="/i-love-hs.html">I ♥ HS</a>, <a href="/ai-girl.html">Ai Girl</a> and <a href="/forbidden-wedding.html">Kindan Wedding</a>.</p>      <div class="adright300"><iframe width="300" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://img.manga.animea.net/do/300eu_am.html"></iframe></div><div class="adleft300"><iframe width="300" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://img.manga.animea.net/do/300eu_am.html"></iframe></div>	</div>
+        <p>Users who read Papillon - Hana to Chou also read <a href="/kyou-koi-wo-hajimemasu.html" title="Kyou, Koi wo Hajimemasu Manga">Kyou, Koi wo Hajimemasu</a>, <a href="/dakara-ore-ni-shina-yo.html" title="Dakara Ore ni Shina yo Manga">Dakara Ore ni Shina yo</a>, <a href="/momoiro-heaven-.html" title="Momoiro Heaven! Manga">Momoiro Heaven!</a>, <a href="/i-love-hs.html" title="I ♥ HS Manga">I ♥ HS</a>, <a href="/ai-girl.html" title="Ai Girl Manga">Ai Girl</a> and <a href="/forbidden-wedding.html" title="Kindan Wedding Manga">Kindan Wedding</a>.</p>      <div class="adright300"><iframe width="300" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://img.manga.animea.net/do/300eu_am.html"></iframe></div><div class="adleft300"><iframe width="300" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://img.manga.animea.net/do/300eu_am.html"></iframe></div>	</div>
   </div>
 </div>
-<script type='text/javascript' src='http://cdn.animea-server.net/mjs/chapters/papillon-hana-to-chou.js?v=13060279662'></script>
+<script type='text/javascript' src='http://cdn.animea-server.net/mjs/chapters/papillon-hana-to-chou.js?v=2130602796629'></script>
 <script type="text/javascript">
 init_events();
-$(document).ready(function () { var cacheImage = document.createElement('img');	cacheImage.src = "http://s2-a.animea-server.net/5338%2F1_JHMCN%2F001_cover.jpg"; });
+$(document).ready(function () { var cacheImage = document.createElement('img');	cacheImage.src = "http://46.21.152.110/5338%2F1_JHMCN%2F001_cover.jpg"; });
 $(document).ready(function () {
 	$('#bookmarkbutton').bind('click', function() {
 		$.get("/bookmark.php", { mangaid: "5338", chapterid: "98453", page: "1", action: "add" },
@@ -159,9 +158,8 @@ var pageTracker = _gat._getTracker("UA-2458720-5");
 pageTracker._initData();
 pageTracker._trackPageview();
 </script>
-
 </body>
 </html>
 <!-- Auth:	 -->
-<!-- Page:	0.006601 -->
-<!-- Total:	0.006601 sec. -->
+<!-- Page:	0.025676 -->
+<!-- Total:	0.025676 sec. -->
