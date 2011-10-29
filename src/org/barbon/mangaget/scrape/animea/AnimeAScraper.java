@@ -190,7 +190,7 @@ public class AnimeAScraper {
 
             String url = link.attr("abs:href");
 
-            if (!url.endsWith("-page-1.html"))
+            if (url.indexOf("-chapter-") == -1 || !url.endsWith(".html"))
                 continue;
             int dash = url.lastIndexOf('-', url.length() - 13);
             String indexS = url.substring(dash + 1, url.length() - 12);
