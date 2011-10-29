@@ -409,10 +409,11 @@ public class Download extends Service {
     }
 
     private void stopDownloadChapter(long chapterId) {
-        if (!chapterDownloads.containsKey(chapterId))
-            return;
-
-        chapterDownloads.get(chapterId).cancel();
+        updateChapterStatus(chapterId, DB.DOWNLOAD_STOPPED);
+        if (pendingDownloads.contains(chapterId))
+            pendingDownloads.remove(chapterId);
+        if (chapterDownloads.containsKey(chapterId))
+            chapterDownloads.get(chapterId).cancel();
     }
 
     private void downloadChapter(long chapterId) {
