@@ -421,6 +421,11 @@ public class Download extends Service {
         if (pendingDownloads.contains(chapterId))
             return;
 
+        db.updateChapterStatus(chapterId, DB.DOWNLOAD_REQUESTED);
+        Notifier.getInstance().notifyChapterUpdate(
+            db.getChapter(chapterId).getAsLong(DB.CHAPTER_MANGA_ID),
+            chapterId);
+
         pendingDownloads.add(chapterId);
         enqueueNextDownload();
     }
