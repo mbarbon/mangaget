@@ -182,6 +182,8 @@ public class MangaList extends ListFragment {
     private void setSelectedId(final long id) {
         currentSelection = id;
 
+        if (id == -1)
+            return;
         if (onMangaSelected == null)
             return;
 
