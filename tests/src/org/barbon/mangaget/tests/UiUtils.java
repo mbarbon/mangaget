@@ -64,27 +64,38 @@ public class UiUtils {
     }
 
     public static Activity reloadActivity(Activity activity) {
-        IntentFilter filter = null;
-        Instrumentation.ActivityMonitor monitor =
-            instr.addMonitor(filter, null, false);
         int orientation =
             activity.getResources().getConfiguration().orientation;
-        int req_orientation;
 
         switch (orientation) {
         case Configuration.ORIENTATION_PORTRAIT:
-            req_orientation =
-                ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-            break;
+            return forceOrientation(
+                activity, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         case Configuration.ORIENTATION_LANDSCAPE:
-            req_orientation =
-                ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
-            break;
+            return forceOrientation(
+                activity, ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         default:
             throw new RuntimeException("Unknown orientation " + orientation);
         }
+    }
 
-        activity.setRequestedOrientation(req_orientation);
+    public static Activity forceHorizontal(Activity activity) {
+        return forceOrientation(
+            activity, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+    }
+
+    public static Activity forceVertical(Activity activity) {
+        return forceOrientation(
+            activity, ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+
+    public static Activity forceOrientation(
+            Activity activity, int orientation) {
+        IntentFilter filter = null;
+        Instrumentation.ActivityMonitor monitor =
+            instr.addMonitor(filter, null, false);
+
+        activity.setRequestedOrientation(orientation);
 
         // wait for activity to reload
         Activity new_activity = monitor.waitForActivity();
