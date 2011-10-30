@@ -56,6 +56,7 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
 
         setActivityInitialTouchMode(false);
 
+        setActivity(UiUtils.forceHorizontal(getActivity()));
         refreshMembers();
     }
 
