@@ -290,399 +290,399 @@ function triggergenre(genre)
 
 <div class="clear"> </div>
 <h2 style="clear:both;" id="results">Search results</h2>
-<div class="pagingdiv"><ul class="paging"><li class="totalmanga">7981 manga</li><li>previous</li><li>1</li><li><a href="http://manga.animea.net/search.html?title=&page=1">2</a></li><li><a href="http://manga.animea.net/search.html?title=&page=2">3</a></li><li><a href="http://manga.animea.net/search.html?title=&page=3">4</a></li><li><a href="http://manga.animea.net/search.html?title=&page=4">5</a></li><li><a href="http://manga.animea.net/search.html?title=&page=5">6</a></li><li><a href="http://manga.animea.net/search.html?title=&page=6">7</a></li><li><a href="http://manga.animea.net/search.html?title=&page=7">8</a></li><li><a href="http://manga.animea.net/search.html?title=&page=8">9</a></li><li><a href="http://manga.animea.net/search.html?title=&page=9">10</a></li><li><a href="http://manga.animea.net/search.html?title=&page=10">11</a></li><li>...</li><li><a href="http://manga.animea.net/search.html?title=&page=165">166</a></li><li><a href="http://manga.animea.net/search.html?title=&page=166">167</a></li><li><a href="http://manga.animea.net/search.html?title=&page=1">Next</a></li></ul>
+<div class="pagingdiv"><ul class="paging"><li class="totalmanga">7981 manga</li><li><a href="?page=http://manga.animea.net/search.html?title=&page=1">previous</a></li><li><a href="http://manga.animea.net/search.html?title=">1</a></li><li><a href="http://manga.animea.net/search.html?title=&page=1">2</a></li><li>3</li><li><a href="http://manga.animea.net/search.html?title=&page=3">4</a></li><li><a href="http://manga.animea.net/search.html?title=&page=4">5</a></li><li><a href="http://manga.animea.net/search.html?title=&page=5">6</a></li><li><a href="http://manga.animea.net/search.html?title=&page=6">7</a></li><li><a href="http://manga.animea.net/search.html?title=&page=7">8</a></li><li><a href="http://manga.animea.net/search.html?title=&page=8">9</a></li><li><a href="http://manga.animea.net/search.html?title=&page=9">10</a></li><li><a href="http://manga.animea.net/search.html?title=&page=10">11</a></li><li>...</li><li><a href="http://manga.animea.net/search.html?title=&page=165">166</a></li><li><a href="http://manga.animea.net/search.html?title=&page=166">167</a></li><li><a href="http://manga.animea.net/search.html?title=&page=3">Next</a></li></ul>
 <ul class="paging order" style="float:left;">
 <li>Order by:</li>
-<li class="bold"><a href="http://manga.animea.net/search.html?title=&orderby=title">Title</a></li>
-<li><a href="http://manga.animea.net/search.html?title=&orderby=update">Update</a></li>
-<li><a href="http://manga.animea.net/search.html?title=&orderby=views">Views</a></li>
-<li><a href="http://manga.animea.net/search.html?title=&orderby=chapters">Chapters</a></li></ul></div><ul class="mangalist">
+<li class="bold"><a href="http://manga.animea.net/search.html?title=&page=2&orderby=title">Title</a></li>
+<li><a href="http://manga.animea.net/search.html?title=&page=2&orderby=update">Update</a></li>
+<li><a href="http://manga.animea.net/search.html?title=&page=2&orderby=views">Views</a></li>
+<li><a href="http://manga.animea.net/search.html?title=&page=2&orderby=chapters">Chapters</a></li></ul></div><ul class="mangalist">
 <li>
-                    <a href="/-bungaku-shoujo-to-shi-ni-tagari-no-douke.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2654.jpg" width="75" height="135" class="manga_img" /></a>
+                    <a href="/666-satan.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/576.jpg" width="75" height="135" class="manga_img" /></a>
                     <div class="manga_desc">
-                        <a href="/-bungaku-shoujo-to-shi-ni-tagari-no-douke.html" class="manga_title ongoing">&quot;Bungaku Shoujo&quot; ... to Shi ni Tagari</a>
-                        <span class="genres">Comedy, Drama ... School Life</span>
+                        <a href="/666-satan.html" class="manga_title completed">666 Satan</a>
+                        <span class="genres">Action ... Harem, Shounen</span>
                         <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2654, this);" class="right"><img id="heart2654" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-bungaku-shoujo-to-shi-ni-tagari-no-douke-chapter-22.html">22</a> 1 month ago</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(576, this);" class="right"><img id="heart576" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/666-satan-chapter-76.html">76</a> 3 years ago</span>
                     </div>
                 </li><li>
-                    <a href="/gokko.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/5008.jpg" width="75" height="135" class="manga_img" /></a>
+                    <a href="/69.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3319.jpg" width="75" height="135" class="manga_img" /></a>
                     <div class="manga_desc">
-                        <a href="/gokko.html" class="manga_title completed">&quot;Gokko&quot;</a>
-                        <span class="genres">Drama, Romance, Shoujo</span>
+                        <a href="/69.html" class="manga_title ongoing">69</a>
+                        <span class="genres">Comedy, Drama ... Life, Shounen Ai</span>
                         <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(5008, this);" class="right"><img id="heart5008" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/gokko-chapter-1.html">1</a> 1 month ago</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3319, this);" class="right"><img id="heart3319" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/69-chapter-8.html">8</a> 3 years ago</span>
                     </div>
                 </li><li>
-                    <a href="/-suki-to-ienai.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2278.jpg" width="75" height="135" class="manga_img" /></a>
+                    <a href="/7-genme-wa-himitsu.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2212.jpg" width="75" height="135" class="manga_img" /></a>
                     <div class="manga_desc">
-                        <a href="/-suki-to-ienai.html" class="manga_title completed">&quot;Suki&quot; to Ienai</a>
-                        <span class="genres">Romance, Shoujo</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2278, this);" class="right"><img id="heart2278" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-suki-to-ienai-chapter-0.html">0</a> 1 year ago</span>
-                    </div>
-                </li><li>
-                    <a href="/-000000-ultra-black.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/5185.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/-000000-ultra-black.html" class="manga_title ongoing">#000000 - Ultra Black</a>
-                        <span class="genres">Action, Josei ... Supernatural</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(5185, this);" class="right"><img id="heart5185" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-000000-ultra-black-chapter-3.html">3</a> 1 month ago</span>
-                    </div>
-                </li><li>
-                    <a href="/-10.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2773.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/-10.html" class="manga_title completed">$10</a>
-                        <span class="genres">Drama, Tragedy, Yaoi</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2773, this);" class="right"><img id="heart2773" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-10-chapter-4.html">4</a> 3 months ago</span>
-                    </div>
-                </li><li>
-                    <a href="/-100-is-too-cheap.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/6184.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/-100-is-too-cheap.html" class="manga_title completed">$100 is Too Cheap</a>
-                        <span class="genres">Historical, Mystery, Shounen</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(6184, this);" class="right"><img id="heart6184" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-100-is-too-cheap-chapter-0.html">0</a> 2 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/-g-edition.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/7409.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/-g-edition.html" class="manga_title ongoing">(G) Edition</a>
-                        <span class="genres">Comedy, Ecchi ... Supernatural</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(7409, this);" class="right"><img id="heart7409" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-g-edition-chapter-7.html">7</a> 2 months ago</span>
-                    </div>
-                </li><li>
-                    <a href="/-again.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2839.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/-again.html" class="manga_title completed">+Again</a>
-                        <span class="genres">Action, Comedy ... Shounen</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2839, this);" class="right"><img id="heart2839" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-again-chapter-1.html">1</a> 5 months ago</span>
-                    </div>
-                </li><li>
-                    <a href="/-anima.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2304.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/-anima.html" class="manga_title completed">+Anima</a>
-                        <span class="genres">Adventure, Fantasy, Shounen</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2304, this);" class="right"><img id="heart2304" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-anima-chapter-56.html">56</a> 2 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/-c-sword-and-cornett.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/5792.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/-c-sword-and-cornett.html" class="manga_title ongoing">+C: Sword and Cornett</a>
-                        <span class="genres">Action, Drama, Fantasy, Josei</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(5792, this);" class="right"><img id="heart5792" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-c-sword-and-cornett-chapter-25.html">25</a> 8 months ago</span>
-                    </div>
-                </li><li>
-                    <a href="/-6mm-no-taboo.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3657.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/-6mm-no-taboo.html" class="manga_title completed">-6mm no Taboo</a>
-                        <span class="genres">Drama, Mature, Yaoi</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3657, this);" class="right"><img id="heart3657" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-6mm-no-taboo-chapter-6.html">6</a> 1 year ago</span>
-                    </div>
-                </li><li>
-                    <a href="/-hitogatana-.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/7258.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/-hitogatana-.html" class="manga_title ongoing">-Hitogatana-</a>
-                        <span class="genres">Action, Sci-fi, Shounen</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(7258, this);" class="right"><img id="heart7258" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-hitogatana--chapter-16.html">16</a> 1 month ago</span>
-                    </div>
-                </li><li>
-                    <a href="/-curtain.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3901.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/-curtain.html" class="manga_title completed">...Curtain</a>
-                        <span class="genres">Josei, Romance, Smut</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3901, this);" class="right"><img id="heart3901" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-curtain-chapter-5.html">5</a> 6 months ago</span>
-                    </div>
-                </li><li>
-                    <a href="/junai-no-seinen.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/1245.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/junai-no-seinen.html" class="manga_title completed">...Junai no Seinen</a>
-                        <span class="genres">Drama, Romance, Smut, Yaoi</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(1245, this);" class="right"><img id="heart1245" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/junai-no-seinen-chapter-0.html">0</a> 6 months ago</span>
-                    </div>
-                </li><li>
-                    <a href="/-no-onna.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2275.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/-no-onna.html" class="manga_title completed">...no Onna</a>
-                        <span class="genres">Romance, School Life, Shoujo</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2275, this);" class="right"><img id="heart2275" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-no-onna-chapter-4.html">4</a> 3 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/-seishunchuu-.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2280.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/-seishunchuu-.html" class="manga_title completed">...Seishunchuu!</a>
-                        <span class="genres">Comedy, Mature ... School Life</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2280, this);" class="right"><img id="heart2280" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-seishunchuu--chapter-5.html">5</a> 2 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/musashi-no9.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3922.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/musashi-no9.html" class="manga_title completed">...Virgin Love</a>
-                        <span class="genres">Drama, Smut, Yaoi</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3922, this);" class="right"><img id="heart3922" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/musashi-no9-chapter-6.html">6</a> 3 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/-hack-4koma.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3748.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/-hack-4koma.html" class="manga_title completed">.hack//4 koma</a>
-                        <span class="genres">Comedy, Fantasy, Shounen</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3748, this);" class="right"><img id="heart3748" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-hack-4koma-chapter-5.html">5</a> 3 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/-hack-g-u-.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3752.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/-hack-g-u-.html" class="manga_title completed">.hack//G.U.+</a>
-                        <span class="genres">Action, Adventure ... Sci-fi, Shounen</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3752, this);" class="right"><img id="heart3752" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-hack-g-u--chapter-6.html">6</a> 2 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/-hack-gnu.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3749.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/-hack-gnu.html" class="manga_title completed">.hack//GnU</a>
-                        <span class="genres">Adventure, Comedy, Fantasy, Shounen</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3749, this);" class="right"><img id="heart3749" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-hack-gnu-chapter-1.html">1</a> 1 month ago</span>
-                    </div>
-                </li><li>
-                    <a href="/-hack-link.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/1066.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/-hack-link.html" class="manga_title completed">.hack//Link</a>
-                        <span class="genres">Action, Adventure ... Fantasy, Sci-fi</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(1066, this);" class="right"><img id="heart1066" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-hack-link-chapter-7.html">7</a> 6 months ago</span>
-                    </div>
-                </li><li>
-                    <a href="/-hack-legend-of-twilight.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3906.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/-hack-legend-of-twilight.html" class="manga_title completed">.hack//Tasogare no Udewa Densetsu</a>
-                        <span class="genres">Adventure, Comedy ... Sci-fi, Shounen</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3906, this);" class="right"><img id="heart3906" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-hack-legend-of-twilight-chapter-22.html">22</a> 3 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/-hack-xxxx.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3911.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/-hack-xxxx.html" class="manga_title completed">.Hack//XXXX</a>
-                        <span class="genres">Action, Adventure ... Sci-fi, Shounen</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3911, this);" class="right"><img id="heart3911" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/-hack-xxxx-chapter-2.html">2</a> 3 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/0-no-soukoushi.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2907.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/0-no-soukoushi.html" class="manga_title completed">0 no Soukoushi</a>
-                        <span class="genres">Drama, Mystery, Shoujo</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2907, this);" class="right"><img id="heart2907" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/0-no-soukoushi-chapter-3.html">3</a> 2 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/01-monkey.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3900.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/01-monkey.html" class="manga_title completed">01 Monkey</a>
-                        <span class="genres">Yaoi</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3900, this);" class="right"><img id="heart3900" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/01-monkey-chapter-0.html">0</a> 3 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/07-ghost.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/574.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/07-ghost.html" class="manga_title ongoing">07-Ghost</a>
-                        <span class="genres">Action, Comedy ... Josei</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(574, this);" class="right"><img id="heart574" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/07-ghost-chapter-71.html">71</a> 4 weeks ago</span>
-                    </div>
-                </li><li>
-                    <a href="/090-eko-to-issho.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/708.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/090-eko-to-issho.html" class="manga_title completed">090 - Eko to Issho</a>
-                        <span class="genres">Comedy, Fantasy ... Sci-fi, Shounen</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(708, this);" class="right"><img id="heart708" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/090-eko-to-issho-chapter-60.html">60</a> 2 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/0-x-0-memories.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2840.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/0-x-0-memories.html" class="manga_title completed">0x0 Memories</a>
-                        <span class="genres">Romance, Shoujo</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2840, this);" class="right"><img id="heart2840" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/0-x-0-memories-chapter-1.html">1</a> 3 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/1-2-fairy-.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2879.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/1-2-fairy-.html" class="manga_title completed">1/2 Fairy!</a>
-                        <span class="genres">Comedy, Drama, Fantasy, Shoujo</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2879, this);" class="right"><img id="heart2879" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/1-2-fairy--chapter-3.html">3</a> 1 year ago</span>
-                    </div>
-                </li><li>
-                    <a href="/1-2-prince.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2632.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/1-2-prince.html" class="manga_title ongoing">1/2 Prince</a>
-                        <span class="genres">Action ... Harem, Romance</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2632, this);" class="right"><img id="heart2632" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/1-2-prince-chapter-53.html">53</a> 2 months ago</span>
-                    </div>
-                </li><li>
-                    <a href="/1-3-no-kareshi.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/4818.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/1-3-no-kareshi.html" class="manga_title completed">1/3 no Kareshi</a>
-                        <span class="genres">Comedy, Romance ... Life, Shoujo</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(4818, this);" class="right"><img id="heart4818" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/1-3-no-kareshi-chapter-0.html">0</a> 2 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/1-3-romantica.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/6223.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/1-3-romantica.html" class="manga_title completed">1/3 Romantica</a>
-                        <span class="genres">Comedy, Romance ... Life, Shoujo</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(6223, this);" class="right"><img id="heart6223" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/1-3-romantica-chapter-0.html">0</a> 9 months ago</span>
-                    </div>
-                </li><li>
-                    <a href="/1-6000-honesty.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2285.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/1-6000-honesty.html" class="manga_title completed">1/6000 Honesty</a>
+                        <a href="/7-genme-wa-himitsu.html" class="manga_title completed">7 Genme wa Himitsu</a>
                         <span class="genres"></span>
                         <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2285, this);" class="right"><img id="heart2285" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/1-6000-honesty-chapter-1.html">1</a> 3 years ago</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2212, this);" class="right"><img id="heart2212" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/7-genme-wa-himitsu-chapter-5.html">5</a> 3 years ago</span>
                     </div>
                 </li><li>
-                    <a href="/100-days-dream.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2313.jpg" width="75" height="135" class="manga_img" /></a>
+                    <a href="/7th-period-is-a-secret.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3453.jpg" width="75" height="135" class="manga_img" /></a>
                     <div class="manga_desc">
-                        <a href="/100-days-dream.html" class="manga_title completed">100 Days Dream</a>
-                        <span class="genres"></span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2313, this);" class="right"><img id="heart2313" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/100-days-dream-chapter-1.html">1</a> 3 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/100-no-kimo-e.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3777.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/100-no-kimo-e.html" class="manga_title ongoing">100% no Kimo e</a>
+                        <a href="/7th-period-is-a-secret.html" class="manga_title completed">7 Genme wa Himitsu</a>
                         <span class="genres">Drama, Romance, School Life, Shoujo</span>
                         <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3777, this);" class="right"><img id="heart3777" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/100-no-kimo-e-chapter-1.html">1</a> 3 years ago</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3453, this);" class="right"><img id="heart3453" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/7th-period-is-a-secret-chapter-5.html">5</a> 1 year ago</span>
                     </div>
                 </li><li>
-                    <a href="/11eyes.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/6996.jpg" width="75" height="135" class="manga_img" /></a>
+                    <a href="/7-jikanme-rhapsody.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2213.jpg" width="75" height="135" class="manga_img" /></a>
                     <div class="manga_desc">
-                        <a href="/11eyes.html" class="manga_title ongoing">11eyes</a>
-                        <span class="genres">Action, Ecchi ... Romance, Shounen</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(6996, this);" class="right"><img id="heart6996" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/11eyes-chapter-1.html">1</a> 2 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/11th-cat.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2608.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/11th-cat.html" class="manga_title completed">11th Cat</a>
-                        <span class="genres">Comedy, Fantasy, Romance, Shoujo</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2608, this);" class="right"><img id="heart2608" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/11th-cat-chapter-0.html">0</a> 2 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/12-nin-no-yasashii-koroshiya-leo-murder-case.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/6033.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/12-nin-no-yasashii-koroshiya-leo-murder-case.html" class="manga_title completed">12 Nin no Yasashii ...  Leo Murder Case</a>
-                        <span class="genres">Action, Shoujo, Tragedy</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(6033, this);" class="right"><img id="heart6033" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/12-nin-no-yasashii-koroshiya-leo-murder-case-chapter-6.html">6</a> 2 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/12-o-clock-bell-rings.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/7581.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/12-o-clock-bell-rings.html" class="manga_title completed">12 O'Clock Bell Rings</a>
-                        <span class="genres">Comedy, Fantasy ... One Shot, Shoujo</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(7581, this);" class="right"><img id="heart7581" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/12-o-clock-bell-rings-chapter-0.html">0</a> 5 months ago</span>
-                    </div>
-                </li><li>
-                    <a href="/13.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2314.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/13.html" class="manga_title completed">13</a>
+                        <a href="/7-jikanme-rhapsody.html" class="manga_title completed">7 Jikanme Rhapsody</a>
                         <span class="genres"></span>
                         <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2314, this);" class="right"><img id="heart2314" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/13-chapter-1.html">1</a> 3 years ago</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2213, this);" class="right"><img id="heart2213" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/7-jikanme-rhapsody-chapter-4.html">4</a> 3 years ago</span>
                     </div>
                 </li><li>
-                    <a href="/13-club.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/7410.jpg" width="75" height="135" class="manga_img" /></a>
+                    <a href="/7-nenme-no-dou-kyonin.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2315.jpg" width="75" height="135" class="manga_img" /></a>
                     <div class="manga_desc">
-                        <a href="/13-club.html" class="manga_title completed">13 Club</a>
-                        <span class="genres">Drama, Mystery ... Seinen</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(7410, this);" class="right"><img id="heart7410" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/13-club-chapter-8.html">8</a> 4 weeks ago</span>
-                    </div>
-                </li><li>
-                    <a href="/13nichi-wa-kin-youbi.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2634.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/13nichi-wa-kin-youbi.html" class="manga_title ongoing">13nichi wa Kin'youbi</a>
-                        <span class="genres">Mystery, School ... Shoujo</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2634, this);" class="right"><img id="heart2634" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/13nichi-wa-kin-youbi-chapter-6.html">6</a> 3 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/13th-boy.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2474.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/13th-boy.html" class="manga_title ongoing">13th Boy</a>
-                        <span class="genres">Comedy, Fantasy, Romance, Shoujo</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2474, this);" class="right"><img id="heart2474" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/13th-boy-chapter-0.html">0</a> 2 years ago</span>
-                    </div>
-                </li><li>
-                    <a href="/14-juicy.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/4770.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/14-juicy.html" class="manga_title ongoing">14 Juicy</a>
-                        <span class="genres">Comedy, Ecchi ... Life, Shoujo Ai</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(4770, this);" class="right"><img id="heart4770" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/14-juicy-chapter-16.html">16</a> 2 months ago</span>
-                    </div>
-                </li><li>
-                    <a href="/for-us-who-begin-to-love.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/6095.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/for-us-who-begin-to-love.html" class="manga_title completed">14R</a>
-                        <span class="genres">Romance, School Life, Shoujo</span>
-                        <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(6095, this);" class="right"><img id="heart6095" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/for-us-who-begin-to-love-chapter-5.html">5</a> 2 months ago</span>
-                    </div>
-                </li><li>
-                    <a href="/16-engaged.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2635.jpg" width="75" height="135" class="manga_img" /></a>
-                    <div class="manga_desc">
-                        <a href="/16-engaged.html" class="manga_title ongoing">16 Engaged</a>
+                        <a href="/7-nenme-no-dou-kyonin.html" class="manga_title completed">7 Nenme no Dou Kyonin</a>
                         <span class="genres"></span>
                         <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2635, this);" class="right"><img id="heart2635" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/16-engaged-chapter-4.html">4</a> 3 years ago</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2315, this);" class="right"><img id="heart2315" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/7-nenme-no-dou-kyonin-chapter-1.html">1</a> 2 years ago</span>
                     </div>
                 </li><li>
-                    <a href="/16-life.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/6968.jpg" width="75" height="135" class="manga_img" /></a>
+                    <a href="/7-seeds.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/714.jpg" width="75" height="135" class="manga_img" /></a>
                     <div class="manga_desc">
-                        <a href="/16-life.html" class="manga_title completed">16 Life</a>
-                        <span class="genres">Romance, School Life, Shoujo</span>
+                        <a href="/7-seeds.html" class="manga_title ongoing">7 Seeds</a>
+                        <span class="genres">Action ... Josei</span>
                         <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(6968, this);" class="right"><img id="heart6968" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/16-life-chapter-11.html">11</a> 7 months ago</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(714, this);" class="right"><img id="heart714" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/7-seeds-chapter-80.html">80</a> 3 weeks ago</span>
                     </div>
                 </li><li>
-                    <a href="/17-sakurai-machiko-.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/6088.jpg" width="75" height="135" class="manga_img" /></a>
+                    <a href="/7200-byou-no-romance.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/4820.jpg" width="75" height="135" class="manga_img" /></a>
                     <div class="manga_desc">
-                        <a href="/17-sakurai-machiko-.html" class="manga_title ongoing">17 (SAKURAI Machiko)</a>
-                        <span class="genres">Drama, Romance ... Shoujo, Slice of</span>
+                        <a href="/7200-byou-no-romance.html" class="manga_title completed">7200 BYOU NO ROMANCE</a>
+                        <span class="genres">Fantasy, Romance, Shoujo</span>
                         <span class="genres">0k Views</span>
-                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(6088, this);" class="right"><img id="heart6088" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/17-sakurai-machiko--chapter-16.html">16</a> 8 months ago</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(4820, this);" class="right"><img id="heart4820" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/7200-byou-no-romance-chapter-1.html">1</a> 2 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/7200-byou-no-romance.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/8659.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/7200-byou-no-romance.html" class="manga_title ongoing">7200 Byou no Romance</a>
+                        <span class="genres">Fantasy, Romance, Shoujo</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(8659, this);" class="right"><img id="heart8659" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/7200-byou-no-romance-chapter-1.html">1</a> 2 weeks ago</span>
+                    </div>
+                </li><li>
+                    <a href="/7200-byou-no-romance.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/8660.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/7200-byou-no-romance.html" class="manga_title ongoing">7200 Byou no Romance</a>
+                        <span class="genres">Fantasy, Romance, Shoujo</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(8660, this);" class="right"><img id="heart8660" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/7200-byou-no-romance-chapter-1.html">1</a> 2 weeks ago</span>
+                    </div>
+                </li><li>
+                    <a href="/7200-byou-no-romance.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/8661.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/7200-byou-no-romance.html" class="manga_title ongoing">7200 Byou no Romance</a>
+                        <span class="genres">Fantasy, Romance, Shoujo</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(8661, this);" class="right"><img id="heart8661" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/7200-byou-no-romance-chapter-1.html">1</a> 2 weeks ago</span>
+                    </div>
+                </li><li>
+                    <a href="/8mm.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/137.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/8mm.html" class="manga_title completed">8mm</a>
+                        <span class="genres">Comedy, Drama ... Life, Shoujo</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(137, this);" class="right"><img id="heart137" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/8mm-chapter-6.html">6</a> 3 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/musashi-no-9.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3874.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/musashi-no-9.html" class="manga_title completed">9 Banme no Musashi</a>
+                        <span class="genres">Action ... Bender, Harem</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3874, this);" class="right"><img id="heart3874" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/musashi-no-9-chapter-10.html">10</a> 2 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/99-happy-soul.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2462.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/99-happy-soul.html" class="manga_title completed">99 Happy Soul</a>
+                        <span class="genres">Action, Comedy, Ecchi, Shounen</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2462, this);" class="right"><img id="heart2462" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/99-happy-soul-chapter-4.html">4</a> 3 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/99-cacao.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2960.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/99-cacao.html" class="manga_title completed">99% Cacao</a>
+                        <span class="genres"></span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2960, this);" class="right"><img id="heart2960" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/99-cacao-chapter-3.html">3</a> 3 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/99-love.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2277.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/99-love.html" class="manga_title completed">99% Love</a>
+                        <span class="genres"></span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2277, this);" class="right"><img id="heart2277" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/99-love-chapter-1.html">1</a> 3 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/9th-sleep.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3873.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/9th-sleep.html" class="manga_title completed">9th Sleep</a>
+                        <span class="genres">Drama, Fantasy ... Ai, Supernatural</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3873, this);" class="right"><img id="heart3873" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/9th-sleep-chapter-3.html">3</a> 3 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-bird-in-a-dream.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/1938.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-bird-in-a-dream.html" class="manga_title completed">A Bird in a Dream</a>
+                        <span class="genres">Drama, Fantasy, Romance, Yaoi</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(1938, this);" class="right"><img id="heart1938" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-bird-in-a-dream-chapter-4.html">4</a> 3 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-book-of-dreams.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3923.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-book-of-dreams.html" class="manga_title ongoing">A Book of Dreams</a>
+                        <span class="genres">Action ... Romance, Shoujo</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3923, this);" class="right"><img id="heart3923" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-book-of-dreams-chapter-15.html">15</a> 6 months ago</span>
+                    </div>
+                </li><li>
+                    <a href="/tsumaranai-otoko.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3385.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/tsumaranai-otoko.html" class="manga_title completed">A Boring Man</a>
+                        <span class="genres">Drama, Romance, Yaoi</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3385, this);" class="right"><img id="heart3385" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/tsumaranai-otoko-chapter-5.html">5</a> 5 months ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-cat-that-loved-a-fish.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2286.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-cat-that-loved-a-fish.html" class="manga_title completed">A Cat that Loved a Fish</a>
+                        <span class="genres">Romance, Shoujo</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2286, this);" class="right"><img id="heart2286" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-cat-that-loved-a-fish-chapter-1.html">1</a> 3 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-certain-hero-s-deat.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/7741.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-certain-hero-s-deat.html" class="manga_title completed">A Certain Hero's Deat</a>
+                        <span class="genres">Adult, Mature, One Shot, Sci-fi</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(7741, this);" class="right"><img id="heart7741" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-certain-hero-s-deat-chapter-0.html">0</a> 5 months ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-devil-s-sweet-snare.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3930.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-devil-s-sweet-snare.html" class="manga_title completed">A Devil's Sweet Snare</a>
+                        <span class="genres">Shoujo Ai</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3930, this);" class="right"><img id="heart3930" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-devil-s-sweet-snare-chapter-1.html">1</a> 3 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-fairytale-for-the-demon-lord.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/8377.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-fairytale-for-the-demon-lord.html" class="manga_title ongoing">A Fairytale for the Demon Lord</a>
+                        <span class="genres">Adventure ... Seinen, Webtoons</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(8377, this);" class="right"><img id="heart8377" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-fairytale-for-the-demon-lord-chapter-21.html">21</a> Yesterday</span>
+                    </div>
+                </li><li>
+                    <a href="/a-girl-in-a-million.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2297.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-girl-in-a-million.html" class="manga_title completed">A Girl in a Million</a>
+                        <span class="genres">Drama, Josei, Romance</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2297, this);" class="right"><img id="heart2297" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-girl-in-a-million-chapter-1.html">1</a> 2 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-girls.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/122.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-girls.html" class="manga_title ongoing">A girls</a>
+                        <span class="genres">Drama, Ecchi, Mystery, Romance</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(122, this);" class="right"><img id="heart122" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-girls-chapter-13.html">13</a> 1 year ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-house-in-venice.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/5227.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-house-in-venice.html" class="manga_title completed">A House in Venice</a>
+                        <span class="genres">Drama, Josei ... Romance</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(5227, this);" class="right"><img id="heart5227" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-house-in-venice-chapter-2.html">2</a> 2 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-kiss-to-the-prince.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2282.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-kiss-to-the-prince.html" class="manga_title completed">A Kiss to the Prince</a>
+                        <span class="genres">Comedy, Drama ... Romance, Shoujo</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2282, this);" class="right"><img id="heart2282" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-kiss-to-the-prince-chapter-22.html">22</a> 2 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-kiss-love-and-a-price.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3931.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-kiss-love-and-a-price.html" class="manga_title completed">A Kiss, Love, and a Prince</a>
+                        <span class="genres">Comedy, Drama ... School Life</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3931, this);" class="right"><img id="heart3931" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-kiss-love-and-a-price-chapter-1.html">1</a> 3 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-little-melody-of-love.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2860.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-little-melody-of-love.html" class="manga_title completed">A Little Melody of Love</a>
+                        <span class="genres">Comedy, Shoujo, Shoujo Ai, Yuri</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2860, this);" class="right"><img id="heart2860" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-little-melody-of-love-chapter-1.html">1</a> 3 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-love-in-100-days.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/7109.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-love-in-100-days.html" class="manga_title completed">A Love in 100 Days</a>
+                        <span class="genres">Comedy, Drama ... Life, Shoujo</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(7109, this);" class="right"><img id="heart7109" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-love-in-100-days-chapter-4.html">4</a> 1 year ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-million-tear-drops.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/1765.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-million-tear-drops.html" class="manga_title ongoing">A Million Tear Drops</a>
+                        <span class="genres"></span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(1765, this);" class="right"><img id="heart1765" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-million-tear-drops-chapter-0.html">0</a> 3 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-million-pound-love.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2655.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-million-pound-love.html" class="manga_title ongoing">A Million-Pound Love</a>
+                        <span class="genres">Comedy, Drama ... Romance, Sci-fi</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2655, this);" class="right"><img id="heart2655" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-million-pound-love-chapter-4.html">4</a> 2 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/1001-nights.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2231.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/1001-nights.html" class="manga_title ongoing">A Night of a Thousand Dreams</a>
+                        <span class="genres">Drama ... Romance, Shoujo</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2231, this);" class="right"><img id="heart2231" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/1001-nights-chapter-0.html">0</a> 2 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-or-abc.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3934.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-or-abc.html" class="manga_title ongoing">A or ABC</a>
+                        <span class="genres">School Life ... Ai, Sports, Yaoi</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3934, this);" class="right"><img id="heart3934" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-or-abc-chapter-1.html">1</a> 1 year ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-promise-of-romance.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3937.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-promise-of-romance.html" class="manga_title completed">A promise of romance</a>
+                        <span class="genres">Romance, Yuri</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3937, this);" class="right"><img id="heart3937" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-promise-of-romance-chapter-4.html">4</a> 3 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-shameless-night.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2234.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-shameless-night.html" class="manga_title ongoing">A Shameless Night</a>
+                        <span class="genres"></span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2234, this);" class="right"><img id="heart2234" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-shameless-night-chapter-0.html">0</a> 1 year ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-silent-greeting.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2316.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-silent-greeting.html" class="manga_title completed">A Silent Greeting</a>
+                        <span class="genres">Drama, Historical, Romance, Shoujo</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2316, this);" class="right"><img id="heart2316" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-silent-greeting-chapter-1.html">1</a> 2 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-special-person.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2754.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-special-person.html" class="manga_title completed">A Special Person</a>
+                        <span class="genres">Shoujo Ai</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2754, this);" class="right"><img id="heart2754" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-special-person-chapter-1.html">1</a> 3 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-spirit-of-the-sun.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/150.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-spirit-of-the-sun.html" class="manga_title ongoing">A Spirit of the Sun</a>
+                        <span class="genres">Drama, Seinen</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(150, this);" class="right"><img id="heart150" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-spirit-of-the-sun-chapter-22.html">22</a> 3 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-tackle-on-my-life.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/4796.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-tackle-on-my-life.html" class="manga_title completed">A Tackle On My Life</a>
+                        <span class="genres">Action, Comedy ... School Life</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(4796, this);" class="right"><img id="heart4796" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-tackle-on-my-life-chapter-40.html">40</a> Today</span>
+                    </div>
+                </li><li>
+                    <a href="/a-thousand-years-ninetails.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/8576.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-thousand-years-ninetails.html" class="manga_title ongoing">A Thousand Years Ninetails</a>
+                        <span class="genres">Adventure ... Shounen</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(8576, this);" class="right"><img id="heart8576" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-thousand-years-ninetails-chapter-1.html">1</a> 2 months ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-to-z.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/4909.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-to-z.html" class="manga_title ongoing">A to Z</a>
+                        <span class="genres">Mature, Mystery ... Shounen Ai</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(4909, this);" class="right"><img id="heart4909" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-to-z-chapter-5.html">5</a> 2 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-train-at-the-end-of-summer.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/6698.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-train-at-the-end-of-summer.html" class="manga_title completed">A Train at the End of Summer</a>
+                        <span class="genres">Drama, Romance, Seinen</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(6698, this);" class="right"><img id="heart6698" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-train-at-the-end-of-summer-chapter-0.html">0</a> 2 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-wolf-warning.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2980.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-wolf-warning.html" class="manga_title ongoing">A Wolf Warning</a>
+                        <span class="genres">Comedy, Romance ... Shoujo, Slice of</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2980, this);" class="right"><img id="heart2980" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-wolf-warning-chapter-10.html">10</a> 1 year ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-wolf-s-attraction.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/2964.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-wolf-s-attraction.html" class="manga_title ongoing">A Wolf's Attraction</a>
+                        <span class="genres">Comedy, Romance, Shoujo</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(2964, this);" class="right"><img id="heart2964" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-wolf-s-attraction-chapter-5.html">5</a> 3 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-a-.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/3938.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-a-.html" class="manga_title completed">A, A'</a>
+                        <span class="genres">Drama, Gender ... Romance, Sci-fi</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(3938, this);" class="right"><img id="heart3938" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-a--chapter-4.html">4</a> 3 years ago</span>
+                    </div>
+                </li><li>
+                    <a href="/a-ri-sa.html"><img src="http://cdn.animea-server.net/manga/series/thumbs110x160/7185.jpg" width="75" height="135" class="manga_img" /></a>
+                    <div class="manga_desc">
+                        <a href="/a-ri-sa.html" class="manga_title ongoing">A-ri-sa</a>
+                        <span class="genres">Comedy, Shoujo, Supernatural</span>
+                        <span class="genres">0k Views</span>
+                        <span class="lastupdate"><a href="javascript:void(0);" onclick="bookmarkmanga(7185, this);" class="right"><img id="heart7185" src="/img/fam/heart.png" width="16" height="16" alt="Bookmark" /></a>Last ch. <a href="/a-ri-sa-chapter-1.html">1</a> 1 year ago</span>
                     </div>
                 </li></ul>   
-<div class="pagingdiv"><ul class="paging"><li class="totalmanga">7981 manga</li><li>previous</li><li>1</li><li><a href="http://manga.animea.net/search.html?title=&page=1">2</a></li><li><a href="http://manga.animea.net/search.html?title=&page=2">3</a></li><li><a href="http://manga.animea.net/search.html?title=&page=3">4</a></li><li><a href="http://manga.animea.net/search.html?title=&page=4">5</a></li><li><a href="http://manga.animea.net/search.html?title=&page=5">6</a></li><li><a href="http://manga.animea.net/search.html?title=&page=6">7</a></li><li><a href="http://manga.animea.net/search.html?title=&page=7">8</a></li><li><a href="http://manga.animea.net/search.html?title=&page=8">9</a></li><li><a href="http://manga.animea.net/search.html?title=&page=9">10</a></li><li><a href="http://manga.animea.net/search.html?title=&page=10">11</a></li><li>...</li><li><a href="http://manga.animea.net/search.html?title=&page=165">166</a></li><li><a href="http://manga.animea.net/search.html?title=&page=166">167</a></li><li><a href="http://manga.animea.net/search.html?title=&page=1">Next</a></li></ul><ul class="paging order" style="float:left;"><li>Order by:</li><li class="bold"><a href="http://manga.animea.net/search.html?title=&orderby=title">Title</a></li><li><a href="http://manga.animea.net/search.html?title=&orderby=update">Update</a></li><li><a href="http://manga.animea.net/search.html?title=&orderby=views">Views</a></li><li><a href="http://manga.animea.net/search.html?title=&orderby=chapters">Chapters</a></li></ul></div>       
+<div class="pagingdiv"><ul class="paging"><li class="totalmanga">7981 manga</li><li><a href="http://manga.animea.net/search.html?title=&page=1">previous</a></li><li><a href="http://manga.animea.net/search.html?title=">1</a></li><li><a href="http://manga.animea.net/search.html?title=&page=1">2</a></li><li>3</li><li><a href="http://manga.animea.net/search.html?title=&page=3">4</a></li><li><a href="http://manga.animea.net/search.html?title=&page=4">5</a></li><li><a href="http://manga.animea.net/search.html?title=&page=5">6</a></li><li><a href="http://manga.animea.net/search.html?title=&page=6">7</a></li><li><a href="http://manga.animea.net/search.html?title=&page=7">8</a></li><li><a href="http://manga.animea.net/search.html?title=&page=8">9</a></li><li><a href="http://manga.animea.net/search.html?title=&page=9">10</a></li><li><a href="http://manga.animea.net/search.html?title=&page=10">11</a></li><li>...</li><li><a href="http://manga.animea.net/search.html?title=&page=165">166</a></li><li><a href="http://manga.animea.net/search.html?title=&page=166">167</a></li><li><a href="http://manga.animea.net/search.html?title=&page=3">Next</a></li></ul><ul class="paging order" style="float:left;"><li>Order by:</li><li class="bold"><a href="http://manga.animea.net/search.html?title=&page=2&orderby=title">Title</a></li><li><a href="http://manga.animea.net/search.html?title=&page=2&orderby=update">Update</a></li><li><a href="http://manga.animea.net/search.html?title=&page=2&orderby=views">Views</a></li><li><a href="http://manga.animea.net/search.html?title=&page=2&orderby=chapters">Chapters</a></li></ul></div>       
 
 
 <script type="text/javascript">
@@ -711,5 +711,5 @@ pageTracker._trackPageview();
 </body>
 </html>
 <!-- Auth:	 -->
-<!-- Page:	0.022466 -->
-<!-- Total:	0.022466 sec. -->
+<!-- Page:	0.042475 -->
+<!-- Total:	0.042475 sec. -->

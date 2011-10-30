@@ -7,7 +7,7 @@ fi
 
 cat <<EOF | grep "^$1" |
 animea_results_empty_html	http://manga.animea.net/search.html?title=rtzreft
-animea_results_html	http://manga.animea.net/search.html?title=
+animea_results_html	http://manga.animea.net/search.html?title=&page=2
 animea_papillon_c1_p1_html	http://manga.animea.net/papillon-hana-to-chou-chapter-1-page-1.html
 animea_papillon_c1_p2_html	http://manga.animea.net/papillon-hana-to-chou-chapter-1-page-2.html
 animea_papillon_chapters_html	http://manga.animea.net/papillon-hana-to-chou.html
