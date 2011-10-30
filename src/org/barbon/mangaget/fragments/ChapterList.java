@@ -115,6 +115,10 @@ public class ChapterList extends ListFragment {
             new int[] { R.id.chapter_number, R.id.chapter_title,
                         R.id.chapter_downloaded, R.id.chapter_progress });
         adapter.setViewBinder(VIEW_BINDER);
+
+        // loadChapterList might have been called before onCreate
+        if (currentManga != -1)
+            loadChapterList(currentManga);
     }
 
     @Override
@@ -167,7 +171,10 @@ public class ChapterList extends ListFragment {
         DB db = DB.getInstance(getActivity());
 
         currentManga = mangaId;
-        adapter.changeCursor(db.getChapterList(mangaId));
+
+        // handle the case when loadChapterList is called right after creation
+        if (adapter != null)
+            adapter.changeCursor(db.getChapterList(mangaId));
     }
 
     // event handlers
