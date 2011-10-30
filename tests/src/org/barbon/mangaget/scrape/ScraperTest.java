@@ -290,9 +290,9 @@ public class ScraperTest extends InstrumentationTestCase {
         // uses the fact the only registered URLs are for AnimeA
         assertEquals(3, progress.updateCount);
         assertEquals(48, uiTask.pager.getCount());
-        assertEquals("2 Kaime no Hajimete no Koi",
+        assertEquals("666 Satan",
                      uiTask.pager.getItem(0).title);
-        assertEquals("2-kaime-no-hajimete-no-koi",
+        assertEquals("666-satan",
                      uiTask.pager.getItem(0).pattern);
         assertEquals("AnimeA",
                      uiTask.pager.getItem(0).provider);
