@@ -117,7 +117,7 @@ public class ChapterList extends ListFragment {
         adapter.setViewBinder(VIEW_BINDER);
 
         // loadChapterList might have been called before onCreate
-        if (currentManga != -1)
+        if (currentManga != -1 && getActivity() != null)
             loadChapterList(currentManga);
     }
 
