@@ -80,11 +80,23 @@ public class UiUtils {
     }
 
     public static Activity forceHorizontal(Activity activity) {
+        int orientation =
+            activity.getResources().getConfiguration().orientation;
+
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE)
+            return activity;
+
         return forceOrientation(
             activity, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     }
 
     public static Activity forceVertical(Activity activity) {
+        int orientation =
+            activity.getResources().getConfiguration().orientation;
+
+        if (orientation == Configuration.ORIENTATION_PORTRAIT)
+            return activity;
+
         return forceOrientation(
             activity, ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
