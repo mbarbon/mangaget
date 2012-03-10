@@ -349,19 +349,12 @@ public class Download extends Service {
             notification.iconLevel = 0;
             notification.flags &= ~Notification.FLAG_ONGOING_EVENT;
 
-            int tickerId, progressId;
+            int tickerId = -1, progressId = -1;
             long chapterId = chapter.getAsLong(DB.ID);
 
             if (success) {
-                Intent viewChapter = Utils.viewChapterIntent(
-                    Download.this, chapterId);
-
-                // display chapter when success notification clicked
-                notification.contentIntent = PendingIntent.getActivity(
-                    Download.this, (int) chapterId, viewChapter,
-                    PendingIntent.FLAG_CANCEL_CURRENT);
-                tickerId = R.string.manga_downloaded_ticker;
-                progressId = R.string.manga_downloaded_progress;
+                // on success, remove notification
+                notification = null;
             }
             else {
                 Intent startDownload = chapterDownloadIntent(
@@ -381,14 +374,18 @@ public class Download extends Service {
                 }
             }
 
-            notification.tickerText = getResources().getString(tickerId);
-            contentView.setTextViewText(
-                R.id.download_description,
-                formatMsg(progressId));
-            contentView.setViewVisibility(
-                R.id.download_progress_parent, View.INVISIBLE);
+            if (notification != null) {
+                notification.tickerText = getResources().getString(tickerId);
+                contentView.setTextViewText(
+                    R.id.download_description,
+                    formatMsg(progressId));
+                contentView.setViewVisibility(
+                    R.id.download_progress_parent, View.INVISIBLE);
 
-            manager.notify(chapterNotificationId(chapterId), notification);
+                manager.notify(chapterNotificationId(chapterId), notification);
+            }
+            else
+                manager.cancel(chapterNotificationId(chapterId));
 
             enqueueNextDownload();
             stopIfIdle();
