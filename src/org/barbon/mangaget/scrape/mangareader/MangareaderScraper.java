@@ -65,6 +65,11 @@ public class MangareaderScraper {
         }
 
         @Override
+        public String composePagingUrl(String pagingUrl, int page) {
+            return super.composePagingUrl(pagingUrl, (page - 1) * 30);
+        }
+
+        @Override
         public List<String> scrapeChapterPages(
                 Downloader.DownloadDestination target) {
             return MangareaderScraper.scrapeChapterPages(target);

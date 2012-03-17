@@ -58,6 +58,11 @@ public class AnimeAScraper {
         }
 
         @Override
+        public String composePagingUrl(String pagingUrl, int page) {
+            return super.composePagingUrl(pagingUrl, page - 1);
+        }
+
+        @Override
         public List<String> scrapeChapterPages(
                 Downloader.DownloadDestination target) {
             return AnimeAScraper.scrapeChapterPages(target);

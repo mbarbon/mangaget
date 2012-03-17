@@ -13,6 +13,7 @@ import android.database.Cursor;
 import java.io.File;
 
 import java.util.ArrayList;
+import java.util.Formatter;
 import java.util.List;
 
 import org.barbon.mangaget.CBZFile;
@@ -43,6 +44,14 @@ public class Scraper {
         // URL manipulation
         public String composeMangaUrl(String url) { return url; }
         public abstract String composeSearchUrl(String title);
+
+        public String composePagingUrl(String pagingUrl, int page) {
+            String url = new Formatter()
+                .format(pagingUrl, page)
+                .toString();
+
+            return url;
+        }
 
         // scraping
         public abstract List<String> scrapeChapterPages(
