@@ -39,6 +39,7 @@ public class NaverScraperTest extends InstrumentationTestCase {
                               searchPage));
 
         assertEquals(1, res.currentPage);
+        assertEquals(8, res.lastPage);
         assertEquals("http://comic.naver.com/search.nhn?m=webtoon&keyword=%ED%95%91%ED%81%AC%EB%A0%88%EC%9D%B4%EB%94%94&page=%d",
                      res.pagingUrl);
         assertEquals(2, res.urls.size());

@@ -51,6 +51,7 @@ public class MangareaderScraperTest extends InstrumentationTestCase {
                               searchPage));
 
         assertEquals(2, res.currentPage);
+        assertEquals(75, res.lastPage);
         assertEquals("http://www.mangareader.net/search/?w=&p=%d",
                      res.pagingUrl);
         assertEquals(30, res.urls.size());

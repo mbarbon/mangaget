@@ -109,21 +109,27 @@ public class NaverScraper {
             titles.add(manhwa.text());
         }
 
-        Element next = doc.select("div.pagenavigation > a.next").first();
+        Elements links = doc.select("div.pagenavigation > a");
         Element curr = doc.select("div.pagenavigation > span.current").first();
-        int currentPage = -1;
+        int currentPage = -1, lastPage = -1;
         String pagingUrl = null;
 
         if (curr != null)
             currentPage = Integer.valueOf(curr.text());
 
-        if (next != null)
+        for (Element link : links)
         {
-            String href = next.attr("abs:href");
+            if (link.hasAttr("class"))
+                continue;
+
+            String href = link.attr("abs:href");
             int index = href.lastIndexOf("&page=");
 
-            if (index != -1)
-                pagingUrl = href.substring(0, index + 6) + "%d";
+            if (index == -1)
+                continue;
+
+            pagingUrl = href.substring(0, index + 6) + "%d";
+            lastPage = Integer.valueOf(href.substring(index + 6));
         }
 
         HtmlScrape.SearchResultPage page = new HtmlScrape.SearchResultPage();
@@ -132,6 +138,7 @@ public class NaverScraper {
         page.titles = titles;
         page.pagingUrl = pagingUrl;
         page.currentPage = currentPage;
+        page.lastPage = lastPage > currentPage ? lastPage : currentPage;
 
         return page;
     }

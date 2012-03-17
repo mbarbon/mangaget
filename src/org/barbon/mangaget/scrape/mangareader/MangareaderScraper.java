@@ -139,7 +139,7 @@ public class MangareaderScraper {
 
         Elements links = doc.select("div#sp > a");
         Element current = doc.select("div#sp > strong").first();
-        int currentPage = -1;
+        int currentPage = -1, lastPage = -1;
         String pagingUrl = null;
 
         if (current != null)
@@ -149,11 +149,11 @@ public class MangareaderScraper {
             String href = link.attr("abs:href");
             int index = href.lastIndexOf("&p=");
 
-            if (index == -1)
+            if (index == -1 || link.text() == ">")
                 continue;
 
             pagingUrl = href.substring(0, index + 3) + "%d";
-            break;
+            lastPage = Integer.valueOf(href.substring(index + 3)) / 30 + 1;
         }
 
         HtmlScrape.SearchResultPage page = new HtmlScrape.SearchResultPage();
@@ -162,6 +162,7 @@ public class MangareaderScraper {
         page.titles = titles;
         page.pagingUrl = pagingUrl;
         page.currentPage = currentPage;
+        page.lastPage = lastPage > currentPage ? lastPage : currentPage;
 
         return page;
     }

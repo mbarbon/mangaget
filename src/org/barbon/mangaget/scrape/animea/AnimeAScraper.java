@@ -138,17 +138,21 @@ public class AnimeAScraper {
         }
 
         Elements items = doc.select("div.pagingdiv > ul:not(.order) > li");
-        int currentPage = -1;
+        int currentPage = -1, lastPage = -1;
         String pagingUrl = null;
 
         for (Element item : items) {
+            String num = item.text();
+
+            if (   num.equalsIgnoreCase("previous")
+                || num.equalsIgnoreCase("next")
+                || num.equalsIgnoreCase("..."))
+                continue;
+
             if (   item.children().size() == 0
                 && (   !item.hasAttr("class")
                     || !item.attr("class").equals("totalmanga"))) {
-                String num = item.text();
-
-                if (   !num.equalsIgnoreCase("previous")
-                    && !num.equalsIgnoreCase("next"))
+                if (currentPage == -1)
                     currentPage = Integer.valueOf(num);
             }
             else if (   item.children().size() == 1
@@ -161,10 +165,8 @@ public class AnimeAScraper {
                     continue;
 
                 pagingUrl = href.substring(0, index + 6) + "%d";
+                lastPage = Integer.valueOf(href.substring(index + 6)) + 1;
             }
-
-            if (currentPage != -1 && pagingUrl != null)
-                break;
         }
 
         HtmlScrape.SearchResultPage page = new HtmlScrape.SearchResultPage();
@@ -173,6 +175,7 @@ public class AnimeAScraper {
         page.titles = titles;
         page.pagingUrl = pagingUrl;
         page.currentPage = currentPage;
+        page.lastPage = lastPage > currentPage ? lastPage : currentPage;
 
         return page;
     }

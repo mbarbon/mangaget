@@ -21,7 +21,7 @@ public class HtmlScrape {
         public List<String> urls;
         public List<String> titles;
         public String pagingUrl;
-        public int currentPage;
+        public int currentPage, lastPage;
     }
 
     public static class ChapterInfo {

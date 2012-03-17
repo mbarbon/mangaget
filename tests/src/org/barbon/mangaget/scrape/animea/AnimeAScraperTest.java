@@ -34,6 +34,7 @@ public class AnimeAScraperTest extends InstrumentationTestCase {
                               searchPage));
 
         assertEquals(3, res.currentPage);
+        assertEquals(167, res.lastPage);
         assertEquals("http://manga.animea.net/search.html?title=&page=%d",
                      res.pagingUrl);
         assertEquals(48, res.urls.size());
