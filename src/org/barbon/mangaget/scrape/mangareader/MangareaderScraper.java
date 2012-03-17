@@ -57,7 +57,7 @@ public class MangareaderScraper {
 
             try {
                 return "http://www.mangareader.net/search/?w=" +
-                    URLEncoder.encode(filteredTitle, "UTF-8");
+                    URLEncoder.encode(filteredTitle, "UTF-8") + "&p=0";
             }
             catch (UnsupportedEncodingException e) {
                 throw new RuntimeException(e);
