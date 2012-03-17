@@ -52,6 +52,12 @@
 
     <target name="run-test-classes" depends="install"
             description="Runs single test class without rebuilding the tested application">
+
+        <property name="test.runner" value="android.test.InstrumentationTestRunner" />
+
+        <xpath input="AndroidManifest.xml"
+                expression="/manifest/@package" output="manifest.package" />
+
         <run-tests-helper>
           <extra-instrument-args>
             <arg value="-e" />
