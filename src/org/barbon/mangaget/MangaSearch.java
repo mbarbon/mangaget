@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.barbon.mangaget.data.DB;
@@ -41,16 +42,27 @@ public class MangaSearch extends ListActivity {
 
         @Override
         public int getCount() {
-            return pager.getCount();
+            int count = pager.getCount();
+
+            if (count == 0 || pager.isLast())
+                return count;
+            else
+                return count + 1;
         }
 
         @Override
         public long getItemId(int position) {
+            if (isRequestMoreItem(position))
+                return -1;
+
             return pager.getItem(position).hashCode();
         }
 
         @Override
         public Object getItem(int position) {
+            if (isRequestMoreItem(position))
+                return null;
+
             return pager.getItem(position);
         }
 
@@ -70,8 +82,13 @@ public class MangaSearch extends ListActivity {
             TextView text1 = (TextView) view.findViewById(android.R.id.text1);
             TextView text2 = (TextView) view.findViewById(android.R.id.text2);
 
-            text1.setText(pager.getItem(position).title);
-            text2.setText(pager.getItem(position).provider);
+            if (position < pager.getCount()) {
+                text1.setText(pager.getItem(position).title);
+                text2.setText(pager.getItem(position).provider);
+            } else {
+                text1.setText(getResources().getString(R.string.more_results));
+                text2.setText("");
+            }
 
             return view;
         }
@@ -79,6 +96,14 @@ public class MangaSearch extends ListActivity {
         @Override
         public void resultsUpdated() {
             notifyDataSetChanged();
+        }
+
+        public boolean isRequestMoreItem(int position) {
+            return position >= pager.getCount();
+        }
+
+        public void requestMore() {
+            pager.nextPage();
         }
     }
 
@@ -149,5 +174,14 @@ public class MangaSearch extends ListActivity {
         default:
             return super.onContextItemSelected(item);
         }
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        SearchAdapter adapter = (SearchAdapter) getListAdapter();
+
+        if (adapter.isRequestMoreItem(position))
+            // TODO feedback that more is loading
+            adapter.requestMore();
     }
 }

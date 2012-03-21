@@ -23,6 +23,7 @@
   <!-- Search dialog -->
   <string name="search_hint">Manga title</string>
   <string name="add_manga">Add manga</string>
+  <string name="more_results">More results</string>
 
   <!-- Download notification -->
   <string name="manga_downloading_ticker">Downloading manga...</string>

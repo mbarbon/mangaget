@@ -169,7 +169,9 @@ public class Scraper {
     }
 
     public class ResultPager {
-        private int pending;
+        private String[] pagingUrls;
+        private int[] currentPage;
+        private boolean[] pending;
         private String title;
         private OnSearchResults listener;
         private List<MangaInfo> items;
@@ -179,6 +181,7 @@ public class Scraper {
         private class SearchRequest
                 extends Downloader.OnDownloadProgressAdapter {
             public Downloader.DownloadDestination target;
+            public int index;
 
             @Override
             public void downloadCompleteBackground(boolean success) {
@@ -196,13 +199,20 @@ public class Scraper {
                 for (int i = 0; i < results.titles.size(); ++i)
                     items.add(new MangaInfo(results.titles.get(i),
                                             results.urls.get(i)));
+
+                if (results.currentPage == results.lastPage ||
+                    results.pagingUrl == null)
+                    currentPage[index] = -1;
+                else
+                    currentPage[index] = results.currentPage;
+
+                pagingUrls[index] = results.pagingUrl;
+                pending[index] = false;
             }
 
             @Override
             public void downloadComplete(boolean success) {
                 super.downloadComplete(success);
-
-                pending -= 1;
 
                 listener.resultsUpdated();
             }
@@ -211,6 +221,9 @@ public class Scraper {
         public ResultPager(String _title, OnSearchResults _listener) {
             title = _title;
             listener = _listener;
+            pagingUrls = new String[PROVIDERS.length];
+            currentPage = new int[PROVIDERS.length];
+            pending = new boolean[PROVIDERS.length];
         }
 
         public boolean isEmpty() {
@@ -235,22 +248,47 @@ public class Scraper {
             return EMPTY_ITEM;
         }
 
-        private void startDownload() {
-            if (pending != 0)
+        public boolean isLast() {
+            for (int i = 0; i < pending.length; ++i)
+                if (pending[i] || currentPage[i] != -1)
+                    return false;
+
+            return true;
+        }
+
+        public void nextPage() {
+            if (isLast())
                 return;
 
-            items = null;
-            pending = 0;
+            startDownload();
+        }
+
+        private void startDownload() {
+            int index = -1;
 
             for (Scraper.Provider provider : PROVIDERS) {
-                SearchRequest req = new SearchRequest();
-                String startUrl = provider.composeSearchUrl(title);
+                ++index;
+
+                if (pending[index] || currentPage[index] == -1)
+                    continue;
+
+                String startUrl;
+
+                if (pagingUrls[index] != null)
+                    startUrl = provider.composePagingUrl(
+                        pagingUrls[index], currentPage[index] + 1);
+                else
+                    startUrl = provider.composeSearchUrl(title);
 
                 if (startUrl == null)
                     continue;
 
-                ++pending;
+                SearchRequest req = new SearchRequest();
+
+                pending[index] = true;
+
                 req.target = downloader.requestDownload(startUrl, req);
+                req.index = index;
             }
         }
     }

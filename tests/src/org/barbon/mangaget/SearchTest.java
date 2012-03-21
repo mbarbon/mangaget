@@ -23,6 +23,8 @@ import org.barbon.mangaget.data.DB;
 import org.barbon.mangaget.tests.UiUtils;
 import org.barbon.mangaget.tests.Utils;
 
+// TODO test paging
+
 public class SearchTest extends ActivityInstrumentationTestCase2<MangaSearch> {
     private MangaSearch activity;
 
@@ -58,7 +60,7 @@ public class SearchTest extends ActivityInstrumentationTestCase2<MangaSearch> {
         while (resultList.getCount() == 0)
             UiUtils.sleep(500);
 
-        assertEquals(48, resultList.getCount());
+        assertEquals(49, resultList.getCount());
     }
 
     private int mangaCount() {
@@ -81,7 +83,7 @@ public class SearchTest extends ActivityInstrumentationTestCase2<MangaSearch> {
         while (resultList.getCount() == 0)
             UiUtils.sleep(500);
 
-        assertEquals(48, resultList.getCount());
+        assertEquals(49, resultList.getCount());
 
         UiUtils.selectListAndMoveToTop(resultList);
         UiUtils.moveDown();
