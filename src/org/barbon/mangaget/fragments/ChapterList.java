@@ -200,8 +200,10 @@ public class ChapterList extends ListFragment {
 
         if (status != DB.DOWNLOAD_COMPLETE)
             menu.removeItem(R.id.view_chapter);
-        if (status != DB.DOWNLOAD_STOPPED)
+        if (status != DB.DOWNLOAD_STOPPED) {
             menu.removeItem(R.id.download_chapter);
+            menu.removeItem(R.id.download_all_chapters);
+        }
         if (status != DB.DOWNLOAD_REQUESTED && status != DB.DOWNLOAD_STARTED)
             menu.removeItem(R.id.stop_chapter_download);
     }
@@ -214,6 +216,9 @@ public class ChapterList extends ListFragment {
         switch (item.getItemId()) {
         case R.id.download_chapter:
             Download.startChapterDownload(getActivity(), info.id);
+            return true;
+        case R.id.download_all_chapters:
+            Download.startDownloadAllChapters(getActivity(), currentManga);
             return true;
         case R.id.stop_chapter_download:
             Download.stopChapterDownload(getActivity(), info.id);

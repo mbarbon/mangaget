@@ -50,6 +50,7 @@ public class Download extends Service {
     private static final int COMMAND_STOP_DOWNLOAD_CHAPTER = 3;
     private static final int COMMAND_UPDATE_MANGA = 2;
     private static final int COMMAND_RESUME_DOWNLOADS = 4;
+    private static final int COMMAND_DOWNLOAD_ALL_CHAPTERS = 5;
 
     private static final String COMMAND = "command";
     private static final String MANGA_ID = "mangaId";
@@ -151,6 +152,9 @@ public class Download extends Service {
         case COMMAND_DOWNLOAD_CHAPTER:
             downloadChapter(intent.getLongExtra(CHAPTER_ID, -1L));
             break;
+        case COMMAND_DOWNLOAD_ALL_CHAPTERS:
+            downloadAllChapters(intent.getLongExtra(MANGA_ID, -1L));
+            break;
         case COMMAND_STOP_DOWNLOAD_CHAPTER:
             stopDownloadChapter(intent.getLongExtra(CHAPTER_ID, -1L));
             break;
@@ -178,6 +182,10 @@ public class Download extends Service {
 
     public static void startChapterDownload(Context context, long chapterId) {
         context.startService(chapterDownloadIntent(context, chapterId));
+    }
+
+    public static void startDownloadAllChapters(Context context, long mangaId) {
+        context.startService(downloadAllChaptersIntent(context, mangaId));
     }
 
     public static void stopChapterDownload(Context context, long chapterId) {
@@ -218,6 +226,16 @@ public class Download extends Service {
 
         intent.putExtra(COMMAND, COMMAND_DOWNLOAD_CHAPTER);
         intent.putExtra(CHAPTER_ID, chapterId);
+
+        return intent;
+    }
+
+    private static Intent downloadAllChaptersIntent(
+            Context context, long mangaId) {
+        Intent intent = new Intent(context, Download.class);
+
+        intent.putExtra(COMMAND, COMMAND_DOWNLOAD_ALL_CHAPTERS);
+        intent.putExtra(MANGA_ID, mangaId);
 
         return intent;
     }
@@ -411,6 +429,24 @@ public class Download extends Service {
             pendingDownloads.remove(chapterId);
         if (chapterDownloads.containsKey(chapterId))
             chapterDownloads.get(chapterId).cancel();
+    }
+
+    private void downloadAllChapters(long mangaId) {
+        Cursor chapters = db.getChapterList(mangaId);
+        int statusI = chapters.getColumnIndex(DB.DOWNLOAD_STATUS);
+        int idI = chapters.getColumnIndex(DB.ID);
+
+        while (chapters.moveToNext()) {
+            int status = chapters.getInt(statusI);
+            long chapterId = chapters.getLong(idI);
+
+            if (status != DB.DOWNLOAD_STOPPED)
+                continue;
+
+            downloadChapter(chapterId);
+        }
+
+        chapters.close();
     }
 
     private void downloadChapter(long chapterId) {
