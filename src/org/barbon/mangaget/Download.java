@@ -41,8 +41,6 @@ import java.util.Formatter;
 
 import org.barbon.mangaget.data.DB;
 
-import org.barbon.mangaget.scrape.Downloader;
-
 import org.barbon.mangaget.scrape.Scraper;
 
 public class Download extends Service {

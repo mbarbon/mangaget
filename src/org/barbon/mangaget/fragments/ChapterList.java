@@ -6,7 +6,6 @@
 package org.barbon.mangaget.fragments;
 
 import android.content.ContentValues;
-import android.content.DialogInterface;
 import android.content.Intent;
 
 import android.database.Cursor;
@@ -25,7 +24,6 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 
 import org.barbon.mangaget.Download;

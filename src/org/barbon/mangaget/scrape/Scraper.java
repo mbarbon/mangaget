@@ -22,8 +22,6 @@ import org.barbon.mangaget.PendingTask;
 
 import org.barbon.mangaget.data.DB;
 
-import org.barbon.mangaget.scrape.Downloader;
-
 import org.barbon.mangaget.scrape.animea.AnimeAScraper;
 import org.barbon.mangaget.scrape.mangareader.MangareaderScraper;
 import org.barbon.mangaget.scrape.naver.NaverScraper;

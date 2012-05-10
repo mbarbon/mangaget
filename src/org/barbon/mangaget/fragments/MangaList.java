@@ -8,14 +8,11 @@ package org.barbon.mangaget.fragments;
 import android.database.Cursor;
 
 import android.os.Bundle;
-import android.os.Handler;
 
 import android.view.ContextMenu;
-import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
 import android.widget.AdapterView;
 import android.widget.ListView;
