@@ -1,30 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (c) Mattia Barbon <mattia@barbon.org>
      distributed under the terms of the MIT license -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/portrait_container"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     >
-  <!-- list content -->
-  <ListView
-      android:id="@android:id/list"
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
-      android:layout_weight="1"
-      android:drawSelectorOnTop="false"
+  <FrameLayout
+      android:id="@+id/search_results"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
       />
-
-  <!-- empty view -->
-  <LinearLayout
-      android:id="@android:id/empty"
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
-      android:gravity="center"
-      >
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-  </LinearLayout>
-</LinearLayout>
+  <!--FrameLayout
+      android:id="@+id/chapter_list"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      /-->
+</FrameLayout>
