@@ -149,7 +149,7 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
 
         // wait until refresh completes
         for (;;) {
-            Cursor cursor = db.getMangaList();
+            Cursor cursor = db.getSubscribedMangaList();
             int count = cursor.getCount();
 
             cursor.close();

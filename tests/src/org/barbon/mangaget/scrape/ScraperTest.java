@@ -98,7 +98,8 @@ public class ScraperTest extends InstrumentationTestCase {
     private long setUpTestManga() {
         return db.insertManga(
             "Title", "MangaGetTest/Dummy-%03d.cbz",
-            "http://manga.animea.net/papillon-hana-to-chou.html");
+            "http://manga.animea.net/papillon-hana-to-chou.html",
+            DB.SUBSCRIPTION_SAVED);
     }
 
     private long setUpTestChapter(long mangaId) {

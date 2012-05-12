@@ -134,7 +134,7 @@ public class MangaList extends ListFragment {
 
         DB db = DB.getInstance(getActivity());
 
-        adapter.changeCursor(db.getMangaList());
+        adapter.changeCursor(db.getSubscribedMangaList());
     }
 
     @Override

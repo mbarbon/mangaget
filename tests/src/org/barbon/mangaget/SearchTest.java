@@ -80,7 +80,7 @@ public class SearchTest extends ActivityInstrumentationTestCase2<MangaSearch> {
 
     private int mangaCount() {
         DB db = DB.getInstance(null);
-        Cursor manga = db.getMangaList();
+        Cursor manga = db.getSubscribedMangaList();
         int count = manga.getCount();
 
         manga.close();

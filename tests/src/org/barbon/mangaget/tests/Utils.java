@@ -42,7 +42,7 @@ public class Utils {
 
         if (setUp) {
             // force DB creation
-            DB.getInstance(null).insertManga("", "", "");
+            DB.getInstance(null).insertManga("", "", "", DB.SUBSCRIPTION_SAVED);
 
             // scrub database
             SQLiteDatabase db = targetContext.openOrCreateDatabase(
@@ -111,10 +111,12 @@ public class Utils {
 
         long m1 = db.insertManga(
             "Title1", "MangaGetTest/Dummy1-%03d.cbz",
-            "http://manga.animea.net/dummy1.html");
+            "http://manga.animea.net/dummy1.html",
+            DB.SUBSCRIPTION_SAVED);
         long m2 = db.insertManga(
             "Title2", "MangaGetTest/Dummy2-%03d.cbz",
-            "http://manga.animea.net/dummy2.html");
+            "http://manga.animea.net/dummy2.html",
+            DB.SUBSCRIPTION_SAVED);
 
         long c1 = db.insertChapter(
             m1, 1, 45, "Chapter 1",

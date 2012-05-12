@@ -19,6 +19,10 @@ public class DB {
     public static final int DOWNLOAD_STARTED = 2;
     public static final int DOWNLOAD_COMPLETE = 3;
 
+    public static final int SUBSCRIPTION_TEMPORARY = 0;
+    public static final int SUBSCRIPTION_SAVED = 1;
+    public static final int SUBSCRIPTION_FOLLOWING = 2;
+
     public static final String ID = "_id";
     public static final String DOWNLOAD_STATUS = "download_status";
 
@@ -34,7 +38,7 @@ public class DB {
     public static final String PAGE_URL = "url";
     public static final String PAGE_IMAGE_URL = "image_url";
 
-    private static final int VERSION = 2;
+    private static final int VERSION = 3;
     private static final String DB_NAME = "manga";
     private static DB theInstance;
 
@@ -46,7 +50,18 @@ public class DB {
         "    id INTEGER PRIMARY KEY," +
         "    title TEXT NOT NULL," +
         "    pattern TEXT NOT NULL," +
-        "    url TEXT NOT NULL" +
+        "    url TEXT NOT NULL," +
+        "    subscription_status INTEGER NOT NULL" +
+        ")";
+
+    private static final String CREATE_MANGA_METADATA_TABLE =
+        "CREATE TABLE manga_metadata (" +
+        "    id INTEGER PRIMARY KEY," +
+        "    manga_id INTEGER NOT NULL," +
+        "    key TEXT NOT NULL," +
+        "    value TEXT NOT NULL," +
+        "    FOREIGN KEY (manga_id) REFERENCES manga(id) " +
+        "        ON DELETE CASCADE" +
         ")";
 
     private static final String CREATE_CHAPTERS_TABLE =
@@ -100,12 +115,13 @@ public class DB {
         return database = openHelper.getWritableDatabase();
     }
 
-    public Cursor getMangaList() {
+    public Cursor getSubscribedMangaList() {
         SQLiteDatabase db = getDatabase();
 
         return db.rawQuery(
             "SELECT id AS _id, title, url" +
             "    FROM manga" +
+            "    WHERE subscription_status > 0" +
             "    ORDER BY title",
             null);
     }
@@ -169,6 +185,24 @@ public class DB {
             values.put("pattern", cursor.getString(2));
             values.put("url", cursor.getString(3));
         }
+
+        cursor.close();
+
+        return values;
+    }
+
+    public ContentValues getMangaMetadata(long mangaId) {
+        SQLiteDatabase db = getDatabase();
+        Cursor cursor = db.rawQuery(
+            "SELECT id AS _id, key, value" +
+            "    FROM manga_metadata" +
+            "    WHERE manga_id = ?",
+            new String[] { Long.toString(mangaId)});
+
+        ContentValues values = new ContentValues();
+
+        while (cursor.moveToNext())
+            values.put(cursor.getString(1), cursor.getString(2));
 
         cursor.close();
 
@@ -249,13 +283,15 @@ public class DB {
                          new String[] { Long.toString(pageId) }) == 1;
     }
 
-    public long insertManga(String title, String pattern, String url) {
+    public long insertManga(String title, String pattern, String url,
+                            int subscriptionStatus) {
         SQLiteDatabase db = getDatabase();
         ContentValues values = new ContentValues();
 
         values.put("title", title);
         values.put("pattern", pattern);
         values.put("url", url);
+        values.put("subscription_status", subscriptionStatus);
 
         return db.insertOrThrow("manga", null, values);
     }
@@ -335,6 +371,7 @@ public class DB {
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL(CREATE_MANGA_TABLE);
+            db.execSQL(CREATE_MANGA_METADATA_TABLE);
             db.execSQL(CREATE_CHAPTERS_TABLE);
             db.execSQL(CREATE_PAGES_TABLE);
         }
@@ -345,6 +382,10 @@ public class DB {
                 switch (i) {
                 case 1:
                     upgrade1To2(db);
+                    upgrade2To3(db);
+                    break;
+                case 2:
+                    upgrade2To3(db);
                     break;
                 }
             }
@@ -377,6 +418,43 @@ public class DB {
                     "    FROM pages_tmp");
                 db.execSQL(
                     "DROP TABLE pages_tmp");
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
+        }
+
+        private void upgrade2To3(SQLiteDatabase db) {
+            db.beginTransaction();
+
+            try {
+                db.execSQL(
+                    "CREATE TABLE manga_metadata (" +
+                    "    id INTEGER PRIMARY KEY," +
+                    "    manga_id INTEGER NOT NULL," +
+                    "    key TEXT NOT NULL," +
+                    "    value TEXT NOT NULL," +
+                    "    FOREIGN KEY (manga_id) REFERENCES manga(id) " +
+                    "        ON DELETE CASCADE" +
+                    ")");
+                db.execSQL(
+                    "ALTER TABLE manga" +
+                    "    RENAME TO manga_tmp");
+                db.execSQL(
+                    "CREATE TABLE manga (" +
+                    "    id INTEGER PRIMARY KEY," +
+                    "    title TEXT NOT NULL," +
+                    "    pattern TEXT NOT NULL," +
+                    "    url TEXT NOT NULL," +
+                    "    subscription_status INTEGER NOT NULL" +
+                    ")");
+                db.execSQL(
+                    "INSERT INTO manga" +
+                    "    (id, title, pattern, url, subscription_status)" +
+                    "    SELECT id, title, pattern, url, 1" +
+                    "    FROM manga_tmp");
+                db.execSQL(
+                    "DROP TABLE manga_tmp");
                 db.setTransactionSuccessful();
             } finally {
                 db.endTransaction();

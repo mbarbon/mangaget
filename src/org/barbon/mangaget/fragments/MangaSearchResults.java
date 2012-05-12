@@ -144,7 +144,8 @@ public class MangaSearchResults extends ListFragment {
             basePath = basePath + info.title.replaceAll("/" ,"-") + "/";
 
         String path = basePath + info.pattern + "-%02d.cbz";
-        long mangaId = db.insertManga(info.title, path, info.url);
+        long mangaId = db.insertManga(info.title, path, info.url,
+                                      DB.SUBSCRIPTION_SAVED);
 
         Download.startMangaUpdate(getActivity(), mangaId);
     }
