@@ -35,6 +35,12 @@ import org.barbon.mangaget.data.DB;
 import org.barbon.mangaget.scrape.Scraper;
 
 public class MangaSearchResults extends ListFragment {
+    private OnMangaSelected selected = null;
+
+    public interface OnMangaSelected {
+        public void onMangaSelected(String title, String url);
+    }
+
     private class SearchAdapter extends BaseAdapter
             implements Scraper.OnSearchResults{
         private Scraper.ResultPager pager;
@@ -129,6 +135,10 @@ public class MangaSearchResults extends ListFragment {
         setListAdapter(new SearchAdapter(getActivity(), scraper, query));
     }
 
+    public void setOnMangaSelected(OnMangaSelected handler) {
+        selected = handler;
+    }
+
     // implementation
 
     // TODO display manga details on single click
@@ -179,8 +189,13 @@ public class MangaSearchResults extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         SearchAdapter adapter = (SearchAdapter) getListAdapter();
 
-        if (adapter.isRequestMoreItem(position))
+        if (adapter.isRequestMoreItem(position)) {
             // TODO feedback that more is loading
             adapter.requestMore();
+        } else if (selected != null) {
+            Scraper.MangaInfo item = (Scraper.MangaInfo) adapter.getItem(position);
+
+            selected.onMangaSelected(item.title, item.url);
+        }
     }
 }
