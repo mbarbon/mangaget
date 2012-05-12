@@ -475,22 +475,12 @@ public class DB {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int from, int to) {
-            for (int i = from; i < to; ++i) {
-                switch (i) {
-                case 1:
-                    upgrade1To2(db);
-                    upgrade2To3(db);
-                    upgrade3To4(db);
-                    break;
-                case 2:
-                    upgrade2To3(db);
-                    upgrade3To4(db);
-                    break;
-                case 3:
-                    upgrade3To4(db);
-                    break;
-                }
-            }
+            if (from < 2 && to >= 2)
+                upgrade1To2(db);
+            if (from < 3 && to >= 3)
+                upgrade2To3(db);
+            if (from < 4 && to >= 4)
+                upgrade3To4(db);
         }
 
         private void upgrade1To2(SQLiteDatabase db) {
