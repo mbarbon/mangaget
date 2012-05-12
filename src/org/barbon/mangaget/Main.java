@@ -15,6 +15,8 @@ import android.view.MenuItem;
 
 import android.support.v4.app.FragmentTransaction;
 
+import org.barbon.mangaget.data.DB;
+
 import org.barbon.mangaget.fragments.ChapterList;
 import org.barbon.mangaget.fragments.MangaList;
 
@@ -74,6 +76,9 @@ public class Main extends BaseFragmentActivity {
         // start listening for network connectivity changes and resume
         // pending downloads if any
         Download.initialize(this);
+
+        // clean up temporary manga entries created during search
+        DB.getInstance(this).deleteTemporaryManga();
     }
 
     @Override

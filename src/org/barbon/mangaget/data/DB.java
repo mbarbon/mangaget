@@ -442,6 +442,12 @@ public class DB {
                          new String[] { Long.toString(mangaId) }) == 1;
     }
 
+    public void deleteTemporaryManga() {
+        SQLiteDatabase db = getDatabase();
+
+        db.delete("manga", "subscription_status = 0", null);
+    }
+
     private class DBOpenHelper extends SQLiteOpenHelper {
         public DBOpenHelper(Context context, String name) {
             super(context, name, null, VERSION);
