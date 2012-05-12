@@ -35,6 +35,8 @@ public class HtmlScrape {
         }
 
         public List<ChapterInfo> chapters;
+        public String summary;
+        public List<String> genres;
         public String previousPage;
         public String nextPage;
     }

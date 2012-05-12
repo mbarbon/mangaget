@@ -94,8 +94,7 @@ public class MangareaderScraper {
         @Override
         public HtmlScrape.ChapterPage scrapeMangaPage(
                 Downloader.DownloadDestination target) {
-            return new HtmlScrape.ChapterPage(
-                MangareaderScraper.scrapeMangaPage(target));
+            return MangareaderScraper.scrapeMangaPage(target);
         }
     }
 
@@ -172,12 +171,13 @@ public class MangareaderScraper {
         return page;
     }
 
-    public static List<HtmlScrape.ChapterInfo> scrapeMangaPage(
+    public static HtmlScrape.ChapterPage scrapeMangaPage(
             Downloader.DownloadDestination target) {
         Document doc = HtmlScrape.parseHtmlPage(target);
         Elements links = doc.select("div#chapterlist a");
         List<HtmlScrape.ChapterInfo> chapters =
             new ArrayList<HtmlScrape.ChapterInfo>();
+        HtmlScrape.ChapterPage result = new HtmlScrape.ChapterPage(chapters);
 
         for (Element link : links) {
             if (!link.hasAttr("href"))
@@ -193,6 +193,19 @@ public class MangareaderScraper {
             chapters.add(info);
         }
 
-        return chapters;
+        Element container = doc.select("div#readmangasum").first();
+
+        if (container != null) {
+            Element summary = container.select("p").get(0);
+
+            result.summary = summary.text().trim();
+        }
+
+        List<String> genres = result.genres = new ArrayList<String>();
+
+        for (Element span : doc.select("div#mangaproperties span.genretags"))
+            genres.add(span.text().trim());
+
+        return result;
     }
 }

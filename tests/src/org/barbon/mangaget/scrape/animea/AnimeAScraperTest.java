@@ -10,6 +10,7 @@ import android.content.Context;
 import android.os.Environment;
 
 import android.test.InstrumentationTestCase;
+import android.test.MoreAsserts;
 
 import java.io.File;
 
@@ -67,15 +68,20 @@ public class AnimeAScraperTest extends InstrumentationTestCase {
 
     public void testScrapeMangaPage() {
         String mangaPage = "http://manga.animea.net/";
-        List<HtmlScrape.ChapterInfo> res =
-            AnimeAScraper.scrapeMangaPage(
+        HtmlScrape.ChapterPage results = AnimeAScraper.scrapeMangaPage(
                 Utils.getPage(this, R.raw.animea_papillon_chapters_html,
                               mangaPage));
+        List<HtmlScrape.ChapterInfo> res = results.chapters;
 
         assertEquals(29, res.size());
         assertEquals("http://manga.animea.net/papillon-hana-to-chou-chapter-1.html",
                      res.get(0).url);
         assertEquals("http://manga.animea.net/papillon-hana-to-chou-chapter-29.html",
                      res.get(28).url);
+        assertEquals("Ageha, an ordinary (and rather unpopular",
+                     results.summary.substring(0, 40));
+        MoreAsserts.assertEquals(
+            new String[] { "Drama", "Romance", "School Life", "Shoujo" },
+            results.genres.toArray());
     }
 }

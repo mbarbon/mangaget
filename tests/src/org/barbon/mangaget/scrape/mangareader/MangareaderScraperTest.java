@@ -6,6 +6,7 @@
 package org.barbon.mangaget.scrape.mangareader;
 
 import android.test.InstrumentationTestCase;
+import android.test.MoreAsserts;
 
 import java.util.List;
 
@@ -84,15 +85,21 @@ public class MangareaderScraperTest extends InstrumentationTestCase {
 
     public void testScrapeMangaPage() {
         String mangaPage = "http://www.mangareader.net/462/goong.html";
-        List<HtmlScrape.ChapterInfo> res =
+        HtmlScrape.ChapterPage results =
             MangareaderScraper.scrapeMangaPage(
                 Utils.getPage(this, R.raw.mangareader_goong_chapters_html,
                               mangaPage));
+        List<HtmlScrape.ChapterInfo> res = results.chapters;
 
         assertEquals(140, res.size());
         assertEquals("http://www.mangareader.net/462-28574-1/goong/chapter-1.html",
                      res.get(0).url);
         assertEquals("http://www.mangareader.net/goong/140",
                      res.get(139).url);
+        assertEquals("Due to a promise between the former king",
+                     results.summary.substring(0, 40));
+        MoreAsserts.assertEquals(
+            new String[] { "Comedy", "Drama", "Romance", "Shoujo" },
+            results.genres.toArray());
     }
 }

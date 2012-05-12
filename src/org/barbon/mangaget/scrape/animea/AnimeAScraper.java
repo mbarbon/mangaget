@@ -87,8 +87,7 @@ public class AnimeAScraper {
         @Override
         public HtmlScrape.ChapterPage scrapeMangaPage(
                 Downloader.DownloadDestination target) {
-            return new HtmlScrape.ChapterPage(
-                AnimeAScraper.scrapeMangaPage(target));
+            return AnimeAScraper.scrapeMangaPage(target);
         }
     }
 
@@ -185,12 +184,13 @@ public class AnimeAScraper {
         return page;
     }
 
-    public static List<HtmlScrape.ChapterInfo> scrapeMangaPage(
+    public static HtmlScrape.ChapterPage scrapeMangaPage(
             Downloader.DownloadDestination target) {
         Document doc = HtmlScrape.parseHtmlPage(target);
         Elements links = doc.select("ul.chapters_list li > a");
         List<HtmlScrape.ChapterInfo> chapters =
             new ArrayList<HtmlScrape.ChapterInfo>();
+        HtmlScrape.ChapterPage result = new HtmlScrape.ChapterPage(chapters);
 
         for (Element link : links) {
             if (!link.hasAttr("href"))
@@ -219,6 +219,31 @@ public class AnimeAScraper {
             chapters.add(0, info);
         }
 
-        return chapters;
+        Element container = doc.select("div.left_container").first();
+        Element metadata = doc.select("div.right_container").first();
+
+        if (container != null) {
+            Element summary = container.select("p").get(1);
+
+            result.summary = summary.text().trim();
+        }
+
+        if (metadata != null) {
+            List<String> genres = result.genres = new ArrayList<String>();
+
+            for (Element link : metadata.select("ul.manga_info li > a")) {
+                if (!link.hasAttr("href"))
+                    continue;
+
+                String url = link.attr("abs:href");
+
+                if (!url.startsWith("http://manga.animea.net/genre/"))
+                    continue;
+
+                genres.add(link.text().trim());
+            }
+        }
+
+        return result;
     }
 }
