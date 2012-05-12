@@ -38,7 +38,7 @@ public class DB {
     public static final String PAGE_URL = "url";
     public static final String PAGE_IMAGE_URL = "image_url";
 
-    private static final int VERSION = 3;
+    private static final int VERSION = 4;
     private static final String DB_NAME = "manga";
     private static DB theInstance;
 
@@ -64,6 +64,9 @@ public class DB {
         "        ON DELETE CASCADE" +
         ")";
 
+    private static final String CREATE_MANGA_METADATA_TABLE_FK_INDEX =
+        "CREATE INDEX manga_metadata_manga_fk ON manga_metadata(manga_id)";
+
     private static final String CREATE_CHAPTERS_TABLE =
         "CREATE TABLE chapters (" +
         "    id INTEGER PRIMARY KEY," +
@@ -77,6 +80,9 @@ public class DB {
         "        ON DELETE CASCADE" +
         ")";
 
+    private static final String CREATE_CHAPTERS_TABLE_FK_INDEX =
+        "CREATE INDEX chapters_manga_fk ON chapters(manga_id)";
+
     private static final String CREATE_PAGES_TABLE =
         "CREATE TABLE pages (" +
         "    id INTEGER PRIMARY KEY," +
@@ -88,6 +94,9 @@ public class DB {
         "    FOREIGN KEY (chapter_id) REFERENCES chapters(id)" +
         "        ON DELETE CASCADE" +
         ")";
+
+    private static final String CREATE_PAGES_TABLE_FK_INDEX =
+        "CREATE INDEX pages_chapters_fk ON pages(chapter_id)";
 
     public static void setInstance(DB instance) {
         theInstance = instance;
@@ -374,6 +383,9 @@ public class DB {
             db.execSQL(CREATE_MANGA_METADATA_TABLE);
             db.execSQL(CREATE_CHAPTERS_TABLE);
             db.execSQL(CREATE_PAGES_TABLE);
+            db.execSQL(CREATE_MANGA_METADATA_TABLE_FK_INDEX);
+            db.execSQL(CREATE_CHAPTERS_TABLE_FK_INDEX);
+            db.execSQL(CREATE_PAGES_TABLE_FK_INDEX);
         }
 
         @Override
@@ -383,9 +395,14 @@ public class DB {
                 case 1:
                     upgrade1To2(db);
                     upgrade2To3(db);
+                    upgrade3To4(db);
                     break;
                 case 2:
                     upgrade2To3(db);
+                    upgrade3To4(db);
+                    break;
+                case 3:
+                    upgrade3To4(db);
                     break;
                 }
             }
@@ -455,6 +472,22 @@ public class DB {
                     "    FROM manga_tmp");
                 db.execSQL(
                     "DROP TABLE manga_tmp");
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
+        }
+
+        private void upgrade3To4(SQLiteDatabase db) {
+            db.beginTransaction();
+
+            try {
+                db.execSQL(
+                    "CREATE INDEX manga_metadata_manga_fk ON manga_metadata(manga_id)");
+                db.execSQL(
+                    "CREATE INDEX chapters_manga_fk ON chapters(manga_id)");
+                db.execSQL(
+                    "CREATE INDEX pages_chapters_fk ON pages(chapter_id)");
                 db.setTransactionSuccessful();
             } finally {
                 db.endTransaction();
