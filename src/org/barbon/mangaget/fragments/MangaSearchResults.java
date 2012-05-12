@@ -145,7 +145,7 @@ public class MangaSearchResults extends ListFragment {
         Scraper.MangaInfo info =
             (Scraper.MangaInfo) getListAdapter().getItem(index);
         DB db = DB.getInstance(getActivity());
-        // TODO make configurable, check for duplicates
+        // TODO make configurable
         String basePath = "Pictures/Comics/";
 
         if (Preferences.getUseMangaSubdir(getActivity()))

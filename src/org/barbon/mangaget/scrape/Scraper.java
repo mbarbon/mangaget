@@ -174,8 +174,6 @@ public class Scraper {
         private OnSearchResults listener;
         private List<MangaInfo> items;
 
-        // TODO actually support paging throught long search results
-
         private class SearchRequest
                 extends Downloader.OnDownloadProgressAdapter {
             public Downloader.DownloadDestination target;
