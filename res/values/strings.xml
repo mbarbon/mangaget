@@ -44,4 +44,7 @@
   <!-- Manga update complete notification -->
   <string name="manga_info_update_complete_toast">Manga info update complete</string>
   <string name="manga_info_update_error_toast">Error during manga info update</string>
+
+  <!-- Delete manga confirmation dialog -->
+  <string name="delete_confirmation_title">Really delete this manga?</string>
 </resources>

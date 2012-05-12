@@ -5,6 +5,8 @@
 
 package org.barbon.mangaget.fragments;
 
+import android.content.DialogInterface;
+
 import android.database.Cursor;
 
 import android.os.Bundle;
@@ -126,6 +128,7 @@ public class MangaList extends ListFragment {
             setSelectedId(savedInstanceState.getLong(SELECTED_ID));
 
         registerForContextMenu(getListView());
+        bindConfirmationDialog(DeleteConfirmationDialog.find(this));
     }
 
     @Override
@@ -197,6 +200,23 @@ public class MangaList extends ListFragment {
         adapter.getCursor().requery();
     }
 
+    private void bindConfirmationDialog(DeleteConfirmationDialog dialog) {
+        if (dialog == null)
+            return;
+
+        final long mangaId = dialog.getMangaId();
+
+        DialogInterface.OnClickListener delete =
+            new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    deleteManga(mangaId);
+                }
+            };
+
+        dialog.setPositiveClick(delete);
+    }
+
     // event handlers
 
     @Override
@@ -220,9 +240,15 @@ public class MangaList extends ListFragment {
 
         switch (item.getItemId()) {
         case R.id.delete:
-            // TODO ask for confirmation before delete
-            deleteManga(info.id);
+        {
+            DeleteConfirmationDialog dlg =
+                DeleteConfirmationDialog.newInstance(info.id);
+
+            bindConfirmationDialog(dlg);
+            dlg.show(this);
+
             return true;
+        }
         case R.id.refresh:
             Download.startMangaUpdate(getActivity(), info.id);
             return true;
