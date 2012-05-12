@@ -5,6 +5,8 @@
 
 package org.barbon.mangaget.data;
 
+import java.util.List;
+
 import android.content.ContentValues;
 import android.content.Context;
 
@@ -354,6 +356,39 @@ public class DB {
         values.put("download_status", downloadStatus);
 
         return db.insertOrThrow("pages", null, values);
+    }
+
+    public void insertOrUpdateMetadata(long mangaId, String summary,
+                                       List<String> genres) {
+        SQLiteDatabase db = getDatabase();
+
+        db.delete("manga_metadata", "manga_id = ?",
+                  new String[] { Long.toString(mangaId) });
+
+        ContentValues values = new ContentValues();
+
+        values.put("manga_id", mangaId);
+
+        if (summary != null) {
+            values.put("key", "summary");
+            values.put("value", summary);
+
+            db.insertOrThrow("manga_metadata", null, values);
+        }
+
+        if (genres != null && genres.size() > 0) {
+            StringBuffer temp = new StringBuffer();
+
+            for (String genre : genres) {
+                temp.append(", ");
+                temp.append(genre);
+            }
+
+            values.put("key", "genres");
+            values.put("value", temp.substring(2));
+
+            db.insertOrThrow("manga_metadata", null, values);
+        }
     }
 
     public boolean deleteManga(long mangaId) {

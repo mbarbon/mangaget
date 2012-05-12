@@ -356,7 +356,8 @@ public class Scraper {
         private Downloader.DownloadDestination target;
         private int pagingDirection;
         private List<HtmlScrape.ChapterInfo> chapters;
-        private String nextUrl;
+        private String nextUrl, summary;
+        private List<String> genres;
 
         public MangaInfoUpdater(MangaInfoDownload _info) {
             super();
@@ -391,6 +392,12 @@ public class Scraper {
                 chapters.addAll(0, page.chapters);
             else
                 chapters.addAll(page.chapters);
+
+            // update metadata
+            if (page.summary != null && page.summary.length() > 0)
+                summary = page.summary;
+            if (page.genres != null && page.genres.size() > 0)
+                genres = page.genres;
 
             // handle paging
             if (page.nextPage != null) {
@@ -429,6 +436,10 @@ public class Scraper {
         }
 
         private void insertChapters() {
+            // update metadata
+            db.insertOrUpdateMetadata(info.id, summary, genres);
+
+            // update chapters
             for (int i = 0; i < chapters.size(); ++i)
                 db.insertOrUpdateChapter(info.id, i + 1, -1,
                                          chapters.get(i).title,
