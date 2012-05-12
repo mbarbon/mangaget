@@ -18,7 +18,11 @@ import android.test.ActivityInstrumentationTestCase2;
 
 import android.widget.ListView;
 
+import android.support.v4.app.FragmentManager;
+
 import org.barbon.mangaget.data.DB;
+
+import org.barbon.mangaget.fragments.MangaSearchResults;
 
 import org.barbon.mangaget.tests.UiUtils;
 import org.barbon.mangaget.tests.Utils;
@@ -27,9 +31,19 @@ import org.barbon.mangaget.tests.Utils;
 
 public class SearchTest extends ActivityInstrumentationTestCase2<MangaSearch> {
     private MangaSearch activity;
+    private MangaSearchResults results;
+    private FragmentManager manager;
 
     public SearchTest() {
         super("org.barbon.mangaget", MangaSearch.class);
+    }
+
+    private void refreshMembers() {
+        activity = (MangaSearch) getActivity();
+        manager = activity.getSupportFragmentManager();
+
+        results = (MangaSearchResults)
+            manager.findFragmentById(R.id.search_results);
     }
 
     public Intent searchIntent(String query) {
@@ -48,14 +62,15 @@ public class SearchTest extends ActivityInstrumentationTestCase2<MangaSearch> {
 
         UiUtils.setInstrumentation(getInstrumentation());
         Utils.setupTestAnimeaEnvironment(this);
+        Utils.setupTestAnimeaDatabase(this);
 
         setActivityInitialTouchMode(false);
     }
 
     public void testSimpleSearch() {
         setActivityIntent(searchIntent(""));
-        activity = (MangaSearch) getActivity();
-        ListView resultList = activity.getListView();
+        refreshMembers();
+        ListView resultList = results.getListView();
 
         while (resultList.getCount() == 0)
             UiUtils.sleep(500);
@@ -77,8 +92,9 @@ public class SearchTest extends ActivityInstrumentationTestCase2<MangaSearch> {
         Instrumentation instr = getInstrumentation();
 
         setActivityIntent(searchIntent(""));
-        activity = (MangaSearch) getActivity();
-        ListView resultList = activity.getListView();
+        setActivity(UiUtils.forceHorizontal(getActivity()));
+        refreshMembers();
+        ListView resultList = results.getListView();
 
         while (resultList.getCount() == 0)
             UiUtils.sleep(500);
