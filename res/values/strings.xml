@@ -7,11 +7,15 @@
   <string name="preferences">Preferences</string>
 
   <!-- Manga list -->
-  <string name="no_manga">Select manga</string>
+  <string name="no_manga">Select a manga</string>
 
   <!-- Manga list menu -->
   <string name="refresh_manga">Refresh manga</string>
   <string name="delete_manga">Delete manga</string>
+
+  <!-- Manga details -->
+  <string name="manga_summary">Summary:</string>
+  <string name="not_available">N/A</string>
 
   <!-- Chapter list -->
   <string name="no_chapter">Select manga</string>

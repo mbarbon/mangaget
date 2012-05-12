@@ -141,8 +141,6 @@ public class MangaSearchResults extends ListFragment {
 
     // implementation
 
-    // TODO display manga details on single click
-
     private void addManga(int index) {
         Scraper.MangaInfo info =
             (Scraper.MangaInfo) getListAdapter().getItem(index);
@@ -154,8 +152,8 @@ public class MangaSearchResults extends ListFragment {
             basePath = basePath + info.title.replaceAll("/" ,"-") + "/";
 
         String path = basePath + info.pattern + "-%02d.cbz";
-        long mangaId = db.insertManga(info.title, path, info.url,
-                                      DB.SUBSCRIPTION_SAVED);
+        long mangaId = db.insertOrUpdateManga(info.title, path, info.url,
+                                              DB.SUBSCRIPTION_SAVED);
 
         Download.startMangaUpdate(getActivity(), mangaId);
     }

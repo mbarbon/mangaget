@@ -178,6 +178,24 @@ public class DB {
         return count;
     }
 
+    public long findManga(String mangaUrl) {
+        SQLiteDatabase db = getDatabase();
+        Cursor cursor = db.rawQuery(
+            "SELECT id AS _id" +
+            "    FROM manga" +
+            "    WHERE url = ?",
+            new String[] { mangaUrl });
+
+        long mangaId = -1;
+
+        if (cursor.moveToNext())
+            mangaId = cursor.getLong(0);
+
+        cursor.close();
+
+        return mangaId;
+    }
+
     public ContentValues getManga(long mangaId) {
         SQLiteDatabase db = getDatabase();
         Cursor cursor = db.rawQuery(
@@ -305,6 +323,32 @@ public class DB {
         values.put("subscription_status", subscriptionStatus);
 
         return db.insertOrThrow("manga", null, values);
+    }
+
+    public boolean updateManga(long mangaId, String title, String pattern,
+                               String url, int subscriptionStatus) {
+        SQLiteDatabase db = getDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("title", title);
+        values.put("pattern", pattern);
+        values.put("url", url);
+        values.put("subscription_status", subscriptionStatus);
+
+        return db.update("manga", values, "id = ?",
+                         new String[] { Long.toString(mangaId) }) == 1;
+    }
+
+    public long insertOrUpdateManga(String title, String pattern, String url,
+                                    int subscriptionStatus) {
+        long mangaId = findManga(url);
+
+        if (mangaId == -1)
+            return insertManga(title, pattern, url, subscriptionStatus);
+
+        updateManga(mangaId, title, pattern, url, subscriptionStatus);
+
+        return mangaId;
     }
 
     public long insertChapter(long mangaId, int number, int pages,

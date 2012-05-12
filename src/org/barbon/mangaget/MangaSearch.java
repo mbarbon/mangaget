@@ -11,10 +11,12 @@ import android.support.v4.app.FragmentTransaction;
 
 import android.os.Bundle;
 
+import org.barbon.mangaget.fragments.MangaDetails;
 import org.barbon.mangaget.fragments.MangaSearchResults;
 
 public class MangaSearch extends BaseFragmentActivity {
     private static final String SEARCH_RESULTS = "search_results";
+    private static final String MANGA_DETAILS = "manga_details";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,14 +31,36 @@ public class MangaSearch extends BaseFragmentActivity {
         boolean isLandscape = findViewById(R.id.landscape_container) != null;
 
         if (isLandscape) {
-            // TODO landscape
+            // landscape
+            FragmentTransaction transaction = beginTransaction(false);
+            MangaSearchResults mangaList = setMangaSearchResults(transaction, true);
+
+            setMangaDetails(transaction, true);
+            transaction.commit();
+
+            mangaList.setOnMangaSelected(
+                new MangaSearchResults.OnMangaSelected() {
+                    public void onMangaSelected(String title, String url) {
+                        getMangaDetails().loadMangaDetails(title, url);
+                    }
+                });
         }
         else {
             // portrait
             FragmentTransaction transaction = beginTransaction(false);
             MangaSearchResults mangaList = setMangaSearchResults(transaction, true);
 
+            setMangaDetails(transaction, false);
             transaction.commit();
+
+            mangaList.setOnMangaSelected(
+                new MangaSearchResults.OnMangaSelected() {
+                    public void onMangaSelected(String title, String url) {
+                        MangaDetails mangaDetails = pushMangaDetails();
+
+                        mangaDetails.loadMangaDetails(title, url);
+                    }
+                });
         }
 
         // needs to be flushed here otherwise the onMangaSelected
@@ -60,7 +84,15 @@ public class MangaSearch extends BaseFragmentActivity {
         }
     }
 
-    // TODO display manga details on single click
+    private MangaDetails pushMangaDetails() {
+        FragmentTransaction transaction = beginTransaction(true);
+        MangaDetails mangaDetails = setMangaDetails(transaction, true);
+
+        setMangaSearchResults(transaction, false);
+        transaction.commit();
+
+        return mangaDetails;
+    }
 
     private MangaSearchResults setMangaSearchResults(
             FragmentTransaction transaction, boolean status) {
@@ -68,8 +100,19 @@ public class MangaSearch extends BaseFragmentActivity {
                            R.id.search_results, SEARCH_RESULTS, status);
     }
 
+    private MangaDetails setMangaDetails(
+            FragmentTransaction transaction, boolean status) {
+        return setFragment(MangaDetails.class, transaction,
+                           R.id.manga_details, MANGA_DETAILS, status);
+    }
+
     private MangaSearchResults getMangaSearchResults() {
         return (MangaSearchResults) getSupportFragmentManager()
             .findFragmentByTag(SEARCH_RESULTS);
+    }
+
+    private MangaDetails getMangaDetails() {
+        return (MangaDetails) getSupportFragmentManager()
+            .findFragmentByTag(MANGA_DETAILS);
     }
 }

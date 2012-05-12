@@ -12,9 +12,9 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       />
-  <!--FrameLayout
-      android:id="@+id/chapter_list"
+  <FrameLayout
+      android:id="@+id/manga_details"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      /-->
+      />
 </FrameLayout>

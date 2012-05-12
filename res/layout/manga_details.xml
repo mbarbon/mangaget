@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Mattia Barbon <mattia@barbon.org>
+     distributed under the terms of the MIT license -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+  <TextView
+      android:id="@+id/manga_title"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:padding="4dp"
+      android:textSize="24sp"
+      />
+  <!-- content -->
+  <LinearLayout
+      android:id="@+id/manga_details"
+      android:orientation="vertical"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:visibility="gone"
+      >
+    <TextView
+        android:id="@+id/manga_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:textSize="18sp"
+        android:text="@string/manga_summary"
+        />
+    <TextView
+        android:id="@+id/manga_summary"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:textSize="14sp"
+        />
+  </LinearLayout>
+  <!-- update progress -->
+  <LinearLayout
+      android:id="@+id/manga_progress"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:gravity="center"
+      android:visibility="gone"
+      >
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+  </LinearLayout>
+  <!-- first screen -->
+  <LinearLayout
+      android:id="@+id/select_manga"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:gravity="center"
+      android:visibility="visible"
+      >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="@string/no_manga"
+        />
+  </LinearLayout>
+</LinearLayout>
