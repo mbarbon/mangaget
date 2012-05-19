@@ -26,6 +26,17 @@ import org.jsoup.parser.Tag;
 import org.jsoup.select.Elements;
 
 public class AnimeAScraper {
+    private static final String[] SUPPORTED_TAGS = new String[] {
+        "Adventure", "Comedy", "Doujinshi", "Drama", "Ecchi",
+        "Fantasy", "Gender Bender", "Harem", "Historical", "Horror",
+        "Josei", "Martial Arts", "Mature", "Mecha",
+        "Mystery", "Psychological",
+        "Romance", "School Life", "Sci-fi", "Seinen", "Shotacon",
+        "Shoujo", "Shoujo Ai", "Shounen", "Shounen Ai", "Slice of Life",
+        "Smut", "Sports", "Supernatural",
+        "Tragedy", "Yaoi", "Yuri"
+    };
+
     // scraper interface
     public static class Provider extends Scraper.Provider {
         private static final String ANIMEA_URL = "http://manga.animea.net/";
@@ -48,13 +59,7 @@ public class AnimeAScraper {
 
         @Override
         public String composeSearchUrl(Scraper.SearchCriteria criteria) {
-            try {
-                return "http://manga.animea.net/search.html?title=" +
-                    URLEncoder.encode(criteria.title, "UTF-8");
-            }
-            catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
-            }
+            return AnimeAScraper.composeSearchUrl(criteria);
         }
 
         @Override
@@ -89,6 +94,42 @@ public class AnimeAScraper {
                 Downloader.DownloadDestination target) {
             return AnimeAScraper.scrapeMangaPage(target);
         }
+    }
+
+    public static String composeSearchUrl(Scraper.SearchCriteria criteria) {
+        String encodedTitle = "";
+        StringBuffer genres = new StringBuffer();
+
+        try {
+            if (criteria.title != null)
+                encodedTitle = URLEncoder.encode(criteria.title, "UTF-8");
+        }
+        catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+
+        if (criteria.includeTags != null && criteria.includeTags.size() != 0) {
+            boolean selected = false;
+
+            for (String tag : SUPPORTED_TAGS) {
+                if (criteria.includeTags.indexOf(tag) != -1) {
+                    String encoded = tag.replace(' ', '_');
+
+                    // &genre[<tag>]=1
+                    genres.append("&genre%5B");
+                    genres.append(encoded);
+                    genres.append("%5D=1");
+
+                    selected = true;
+                }
+            }
+
+            if (!selected)
+                return null;
+        }
+
+        return "http://manga.animea.net/search.html?title=" +
+            encodedTitle + genres.toString();
     }
 
     // pure HTML scraping

@@ -8,11 +8,13 @@ package org.barbon.mangaget.scrape.mangareader;
 import android.test.InstrumentationTestCase;
 import android.test.MoreAsserts;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.barbon.mangaget.data.DB;
 
 import org.barbon.mangaget.scrape.HtmlScrape;
+import org.barbon.mangaget.scrape.Scraper;
 
 import org.barbon.mangaget.tests.R;
 import org.barbon.mangaget.tests.Utils;
@@ -101,5 +103,35 @@ public class MangareaderScraperTest extends InstrumentationTestCase {
         MoreAsserts.assertEquals(
             new String[] { "Comedy", "Drama", "Romance", "Shoujo" },
             results.genres.toArray());
+    }
+
+    private String searchUrl(String title, String[] includeTags) {
+        Scraper.SearchCriteria criteria = new Scraper.SearchCriteria();
+
+        criteria.title = title;
+        if (includeTags != null) {
+            criteria.includeTags = new ArrayList<String>();
+
+            for (String tag : includeTags)
+                criteria.includeTags.add(tag);
+        }
+
+        return MangareaderScraper.composeSearchUrl(criteria);
+    }
+
+    public void testComposeSearchUrl() {
+        assertEquals("http://www.mangareader.net/search/?w=&p=0",
+                     searchUrl(null, null));
+        assertEquals("http://www.mangareader.net/search/?w=test&p=0",
+                     searchUrl("test", new String[0]));
+        assertEquals("http://www.mangareader.net/search/?w=t%C3%A9st&p=0",
+                     searchUrl("tést", null));
+
+        assertEquals("http://www.mangareader.net/search/?w=test&genre=0100000000000000000100000000000000000&p=0",
+                     searchUrl("test", new String[] {
+                             "Wrong", "Adventure", "Psychological"}));
+        assertEquals(null,
+                     searchUrl("test", new String[] {
+                             "Non", "Existing", "Tags"}));
     }
 }

@@ -22,6 +22,17 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class MangareaderScraper {
+    private static final String[] SUPPORTED_TAGS = new String[] {
+        "Action", "Adventure", "Comedy", "Demons", "Drama", "Ecchi",
+        "Fantasy", "Gender Bender", "Harem", "Historical", "Horror",
+        "Josei", "Magic", "Martial Arts", "Mature", "Mecha",
+        "Military", "Mystery", "One Shot", "Psychological",
+        "Romance", "School Life", "Sci-Fi", "Seinen",
+        "Shoujo", "Shoujo Ai", "Shounen", "Shounen Ai", "Slice of Life",
+        "Smut", "Sports", "Super Power", "Supernatural",
+        "Tragedy", "Vampire", "Yaoi", "Yuri"
+    };
+
     // scraper interface
     public static class Provider extends Scraper.Provider {
         private static final String MANGAREADER_URL =
@@ -39,29 +50,7 @@ public class MangareaderScraper {
 
         @Override
         public String composeSearchUrl(Scraper.SearchCriteria criteria) {
-            // it seems that Mangareader strips non-ASCII characters
-            // from the search term; do the same (and return a null
-            // search URL if there aren't any ASCII characters)
-            StringBuffer filtered = new StringBuffer();
-
-            for (int i = 0; i < criteria.title.length(); ++i) {
-                // keep both ASCII and Latin-1 characters (just in case)
-                if (criteria.title.charAt(i) < 255)
-                    filtered.append(criteria.title.charAt(i));
-            }
-
-            String filteredTitle = filtered.toString().trim();
-
-            if (filteredTitle.length() == 0 && criteria.title.trim().length() != 0)
-                return null;
-
-            try {
-                return "http://www.mangareader.net/search/?w=" +
-                    URLEncoder.encode(filteredTitle, "UTF-8") + "&p=0";
-            }
-            catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
-            }
+            return MangareaderScraper.composeSearchUrl(criteria);
         }
 
         @Override
@@ -96,6 +85,57 @@ public class MangareaderScraper {
                 Downloader.DownloadDestination target) {
             return MangareaderScraper.scrapeMangaPage(target);
         }
+    }
+
+    public static String composeSearchUrl(Scraper.SearchCriteria criteria) {
+        String encodedTitle = "", genres = "";
+
+        if (criteria.title != null) {
+            // it seems that Mangareader strips non-ASCII characters
+            // from the search term; do the same (and return a null
+            // search URL if there aren't any ASCII characters)
+            StringBuffer filtered = new StringBuffer();
+
+            for (int i = 0; i < criteria.title.length(); ++i) {
+                // keep both ASCII and Latin-1 characters (just in case)
+                if (criteria.title.charAt(i) < 255)
+                    filtered.append(criteria.title.charAt(i));
+            }
+
+            String filteredTitle = filtered.toString().trim();
+
+            if (filteredTitle.length() == 0 && criteria.title.trim().length() != 0)
+                return null;
+
+            try {
+                encodedTitle = URLEncoder.encode(filteredTitle, "UTF-8");
+            }
+            catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        if (criteria.includeTags != null && criteria.includeTags.size() != 0) {
+            boolean selected = false;
+            StringBuffer map = new StringBuffer("&genre=");
+
+            for (String tag : SUPPORTED_TAGS) {
+                if (criteria.includeTags.indexOf(tag) != -1) {
+                    map.append('1');
+                    selected = true;
+                } else {
+                    map.append('0');
+                }
+            }
+
+            if (!selected)
+                return null;
+
+            genres = map.toString();
+        }
+
+        return "http://www.mangareader.net/search/?w=" +
+            encodedTitle + genres + "&p=0";
     }
 
     // pure HTML scraping

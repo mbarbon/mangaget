@@ -14,14 +14,14 @@ import android.test.MoreAsserts;
 
 import java.io.File;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.barbon.mangaget.data.DB;
 
-import org.barbon.mangaget.scrape.Downloader;
 import org.barbon.mangaget.scrape.HtmlScrape;
+import org.barbon.mangaget.scrape.Scraper;
 
-import org.barbon.mangaget.tests.DummyDownloader;
 import org.barbon.mangaget.tests.R;
 import org.barbon.mangaget.tests.Utils;
 
@@ -83,5 +83,35 @@ public class AnimeAScraperTest extends InstrumentationTestCase {
         MoreAsserts.assertEquals(
             new String[] { "Drama", "Romance", "School Life", "Shoujo" },
             results.genres.toArray());
+    }
+
+    private String searchUrl(String title, String[] includeTags) {
+        Scraper.SearchCriteria criteria = new Scraper.SearchCriteria();
+
+        criteria.title = title;
+        if (includeTags != null) {
+            criteria.includeTags = new ArrayList<String>();
+
+            for (String tag : includeTags)
+                criteria.includeTags.add(tag);
+        }
+
+        return AnimeAScraper.composeSearchUrl(criteria);
+    }
+
+    public void testComposeSearchUrl() {
+        assertEquals("http://manga.animea.net/search.html?title=",
+                     searchUrl(null, null));
+        assertEquals("http://manga.animea.net/search.html?title=test",
+                     searchUrl("test", new String[0]));
+        assertEquals("http://manga.animea.net/search.html?title=t%C3%A9st",
+                     searchUrl("tést", null));
+
+        assertEquals("http://manga.animea.net/search.html?title=test&genre%5BAdventure%5D=1&genre%5BPsychological%5D=1",
+                     searchUrl("test", new String[] {
+                             "Wrong", "Adventure", "Psychological"}));
+        assertEquals(null,
+                     searchUrl("test", new String[] {
+                             "Non", "Existing", "Tags"}));
     }
 }
