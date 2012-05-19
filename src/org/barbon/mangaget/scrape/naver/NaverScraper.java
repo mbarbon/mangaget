@@ -38,10 +38,10 @@ public class NaverScraper {
         }
 
         @Override
-        public String composeSearchUrl(String title) {
+        public String composeSearchUrl(Scraper.SearchCriteria criteria) {
             try {
                 return "http://comic.naver.com/search.nhn?m=webtoon&keyword=" +
-                    URLEncoder.encode(title, "UTF-8");
+                    URLEncoder.encode(criteria.title, "UTF-8");
             }
             catch (UnsupportedEncodingException e) {
                 throw new RuntimeException(e);

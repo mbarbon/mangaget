@@ -270,13 +270,16 @@ public class ScraperTest extends InstrumentationTestCase {
     public void testSearchPager() throws Throwable {
         final Scraper scraper = Scraper.getInstance(testContext);
         final SearchProgress progress = new SearchProgress();
+        final Scraper.SearchCriteria criteria = new Scraper.SearchCriteria();
+
+        criteria.title = "";
 
         class UiTask implements Runnable {
             public Scraper.ResultPager pager;
 
             @Override
             public void run() {
-                pager = scraper.searchManga("", progress);
+                pager = scraper.searchManga(criteria, progress);
                 assertEquals(0, pager.getCount()); // start the download
             }
         }

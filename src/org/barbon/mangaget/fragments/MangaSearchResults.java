@@ -45,8 +45,8 @@ public class MangaSearchResults extends ListFragment {
             implements Scraper.OnSearchResults{
         private Scraper.ResultPager pager;
 
-        public SearchAdapter(Context context, Scraper scraper, String title) {
-            pager = scraper.searchManga(title, this);
+        public SearchAdapter(Context context, Scraper scraper, Scraper.SearchCriteria criteria) {
+            pager = scraper.searchManga(criteria, this);
         }
 
         @Override
@@ -131,8 +131,11 @@ public class MangaSearchResults extends ListFragment {
     public void performSearch(Intent intent) {
         Scraper scraper = Scraper.getInstance(getActivity());
         String query = intent.getStringExtra(SearchManager.QUERY);
+        Scraper.SearchCriteria criteria = new Scraper.SearchCriteria();
 
-        setListAdapter(new SearchAdapter(getActivity(), scraper, query));
+        criteria.title = query;
+
+        setListAdapter(new SearchAdapter(getActivity(), scraper, criteria));
     }
 
     public void setOnMangaSelected(OnMangaSelected handler) {

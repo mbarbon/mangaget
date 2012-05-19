@@ -34,6 +34,10 @@ public class Scraper {
             new NaverScraper.Provider(),
         };
 
+    public static class SearchCriteria {
+        public String title;
+    }
+
     public static abstract class Provider {
         // selection/identification
         public abstract boolean canHandleUrl(String url);
@@ -41,7 +45,7 @@ public class Scraper {
 
         // URL manipulation
         public String composeMangaUrl(String url) { return url; }
-        public abstract String composeSearchUrl(String title);
+        public abstract String composeSearchUrl(SearchCriteria criteria);
 
         public String composePagingUrl(String pagingUrl, int page) {
             String url = new Formatter()
@@ -101,8 +105,8 @@ public class Scraper {
         public void resultsUpdated();
     }
 
-    public ResultPager searchManga(String title, OnSearchResults listener) {
-        ResultPager pager = new ResultPager(title, listener);
+    public ResultPager searchManga(SearchCriteria criteria, OnSearchResults listener) {
+        ResultPager pager = new ResultPager(criteria, listener);
 
         return pager;
     }
@@ -170,7 +174,7 @@ public class Scraper {
         private String[] pagingUrls;
         private int[] currentPage;
         private boolean[] pending;
-        private String title;
+        private SearchCriteria criteria;
         private OnSearchResults listener;
         private List<MangaInfo> items;
 
@@ -214,8 +218,8 @@ public class Scraper {
             }
         }
 
-        public ResultPager(String _title, OnSearchResults _listener) {
-            title = _title;
+        public ResultPager(SearchCriteria _criteria, OnSearchResults _listener) {
+            criteria = _criteria;
             listener = _listener;
             pagingUrls = new String[PROVIDERS.length];
             currentPage = new int[PROVIDERS.length];
@@ -274,7 +278,7 @@ public class Scraper {
                     startUrl = provider.composePagingUrl(
                         pagingUrls[index], currentPage[index] + 1);
                 else
-                    startUrl = provider.composeSearchUrl(title);
+                    startUrl = provider.composeSearchUrl(criteria);
 
                 if (startUrl == null)
                     continue;

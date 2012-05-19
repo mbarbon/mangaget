@@ -38,21 +38,21 @@ public class MangareaderScraper {
         }
 
         @Override
-        public String composeSearchUrl(String title) {
+        public String composeSearchUrl(Scraper.SearchCriteria criteria) {
             // it seems that Mangareader strips non-ASCII characters
             // from the search term; do the same (and return a null
             // search URL if there aren't any ASCII characters)
             StringBuffer filtered = new StringBuffer();
 
-            for (int i = 0; i < title.length(); ++i) {
+            for (int i = 0; i < criteria.title.length(); ++i) {
                 // keep both ASCII and Latin-1 characters (just in case)
-                if (title.charAt(i) < 255)
-                    filtered.append(title.charAt(i));
+                if (criteria.title.charAt(i) < 255)
+                    filtered.append(criteria.title.charAt(i));
             }
 
             String filteredTitle = filtered.toString().trim();
 
-            if (filteredTitle.length() == 0 && title.trim().length() != 0)
+            if (filteredTitle.length() == 0 && criteria.title.trim().length() != 0)
                 return null;
 
             try {
