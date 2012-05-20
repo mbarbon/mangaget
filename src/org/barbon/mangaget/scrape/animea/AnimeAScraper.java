@@ -209,7 +209,7 @@ public class AnimeAScraper {
                 if (index == -1)
                     continue;
 
-                pagingUrl = href.substring(0, index + 6) + "%d";
+                pagingUrl = href.substring(0, index + 6).replace("%", "%%") + "%d";
                 lastPage = Integer.valueOf(href.substring(index + 6)) + 1;
             }
         }

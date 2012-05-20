@@ -196,7 +196,7 @@ public class MangareaderScraper {
             if (index == -1 || link.text() == ">")
                 continue;
 
-            pagingUrl = href.substring(0, index + 3) + "%d";
+            pagingUrl = href.substring(0, index + 3).replace("%", "%%") + "%d";
             lastPage = Integer.valueOf(href.substring(index + 3)) / 30 + 1;
         }
 
