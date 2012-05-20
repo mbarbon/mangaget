@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Mattia Barbon <mattia@barbon.org>
+     distributed under the terms of the MIT license -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+  <EditText
+      android:id="@+id/title"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      />
+  <ListView
+      android:id="@+id/tag_list"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:layout_weight="1"
+      android:choiceMode="multipleChoice"
+      />
+  <Button
+      android:text="@string/search"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:onClick="performSearch"
+      />
+</LinearLayout>
