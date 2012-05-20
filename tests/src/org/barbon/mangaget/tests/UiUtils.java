@@ -1,6 +1,7 @@
 package org.barbon.mangaget.tests;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Instrumentation;
 
 import android.content.IntentFilter;
@@ -9,15 +10,27 @@ import android.content.pm.ActivityInfo;
 
 import android.content.res.Configuration;
 
+import android.test.InstrumentationTestCase;
+import android.test.TouchUtils;
+
 import android.view.KeyEvent;
 
 import android.widget.ListView;
 
+import android.support.v4.app.DialogFragment;
+
 public class UiUtils {
     private static Instrumentation instr;
+    private static InstrumentationTestCase test;
 
     public static void setInstrumentation(Instrumentation instrumentation) {
         instr = instrumentation;
+        test = null;
+    }
+
+    public static void setTestCase(InstrumentationTestCase testCase) {
+        test = testCase;
+        instr = testCase.getInstrumentation();
     }
 
     public static void sleep(long msec) {
@@ -115,5 +128,16 @@ public class UiUtils {
         instr.waitForIdleSync();
 
         return new_activity;
+    }
+
+    public static boolean clickAlertDialog(DialogFragment frag, int button) {
+        if (frag == null || frag.getDialog() == null)
+            return false;
+
+        AlertDialog dialog = (AlertDialog) frag.getDialog();
+
+        TouchUtils.clickView(test, dialog.getButton(button));
+
+        return true;
     }
 }

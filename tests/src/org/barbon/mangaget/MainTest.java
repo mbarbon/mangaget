@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.app.Instrumentation;
 
 import android.content.Context;
+import android.content.DialogInterface;
 
 import android.database.Cursor;
 
@@ -19,6 +20,7 @@ import android.support.v4.app.FragmentManager;
 import org.barbon.mangaget.data.DB;
 
 import org.barbon.mangaget.fragments.ChapterList;
+import org.barbon.mangaget.fragments.DeleteConfirmationDialog;
 import org.barbon.mangaget.fragments.MangaList;
 
 import org.barbon.mangaget.tests.UiUtils;
@@ -50,7 +52,7 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
     protected void setUp() throws Exception {
         super.setUp();
 
-        UiUtils.setInstrumentation(getInstrumentation());
+        UiUtils.setTestCase(this);
         Utils.setupTestAnimeaEnvironment(this);
         Utils.setupTestAnimeaDatabase(this);
 
@@ -144,6 +146,16 @@ public class MainTest extends ActivityInstrumentationTestCase2<Main> {
         assertEquals(2, mangaList.getListView().getCount());
 
         assertTrue(instr.invokeContextMenuAction(activity, R.id.delete, 0));
+
+        // click on confirmation dialog
+        for (;;) {
+            if (UiUtils.clickAlertDialog(
+                    DeleteConfirmationDialog.find(mangaList),
+                    DialogInterface.BUTTON_POSITIVE))
+                break;
+
+            UiUtils.sleep(500);
+        }
 
         DB db = DB.getInstance(null);
 
