@@ -131,9 +131,12 @@ public class MangaSearchResults extends ListFragment {
     public void performSearch(Intent intent) {
         Scraper scraper = Scraper.getInstance(getActivity());
         String query = intent.getStringExtra(SearchManager.QUERY);
+        Bundle extra = intent.getBundleExtra(SearchManager.APP_DATA);
         Scraper.SearchCriteria criteria = new Scraper.SearchCriteria();
 
         criteria.title = query;
+        if (extra != null)
+            criteria.includeTags = extra.getStringArrayList("include_tags");
 
         setListAdapter(new SearchAdapter(getActivity(), scraper, criteria));
     }
