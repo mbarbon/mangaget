@@ -2,6 +2,9 @@
 <!-- Copyright (c) Mattia Barbon <mattia@barbon.org>
      distributed under the terms of the MIT license -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/advanced_search"
+          android:icon="@drawable/ic_menu_search"
+          android:title="@string/advanced_search" />
     <item android:id="@+id/preferences"
           android:icon="@drawable/ic_menu_preferences"
           android:title="@string/preferences" />
