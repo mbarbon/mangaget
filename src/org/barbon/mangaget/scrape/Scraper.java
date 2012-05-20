@@ -36,6 +36,7 @@ public class Scraper {
 
     public static class SearchCriteria {
         public String title;
+        public List<String> includeTags, excludeTags;
     }
 
     public static abstract class Provider {
