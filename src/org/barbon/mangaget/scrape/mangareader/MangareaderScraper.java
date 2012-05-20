@@ -59,6 +59,11 @@ public class MangareaderScraper {
         }
 
         @Override
+        public String[] supportedTags() {
+            return SUPPORTED_TAGS;
+        }
+
+        @Override
         public List<String> scrapeChapterPages(
                 Downloader.DownloadDestination target) {
             return MangareaderScraper.scrapeChapterPages(target);

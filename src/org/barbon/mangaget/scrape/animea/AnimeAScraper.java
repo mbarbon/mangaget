@@ -68,6 +68,11 @@ public class AnimeAScraper {
         }
 
         @Override
+        public String[] supportedTags() {
+            return SUPPORTED_TAGS;
+        }
+
+        @Override
         public List<String> scrapeChapterPages(
                 Downloader.DownloadDestination target) {
             return AnimeAScraper.scrapeChapterPages(target);

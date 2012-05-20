@@ -13,8 +13,11 @@ import android.database.Cursor;
 import java.io.File;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Formatter;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.barbon.mangaget.CBZFile;
 import org.barbon.mangaget.Notifier;
@@ -56,6 +59,10 @@ public class Scraper {
             return url;
         }
 
+        public String[] supportedTags() {
+            return new String[0];
+        }
+
         // scraping
         public abstract List<String> scrapeChapterPages(
             Downloader.DownloadDestination target);
@@ -82,6 +89,20 @@ public class Scraper {
 
         return theInstance =
             new Scraper(DB.getInstance(context), Downloader.getInstance());
+    }
+
+    public static List<String> getTagList() {
+        Set<String> tags = new HashSet<String>();
+
+        for (Scraper.Provider provider : PROVIDERS)
+            for (String tag : provider.supportedTags())
+                tags.add(tag);
+
+        List<String> result = new ArrayList<String>(tags);
+
+        Collections.sort(result);
+
+        return result;
     }
 
     protected Scraper(DB _db, Downloader _downloader) {
