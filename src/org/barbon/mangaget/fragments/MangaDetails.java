@@ -24,7 +24,7 @@ import org.barbon.mangaget.R;
 import org.barbon.mangaget.data.DB;
 
 public class MangaDetails extends Fragment {
-    private TextView summary, title;
+    private TextView summary, title, genres;
     private View first, progress, content;
     private long currentManga = -1;
 
@@ -59,6 +59,7 @@ public class MangaDetails extends Fragment {
 
         title = (TextView) view.findViewById(R.id.manga_title);
         summary = (TextView) view.findViewById(R.id.manga_summary);
+        genres = (TextView) view.findViewById(R.id.manga_genres);
         first = view.findViewById(R.id.select_manga);
         progress = view.findViewById(R.id.manga_progress);
         content = view.findViewById(R.id.manga_details);
@@ -112,6 +113,11 @@ public class MangaDetails extends Fragment {
 
         if (metadata.size() != 0) {
             setInProgress(false);
+
+            if (metadata.containsKey("genres"))
+                genres.setText(metadata.getAsString("genres"));
+            else
+                genres.setText(R.string.not_available);
 
             if (metadata.containsKey("summary"))
                 summary.setText(metadata.getAsString("summary"));
