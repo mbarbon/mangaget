@@ -183,7 +183,12 @@ public class Download extends Service {
     }
 
     public static void startDownloadAllChapters(Context context, long mangaId) {
-        context.startService(downloadAllChaptersIntent(context, mangaId));
+        Intent intent = new Intent(context, Download.class);
+
+        intent.putExtra(COMMAND, COMMAND_DOWNLOAD_ALL_CHAPTERS);
+        intent.putExtra(MANGA_ID, mangaId);
+
+        context.startService(intent);
     }
 
     public static void stopChapterDownload(Context context, long chapterId) {
@@ -224,16 +229,6 @@ public class Download extends Service {
 
         intent.putExtra(COMMAND, COMMAND_DOWNLOAD_CHAPTER);
         intent.putExtra(CHAPTER_ID, chapterId);
-
-        return intent;
-    }
-
-    private static Intent downloadAllChaptersIntent(
-            Context context, long mangaId) {
-        Intent intent = new Intent(context, Download.class);
-
-        intent.putExtra(COMMAND, COMMAND_DOWNLOAD_ALL_CHAPTERS);
-        intent.putExtra(MANGA_ID, mangaId);
 
         return intent;
     }
