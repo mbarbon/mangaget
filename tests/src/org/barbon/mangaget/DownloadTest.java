@@ -14,6 +14,7 @@ import android.test.InstrumentationTestCase;
 
 import org.barbon.mangaget.tests.Utils;
 
+// TODO test download start/stop/progress, file re-scan
 public class DownloadTest extends InstrumentationTestCase {
     @Override
     public void setUp() throws Exception {
@@ -53,7 +54,6 @@ public class DownloadTest extends InstrumentationTestCase {
             id = mangaId;
         }
     }
-
 
     public void testServiceManager() throws Exception {
         Download.ServiceManager mgr = new Download.ServiceManager();

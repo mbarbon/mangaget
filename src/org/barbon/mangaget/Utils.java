@@ -30,9 +30,16 @@ public class Utils {
         ContentValues chapter = db.getChapter(chapterId);
         ContentValues manga = db.getManga(chapter.getAsLong(
                                               DB.CHAPTER_MANGA_ID));
-        File fullPath = getChapterPath(manga, chapter);
+        int number = chapter.getAsInteger(DB.CHAPTER_NUMBER);
+        File fullPath = getChapterFile(manga, number);
 
         return fullPath.getAbsolutePath();
+    }
+
+    public static File getChapterFile(ContentValues manga,
+                                      int chapter) {
+        return getChapterFile(manga.getAsString(DB.MANGA_PATTERN),
+                              chapter);
     }
 
     public static Intent viewChapterIntent(Context context, long chapterId) {
@@ -65,7 +72,7 @@ public class Utils {
             int id = chapters.getInt(idI);
 
             if (status != DB.DOWNLOAD_COMPLETE &&
-                getChapterPath(pattern, number).exists()) {
+                getChapterFile(pattern, number).exists()) {
                 db.updateChapterStatus(id, DB.DOWNLOAD_COMPLETE);
                 Notifier.getInstance().notifyChapterUpdate(mangaId, id);
             }
@@ -85,13 +92,18 @@ public class Utils {
 
     // internal
 
-    private static File getChapterPath(ContentValues manga,
+    private static String getChapterPath(ContentValues manga,
+                                         int chapter) {
+        return getChapterFile(manga, chapter).getAbsolutePath();
+    }
+
+    private static File getChapterFile(ContentValues manga,
                                        ContentValues chapter) {
-        return getChapterPath(manga.getAsString(DB.MANGA_PATTERN),
+        return getChapterFile(manga.getAsString(DB.MANGA_PATTERN),
                               chapter.getAsInteger(DB.CHAPTER_NUMBER));
     }
 
-    private static File getChapterPath(String pattern, int chapter) {
+    private static File getChapterFile(String pattern, int chapter) {
         File externalStorage = Environment.getExternalStorageDirectory();
         String targetPath = new Formatter()
             .format(pattern, chapter)

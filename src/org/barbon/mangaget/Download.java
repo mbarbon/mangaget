@@ -49,6 +49,7 @@ public class Download extends Service {
     private static final int COMMAND_UPDATE_MANGA = 2;
     private static final int COMMAND_RESUME_DOWNLOADS = 4;
     private static final int COMMAND_DOWNLOAD_ALL_CHAPTERS = 5;
+    private static final int COMMAND_SCAN_DOWNLOADED_FILES = 6;
 
     private static final String COMMAND = "command";
     private static final String MANGA_ID = "mangaId";
@@ -159,6 +160,9 @@ public class Download extends Service {
         case COMMAND_RESUME_DOWNLOADS:
             resumeDownloads();
             break;
+        case COMMAND_SCAN_DOWNLOADED_FILES:
+            scanDownloadedFiles(intent.getLongExtra(MANGA_ID, -1L));
+            break;
         }
 
         return START_STICKY;
@@ -199,6 +203,15 @@ public class Download extends Service {
         Intent intent = new Intent(context, Download.class);
 
         intent.putExtra(COMMAND, COMMAND_UPDATE_MANGA);
+        intent.putExtra(MANGA_ID, mangaId);
+
+        context.startService(intent);
+    }
+
+    public static void scanDownloadedFiles(Context context, long mangaId) {
+        Intent intent = new Intent(context, Download.class);
+
+        intent.putExtra(COMMAND, COMMAND_SCAN_DOWNLOADED_FILES);
         intent.putExtra(MANGA_ID, mangaId);
 
         context.startService(intent);
@@ -529,5 +542,31 @@ public class Download extends Service {
         Notifier.getInstance().notifyChapterUpdate(
             chapter.getAsLong(DB.CHAPTER_MANGA_ID),
             chapterId);
+    }
+
+    private void scanDownloadedFiles(long mangaId) {
+        ContentValues manga = db.getManga(mangaId);
+        Cursor chapters = db.getChapterList(mangaId);
+        boolean updated = false;
+        int idI = chapters.getColumnIndex(DB.ID);
+        int numberI = chapters.getColumnIndex(DB.CHAPTER_NUMBER);
+        int statusI = chapters.getColumnIndex(DB.DOWNLOAD_STATUS);
+
+        while (chapters.moveToNext()) {
+            File file = Utils.getChapterFile(manga, chapters.getInt(numberI));
+            long chapterId = chapters.getLong(idI);
+            int status = chapters.getInt(statusI);
+
+            if (file.exists() && status != DB.DOWNLOAD_COMPLETE) {
+                db.updateChapterStatus(chapterId, DB.DOWNLOAD_COMPLETE);
+                updated = true;
+            } else if (!file.exists() && status == DB.DOWNLOAD_COMPLETE) {
+                db.updateChapterStatus(chapterId, DB.DOWNLOAD_DELETED);
+                updated = true;
+            }
+        }
+
+        if (updated)
+            Notifier.getInstance().notifyChapterListUpdate(mangaId);
     }
 }
