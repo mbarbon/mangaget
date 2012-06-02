@@ -76,7 +76,8 @@ public class ChapterList extends ListFragment {
 
             if (status == DB.DOWNLOAD_COMPLETE)
                 image.setImageResource(R.drawable.btn_check_buttonless_on);
-            else if (status == DB.DOWNLOAD_STOPPED)
+            else if (status == DB.DOWNLOAD_STOPPED ||
+                     status == DB.DOWNLOAD_DELETED)
                 image.setImageResource(R.drawable.btn_check_buttonless_off);
             else if (status == DB.DOWNLOAD_REQUESTED)
                 image.setImageResource(R.drawable.btn_circle_pressed);

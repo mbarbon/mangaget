@@ -20,6 +20,7 @@ public class DB {
     public static final int DOWNLOAD_REQUESTED = 1;
     public static final int DOWNLOAD_STARTED = 2;
     public static final int DOWNLOAD_COMPLETE = 3;
+    public static final int DOWNLOAD_DELETED = 4;
 
     public static final int SUBSCRIPTION_TEMPORARY = 0;
     public static final int SUBSCRIPTION_SAVED = 1;
