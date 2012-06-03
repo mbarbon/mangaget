@@ -49,10 +49,8 @@ public class Utils {
             .path(Utils.getChapterPath(context, chapterId))
             .build();
 
-        // TODO avoid hardcoding PerfectViewer
-        view.setComponent(
-            ComponentName.unflattenFromString(
-                "com.rookiestudio.perfectviewer/.TStartup"));
+        view.setComponent(ComponentName.unflattenFromString(
+                              Preferences.getMangaViewer(context)));
         view.setData(chapter);
 
         return view;

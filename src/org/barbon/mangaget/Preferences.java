@@ -13,6 +13,7 @@ import android.preference.PreferenceManager;
 
 import android.os.Bundle;
 
+// TODO allow selecting file extension (and use good default)
 public class Preferences extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,10 @@ public class Preferences extends PreferenceActivity {
 
     public static boolean getUseMangaSubdir(Context context) {
         return getPrefs(context).getBoolean("useMangaSubdir", true);
+    }
+
+    public static String getMangaViewer(Context context) {
+        return getPrefs(context).getString("mangaViewer", null);
     }
 
     // implementation

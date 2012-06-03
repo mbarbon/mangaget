@@ -7,4 +7,7 @@
       android:key="useMangaSubdir"
       android:defaultValue="true"
       android:title="Use per-manga directory" />
+  <org.barbon.mangaget.MangaViewerPreference
+      android:key="mangaViewer"
+      android:title="Manga viewer" />
 </PreferenceScreen>
