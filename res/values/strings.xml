@@ -50,4 +50,8 @@
 
   <!-- Delete manga confirmation dialog -->
   <string name="delete_confirmation_title">Really delete this manga?</string>
+
+  <!-- Preferences -->
+  <string name="per_manga_directory_preference">Use per-manga directory</string>
+  <string name="manga_viewer_preference">Manga viewer</string>
 </resources>

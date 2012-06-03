@@ -6,8 +6,10 @@
   <CheckBoxPreference
       android:key="useMangaSubdir"
       android:defaultValue="true"
-      android:title="Use per-manga directory" />
+      android:title="@string/per_manga_directory_preference"
+      />
   <org.barbon.mangaget.MangaViewerPreference
       android:key="mangaViewer"
-      android:title="Manga viewer" />
+      android:title="@string/manga_viewer_preference"
+      />
 </PreferenceScreen>
