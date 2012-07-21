@@ -252,6 +252,12 @@ public class MangaList extends ListFragment {
         case R.id.refresh:
             Download.startMangaUpdate(getActivity(), info.id);
             return true;
+        case R.id.follow:
+            DB db = DB.getInstance(getActivity());
+
+            db.updateMangaSubscription(info.id, DB.SUBSCRIPTION_FOLLOWING);
+
+            return true;
         default:
             return super.onContextItemSelected(item);
         }

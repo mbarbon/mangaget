@@ -340,6 +340,16 @@ public class DB {
                          new String[] { Long.toString(mangaId) }) == 1;
     }
 
+    public boolean updateMangaSubscription(long mangaId, int subscriptionStatus) {
+        SQLiteDatabase db = getDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("subscription_status", subscriptionStatus);
+
+        return db.update("manga", values, "id = ?",
+                         new String[] { Long.toString(mangaId) }) == 1;
+    }
+
     public long insertOrUpdateManga(String title, String pattern, String url,
                                     int subscriptionStatus) {
         long mangaId = findManga(url);

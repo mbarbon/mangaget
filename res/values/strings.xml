@@ -15,6 +15,7 @@
   <!-- Manga list menu -->
   <string name="refresh_manga">Refresh manga</string>
   <string name="delete_manga">Delete manga</string>
+  <string name="follow_manga">Follow manga</string>
 
   <!-- Manga details -->
   <string name="manga_genres">Genres:</string>
