@@ -50,6 +50,7 @@ public class Download extends Service {
     private static final int COMMAND_RESUME_DOWNLOADS = 4;
     private static final int COMMAND_DOWNLOAD_ALL_CHAPTERS = 5;
     private static final int COMMAND_SCAN_DOWNLOADED_FILES = 6;
+    private static final int COMMAND_STOP_ALL_DOWNLOADS = 7;
 
     private static final String COMMAND = "command";
     private static final String MANGA_ID = "mangaId";
@@ -157,6 +158,9 @@ public class Download extends Service {
         case COMMAND_STOP_DOWNLOAD_CHAPTER:
             stopDownloadChapter(intent.getLongExtra(CHAPTER_ID, -1L));
             break;
+        case COMMAND_STOP_ALL_DOWNLOADS:
+            stopAllDownloads();
+            break;
         case COMMAND_RESUME_DOWNLOADS:
             resumeDownloads();
             break;
@@ -213,6 +217,14 @@ public class Download extends Service {
 
         intent.putExtra(COMMAND, COMMAND_SCAN_DOWNLOADED_FILES);
         intent.putExtra(MANGA_ID, mangaId);
+
+        context.startService(intent);
+    }
+
+    public static void stopAllDownloads(Context context) {
+        Intent intent = new Intent(context, Download.class);
+
+        intent.putExtra(COMMAND, COMMAND_STOP_ALL_DOWNLOADS);
 
         context.startService(intent);
     }
@@ -516,6 +528,20 @@ public class Download extends Service {
         }
 
         chapters.close();
+    }
+
+    private void stopAllDownloads() {
+        Cursor chapters = db.getAllChapterList();
+        int idI = chapters.getColumnIndex(DB.ID);
+        int statusI = chapters.getColumnIndex(DB.DOWNLOAD_STATUS);
+
+        while (chapters.moveToNext()) {
+            long chapterId = chapters.getLong(idI);
+            int status = chapters.getInt(statusI);
+
+            if (status == DB.DOWNLOAD_STARTED || status == DB.DOWNLOAD_REQUESTED)
+                stopDownloadChapter(chapterId);
+        }
     }
 
     private boolean isOperationInProgress() {

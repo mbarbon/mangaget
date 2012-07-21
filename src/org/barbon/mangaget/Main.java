@@ -104,6 +104,10 @@ public class Main extends BaseFragmentActivity {
             startActivity(new Intent(this, MangaAdvancedSearch.class));
 
             return true;
+        case R.id.stop_all_downloads:
+            Download.stopAllDownloads(this);
+
+            return true;
         default:
             return super.onOptionsItemSelected(item);
         }
