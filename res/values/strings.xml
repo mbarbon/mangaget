@@ -8,6 +8,7 @@
   <string name="search">Search</string>
   <string name="advanced_search">Advanced search</string>
   <string name="stop_all_downloads">Stop downloads</string>
+  <string name="download_all">Download all</string>
 
   <!-- Manga list -->
   <string name="no_manga">Select a manga</string>

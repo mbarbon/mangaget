@@ -32,6 +32,7 @@ public class DB {
     public static final String MANGA_TITLE = "title";
     public static final String MANGA_PATTERN = "pattern";
     public static final String MANGA_URL = "url";
+    public static final String MANGA_SUBSCRIPTION_STATUS = "subscription_status";
 
     public static final String CHAPTER_MANGA_ID = "manga_id";
     public static final String CHAPTER_NUMBER = "number";
@@ -131,7 +132,7 @@ public class DB {
         SQLiteDatabase db = getDatabase();
 
         return db.rawQuery(
-            "SELECT id AS _id, title, url" +
+            "SELECT id AS _id, title, url, subscription_status" +
             "    FROM manga" +
             "    WHERE subscription_status > 0" +
             "    ORDER BY title",

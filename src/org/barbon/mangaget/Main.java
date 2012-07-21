@@ -108,6 +108,10 @@ public class Main extends BaseFragmentActivity {
             Download.stopAllDownloads(this);
 
             return true;
+        case R.id.download_all:
+            Download.downloadAll(this);
+
+            return true;
         default:
             return super.onOptionsItemSelected(item);
         }

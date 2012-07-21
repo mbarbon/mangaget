@@ -51,6 +51,7 @@ public class Download extends Service {
     private static final int COMMAND_DOWNLOAD_ALL_CHAPTERS = 5;
     private static final int COMMAND_SCAN_DOWNLOADED_FILES = 6;
     private static final int COMMAND_STOP_ALL_DOWNLOADS = 7;
+    private static final int COMMAND_DOWNLOAD_ALL = 8;
 
     private static final String COMMAND = "command";
     private static final String MANGA_ID = "mangaId";
@@ -147,7 +148,7 @@ public class Download extends Service {
 
         switch (command) {
         case COMMAND_UPDATE_MANGA:
-            updateManga(intent.getLongExtra(MANGA_ID, -1L));
+            updateManga(intent.getLongExtra(MANGA_ID, -1L), false);
             break;
         case COMMAND_DOWNLOAD_CHAPTER:
             downloadChapter(intent.getLongExtra(CHAPTER_ID, -1L));
@@ -160,6 +161,9 @@ public class Download extends Service {
             break;
         case COMMAND_STOP_ALL_DOWNLOADS:
             stopAllDownloads();
+            break;
+        case COMMAND_DOWNLOAD_ALL:
+            downloadAll();
             break;
         case COMMAND_RESUME_DOWNLOADS:
             resumeDownloads();
@@ -229,6 +233,14 @@ public class Download extends Service {
         context.startService(intent);
     }
 
+    public static void downloadAll(Context context) {
+        Intent intent = new Intent(context, Download.class);
+
+        intent.putExtra(COMMAND, COMMAND_DOWNLOAD_ALL);
+
+        context.startService(intent);
+    }
+
     public static void initialize(Context context) {
         if (initialized)
             return;
@@ -292,9 +304,11 @@ public class Download extends Service {
 
     private class MangaUpdateProgress implements Scraper.OnOperationStatus {
         private long mangaId;
+        private boolean autoDownload;
 
-        public MangaUpdateProgress(long _mangaId) {
+        public MangaUpdateProgress(long _mangaId, boolean _autoDownload) {
             mangaId = _mangaId;
+            autoDownload = _autoDownload;
         }
 
         @Override
@@ -310,6 +324,9 @@ public class Download extends Service {
                 // check already downloaded chapter before notifying
                 Utils.updateChapterStatus(Download.this, mangaId);
                 Notifier.getInstance().notifyChapterListUpdate(mangaId);
+
+                if (autoDownload)
+                    downloadAllChapters(mangaId);
             }
 
             --operationCount;
@@ -318,12 +335,12 @@ public class Download extends Service {
         }
     }
 
-    private void updateManga(long mangaId) {
+    private void updateManga(long mangaId, boolean autoDownload) {
         Scraper scraper = Scraper.getInstance(this);
 
         ++operationCount;
 
-        scraper.updateManga(mangaId, new MangaUpdateProgress(mangaId));
+        scraper.updateManga(mangaId, new MangaUpdateProgress(mangaId, autoDownload));
     }
 
     private class DownloadProgress
@@ -541,6 +558,20 @@ public class Download extends Service {
 
             if (status == DB.DOWNLOAD_STARTED || status == DB.DOWNLOAD_REQUESTED)
                 stopDownloadChapter(chapterId);
+        }
+    }
+
+    private void downloadAll() {
+        Cursor manga = db.getSubscribedMangaList();
+        int idI = manga.getColumnIndex(DB.ID);
+        int statusI = manga.getColumnIndex(DB.MANGA_SUBSCRIPTION_STATUS);
+
+        while (manga.moveToNext()) {
+            long mangaId = manga.getLong(idI);
+            int status = manga.getInt(statusI);
+
+            if (status == DB.SUBSCRIPTION_FOLLOWING)
+                updateManga(mangaId, true);
         }
     }
 
