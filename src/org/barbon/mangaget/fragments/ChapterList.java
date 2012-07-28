@@ -202,7 +202,7 @@ public class ChapterList extends ListFragment {
 
         if (status != DB.DOWNLOAD_COMPLETE)
             menu.removeItem(R.id.view_chapter);
-        if (status != DB.DOWNLOAD_STOPPED) {
+        if (status != DB.DOWNLOAD_STOPPED && status != DB.DOWNLOAD_DELETED) {
             menu.removeItem(R.id.download_chapter);
             menu.removeItem(R.id.download_all_chapters);
         }
