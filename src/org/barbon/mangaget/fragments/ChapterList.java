@@ -172,10 +172,11 @@ public class ChapterList extends ListFragment {
         currentManga = mangaId;
 
         // handle the case when loadChapterList is called right after creation
-        if (adapter != null)
+        if (adapter != null) {
             adapter.changeCursor(db.getChapterList(mangaId));
 
-        Download.scanDownloadedFiles(getActivity(), currentManga);
+            Download.scanDownloadedFiles(getActivity(), currentManga);
+        }
     }
 
     // event handlers
