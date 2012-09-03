@@ -465,7 +465,7 @@ public class Scraper {
 
             // update chapters
             for (int i = 0; i < chapters.size(); ++i)
-                db.insertOrUpdateChapter(info.id, i + 1, -1,
+                db.insertOrUpdateChapter(info.id, chapters.get(i).index, -1,
                                          chapters.get(i).title,
                                          chapters.get(i).url);
         }

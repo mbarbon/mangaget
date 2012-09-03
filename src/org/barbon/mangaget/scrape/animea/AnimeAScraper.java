@@ -246,8 +246,8 @@ public class AnimeAScraper {
 
             if (url.indexOf("-chapter-") == -1 || !url.endsWith(".html"))
                 continue;
-            int dash = url.lastIndexOf('-', url.length() - 13);
-            String indexS = url.substring(dash + 1, url.length() - 12);
+            int dash = url.lastIndexOf('-'), dot = url.lastIndexOf('.');
+            String indexS = url.substring(dash + 1, dot);
 
             int elementIndex = link.parent().childNodes().indexOf(link);
             Node text = link.parent().childNode(elementIndex + 1);
@@ -260,6 +260,7 @@ public class AnimeAScraper {
 
             info.title = title;
             info.url = url;
+            info.index = (int) (Float.valueOf(indexS) * 100);
 
             // assumes chapters are listed in reverse order
             chapters.add(0, info);

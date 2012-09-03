@@ -159,6 +159,7 @@ public class NaverScraper {
 
             info.title = title;
             info.url = url;
+            info.index = (chapters.size() + 1) * 100;
 
             chapters.add(info);
         }

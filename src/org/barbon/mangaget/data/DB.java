@@ -42,7 +42,7 @@ public class DB {
     public static final String PAGE_URL = "url";
     public static final String PAGE_IMAGE_URL = "image_url";
 
-    private static final int VERSION = 4;
+    private static final int VERSION = 5;
     private static final String DB_NAME = "manga";
     private static DB theInstance;
 
@@ -493,6 +493,8 @@ public class DB {
                 upgrade2To3(db);
             if (from < 4 && to >= 4)
                 upgrade3To4(db);
+            if (from < 5 && to >= 5)
+                upgrade4To5(db);
         }
 
         private void upgrade1To2(SQLiteDatabase db) {
@@ -580,5 +582,18 @@ public class DB {
                 db.endTransaction();
             }
         }
+
+        private void upgrade4To5(SQLiteDatabase db) {
+            db.beginTransaction();
+
+            try {
+                db.execSQL(
+                    "UPDATE chapters SET number = number * 100");
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
+        }
+
     }
 }

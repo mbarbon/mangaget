@@ -22,6 +22,7 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import android.support.v4.app.ListFragment;
@@ -67,6 +68,8 @@ public class ChapterList extends ListFragment {
                 return bindImage((ImageView) view, cursor, column);
             if (view.getId() == R.id.chapter_progress)
                 return bindProgress((ProgressBar) view, cursor, column);
+            if (view.getId() == R.id.chapter_number)
+                return bindNumber((TextView) view, cursor, column);
 
             return false;
         }
@@ -98,6 +101,13 @@ public class ChapterList extends ListFragment {
                 progress.setVisibility(View.VISIBLE);
             else
                 progress.setVisibility(View.GONE);
+
+            return true;
+        }
+
+        private boolean bindNumber(TextView text, Cursor cursor,
+                                   int column) {
+            text.setText(Utils.formatChapterNumber(cursor.getInt(column)));
 
             return true;
         }

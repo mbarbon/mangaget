@@ -25,6 +25,15 @@ import java.util.Formatter;
 import org.barbon.mangaget.data.DB;
 
 public class Utils {
+    public static String formatChapterNumber(int number) {
+        int chap = number / 100, part = number % 100;
+
+        if (part == 0)
+            return String.valueOf(chap);
+        else
+            return String.valueOf(chap) + "." + String.valueOf(part);
+    }
+
     public static String getChapterPath(Context context, long chapterId) {
         DB db = DB.getInstance(context);
         ContentValues chapter = db.getChapter(chapterId);
@@ -109,9 +118,26 @@ public class Utils {
             return null;
 
         File externalStorage = Environment.getExternalStorageDirectory();
-        String targetPath = new Formatter()
-            .format(pattern, chapter)
-            .toString();
+        String targetPath;
+
+        // hack to handle subchapters (seem to be rare, so an hack is OK)
+        if (chapter % 100 == 0)
+        {
+            targetPath = new Formatter()
+                .format(pattern, chapter / 100)
+                .toString();
+        }
+        else
+        {
+            // uses ~ so it's sorted after the . in .cbz
+            pattern = pattern.replace("%02d", "%02d~%02d");
+            pattern = pattern.replace("%03d", "%03d~%02d");
+
+            targetPath = new Formatter()
+                .format(pattern, chapter / 100, chapter % 100)
+                .toString();
+        }
+
         File fullPath = new File(externalStorage, targetPath);
 
         return fullPath;

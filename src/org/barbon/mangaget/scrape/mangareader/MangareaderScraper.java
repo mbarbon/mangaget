@@ -198,7 +198,7 @@ public class MangareaderScraper {
             String href = link.attr("abs:href");
             int index = href.lastIndexOf("&p=");
 
-            if (index == -1 || link.text() == ">")
+            if (index == -1 || link.text().equals(">"))
                 continue;
 
             pagingUrl = href.substring(0, index + 3).replace("%", "%%") + "%d";
@@ -229,11 +229,17 @@ public class MangareaderScraper {
                 continue;
 
             String url = link.attr("abs:href");
+            if (url.indexOf("/chapter-") == -1 || !url.endsWith(".html"))
+                continue;
+            int dash = url.lastIndexOf('-'), dot = url.lastIndexOf('.');
+            String indexS = url.substring(dash + 1, dot);
+
             String title = link.text();
             HtmlScrape.ChapterInfo info = new HtmlScrape.ChapterInfo();
 
             info.title = title;
             info.url = url;
+            info.index = (int) (Float.valueOf(indexS) * 100);
 
             chapters.add(info);
         }

@@ -27,6 +27,7 @@ public class HtmlScrape {
     public static class ChapterInfo {
         public String url;
         public String title;
+        public int index;
     }
 
     public static class ChapterPage {

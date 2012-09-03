@@ -447,11 +447,12 @@ public class Download extends Service {
         // implementation
 
         private String formatMsg(int id) {
+            int number = chapter.getAsInteger(DB.CHAPTER_NUMBER);
             String pattern = getResources().getString(id);
             String result = new Formatter()
                 .format(pattern,
                         manga.getAsString(DB.MANGA_TITLE),
-                        chapter.getAsInteger(DB.CHAPTER_NUMBER))
+                        Utils.formatChapterNumber(number))
                 .toString();
 
             return result;
