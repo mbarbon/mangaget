@@ -1,0 +1,1243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="Shortcut Icon" href="http://www.mangahere.com/favicon32.ico" type="image/x-icon" />
+<meta name="author" content="Manga Here" />
+<meta name="resource-type" content="document" />
+<meta name="distribution" content="global" />
+<meta name="copyright" content="mangahere" />
+<meta name="robots" content="index,follow" />
+<meta name="rating" content="general" />
+<meta name="revisit-after" content="1 day" />
+<meta property="fb:app_id" content="250769461611065"/>
+<meta property="fb:admins" content="100001376095179"/>
+
+<meta name="keywords" content="Kyoukai no Rinne manga,Kyoukai no Rinne manga series, Kyoukai no Rinne manga chapters,read manga,free manga,Read free manga online" />
+<meta name="description" content="Read Kyoukai no Rinne manga chapters for free.Kyoukai no Rinne manga scans.You could read the latest and hottest Kyoukai no Rinne manga in MangaHere." />
+<title>Kyoukai no Rinne Manga - Read Kyoukai no Rinne Online at MangaHere.com</title>
+<meta property="og:title" content="Kyoukai no Rinne manga, read Kyoukai no Rinne online" />
+<meta property="og:site_name" content="Manga Here" />
+<meta property="og:image" content="http://www.mangahere.com/icon/5793.jpg" />
+<meta property="og:type" content="manga" />
+<meta property="og:url" content="http://www.mangahere.com/manga/kyoukai_no_rinne/" />
+<meta property="og:admins" content="100001376095179" />
+<meta property="og:description" content="Read Kyoukai no Rinne manga chapters for free.Kyoukai no Rinne manga scans.You could read the latest and hottest Kyoukai no Rinne manga in MangaHere." />
+
+
+<link rel="search" type="application/opensearchdescription+xml" title="Manga Here Search" href="http://www.mangahere.com/opensearch.xml" />
+
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss/kyoukai_no_rinne.xml"/>
+<link rel="stylesheet" type="text/css" media="screen" href="http://m.mhcdn.net/media/css/theme.css?v=153" />
+<link rel="stylesheet" type="text/css" media="screen" href="http://m.mhcdn.net/media/css/default.css?v=153" />
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="http://m.mhcdn.net/media/css/ie6.css?v=153" /><![endif]-->
+
+<script type="text/javascript" src="http://m.mhcdn.net/media/js/LAB.min.js?v=153"></script>
+<!--[if IE]><script type="text/javascript" src="http://m.mhcdn.net/media/js/html5.js?v=153"></script><![endif]-->
+
+<script type="text/javascript">
+var img_url = "http://m.mhcdn.net/media/images/", options, a;
+var base_url = "http://www.mangahere.com/";
+var fb_app_id="250769461611065";
+$LAB
+.queueScript("http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.2.min.js").queueWait()
+.queueScript("http://m.mhcdn.net/media/js/fb_dialog.js?v=153").queueWait()
+.queueScript("http://m.mhcdn.net/media/js/jquery.validate.js?v=153").queueWait()
+.queueScript("http://m.mhcdn.net/media/js/jquery.autocomplete.js?v=153").queueWait(function () {
+	jQuery(function () {
+		options = {
+			serviceUrl: '/ajax/search.php',
+			minChars: 1,
+			delimiter: /(,|;)\s*/,
+			maxHeight: 400,
+			width: 300,
+			zIndex: 9999,
+			deferRequestBy: 0,
+			noCache: true
+		};
+		a = $('#query').autocomplete(options);
+	});
+})
+.queueScript("http://m.mhcdn.net/media/js/history.js?v=153")
+.queueWait()
+.queueScript("http://connect.facebook.net/en_US/all.js");
+function addFavorite() {
+	if (document.all) {
+		try {
+			window.external.addFavorite('http://www.mangahere.com', 'Manga Here - Read English Manga Free Online. Manga is Here!');
+		} catch (e) {
+			alert("Fail to add to your favorites, please press Ctrl + D to try again");
+		}
+	} else if (window.sidebar) {
+		window.sidebar.addPanel('Manga Here - Read English Manga Free Online. Manga is Here!', 'http://www.mangahere.com', "");
+	} else {
+		alert("Fail to add to your favorites, please press Ctrl + D to try again");
+	}
+}
+
+function setHomepage() {
+	if (document.all) {
+		document.body.style.behavior = 'url(#default#homepage)';
+		document.body.setHomePage('http://www.mangahere.com');
+	} else if (window.sidebar) {
+		if (window.netscape) {
+			try {
+				netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+			} catch (e) {
+				alert('This operation was rejected by your brower, please input “about:config”at address bar and turn "signed.applets.codebase_principal_support" to ture.');
+			}
+		}
+		var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+		prefs.setCharPref('browser.startup.homepage', 'http://www.mangahere.com');
+	} else {
+		alert('This funciton is not supported by your brower, please add manually');
+	}
+}
+</script>
+
+<script>
+  $LAB.queueWait(function () {
+	$(function() {
+		$(".MHShuffleAd").hide();
+		var elements = $(".MHShuffleAd");
+		var elementCount = elements.size();
+		var elementsToShow = 1;
+		var alreadyChoosen = ",";
+		var i = 0;
+		while (i < elementsToShow) {
+			var rand = Math.floor(Math.random() * elementCount);
+			if (alreadyChoosen.indexOf("," + rand + ",") < 0) {
+				alreadyChoosen += rand + ",";
+				elements.eq(rand).show();
+				++i;
+			}
+		}
+	});
+  });
+</script>
+<script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'>
+</script>
+<script type='text/javascript'>
+GS_googleAddAdSenseService("ca-pub-2356615155015370");
+GS_googleEnableAllServices();
+</script>
+<script type='text/javascript'>
+GA_googleAddSlot("ca-pub-2356615155015370", "mangahere_home_right_160x600");
+GA_googleAddSlot("ca-pub-2356615155015370", "mangahere_home_right_300x250");
+GA_googleAddSlot("ca-pub-2356615155015370", "mangahere_page_right_160x600");
+GA_googleAddSlot("ca-pub-2356615155015370", "mangahere_page_right_160x600m");
+GA_googleAddSlot("ca-pub-2356615155015370", "mangahere_page_top_728x90");
+GA_googleAddSlot("ca-pub-2356615155015370", "mangahere_page_top_728x90m");
+GA_googleAddSlot("ca-pub-2356615155015370", "mangahere_ros_right_160x600");
+GA_googleAddSlot("ca-pub-2356615155015370", "mangahere_ros_right_300x250");
+GA_googleAddSlot("ca-pub-2356615155015370", "mangahere_ros_top_728x90");
+</script>
+<script type='text/javascript'>
+GA_googleFetchAds();
+</script>
+</head>
+<body>
+<!-- body-bg-top start -->
+    <div class="MHShuffleAd">
+      <a href="http://www.animehere.com/?utm_source=MangaHere&utm_medium=SiteSkin&utm_campaign=MH-siteskin" target="_blank" class="body-bg-left"></a>
+      <a href="http://www.funnymama.com/?utm_source=MangaHere&utm_medium=SiteSkin&utm_campaign=MH-siteskin" target="_blank" class="body-bg-right"></a>
+    </div>
+
+    <div class="MHShuffleAd">
+      <a href="http://ninja.game321.com/activities/20110317/index.html?utm_source=mangahere&utm_medium=cpa&utm_campaign=pockieninja" target="_blank" class="body-bg-left_game321"></a>
+      <a href="http://ninja.game321.com/activities/20110317/index.html?utm_source=mangahere&utm_medium=cpa&utm_campaign=pockieninja" target="_blank" class="body-bg-right_game321"></a>
+    </div>
+
+    <div class="MHShuffleAd">
+      <a href="http://www.otakushop.com/?utm_source=MH&utm_medium=Site_Skin&utm_campaign=OS" target="_blank" class="body-bg-left_os"></a>
+      <a href="http://www.otakushop.com/?utm_source=MH&utm_medium=Site_Skin&utm_campaign=OS" target="_blank" class="body-bg-right_os"></a>
+    </div>
+<!-- body-bg-top end -->
+
+<!--------------------header start-------------------->
+<header>
+	<section class="header_top">
+		<a href="http://www.mangahere.com/" class="logo"></a>
+		<span class="sign">
+					<a href="javascript:boxShow('sign_in');" rel="nofollow">[ Sign In ]</a>
+			<a href="javascript:boxShow('sign_up');" rel="nofollow">[ Sign Up ]</a>
+				</span>
+	</section>
+	<nav>
+		<ul class="menu clearfix">
+			<li><a href="http://www.mangahere.com/" >Home</a></li>
+			<li><a href="http://www.mangahere.com/latest/" >Latest Releases</a></li>
+			<li><a href="http://www.mangahere.com/mangalist/" >Manga List</a></li>
+			<li><a href="http://www.mangahere.com/directory/?views.za" >Hot Manga</a></li>
+			<li><a href="http://www.mangahere.com/spoilers/" >Spoilers &amp; News</a></li>
+			<li><a href="http://www.mangahere.com/manga/naruto/">Naruto</a></li>
+			<li><a href="http://www.mangahere.com/manga/bleach/">Bleach</a></li>
+			<li><a href="http://www.mangahere.com/manga/one_piece/">One Piece</a></li>
+			<li><a href="http://www.mangahere.com/manga/fairy_tail/">Fairy Tail</a></li>
+			<li><a href="http://www.animeonline.net/#manga-here" target="_blank">Forum</a></li>
+		</ul>
+		<section class="search_top clearfix">
+			<aside class="search_topR">
+					<span class="search_input">
+						<form action="/search.php" id="lookupform" name="lookupform" method="get">
+						<input type="text" id="query" name="name" value="Enter Manga Name..." class="search_text" autocomplete="off" />
+						<input type="submit" value="Search" class="search_button" />
+						</form>
+					</span>
+					<span class="sur_adv">
+						<a class="six_buttoon" href="http://www.mangahere.com/random.htm">Surprise</a>
+						<a class="six_buttoon" href="http://www.mangahere.com/advsearch.htm" rel="nofollow">Advanced</a>
+					</span>
+				<script type="text/javascript">
+				$LAB.queueWait(function () {
+					$(".search_text").focus(function () {
+						$(this).val("");
+					}).focusout(function () {
+						if ($(this).val() == "") {
+							$(this).val("Enter Manga Name...")
+						}
+					});
+				});
+				</script>
+			</aside>
+			<article class="search_topL">
+				<a href="/romance/">Romance</a>|<a href="/comedy/">Comedy</a>|<a href="/shoujo/">Shoujo</a>|<a href="/drama/">Drama</a>|<a href="/school_life/">School Life</a>|<a href="/shounen/">Shounen</a>|<a href="/action/">Action</a>|<a href="/fantasy/">Fantasy</a>|<a href="/seinen/">Seinen</a>
+				<a href="/directory/" class="more"></a>
+			</article>
+		</section>
+	</nav>
+</header>
+<div class="dialog_box" id="sign_up">
+  <a href="javascript:void(0);" class="close" onclick="javascript:boxRemove('sign_up');" title="Close">x</a>
+  <div class="title">Sign Up</div>
+  <p class="mb10"><strong class="color_0077">Want to save time?</strong> Sign up with your facebook account now</p>
+  <a href="#" class="facebook_sign"><span>f</span>Login with Facebook</a>
+  <p class="color_0077 mt10">Or complete the form below</p>
+  <div class="register">
+		 <form id="signupform">
+     <ul class="register_list">
+       <li><label>User Name</label><input type="text" class="text" name="username" id="username" /><span class="color_ff00">Required in 4 to 14 letters or numbers</span></li>
+       <li><label>Password</label><input type="password" class="text" name="password" id="password" /><span class="color_ff00">Required in 6-14 characters</span></li>
+       <li><label><span class="re_type">Re-type<br />Password</span></label><input type="password" class="text" name="password_confirm" id="password_confirm" /><span></span></li>
+       <li><label>Email</label><input type="text" class="text" name="email" id="email" /><span></span></li>
+       <li class="ml80"><a href="javascript:void(0);" class="one_buttoon mr15"><span>Sign Up</span></a></li>
+     </ul>
+		 </form>
+  </div>
+</div>
+<div class="dialog_box" id="sign_in">
+  <a href="javascript:void(0);" class="close" onclick="javascript:boxRemove('sign_in');" title="Close">x</a>
+  <div class="title">Sign In</div>
+  <p class="mb10"><strong class="color_0077">Sign in with your facebook account</strong></p>
+  <a href="#" class="facebook_sign"><span>f</span>Login with Facebook</a>
+  <p class="color_0077 mt10">Or with mangahere account <a href="javascript:boxRemove('sign_in');boxShow('sign_up');" class="color_0077 tdu ml10">Don't have an account?</a></p>
+  <div class="login">
+		 <form id="signinform">
+     <ul class="login_list">
+       <li><label>Username</label><input type="text" class="text" name="name" /></li>
+       <li><label>Password</label><input type="password" class="text" name="pass" /></li>
+       <li>
+			 	<label class="checkbox_RM"><input type="checkbox" class="checkbox" value="1" name="remember" />Remember Me</label>
+				<a href="/forgotpassword.htm" class="color_0077 ml10">Forget User Name/Password?</a>
+			 </li>
+       <li class="ml80"><a href="javascript:void(0);" id="normal_login" class="one_buttoon mr15"><span>Sign In</span></a></li>
+     </ul>
+		 </form>
+  </div>
+</div>
+<div id="back_top"><span></span>Back to Top</div>
+<script type="text/javascript">
+$LAB.queueWait(function(){
+	FB.init({appId:'250769461611065',cookie:true,xfbml:true,oauth:true});
+	$('.facebook_sign').click(function(){
+		FB.login(function(r){
+			if(r.authResponse){window.location=base_url + "connect/facebook.php?r="}
+		},{scope:'email,publish_stream'}
+	)});
+	$('#normal_login').click(function(){
+		$.post(
+			'http://www.mangahere.com/ajax/signin.php',
+			$("#signinform").serialize(),
+			function(r){if(r == 0) window.location.reload(); else alert('Sign in failed: please check your username or password.');}
+		);
+	});
+	$('#signinform input').blur(function(){
+	});
+	$('#signupform a').click(function(){
+		if($('#signupform .msg-correct').length >=4) {
+			$.post(
+				'http://www.mangahere.com/ajax/signup.php',
+				$("#signupform").serialize(),
+				function(r){
+					if(r == 0) window.location.reload();
+					else alert(r);
+				}
+			);
+		}
+	});
+	jQuery.validator.addMethod("username", function(value, element) {
+		return this.optional(element) || /^[A-Za-z0-9]+$/.test(value);
+	}, "Only allowed letters or numbers");
+	$("#signupform").validate({
+		rules: {
+			username: {required: true,rangelength: [4,14],remote: "/ajax/user.php"},
+			password: {required: true,rangelength: [6,14]},
+			password_confirm: {required: true,rangelength: [6,14],equalTo:"#password"},
+			email: {required: true,email: true,remote: "/ajax/email.php"}
+		},
+		messages: {
+			username: {required: "Please input your username",rangelength:jQuery.format("Only allowed {0} to {1} letters or numbers"),remote: jQuery.format("This username has already exist")},
+			password: {required: "Please input your password",rangelength:jQuery.format("Only allowed {0} to {1} characters")},
+			password_confirm: {required: "Please input your password again",rangelength:jQuery.format("Only allowed {0} to {1} characters"),equalTo: "Please verify your password again"},
+			email: {required: "Please input your Email",email: "Please input an valid Email address",remote: jQuery.format("This Email has already been used")}
+		},
+		errorPlacement: function(error, element) {
+			element.next().addClass("msg-errors").html('');
+			element.next('span.msg-errors').append(error.html());
+		},
+		success: function(label,element) {
+			element.next().removeClass().addClass("msg-correct").html('');
+		}
+	});
+});
+</script>
+<section id="main" class="main clearfix">
+
+  <article class="wid614 left">
+      <div class="box_w clearfix">
+          <h1 class="title"><span class="title_icon"></span>KYOUKAI NO RINNE</h1>
+      </div>
+
+      <div class="manga_detail">
+        <div class="manga_detail_top clearfix">
+        <img src="http://m.mhcdn.net/store/manga/5793/cover.jpg?v=1346436781" class="img" />
+        <ul class="detail_topText">
+                     <li id="rate" class="star_write">
+			     <span id="current_rating" class="scores">4<em>.79</em></span><i id="s1" gid="1" class="star-full"></i><i id="s2" gid="2" class="star-full"></i><i id="s3" gid="3" class="star-full"></i><i id="s4" gid="4" class="star-half"></i><i id="s5" gid="5" class="star-empty"></i><span class="ml5">(63 votes)</span>
+			 </li>
+             <li class="posR">
+			   <a href="javascript:void(0);" id="bookmark" class="five_buttoon mr5"><span>Bookmark</span></a>
+			   <a href="javascript:void(0);" id="subscribe" title="Click to get email notification for the latest updates" class="five_buttoon mr5"><span>Subscribe</span></a>
+			   <a href="http://www.mangahere.com/manga/kyoukai_no_rinne/comments" class="five_buttoon mr5" rel="nofollow"><span>Comment</span></a>
+        <div class="email_sub" id="email_post" style="display:none;">
+          <span></span>
+          <a href="javascript:void(0);" id="close_email_post">X</a>
+          <p>Please enter the email.</p>
+          <input type="text" id="subemail" value="" class="text_input mr5" /><input type="button" value="Send" id="subscribe_b" />
+        </div>
+             </li>
+             <li><label>Alternative Name:</label>境界のりんね; 境界のＲＩＮＮＥ; 境界的輪回; Kyokai no Rinne; Rin-Ne; The Boundary of Rinne</li>
+             <li><label>Genre(s):</label>Action, Adventure, Comedy, Mystery, Romance, School Life, Shounen, Supernatural</li>
+             <li><label>Author(s):</label><a class="color_0077" href="http://www.mangahere.com/author/TAKAHASHI Rumiko">Takahashi Rumiko</a></li>
+             <li><label>Status:</label>Ongoing&nbsp;<a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v11/c032/">Kyoukai no Rinne 32</a> will coming next<br/><span class="ss"></span></li>
+             <li><label>Rank:</label>369th</li>
+             <li><label><h2>Kyoukai no Rinne Manga</h2> Summary:</label>
+                 <p id="hide" class="clearfix">Ever since a strange encounter when she was a child, Sakura Mamiya has had the power to see ghosts. Now in high school, she just wishes the ghosts would leave her alone! When her mysterious classmate Rinne Rokudo shows up, Sakura finds herself following him into the amazing world...&nbsp;<a href="javascript:void(0);" onclick="cut_show()" class="more right"></a> </p>
+                 <p id="show" style="display:none;">Ever since a strange encounter when she was a child, Sakura Mamiya has had the power to see ghosts. Now in high school, she just wishes the ghosts would leave her alone! When her mysterious classmate Rinne Rokudo shows up, Sakura finds herself following him into the amazing world between life and death!&nbsp;<a href="javascript:void(0);" onclick="cut_hide()" class="color_0077">Show less</a></p>
+             </li>
+           </ul>
+           <div class="mt10 clearfix">
+                <span class="right">
+                  <span class="left"><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FMangaHerecom-Read-Manga-Online%2F133868876648613&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=verdana&amp;height=21&amp;appId=250769461611065" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe></span>
+                  <span  class='st_twitter_hcount' displayText='Tweet'></span>
+                  <span  class='st_facebook_hcount' displayText='Facebook'></span>
+                  <span  class='st_sharethis_hcount' displayText='Share'></span>
+                  <span  class='st_plusone_hcount' ></span>
+                  <script type="text/javascript">
+				  var switchTo5x=true;
+				  $LAB.queueScript('http://w.sharethis.com/button/buttons.js').queueWait(function(){
+					 stLight.options({publisher:'e47efe7d-147b-4731-ac42-9838ccdc52f2'});
+				  });
+                  </script>
+                </span>
+           </div>
+        </div>
+        <div class="detail_list">
+        <div class="title"><span></span><h3>Read Kyoukai no Rinne Online</h3></div>
+<div class="chapters_points clearfix"><a href="#50">50-1</a></div><ul>        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v11/c105/" >
+              Kyoukai no Rinne 105			</a>
+          <span class="mr6">Vol 11</span></span>
+          <i class="new">new</i>          <span class="right">Aug 30, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v11/c104/" >
+              Kyoukai no Rinne 104			</a>
+          <span class="mr6">Vol 11</span></span>
+          <i class="new">new</i>          <span class="right">Aug 28, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v11/c103/" >
+              Kyoukai no Rinne 103			</a>
+          <span class="mr6">Vol 11</span>Poverty Moth</span>
+                    <span class="right">Aug 26, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v11/c102/" >
+              Kyoukai no Rinne 102			</a>
+          <span class="mr6">Vol 11</span></span>
+                    <span class="right">Aug 23, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v11/c101/" >
+              Kyoukai no Rinne 101			</a>
+          <span class="mr6">Vol 11</span></span>
+                    <span class="right">Jul 12, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v11/c100/" name="100">
+              Kyoukai no Rinne 100			</a>
+          <span class="mr6">Vol 11</span></span>
+                    <span class="right">Jul 12, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v11/c099/" >
+              Kyoukai no Rinne 99			</a>
+          <span class="mr6">Vol 11</span></span>
+                    <span class="right">Jul 12, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v11/c038/" >
+              Kyoukai no Rinne 38			</a>
+          <span class="mr6">Vol 11</span>Bride Examination</span>
+          <i class="new">new</i>          <span class="right">Aug 31, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v11/c037/" >
+              Kyoukai no Rinne 37			</a>
+          <span class="mr6">Vol 11</span>Sister's Whereabouts</span>
+          <i class="new">new</i>          <span class="right">Aug 31, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v11/c036/" >
+              Kyoukai no Rinne 36			</a>
+          <span class="mr6">Vol 11</span>Shinigami Ageha</span>
+          <i class="new">new</i>          <span class="right">Aug 31, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v11/c035/" >
+              Kyoukai no Rinne 35			</a>
+          <span class="mr6">Vol 11</span>You don't disapprove of that</span>
+          <i class="new">new</i>          <span class="right">Aug 31, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v11/c034/" >
+              Kyoukai no Rinne 34			</a>
+          <span class="mr6">Vol 11</span>Handprint</span>
+          <i class="new">new</i>          <span class="right">Aug 31, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v11/c033/" >
+              Kyoukai no Rinne 33			</a>
+          <span class="mr6">Vol 11</span>Kyuketsukasha</span>
+          <i class="new">new</i>          <span class="right">Aug 31, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v11/c032/" >
+              Kyoukai no Rinne 32			</a>
+          <span class="mr6">Vol 11</span>Inauguration Ceremony</span>
+          <i class="new">new</i>          <span class="right">Aug 31, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v11/c031/" >
+              Kyoukai no Rinne 31			</a>
+          <span class="mr6">Vol 11</span>Damashigami Company</span>
+          <i class="new">new</i>          <span class="right">Aug 31, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v10/c098/" >
+              Kyoukai no Rinne 98			</a>
+          <span class="mr6">Vol 10</span></span>
+                    <span class="right">Jun 6, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v10/c097/" >
+              Kyoukai no Rinne 97			</a>
+          <span class="mr6">Vol 10</span></span>
+                    <span class="right">Jun 6, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v10/c096/" >
+              Kyoukai no Rinne 96			</a>
+          <span class="mr6">Vol 10</span></span>
+                    <span class="right">Jun 6, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v10/c095/" >
+              Kyoukai no Rinne 95			</a>
+          <span class="mr6">Vol 10</span></span>
+                    <span class="right">Feb 24, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v10/c094/" >
+              Kyoukai no Rinne 94			</a>
+          <span class="mr6">Vol 10</span></span>
+                    <span class="right">Feb 24, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v10/c093/" >
+              Kyoukai no Rinne 93			</a>
+          <span class="mr6">Vol 10</span></span>
+                    <span class="right">Feb 12, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v10/c092/" >
+              Kyoukai no Rinne 92			</a>
+          <span class="mr6">Vol 10</span></span>
+                    <span class="right">Feb 12, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v10/c091/" >
+              Kyoukai no Rinne 91			</a>
+          <span class="mr6">Vol 10</span></span>
+                    <span class="right">Feb 29, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v10/c090/" >
+              Kyoukai no Rinne 90			</a>
+          <span class="mr6">Vol 10</span></span>
+                    <span class="right">Feb 29, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v10/c089/" >
+              Kyoukai no Rinne 89			</a>
+          <span class="mr6">Vol 10</span></span>
+                    <span class="right">Aug 22, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v09/c088/" >
+              Kyoukai no Rinne 88			</a>
+          <span class="mr6">Vol 09</span></span>
+                    <span class="right">Aug 22, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v09/c087/" >
+              Kyoukai no Rinne 87			</a>
+          <span class="mr6">Vol 09</span></span>
+                    <span class="right">Aug 22, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v09/c086/" >
+              Kyoukai no Rinne 86			</a>
+          <span class="mr6">Vol 09</span></span>
+                    <span class="right">Aug 22, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v09/c085/" >
+              Kyoukai no Rinne 85			</a>
+          <span class="mr6">Vol 09</span></span>
+                    <span class="right">Aug 22, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v09/c084/" >
+              Kyoukai no Rinne 84			</a>
+          <span class="mr6">Vol 09</span></span>
+                    <span class="right">Aug 22, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v09/c083/" >
+              Kyoukai no Rinne 83			</a>
+          <span class="mr6">Vol 09</span></span>
+                    <span class="right">Aug 22, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v09/c082/" >
+              Kyoukai no Rinne 82			</a>
+          <span class="mr6">Vol 09</span></span>
+                    <span class="right">Aug 22, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v09/c081/" >
+              Kyoukai no Rinne 81			</a>
+          <span class="mr6">Vol 09</span></span>
+                    <span class="right">Aug 23, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v09/c080/" >
+              Kyoukai no Rinne 80			</a>
+          <span class="mr6">Vol 09</span></span>
+                    <span class="right">Aug 23, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v09/c079/" >
+              Kyoukai no Rinne 79			</a>
+          <span class="mr6">Vol 09</span></span>
+                    <span class="right">Aug 23, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v08/c078/" >
+              Kyoukai no Rinne 78			</a>
+          <span class="mr6">Vol 08</span></span>
+                    <span class="right">Aug 23, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v08/c077/" >
+              Kyoukai no Rinne 77			</a>
+          <span class="mr6">Vol 08</span></span>
+          <i class="new">new</i>          <span class="right">Aug 29, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v08/c076/" >
+              Kyoukai no Rinne 76			</a>
+          <span class="mr6">Vol 08</span></span>
+          <i class="new">new</i>          <span class="right">Aug 29, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v08/c075/" >
+              Kyoukai no Rinne 75			</a>
+          <span class="mr6">Vol 08</span></span>
+          <i class="new">new</i>          <span class="right">Aug 29, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v08/c074/" >
+              Kyoukai no Rinne 74			</a>
+          <span class="mr6">Vol 08</span></span>
+          <i class="new">new</i>          <span class="right">Aug 29, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v08/c073/" >
+              Kyoukai no Rinne 73			</a>
+          <span class="mr6">Vol 08</span></span>
+          <i class="new">new</i>          <span class="right">Aug 29, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v08/c072/" >
+              Kyoukai no Rinne 72			</a>
+          <span class="mr6">Vol 08</span></span>
+          <i class="new">new</i>          <span class="right">Aug 29, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v08/c071/" >
+              Kyoukai no Rinne 71			</a>
+          <span class="mr6">Vol 08</span></span>
+          <i class="new">new</i>          <span class="right">Aug 29, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v08/c070/" >
+              Kyoukai no Rinne 70			</a>
+          <span class="mr6">Vol 08</span></span>
+          <i class="new">new</i>          <span class="right">Aug 29, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v08/c069/" >
+              Kyoukai no Rinne 69			</a>
+          <span class="mr6">Vol 08</span></span>
+          <i class="new">new</i>          <span class="right">Aug 29, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v07/c059/" >
+              Kyoukai no Rinne 59			</a>
+          <span class="mr6">Vol 07</span></span>
+          <i class="new">new</i>          <span class="right">Aug 29, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v06/c049/" >
+              Kyoukai no Rinne 49			</a>
+          <span class="mr6">Vol 06</span></span>
+                    <span class="right">Aug 25, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v05/c039/" >
+              Kyoukai no Rinne 39			</a>
+          <span class="mr6">Vol 05</span></span>
+          <i class="new">new</i>          <span class="right">Aug 29, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v04/c030/" >
+              Kyoukai no Rinne 30			</a>
+          <span class="mr6">Vol 04</span>President</span>
+          <i class="new">new</i>          <span class="right">Aug 30, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v04/c029/" >
+              Kyoukai no Rinne 29			</a>
+          <span class="mr6">Vol 04</span></span>
+          <i class="new">new</i>          <span class="right">Aug 29, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v03/c028/" >
+              Kyoukai no Rinne 28			</a>
+          <span class="mr6">Vol 03</span>Black & White</span>
+          <i class="new">new</i>          <span class="right">Aug 30, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v03/c027/" >
+              Kyoukai no Rinne 27			</a>
+          <span class="mr6">Vol 03</span>Draw Me</span>
+          <i class="new">new</i>          <span class="right">Aug 30, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v03/c026/" >
+              Kyoukai no Rinne 26			</a>
+          <span class="mr6">Vol 03</span>Hall of the Damashigami</span>
+          <i class="new">new</i>          <span class="right">Aug 30, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v03/c025/" >
+              Kyoukai no Rinne 25			</a>
+          <span class="mr6">Vol 03</span>Allure of the Pumpkin Head</span>
+          <i class="new">new</i>          <span class="right">Aug 30, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v03/c024/" >
+              Kyoukai no Rinne 24			</a>
+          <span class="mr6">Vol 03</span>Shinigami Scythe</span>
+          <i class="new">new</i>          <span class="right">Aug 30, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v03/c023/" >
+              Kyoukai no Rinne 23			</a>
+          <span class="mr6">Vol 03</span>The Price of Power</span>
+          <i class="new">new</i>          <span class="right">Aug 30, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v03/c022/" >
+              Kyoukai no Rinne 22			</a>
+          <span class="mr6">Vol 03</span>One Hundred Thousand Yen</span>
+          <i class="new">new</i>          <span class="right">Aug 28, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v03/c021/" >
+              Kyoukai no Rinne 21			</a>
+          <span class="mr6">Vol 03</span>A Fun Date</span>
+          <i class="new">new</i>          <span class="right">Aug 28, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v03/c020/" >
+              Kyoukai no Rinne 20			</a>
+          <span class="mr6">Vol 03</span>If You Don't Mind, Let's Be Friends First</span>
+                    <span class="right">Aug 25, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v03/c019/" >
+              Kyoukai no Rinne 19			</a>
+          <span class="mr6">Vol 03</span>The Transfer Student</span>
+                    <span class="right">Aug 23, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v02/c018/" >
+              Kyoukai no Rinne 18			</a>
+          <span class="mr6">Vol 02</span>Stream of a Thousand Winds</span>
+                    <span class="right">Aug 23, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v02/c017/" >
+              Kyoukai no Rinne 17			</a>
+          <span class="mr6">Vol 02</span></span>
+                    <span class="right">Aug 21, 2012</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v02/c016/" >
+              Kyoukai no Rinne 16			</a>
+          <span class="mr6">Vol 02</span></span>
+                    <span class="right">May 17, 2011</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v02/c015/" >
+              Kyoukai no Rinne 15			</a>
+          <span class="mr6">Vol 02</span></span>
+                    <span class="right">May 17, 2011</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v02/c014/" >
+              Kyoukai no Rinne 14			</a>
+          <span class="mr6">Vol 02</span></span>
+                    <span class="right">May 17, 2011</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v02/c013/" >
+              Kyoukai no Rinne 13			</a>
+          <span class="mr6">Vol 02</span></span>
+                    <span class="right">May 17, 2011</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v02/c012/" >
+              Kyoukai no Rinne 12			</a>
+          <span class="mr6">Vol 02</span></span>
+                    <span class="right">May 17, 2011</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v02/c011/" >
+              Kyoukai no Rinne 11			</a>
+          <span class="mr6">Vol 02</span></span>
+                    <span class="right">May 17, 2011</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v02/c010/" >
+              Kyoukai no Rinne 10			</a>
+          <span class="mr6">Vol 02</span></span>
+                    <span class="right">May 17, 2011</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v02/c009/" >
+              Kyoukai no Rinne 9			</a>
+          <span class="mr6">Vol 02</span></span>
+                    <span class="right">May 17, 2011</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v01/c008/" >
+              Kyoukai no Rinne 8			</a>
+          <span class="mr6">Vol 01</span>Afraid To Sleep</span>
+                    <span class="right">Jun 18, 2009</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v01/c007/" >
+              Kyoukai no Rinne 7			</a>
+          <span class="mr6">Vol 01</span>Contract Cat</span>
+                    <span class="right">Jun 13, 2009</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v01/c006/" >
+              Kyoukai no Rinne 6			</a>
+          <span class="mr6">Vol 01</span>Mystery Of The Club Building</span>
+                    <span class="right">Jun 11, 2009</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v01/c005/" >
+              Kyoukai no Rinne 5			</a>
+          <span class="mr6">Vol 01</span>O-NE-E-SA-N</span>
+                    <span class="right">May 30, 2009</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v01/c004/" >
+              Kyoukai no Rinne 4			</a>
+          <span class="mr6">Vol 01</span>A Familiar Woman</span>
+                    <span class="right">May 26, 2009</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v01/c003/" >
+              Kyoukai no Rinne 3			</a>
+          <span class="mr6">Vol 01</span>Behind the Gym at Four</span>
+                    <span class="right">May 20, 2009</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v01/c002/" >
+              Kyoukai no Rinne 2			</a>
+          <span class="mr6">Vol 01</span>Legend of the Instrument Shelter</span>
+                    <span class="right">May 20, 2009</span>
+        </li>
+        <li>
+  	   	  <span class="left">
+		    <a class="color_0077" href="http://www.mangahere.com/manga/kyoukai_no_rinne/v01/c001/" >
+              Kyoukai no Rinne 1			</a>
+          <span class="mr6">Vol 01</span>The Mysterious Classmate</span>
+                    <span class="right">May 15, 2009</span>
+        </li>
+</ul><ul class="tab_comment clearfix">
+	<li class="select">Facebook Comments</li>
+	<li class="">MH Comments <span class="color_0077">
+		(<script src="/ajax/comment_count.php?type=manga&id=5793"></script>)
+	</span></li>
+</ul>
+<div class="all_commet">
+	<div class="fb_comment mt10" style="display: block;">
+		<div class="fb-comments" data-href="http://www.mangahere.com/manga/kyoukai_no_rinne/" data-num-posts="10" data-width="614"></div>
+	</div>
+  <div id="commentArea" style="display:none;" class="website_comment">
+		<div class="mt10 center">
+			<img src="http://m.mhcdn.net/media/images/info-loader.gif" />
+		</div>
+	</div>
+</div>
+<div id="fb-root"></div>
+<script type="text/javascript">
+$LAB.queueScript("http://m.mhcdn.net/media/js/comments.js?v=153").queueWait(function(){
+	$(function(){
+		var $div_li =$(".tab_comment li");
+		$div_li.click(function(){
+			$(this).addClass("select").siblings().removeClass("select");
+			var index =  $div_li.index(this);
+			if(index > 0 && !commentLoaded) {
+				getfirst('manga', '5793');
+				commentLoaded = true;
+			}
+			$("div.all_commet > div").eq(index).show().siblings().hide();
+		});
+	});
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+});
+</script>
+        </div>
+      </div>
+<div class=" mb10">
+<div class="box_w clearfix">
+	<a href="http://www.otakushop.com/" class="more right" target="_blank"></a>
+	<div class="title"><span class="title_icon"></span>Otaku Selections</div>
+</div>
+<ul class="otaku_author">			<li>
+				<a href="http://www.otakushop.com/all-items/death-note-pencil-case-death-note-pencil-bag/" title="Death Note Pencil Case " target="_blank"><img class="os_img" src="http://m.mhcdn.net/store/otakushop/DNPC105__53940_std.jpg?v=1346053945" /></a>
+				<p><a href="http://www.otakushop.com/all-items/death-note-pencil-case-death-note-pencil-bag/" title="Death Note Pencil Case " target="_blank">Death Note Penci ... </a></p>
+				<p><span><strike>$19.99</strike>$8.99</span></p>
+			</li>
+						<li>
+				<a href="http://www.otakushop.com/all-items/hatsune-miku-vocaloid-backpack-hatsune-miku-bag/" title="Hatsune Miku (Vocaloid) Backpack" target="_blank"><img class="os_img" src="http://m.mhcdn.net/store/otakushop/HMB005__30515_std.jpg?v=1346053979" /></a>
+				<p><a href="http://www.otakushop.com/all-items/hatsune-miku-vocaloid-backpack-hatsune-miku-bag/" title="Hatsune Miku (Vocaloid) Backpack" target="_blank">Hatsune Miku (Vo ... </a></p>
+				<p><span><strike>$39.99</strike>$18.99</span></p>
+			</li>
+						<li>
+				<a href="http://www.otakushop.com/all-items/one-piece-luffy-cosplay-luffys-suit/" title="One Piece Luffy Cosplay " target="_blank"><img class="os_img" src="http://m.mhcdn.net/store/otakushop/OPCos002__79132_std.jpg?v=1346054016" /></a>
+				<p><a href="http://www.otakushop.com/all-items/one-piece-luffy-cosplay-luffys-suit/" title="One Piece Luffy Cosplay " target="_blank">One Piece Luffy  ... </a></p>
+				<p><span><strike>$79.99</strike>$29.99</span></p>
+			</li>
+						<li>
+				<a href="http://www.otakushop.com/all-items/one-piece-pencil-case-one-piece-canvas-pen-case/" title="One Piece Pencil Case" target="_blank"><img class="os_img" src="http://m.mhcdn.net/store/otakushop/OPPC104__06978_std.jpg?v=1346054043" /></a>
+				<p><a href="http://www.otakushop.com/all-items/one-piece-pencil-case-one-piece-canvas-pen-case/" title="One Piece Pencil Case" target="_blank">One Piece Pencil ... </a></p>
+				<p><span><strike>$19.99</strike>$8.99</span></p>
+			</li>
+			</ul></div>
+  </article>
+<!--------------------left end-------------------->
+<aside class="wid306 right">
+<div class="box_radius mb10">
+<div class="box_o clearfix">
+	<div class="title">Latest Manga Updates</div>
+</div>
+<ul class="right_aside">			<li>
+				<a href="http://www.mangahere.com/manga/crows/v19/c080/" title="Crows">
+					Crows 80				</a>
+			</li>
+			<li>
+				<a href="http://www.mangahere.com/manga/gan_kon/c019/" title="Gan-Kon">
+					Gan-Kon 19				</a>
+			</li>
+			<li>
+				<a href="http://www.mangahere.com/manga/hibi_chouchou/c008/" title="Hibi Chouchou">
+					Hibi Chouchou 8				</a>
+			</li>
+			<li>
+				<a href="http://www.mangahere.com/manga/city_of_darkness/c027/" title="City Of Darkness">
+					City Of Darkness 27				</a>
+			</li>
+			<li>
+				<a href="http://www.mangahere.com/manga/end_of_eternity_the_secret_hours/c007/" title="End Of Eternity The Secret Hours">
+					End Of Eternity Th ...  Hours 7				</a>
+			</li>
+</ul></div>
+<div class="box_radius mb10">
+<div class="box_o clearfix">
+	<div class="title">You may also like</div>
+</div>
+	<ul class="right_aside">
+					<li>
+				<a href="http://www.mangahere.com/manga/inuyasha/" title="InuYasha">
+					InuYasha				</a>
+			</li>
+					<li>
+				<a href="http://www.mangahere.com/manga/mermaids_saga/" title="Mermaids Saga">
+					Mermaids Saga				</a>
+			</li>
+					<li>
+				<a href="http://www.mangahere.com/manga/one_pound_gospel/" title="One Pound Gospel">
+					One Pound Gospel				</a>
+			</li>
+					<li>
+				<a href="http://www.mangahere.com/manga/rumic_theater/" title="Rumic Theater">
+					Rumic Theater				</a>
+			</li>
+					<li>
+				<a href="http://www.mangahere.com/manga/ningyo_no_mori/" title="Ningyo No Mori">
+					Ningyo No Mori				</a>
+			</li>
+			</ul>
+	</div>
+<div class="advimg300250 mb10">
+<!-- mangahere_ros_right_300x250 -->
+<script type='text/javascript'>
+GA_googleFillSlot("mangahere_ros_right_300x250");
+</script>
+</div><div id="detail_rightfb" class="center mt10">
+	<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Freadmangahere&amp;width=306&amp;height=395&amp;colorscheme=light&amp;show_faces=false&amp;border_color&amp;stream=true&amp;header=false&amp;appId=250769461611065" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:306px; height:395px;" allowTransparency="true"></iframe>
+</div>
+  </aside>
+<!--------------------right end-------------------->
+</section>
+<script type="text/javascript">
+$LAB.queueWait(function(){
+	//rating
+	$(function(){
+		rate(50);
+		$("#rate").mouseout(function(){
+			for(var i=1;i<=5;i++){
+				$("#s"+i).removeClass();
+				$("#s"+i).addClass("star-full");
+			}
+			rate(50);
+			$("#current_rating").html("4<em>.79</em>");
+		});
+		var $div_li =$(".chapters_points a");
+		$div_li.click(function(){
+			$(this).addClass("select").siblings().removeClass("select");
+			var index =  $div_li.index(this);
+			$("div.detail_tablist > ul").eq(index).show().siblings().hide();
+		});
+		$(".star_write i").each(function(){
+			$(this).mouseover(function(){
+				for(var i=1;i<=5;i++){
+					$("#s"+i).removeClass();
+					$("#s"+i).addClass("star-empty");
+				}
+				var k = $(this).attr("gid");
+				k = parseInt(k);
+				for(var i=1;i<=k;i++){
+					$("#s"+i).removeClass();
+					$("#s"+i).addClass("star-full");
+				}
+				$("#current_rating").html(k+'<em>.00</em>');
+			}).click(function(){
+				var score = $(this).attr("gid");
+				$.ajax({
+					type: "POST",
+					url: "/ajax/rating.php",
+					data:"score="+score+"&series_id=5793&user_id=0",
+					success: function(msg){alert(msg);}
+				});
+			})
+		});
+	});
+	$("#bookmark").bind("click", function(){
+		$.ajax({
+			type: "POST",
+			url: "/ajax/bookmark.php",
+			data: "action=add&series_id=5793",
+			success: function(msg){
+				if(msg==1){alert("You need to login first!");location.href='/login.htm';}
+				else{alert(msg);}
+			}
+		});
+	});
+	$("#subscribe").bind("click", function () {
+    $('#email_post').show();
+    $('#subemail').val('');
+    $('#subemail').focus();
+	});
+  $("#subscribe_b").bind("click", function(){
+		var email = $("#subemail")
+		if(!email.val()) {
+			alert('Please input an email address.');
+			return false;
+		}
+		$.ajax({
+			type: "POST",
+			url: "/ajax/subscribe.php",
+			data: "action=subscribe&series_id=5793&email="+email.val(),
+			success: function (msg) {
+				if (msg == 1) {
+          email.focus();
+          alert("Please input an email address.");
+				} else if (msg == 2) {
+          email.focus();
+					alert("Invalid email address!");
+				} else {
+          $('#email_post').hide();
+					alert(msg);
+				}
+			}
+		});
+  });
+	$("#close_email_post").bind("click", function () {
+    $('#email_post').hide();
+	});
+	$(window).scroll(function(a){
+		var image_h = $("#main").height();
+		y = $(window).scrollTop();
+		if (y >= 0 && y< image_h ) {
+			$('#detail_rightfb').css({ 'top':'0px', "position":"fixed" });
+		}
+		if (y < 735 ) {
+			$('#detail_rightfb').css({ 'top':'auto', "position":"static" });
+		}
+	});
+});
+function rate(rating) {
+	var s,g;
+	rating = rating.toString();
+	if(rating=="0"){
+		var j=1;
+		while(j<=5){
+			$("#s"+j).removeClass();
+			$("#s"+j).addClass("star-empty");
+			j++;
+		}
+	}else{
+		s=rating.substr(0,1);
+		g=rating.substr(1,1);
+		for(var i=1;i<=parseInt(s);i++){
+			$("#s"+i).removeClass();
+			$("#s"+i).addClass("star-full");
+		}
+		if(parseInt(g)==5){
+			$("#s"+i).removeClass();
+			$("#s"+i).addClass("star-half");
+			i++;
+		}
+		while(i<=5){
+			$("#s"+i).removeClass();
+			$("#s"+i).addClass("star-empty");
+			i++;
+		}
+	}
+}
+function cut_hide() {
+	$("#hide").show();
+	$("#show").hide();
+}
+function cut_show() {
+	$("#hide").hide();
+	$("#show").show();
+}
+function popUp(a, w, h) {
+	day = new Date();
+	id = day.getTime();
+	window.open(a, id, 'toolbar=0,scrollbars=1,location=0,statusbar=1,menubar=0,resizable=0,width=' + w + ',height=' + h)
+}
+</script>
+<!--------------------footer start-------------------->
+<footer>
+	<ul class="footer_nav clearfix">
+		<li>
+			<a href="http://www.mangahere.com/">Home</a>|</li>
+		<li>
+			<a href="http://www.mangahere.com/latest/">Latest Releases</a>|</li>
+		<li>
+			<a href="http://www.mangahere.com/mangalist/">Manga List</a>|</li>
+		<li>
+			<a href="http://www.mangahere.com/directory/?views.za">Hot Manga</a>|</li>
+		<li>
+			<a href="http://www.mangahere.com/manga/naruto/">Naruto</a>|</li>
+		<li>
+			<a href="http://www.mangahere.com/manga/bleach/">Bleach</a>|</li>
+		<li>
+			<a href="http://www.mangahere.com/manga/one_piece/">One Piece</a>|</li>
+		<li>
+			<a href="http://www.mangahere.com/manga/fairy_tail/">Fairy Tail</a>|</li>
+		<li>
+			<a href="http://www.mangahere.com/manga/soul_eater/">Soul Eater</a>
+		</li>
+	</ul>
+	<ul class="footer_chapters clearfix">
+<li><a href="http://www.mangahere.com/manga/naruto/v60/c599/">Naruto 599</a></li><li><a href="http://www.mangahere.com/manga/one_piece/v60/c679/">One Piece 679</a></li><li><a href="http://www.mangahere.com/manga/bleach/v53/c505/">Bleach 505</a></li><li><a href="http://www.mangahere.com/manga/fairy_tail/v26/c297/">Fairy Tail 297</a></li><li><a href="http://www.mangahere.com/manga/hunter_x_hunter/v29/c340/">Hunter X Hunter 340</a></li><li><a href="http://www.mangahere.com/manga/beelzebub/v15/c170/">Beelzebub 170</a></li><li><a href="http://www.mangahere.com/manga/soul_eater/v16/c100/">Soul Eater 100</a></li><li><a href="http://www.mangahere.com/manga/claymore/v23/c129/">Claymore 129</a></li><li><a href="http://www.mangahere.com/manga/air_gear/v36/c356/">Air Gear 356</a></li><li><a href="http://www.mangahere.com/manga/cage_of_eden/v17/c167/">Cage of Eden 167</a></li><li><a href="http://www.mangahere.com/manga/bakuman/v20/c176/">Bakuman 176</a></li><li><a href="http://www.mangahere.com/manga/skip_beat/v31/c191/">Skip Beat 191</a></li><li><a href="http://www.mangahere.com/manga/vampire_knight/v16/c085/">Vampire Knight 85</a></li><li><a href="http://www.mangahere.com/manga/noblesse/v04/c247/">Noblesse 247</a></li></ul>
+			<div class="mb20"></div>
+		<div class="footer_links">
+		<a href="http://www.mangahere.com/donation.htm">Donation</a>
+		<a rel="nofollow" href="http://www.mangahere.com/request-manga.htm">Request Manga</a>
+		<a rel="nofollow" href="http://www.mangahere.com/terms.htm">Terms</a>
+		<a rel="nofollow" href="http://www.mangahere.com/contact-us.htm">Contact Us</a>
+		<a rel="nofollow" href="http://www.mangahere.com/affiliates.htm">Affiliates</a>
+		<a href="http://www.mangahere.com/sitemap.htm">Sitemap</a>
+			</div>
+	<div class="footer_copy">Copyrights and trademarks for the manga, and other promotional materials are held by their respective owners and their use is allowed under the fair use clause of the<br />Copyright Law. &copy; 2012 MangaHere.com.</div>
+</footer>
+<div style="display:none;">
+<!--[if IE 6]>
+<script type="text/javascript">
+$LAB.queueScript("http://m.mhcdn.net/media/js/DD_belatedPNG.js?v=153").queueWait(function () {
+	DD_belatedPNG.fix('.logo, nav, .hot_manga_icon, .banner_pic .thumb li.select');
+});
+</script>
+<![endif]-->
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-11278446-4']);
+_gaq.push(['_setDomainName', '.mangahere.com']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '  https://ssl' : '  http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+$LAB.runQueue();
+</script>
+</div>
+</body>
+</html>
+<!--
+37.1.144.52
+init: 0.0040931701660156
+proc: 0.00081992149353027
+page: 0.002187967300415
+total: 0.0082361698150635
+-->

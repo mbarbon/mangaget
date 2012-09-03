@@ -1,0 +1,529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="Shortcut Icon" href="http://www.mangahere.com/favicon32.ico" type="image/x-icon" />
+<meta name="author" content="Manga Here" />
+<meta name="resource-type" content="document" />
+<meta name="distribution" content="global" />
+<meta name="copyright" content="mangahere" />
+<meta name="robots" content="index,follow" />
+<meta name="rating" content="general" />
+<meta name="revisit-after" content="1 day" />
+<meta property="fb:app_id" content="250769461611065"/>
+<meta property="fb:admins" content="100001376095179"/>
+
+<meta name="keywords" content="manga,read manga,manga online,magna scans,manga volume,manga chapter,online manga,read free manga,read free manga online,manga Genre." />
+<meta name="description" content="Read your favorite mangas online! Hundreds of high-quality free manga for you, with a list being updated daily. Naruto manga, Bleach manga, One Piece manga, Air Gear manga, Claymore manga, Fairy Tail manga, Inuyasha manga, and many more…" />
+<title>ab Search Results at MangaHere.com</title>
+<meta property="og:title" content="Read Manga Online" />
+<meta property="og:site_name" content="Mange Here" />
+<meta property="og:image" content="http://m.mhcdn.net/media/images/logotn.png" />
+
+
+<link rel="search" type="application/opensearchdescription+xml" title="Manga Here Search" href="http://www.mangahere.com/opensearch.xml" />
+
+
+<link rel="stylesheet" type="text/css" media="screen" href="http://m.mhcdn.net/media/css/theme.css?v=153" />
+<link rel="stylesheet" type="text/css" media="screen" href="http://m.mhcdn.net/media/css/default.css?v=153" />
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="http://m.mhcdn.net/media/css/ie6.css?v=153" /><![endif]-->
+
+<script type="text/javascript" src="http://m.mhcdn.net/media/js/LAB.min.js?v=153"></script>
+<!--[if IE]><script type="text/javascript" src="http://m.mhcdn.net/media/js/html5.js?v=153"></script><![endif]-->
+
+<script type="text/javascript">
+var img_url = "http://m.mhcdn.net/media/images/", options, a;
+var base_url = "http://www.mangahere.com/";
+var fb_app_id="250769461611065";
+$LAB
+.queueScript("http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.2.min.js").queueWait()
+.queueScript("http://m.mhcdn.net/media/js/fb_dialog.js?v=153").queueWait()
+.queueScript("http://m.mhcdn.net/media/js/jquery.validate.js?v=153").queueWait()
+.queueScript("http://m.mhcdn.net/media/js/jquery.autocomplete.js?v=153").queueWait(function () {
+	jQuery(function () {
+		options = {
+			serviceUrl: '/ajax/search.php',
+			minChars: 1,
+			delimiter: /(,|;)\s*/,
+			maxHeight: 400,
+			width: 300,
+			zIndex: 9999,
+			deferRequestBy: 0,
+			noCache: true
+		};
+		a = $('#query').autocomplete(options);
+	});
+})
+.queueScript("http://m.mhcdn.net/media/js/tooltip.js?v=153")
+.queueWait()
+.queueScript("http://connect.facebook.net/en_US/all.js");
+function addFavorite() {
+	if (document.all) {
+		try {
+			window.external.addFavorite('http://www.mangahere.com', 'Manga Here - Read English Manga Free Online. Manga is Here!');
+		} catch (e) {
+			alert("Fail to add to your favorites, please press Ctrl + D to try again");
+		}
+	} else if (window.sidebar) {
+		window.sidebar.addPanel('Manga Here - Read English Manga Free Online. Manga is Here!', 'http://www.mangahere.com', "");
+	} else {
+		alert("Fail to add to your favorites, please press Ctrl + D to try again");
+	}
+}
+
+function setHomepage() {
+	if (document.all) {
+		document.body.style.behavior = 'url(#default#homepage)';
+		document.body.setHomePage('http://www.mangahere.com');
+	} else if (window.sidebar) {
+		if (window.netscape) {
+			try {
+				netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+			} catch (e) {
+				alert('This operation was rejected by your brower, please input “about:config”at address bar and turn "signed.applets.codebase_principal_support" to ture.');
+			}
+		}
+		var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+		prefs.setCharPref('browser.startup.homepage', 'http://www.mangahere.com');
+	} else {
+		alert('This funciton is not supported by your brower, please add manually');
+	}
+}
+</script>
+
+<script>
+  $LAB.queueWait(function () {
+	$(function() {
+		$(".MHShuffleAd").hide();
+		var elements = $(".MHShuffleAd");
+		var elementCount = elements.size();
+		var elementsToShow = 1;
+		var alreadyChoosen = ",";
+		var i = 0;
+		while (i < elementsToShow) {
+			var rand = Math.floor(Math.random() * elementCount);
+			if (alreadyChoosen.indexOf("," + rand + ",") < 0) {
+				alreadyChoosen += rand + ",";
+				elements.eq(rand).show();
+				++i;
+			}
+		}
+	});
+  });
+</script>
+<script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'>
+</script>
+<script type='text/javascript'>
+GS_googleAddAdSenseService("ca-pub-2356615155015370");
+GS_googleEnableAllServices();
+</script>
+<script type='text/javascript'>
+GA_googleAddSlot("ca-pub-2356615155015370", "mangahere_home_right_160x600");
+GA_googleAddSlot("ca-pub-2356615155015370", "mangahere_home_right_300x250");
+GA_googleAddSlot("ca-pub-2356615155015370", "mangahere_page_right_160x600");
+GA_googleAddSlot("ca-pub-2356615155015370", "mangahere_page_right_160x600m");
+GA_googleAddSlot("ca-pub-2356615155015370", "mangahere_page_top_728x90");
+GA_googleAddSlot("ca-pub-2356615155015370", "mangahere_page_top_728x90m");
+GA_googleAddSlot("ca-pub-2356615155015370", "mangahere_ros_right_160x600");
+GA_googleAddSlot("ca-pub-2356615155015370", "mangahere_ros_right_300x250");
+GA_googleAddSlot("ca-pub-2356615155015370", "mangahere_ros_top_728x90");
+</script>
+<script type='text/javascript'>
+GA_googleFetchAds();
+</script>
+</head>
+<body>
+<!-- body-bg-top start -->
+    <div class="MHShuffleAd">
+      <a href="http://www.animehere.com/?utm_source=MangaHere&utm_medium=SiteSkin&utm_campaign=MH-siteskin" target="_blank" class="body-bg-left"></a>
+      <a href="http://www.funnymama.com/?utm_source=MangaHere&utm_medium=SiteSkin&utm_campaign=MH-siteskin" target="_blank" class="body-bg-right"></a>
+    </div>
+
+    <div class="MHShuffleAd">
+      <a href="http://ninja.game321.com/activities/20110317/index.html?utm_source=mangahere&utm_medium=cpa&utm_campaign=pockieninja" target="_blank" class="body-bg-left_game321"></a>
+      <a href="http://ninja.game321.com/activities/20110317/index.html?utm_source=mangahere&utm_medium=cpa&utm_campaign=pockieninja" target="_blank" class="body-bg-right_game321"></a>
+    </div>
+
+    <div class="MHShuffleAd">
+      <a href="http://www.otakushop.com/?utm_source=MH&utm_medium=Site_Skin&utm_campaign=OS" target="_blank" class="body-bg-left_os"></a>
+      <a href="http://www.otakushop.com/?utm_source=MH&utm_medium=Site_Skin&utm_campaign=OS" target="_blank" class="body-bg-right_os"></a>
+    </div>
+<!-- body-bg-top end -->
+
+<!--------------------header start-------------------->
+<header>
+	<section class="header_top">
+		<a href="http://www.mangahere.com/" class="logo"></a>
+		<span class="sign">
+					<a href="javascript:boxShow('sign_in');" rel="nofollow">[ Sign In ]</a>
+			<a href="javascript:boxShow('sign_up');" rel="nofollow">[ Sign Up ]</a>
+				</span>
+	</section>
+	<nav>
+		<ul class="menu clearfix">
+			<li><a href="http://www.mangahere.com/" >Home</a></li>
+			<li><a href="http://www.mangahere.com/latest/" >Latest Releases</a></li>
+			<li><a href="http://www.mangahere.com/mangalist/" >Manga List</a></li>
+			<li><a href="http://www.mangahere.com/directory/?views.za" >Hot Manga</a></li>
+			<li><a href="http://www.mangahere.com/spoilers/" >Spoilers &amp; News</a></li>
+			<li><a href="http://www.mangahere.com/manga/naruto/">Naruto</a></li>
+			<li><a href="http://www.mangahere.com/manga/bleach/">Bleach</a></li>
+			<li><a href="http://www.mangahere.com/manga/one_piece/">One Piece</a></li>
+			<li><a href="http://www.mangahere.com/manga/fairy_tail/">Fairy Tail</a></li>
+			<li><a href="http://www.animeonline.net/#manga-here" target="_blank">Forum</a></li>
+		</ul>
+		<section class="search_top clearfix">
+			<aside class="search_topR">
+					<span class="search_input">
+						<form action="/search.php" id="lookupform" name="lookupform" method="get">
+						<input type="text" id="query" name="name" value="Enter Manga Name..." class="search_text" autocomplete="off" />
+						<input type="submit" value="Search" class="search_button" />
+						</form>
+					</span>
+					<span class="sur_adv">
+						<a class="six_buttoon" href="http://www.mangahere.com/random.htm">Surprise</a>
+						<a class="six_buttoon" href="http://www.mangahere.com/advsearch.htm" rel="nofollow">Advanced</a>
+					</span>
+				<script type="text/javascript">
+				$LAB.queueWait(function () {
+					$(".search_text").focus(function () {
+						$(this).val("");
+					}).focusout(function () {
+						if ($(this).val() == "") {
+							$(this).val("Enter Manga Name...")
+						}
+					});
+				});
+				</script>
+			</aside>
+			<article class="search_topL">
+				<a href="/romance/">Romance</a>|<a href="/comedy/">Comedy</a>|<a href="/shoujo/">Shoujo</a>|<a href="/drama/">Drama</a>|<a href="/school_life/">School Life</a>|<a href="/shounen/">Shounen</a>|<a href="/action/">Action</a>|<a href="/fantasy/">Fantasy</a>|<a href="/seinen/">Seinen</a>
+				<a href="/directory/" class="more"></a>
+			</article>
+		</section>
+	</nav>
+</header>
+<div class="dialog_box" id="sign_up">
+  <a href="javascript:void(0);" class="close" onclick="javascript:boxRemove('sign_up');" title="Close">x</a>
+  <div class="title">Sign Up</div>
+  <p class="mb10"><strong class="color_0077">Want to save time?</strong> Sign up with your facebook account now</p>
+  <a href="#" class="facebook_sign"><span>f</span>Login with Facebook</a>
+  <p class="color_0077 mt10">Or complete the form below</p>
+  <div class="register">
+		 <form id="signupform">
+     <ul class="register_list">
+       <li><label>User Name</label><input type="text" class="text" name="username" id="username" /><span class="color_ff00">Required in 4 to 14 letters or numbers</span></li>
+       <li><label>Password</label><input type="password" class="text" name="password" id="password" /><span class="color_ff00">Required in 6-14 characters</span></li>
+       <li><label><span class="re_type">Re-type<br />Password</span></label><input type="password" class="text" name="password_confirm" id="password_confirm" /><span></span></li>
+       <li><label>Email</label><input type="text" class="text" name="email" id="email" /><span></span></li>
+       <li class="ml80"><a href="javascript:void(0);" class="one_buttoon mr15"><span>Sign Up</span></a></li>
+     </ul>
+		 </form>
+  </div>
+</div>
+<div class="dialog_box" id="sign_in">
+  <a href="javascript:void(0);" class="close" onclick="javascript:boxRemove('sign_in');" title="Close">x</a>
+  <div class="title">Sign In</div>
+  <p class="mb10"><strong class="color_0077">Sign in with your facebook account</strong></p>
+  <a href="#" class="facebook_sign"><span>f</span>Login with Facebook</a>
+  <p class="color_0077 mt10">Or with mangahere account <a href="javascript:boxRemove('sign_in');boxShow('sign_up');" class="color_0077 tdu ml10">Don't have an account?</a></p>
+  <div class="login">
+		 <form id="signinform">
+     <ul class="login_list">
+       <li><label>Username</label><input type="text" class="text" name="name" /></li>
+       <li><label>Password</label><input type="password" class="text" name="pass" /></li>
+       <li>
+			 	<label class="checkbox_RM"><input type="checkbox" class="checkbox" value="1" name="remember" />Remember Me</label>
+				<a href="/forgotpassword.htm" class="color_0077 ml10">Forget User Name/Password?</a>
+			 </li>
+       <li class="ml80"><a href="javascript:void(0);" id="normal_login" class="one_buttoon mr15"><span>Sign In</span></a></li>
+     </ul>
+		 </form>
+  </div>
+</div>
+<div id="back_top"><span></span>Back to Top</div>
+<script type="text/javascript">
+$LAB.queueWait(function(){
+	FB.init({appId:'250769461611065',cookie:true,xfbml:true,oauth:true});
+	$('.facebook_sign').click(function(){
+		FB.login(function(r){
+			if(r.authResponse){window.location=base_url + "connect/facebook.php?r="}
+		},{scope:'email,publish_stream'}
+	)});
+	$('#normal_login').click(function(){
+		$.post(
+			'http://www.mangahere.com/ajax/signin.php',
+			$("#signinform").serialize(),
+			function(r){if(r == 0) window.location.reload(); else alert('Sign in failed: please check your username or password.');}
+		);
+	});
+	$('#signinform input').blur(function(){
+	});
+	$('#signupform a').click(function(){
+		if($('#signupform .msg-correct').length >=4) {
+			$.post(
+				'http://www.mangahere.com/ajax/signup.php',
+				$("#signupform").serialize(),
+				function(r){
+					if(r == 0) window.location.reload();
+					else alert(r);
+				}
+			);
+		}
+	});
+	jQuery.validator.addMethod("username", function(value, element) {
+		return this.optional(element) || /^[A-Za-z0-9]+$/.test(value);
+	}, "Only allowed letters or numbers");
+	$("#signupform").validate({
+		rules: {
+			username: {required: true,rangelength: [4,14],remote: "/ajax/user.php"},
+			password: {required: true,rangelength: [6,14]},
+			password_confirm: {required: true,rangelength: [6,14],equalTo:"#password"},
+			email: {required: true,email: true,remote: "/ajax/email.php"}
+		},
+		messages: {
+			username: {required: "Please input your username",rangelength:jQuery.format("Only allowed {0} to {1} letters or numbers"),remote: jQuery.format("This username has already exist")},
+			password: {required: "Please input your password",rangelength:jQuery.format("Only allowed {0} to {1} characters")},
+			password_confirm: {required: "Please input your password again",rangelength:jQuery.format("Only allowed {0} to {1} characters"),equalTo: "Please verify your password again"},
+			email: {required: "Please input your Email",email: "Please input an valid Email address",remote: jQuery.format("This Email has already been used")}
+		},
+		errorPlacement: function(error, element) {
+			element.next().addClass("msg-errors").html('');
+			element.next('span.msg-errors').append(error.html());
+		},
+		success: function(label,element) {
+			element.next().removeClass().addClass("msg-correct").html('');
+		}
+	});
+});
+</script>
+<section class="main clearfix">
+
+  <article class="wid754 left">
+     <div class="box_w clearfix">
+          <a href="/advsearch.htm" class="result_adsearch" rel="nofollow"></a>
+          <div class="title"><span class="title_icon"></span>Search Result for ab</div>
+      </div>
+	<div class="result_search">
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/a_or_abc/" class="manga_info name_one" rel="A or ABC">A or ABC</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/a_or_abc/v01/c001/">Ch.1</a>
+			</dt>
+			<dd>Alternative Name: A or ABC ~ Love Attack Stories</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/abara/" class="manga_info name_one" rel="Abara">Abara</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/abara/v02/c012/">Ch.12</a>
+			</dt>
+			<dd>Alternative Name: アバラ</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/abenobashi_magical_shopping_arcade/" class="manga_info name_one" rel="Abenobashi Magical Shopping Arcade">Abenobashi Magical Shopping Arcade</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/abenobashi_magical_shopping_arcade/v02/c000.2/">Ch.0.2</a>
+			</dt>
+			<dd>Alternative Name: アベノ橋魔法商店街; Abenobashi Magical Shopping Arcade</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/abide_in_the_wind/" class="manga_info name_one" rel="Abide in the Wind">Abide in the Wind</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/abide_in_the_wind/c007/">Ch.7</a>
+			</dt>
+			<dd>Alternative Name: 바람이 머무는 난; Abide by the Wind</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/ability_shop/" class="manga_info name_one" rel="Ability Shop">Ability Shop</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/ability_shop/v00/c000/">Ch.0</a>
+			</dt>
+			<dd>Alternative Name: あびりてぃ しょっぷ</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/absolute_boyfriend/" class="manga_info name_one" rel="Absolute Boyfriend">Absolute Boyfriend</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/absolute_boyfriend/v01/c001/">Ch.1</a>
+			</dt>
+			<dd>Alternative Name: 絶対彼氏。; Zettai Kareshi</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/absolute_witch/" class="manga_info name_one" rel="Absolute Witch">Absolute Witch</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/absolute_witch/v12/c019.8/">Ch.19.8</a>
+			</dt>
+			<dd>Alternative Name: 절대마녀</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/absorb_ability/" class="manga_info name_one" rel="Absorb; Ability">Absorb; Ability</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/absorb_ability/v01/c007/">Ch.7</a>
+			</dt>
+			<dd>Alternative Name: アブアビ; Absorb Ability; Abuabi</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/adabana/" class="manga_info name_one" rel="Adabana">Adabana</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/adabana/c000/">Ch.0</a>
+			</dt>
+			<dd>Alternative Name: 徒花</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/ai_no_kusabi_the_space_between/" class="manga_info name_one" rel="Ai No Kusabi The Space Between">Ai No Kusabi The Space Between</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/ai_no_kusabi_the_space_between/c001/">Ch.1</a>
+			</dt>
+			<dd>Alternative Name: 間の楔; Ai no Kusabi; The Space Between; The Wedge of Interval; The Wedge of Love</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/ai_no_shitsutakabutta/" class="manga_info name_one" rel="Ai no Shitsutakabutta">Ai no Shitsutakabutta</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/ai_no_shitsutakabutta/v01/c008/">Ch.8</a>
+			</dt>
+			<dd>Alternative Name: 愛のシッタカブッタ</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/aishiteruze_baby/" class="manga_info name_one" rel="Aishiteruze Baby">Aishiteruze Baby</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/aishiteruze_baby/v01/c001.1/">Ch.1.1</a>
+			</dt>
+			<dd>Alternative Name: 宝贝我爱你; 愛してるぜベイベ; 愛してるぜ� ... y; I love you, Baby!</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/akaboshi_ibun_suikoden/" class="manga_info name_one" rel="Akaboshi - Ibun Suikoden">Akaboshi - Ibun Suikoden</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/akaboshi_ibun_suikoden/v01/c024/">Ch.24</a>
+			</dt>
+			<dd>Alternative Name: アカボシ; アカボシ·いぶん すいこでん; Akabo ... �لصباح (arabic)</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/akihabara_deep/" class="manga_info name_one" rel="Akihabara @ Deep">Akihabara @ Deep</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/akihabara_deep/c002/">Ch.2</a>
+			</dt>
+			<dd>Alternative Name: アキハバラ＠DEEP; アキハバラ@DEEP; Akihabara@DEEP</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/akkan_baby/" class="manga_info name_one" rel="Akkan Baby">Akkan Baby</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/akkan_baby/v03/c000/">Ch.0</a>
+			</dt>
+			<dd>Alternative Name: あっかんベービー; 爱情不结晶</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/alabaster/" class="manga_info name_one" rel="Alabaster">Alabaster</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/alabaster/c001/">Ch.1</a>
+			</dt>
+			<dd>Alternative Name: アラバスター; Arabastaa</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/amnesia_labyrinth/" class="manga_info name_one" rel="Amnesia Labyrinth">Amnesia Labyrinth</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/amnesia_labyrinth/c007/">Ch.7</a>
+			</dt>
+			<dd>Alternative Name: Kagerou Meikyuu, Amnesia Labyrinth</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/anorexia_shikabane_hanako_wa_kyoshokushou/" class="manga_info name_one" rel="Anorexia - Shikabane Hanako wa Kyoshokushou">Anorexia - Shikabane Hanako wa Kyoshokushou</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/anorexia_shikabane_hanako_wa_kyoshokushou/c005/">Ch.5</a>
+			</dt>
+			<dd>Alternative Name: アノレクシア~しかばね華子は拒食症~; Anorexia ... Hanako is anorexia ~</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/asa_ga_kuru_tabi/" class="manga_info name_one" rel="Asa Ga Kuru Tabi">Asa Ga Kuru Tabi</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/asa_ga_kuru_tabi/c003/">Ch.3</a>
+			</dt>
+			<dd>Alternative Name: 朝がくる度; Every Time the Sun Rises</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="http://www.mangahere.com/manga/b_kyuu_gourmet_kurabu/" class="manga_info name_one" rel="B Kyuu Gourmet Kurabu">B Kyuu Gourmet Kurabu</a>
+				Latest Updated: <a class="name_two" href="http://www.mangahere.com/manga/b_kyuu_gourmet_kurabu/v01/c002/">Ch.2</a>
+			</dt>
+			<dd>Alternative Name: B Grade; B Grade Gourmet Club; B Kyuu Gourmet Club; B級グルメ倶楽部; BGrade</dd>
+		</dl>
+<div class="directory_footer"><div class="next-page"><a href="javascript:void(0);" class="noprew"><i></i>Prev</a><a href="javascript:void(0);" class="hover">1</a><a href="/search.php?direction=&name_method=cw&name=ab&page=2">2</a><a href="/search.php?direction=&name_method=cw&name=ab&page=3">3</a><a href="/search.php?direction=&name_method=cw&name=ab&page=4">4</a><a href="/search.php?direction=&name_method=cw&name=ab&page=5">5</a><a href="/search.php?direction=&name_method=cw&name=ab&page=6">6</a><a href="/search.php?direction=&name_method=cw&name=ab&page=7">7</a><a href="/search.php?direction=&name_method=cw&name=ab&page=8">8</a><a href="/search.php?direction=&name_method=cw&name=ab&page=9">9</a><a href="/search.php?direction=&name_method=cw&name=ab&page=10">10</a><a href="/search.php?direction=&name_method=cw&name=ab&page=11">11</a><a href="/search.php?direction=&name_method=cw&name=ab&page=2" class="next"><i></i>Next</a></div></div>	</div>
+  </article>
+<!--------------------left end-------------------->
+<aside class="wid166 right">
+<div class="advimg160600">
+<!-- mangahere_ros_right_160x600 -->
+<script type='text/javascript'>
+GA_googleFillSlot("mangahere_ros_right_160x600");
+</script>
+</div>
+</aside>
+<!--------------------right end-------------------->
+
+</section>
+<!--------------------one main end-------------------->
+<!--------------------footer start-------------------->
+<footer>
+	<ul class="footer_nav clearfix">
+		<li>
+			<a href="http://www.mangahere.com/">Home</a>|</li>
+		<li>
+			<a href="http://www.mangahere.com/latest/">Latest Releases</a>|</li>
+		<li>
+			<a href="http://www.mangahere.com/mangalist/">Manga List</a>|</li>
+		<li>
+			<a href="http://www.mangahere.com/directory/?views.za">Hot Manga</a>|</li>
+		<li>
+			<a href="http://www.mangahere.com/manga/naruto/">Naruto</a>|</li>
+		<li>
+			<a href="http://www.mangahere.com/manga/bleach/">Bleach</a>|</li>
+		<li>
+			<a href="http://www.mangahere.com/manga/one_piece/">One Piece</a>|</li>
+		<li>
+			<a href="http://www.mangahere.com/manga/fairy_tail/">Fairy Tail</a>|</li>
+		<li>
+			<a href="http://www.mangahere.com/manga/soul_eater/">Soul Eater</a>
+		</li>
+	</ul>
+	<ul class="footer_chapters clearfix">
+<li><a href="http://www.mangahere.com/manga/naruto/v60/c599/">Naruto 599</a></li><li><a href="http://www.mangahere.com/manga/one_piece/v60/c679/">One Piece 679</a></li><li><a href="http://www.mangahere.com/manga/bleach/v53/c505/">Bleach 505</a></li><li><a href="http://www.mangahere.com/manga/fairy_tail/v26/c297/">Fairy Tail 297</a></li><li><a href="http://www.mangahere.com/manga/hunter_x_hunter/v29/c340/">Hunter X Hunter 340</a></li><li><a href="http://www.mangahere.com/manga/beelzebub/v15/c170/">Beelzebub 170</a></li><li><a href="http://www.mangahere.com/manga/soul_eater/v16/c100/">Soul Eater 100</a></li><li><a href="http://www.mangahere.com/manga/claymore/v23/c129/">Claymore 129</a></li><li><a href="http://www.mangahere.com/manga/air_gear/v36/c356/">Air Gear 356</a></li><li><a href="http://www.mangahere.com/manga/cage_of_eden/v17/c167/">Cage of Eden 167</a></li><li><a href="http://www.mangahere.com/manga/bakuman/v20/c176/">Bakuman 176</a></li><li><a href="http://www.mangahere.com/manga/skip_beat/v31/c191/">Skip Beat 191</a></li><li><a href="http://www.mangahere.com/manga/vampire_knight/v16/c085/">Vampire Knight 85</a></li><li><a href="http://www.mangahere.com/manga/noblesse/v04/c247/">Noblesse 247</a></li></ul>
+			<div class="mb20"></div>
+		<div class="footer_links">
+		<a href="http://www.mangahere.com/donation.htm">Donation</a>
+		<a rel="nofollow" href="http://www.mangahere.com/request-manga.htm">Request Manga</a>
+		<a rel="nofollow" href="http://www.mangahere.com/terms.htm">Terms</a>
+		<a rel="nofollow" href="http://www.mangahere.com/contact-us.htm">Contact Us</a>
+		<a rel="nofollow" href="http://www.mangahere.com/affiliates.htm">Affiliates</a>
+		<a href="http://www.mangahere.com/sitemap.htm">Sitemap</a>
+			</div>
+	<div class="footer_copy">Copyrights and trademarks for the manga, and other promotional materials are held by their respective owners and their use is allowed under the fair use clause of the<br />Copyright Law. &copy; 2012 MangaHere.com.</div>
+</footer>
+<div style="display:none;">
+<!--[if IE 6]>
+<script type="text/javascript">
+$LAB.queueScript("http://m.mhcdn.net/media/js/DD_belatedPNG.js?v=153").queueWait(function () {
+	DD_belatedPNG.fix('.logo, nav, .hot_manga_icon, .banner_pic .thumb li.select');
+});
+</script>
+<![endif]-->
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-11278446-4']);
+_gaq.push(['_setDomainName', '.mangahere.com']);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? '  https://ssl' : '  http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+$LAB.runQueue();
+</script>
+</div>
+</body>
+</html>
+<!--
+37.1.144.52
+init: 0.0030789375305176
+proc: 0.001622200012207
+page: 0.043520927429199
+total: 0.049097061157227
+-->
