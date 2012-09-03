@@ -49,12 +49,10 @@ public class MangaAdvancedSearch extends Activity {
     private ArrayList<String> getIncludeTags() {
         ArrayList<String> result = new ArrayList<String>();
         SparseBooleanArray selected = tags.getCheckedItemPositions();
-        System.out.println("count " + selected.size());
+
         for (int i = 0; i < selected.size(); ++i)
             if (selected.valueAt(i)) {
                 int index = selected.keyAt(i);
-                System.out.println(i);
-                System.out.println((String) tagList.getItem(index));
                 result.add((String) tagList.getItem(index));
             }
 
