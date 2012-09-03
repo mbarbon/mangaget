@@ -599,6 +599,11 @@ public class Download extends Service {
 
     private void scanDownloadedFiles(long mangaId) {
         ContentValues manga = db.getManga(mangaId);
+
+        // handles temporary mangas
+        if (manga.getAsString(DB.MANGA_PATTERN).equals(""))
+            return;
+
         Cursor chapters = db.getChapterList(mangaId);
         boolean updated = false;
         int idI = chapters.getColumnIndex(DB.ID);

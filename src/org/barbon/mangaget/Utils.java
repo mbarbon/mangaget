@@ -69,10 +69,13 @@ public class Utils {
             int number = chapters.getInt(numberI);
             int id = chapters.getInt(idI);
 
-            if (status != DB.DOWNLOAD_COMPLETE &&
-                getChapterFile(pattern, number).exists()) {
-                db.updateChapterStatus(id, DB.DOWNLOAD_COMPLETE);
-                Notifier.getInstance().notifyChapterUpdate(mangaId, id);
+            if (status != DB.DOWNLOAD_COMPLETE) {
+                File path = getChapterFile(pattern, number);
+
+                if (path != null && path.exists()) {
+                    db.updateChapterStatus(id, DB.DOWNLOAD_COMPLETE);
+                    Notifier.getInstance().notifyChapterUpdate(mangaId, id);
+                }
             }
         }
 
@@ -102,6 +105,9 @@ public class Utils {
     }
 
     private static File getChapterFile(String pattern, int chapter) {
+        if (pattern.equals(""))
+            return null;
+
         File externalStorage = Environment.getExternalStorageDirectory();
         String targetPath = new Formatter()
             .format(pattern, chapter)
