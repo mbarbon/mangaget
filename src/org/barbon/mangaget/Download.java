@@ -513,12 +513,8 @@ public class Download extends Service {
         ContentValues manga = db.getManga(chapter.getAsLong(
                                               DB.CHAPTER_MANGA_ID));
         Scraper scraper = Scraper.getInstance(this);
-        File externalStorage = Environment.getExternalStorageDirectory();
-        String targetPath = new Formatter()
-            .format(manga.getAsString(DB.MANGA_PATTERN),
-                    chapter.getAsInteger(DB.CHAPTER_NUMBER))
-            .toString();
-        File fullPath = new File(externalStorage, targetPath);
+        File fullPath = Utils.getChapterFile(
+            manga, chapter.getAsInteger(DB.CHAPTER_NUMBER));
         DownloadProgress progress = new DownloadProgress(manga, chapter);
 
         PendingTask task = scraper.downloadChapter(
