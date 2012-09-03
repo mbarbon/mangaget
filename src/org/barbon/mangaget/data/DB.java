@@ -276,7 +276,7 @@ public class DB {
             values.put("title", cursor.getString(2));
             values.put("number", cursor.getString(3));
             values.put("url", cursor.getString(4));
-            values.put("download_status", cursor.getString(5));
+            values.put("download_status", cursor.getInt(5));
         }
 
         cursor.close();
