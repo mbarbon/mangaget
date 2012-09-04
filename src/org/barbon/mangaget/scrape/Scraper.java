@@ -411,6 +411,9 @@ public class Scraper {
             HtmlScrape.ChapterPage page =
                 getProvider(target).scrapeMangaPage(target);
 
+            if (page == null)
+                return;
+
             // update chapter list
             if (chapters == null)
                 chapters = page.chapters;
