@@ -1,0 +1,1850 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	
+    
+    Read Online
+    Liar Game
+    002: Flaw
+
+    
+</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta property="fb:admins" content="683024937,683024937" /><meta property="fb:app_id" content="111670815619329" />
+<script src="http://kissmanga.com/Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+<!-- CSS -->
+<link href="http://kissmanga.com/Content/css/tpl_style.css" rel="stylesheet" type="text/css" />
+<link href="http://kissmanga.com/Content/css/upload-progress.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="http://kissmanga.com/Content/images/favicon.ico" type="image/x-icon" />
+<!--[if IE 6]><link href="http://kissmanga.com/Content/css/tpl_ie_6.css"  rel="stylesheet" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="http://kissmanga.com/Content/css/tpl_ie_7.css" /><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" type="text/css" href="http://kissmanga.com/Content/css/tpl_ie_7.css" /><![endif]-->
+
+    
+    <meta name="description" content="Read Liar Game Chapter 002: Flaw Online - Liar Game 002: Flaw free and high quality at KissManga.com" />
+    <meta name="keywords" content="Read Liar Game Chapter 002: Flaw Online, download Liar Game Chapter 002: Flaw , Liar Game 002: Flaw" />
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-1712467-9']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    
+    <div id="containerRoot">
+        <div id="head">
+            <h3>
+                
+<div style="position: relative; text-align: right; margin: -40px 46px 20px 0px; font: bold 13px Arial;">
+    
+    <div id="topHolderBox" style="width: 230px; height: 27px;">
+        <img src="http://kissmanga.com/Content/images/user-small.png"
+            style="vertical-align: middle; margin-bottom: 5px">
+        <a href="http://kissmanga.com/Login">Login</a> or <a href="http://kissmanga.com/Register">
+            Register</a>
+    </div>
+    
+</div>
+
+                <div id="search" style="position: relative">
+                    <form id="formSearch" method="post">
+                    <p>
+                        <input size="40" maxlength="22" id="keyword" name="keyword" value="" class="text"
+                            autocomplete="off" />
+                        <select id="selectSearch">
+                            <option value="Manga">Series Name</option>
+                            <option value="AuthorArtist">Author/Artist</option>
+                        </select>
+                        <input id="imgSearch" type="image" src="http://kissmanga.com/Content/images/search.png"
+                            class="button" onclick="return false;" />
+                    </p>
+                    <div id="result_box" style="display: none">
+                    </div>
+                    <div style="margin: 10px 48px 10px 0">
+                        <a href="http://kissmanga.com/AdvanceSearch">
+                            <img src="http://kissmanga.com/Content/images/read.png"
+                                width="16px" border="0" style="vertical-align: middle" />&nbsp;&nbsp;Advanced
+                            Search</a>
+                    </div>
+                    </form>
+                </div>
+                <script type="text/javascript">
+                    $('#imgSearch').click(function () {
+                        Submit();
+                    });
+
+                    $('#keyword').keyup(function (evt) {
+                        Suggest();
+                    });
+
+                    $('#selectSearch').change(function () {
+                        Suggest();
+                    });
+
+                    $("#selectSearch option").each(function () {
+                        var url = location.href;
+                        if (url.indexOf($(this).attr('value')) != -1)
+                            $(this).attr("selected", "selected");
+                    });
+
+                    function Submit() {
+                        if ($.trim($('#keyword').val()).length < 2) {
+                            $('#keyword').blur();
+                            alert('Keyword must be more than one character!');
+                        }
+                        else {
+                            $("#formSearch").attr('action', "http://kissmanga.com/Search/" + $('#selectSearch').val());
+                            $("#formSearch").submit();
+                        }
+                    }
+
+                    function Suggest() {
+                        var keyword = $.trim($('#keyword').val());
+                        if (keyword != "") {
+                            $('#result_box').html("<span id='loader'></span>");
+                            $('#result_box').css('display', 'block');
+                            $.ajax(
+                            {
+                                type: "POST",
+                                url: "/Search/SearchSuggest",
+                                data: "type=" + $('#selectSearch').val() + '&keyword=' + keyword,
+                                success: function (message) {
+                                    if (message != "") {
+                                        $('#result_box').html(message);
+                                    }
+                                    else {
+                                        $('#result_box').html('');
+                                        $('#result_box').css('display', 'none');
+                                    }
+                                }
+                            });
+                        }
+                        else {
+                            $('#result_box').html('');
+                            $('#result_box').css('display', 'none');
+                        }
+                    }
+                </script>
+            </h3>
+            <h1>
+                <a href="http://kissmanga.com" title="Read manga online - kissmanga.com"
+                    class="logo">Read online manga - kissmanga.com</a></h1>
+        </div>
+        <!-- end div head -->
+        <div class="clear">
+        </div>
+        <div id="headnav">
+            
+<div id="navbar">
+    <div id="navcontainer">
+        <ul>
+            <li id="liHome"><a href="http://kissmanga.com">Home</a></li>
+            <li id="liDS"><a href="http://kissmanga.com/MangaList">Manga
+                List</a></li>
+            <li id="liGuide"><a href="http://kissmanga.com/Message/Guide">
+                Guide</a></li>
+            <li id="liReport"><a href="http://kissmanga.com/ReportError">
+                Report Error</a></li>
+            <li id="liRequest"><a href="http://kissmanga.com/RequestManga">
+                Request Manga</a></li>
+            <li id="liDownload"><a target="_blank" href="http://domdomsoft.com/home/2009/08/06/manga-downloader/domdomsoft-manga-downloader-2/">
+                Download Manga</a></li>
+            <li id="liDownloadAnime"><a target="_blank" href="http://blog.domdomsoft.com/category/domdomsoft/anime-downloader/">
+                Download Anime</a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var path = 'Manga';
+    var action = 'ReadOnline';
+    if (path == 'Home')
+        $('#liHome a').attr('id', 'currentTab');
+    else if (path == 'Manga' || path == 'Genre' || path == 'Group' || path == 'AuthorArtist')
+        $('#liDS a').attr('id', 'currentTab');
+    else if (action == 'Report')
+        $('#liReport a').attr('id', 'currentTab');
+    else if (action == 'RequestManga')
+        $('#liRequest a').attr('id', 'currentTab');
+    else if (action == 'Guide')
+        $('#liGuide a').attr('id', 'currentTab')
+    else
+        $('#navcontainer a[href*="' + path + '"]').attr('id', 'currentTab');
+</script>
+
+    <div id="navsubbar">
+        <p>
+            <a href="http://kissmanga.com/Manga/Liar-Game">
+                Manga
+                Liar Game
+                information</a>
+        </p>
+    </div>
+
+        </div>
+        <!-- end div headnav -->
+        
+    
+    <div style="width: 95%; text-align: center; margin: auto">
+        <!-- Chapters and pages -->
+        <div style="margin: auto; width: 780px; padding-top: 10px">
+            <div style="float: left">
+                <label class="lbl">
+                    Reading type</label>
+                <select id="selectReadType" style="width: 110px">
+                    <option value="0">One page</option>
+                    <option value="1" selected>All pages</option>
+                </select>
+                <label class="lbl">
+                    Chapter</label>
+                <select class="selectChapter" style="width: 380px">
+                    
+                    <option value="001-The-Legendary-Swindler?id=122665" >
+                        001 The Legendary Swindler
+                    </option>
+                    
+                    <option value="Liar-Game-2?id=122399" selected>
+                        002: Flaw
+                    </option>
+                    
+                    <option value="Liar-Game-3?id=122400" >
+                        003: Declaration of War
+                    </option>
+                    
+                    <option value="Liar-Game-4?id=122401" >
+                        004: Intimidating the Enemy
+                    </option>
+                    
+                    <option value="Liar-Game-5?id=122402" >
+                        005: Dissonance
+                    </option>
+                    
+                    <option value="Liar-Game-6?id=122403" >
+                        006: The Conclusion
+                    </option>
+                    
+                    <option value="Liar-Game-7?id=122404" >
+                        007: Game II
+                    </option>
+                    
+                    <option value="Liar-Game-8?id=122405" >
+                        008: Commence Battle
+                    </option>
+                    
+                    <option value="Liar-Game-9?id=122406" >
+                        009: Impatience
+                    </option>
+                    
+                    <option value="Liar-Game-10?id=122407" >
+                        010: Hope
+                    </option>
+                    
+                    <option value="Liar-Game-11?id=122408" >
+                        011: Alliance
+                    </option>
+                    
+                    <option value="Liar-Game-12?id=122409" >
+                        012: Catastrophe
+                    </option>
+                    
+                    <option value="Liar-Game-13?id=3466" >
+                        013 Light Vs Dark
+                    </option>
+                    
+                    <option value="Liar-Game-14?id=3475" >
+                        014 Scheme
+                    </option>
+                    
+                    <option value="Liar-Game-15?id=3479" >
+                        015 Upper Hand
+                    </option>
+                    
+                    <option value="Liar-Game-16?id=122410" >
+                        016: Foresight
+                    </option>
+                    
+                    <option value="Liar-Game-17?id=122411" >
+                        017: Trap
+                    </option>
+                    
+                    <option value="Liar-Game-18?id=122412" >
+                        018: Revival Round
+                    </option>
+                    
+                    <option value="Liar-Game-19?id=122413" >
+                        019: Downsizing Game
+                    </option>
+                    
+                    <option value="Liar-Game-20?id=122414" >
+                        020: Incitement
+                    </option>
+                    
+                    <option value="Liar-Game-21?id=122415" >
+                        021: Scapegoat
+                    </option>
+                    
+                    <option value="Liar-Game-22?id=122417" >
+                        022: Battle Plan
+                    </option>
+                    
+                    <option value="Liar-Game-23?id=122418" >
+                        023: Light vs Dark
+                    </option>
+                    
+                    <option value="Liar-Game-24?id=122420" >
+                        024: Retribution
+                    </option>
+                    
+                    <option value="Liar-Game-25?id=122421" >
+                        025: Comeback
+                    </option>
+                    
+                    <option value="Liar-Game-26?id=122422" >
+                        026: Control
+                    </option>
+                    
+                    <option value="Liar-Game-27?id=122423" >
+                        027: Inflation
+                    </option>
+                    
+                    <option value="Liar-Game-28?id=122425" >
+                        028: Salvation
+                    </option>
+                    
+                    <option value="Liar-Game-29?id=122426" >
+                        029: Game III
+                    </option>
+                    
+                    <option value="Liar-Game-30?id=122427" >
+                        030: Contraband
+                    </option>
+                    
+                    <option value="Liar-Game-31?id=122428" >
+                        031: Head Start
+                    </option>
+                    
+                    <option value="Liar-Game-32?id=122429" >
+                        032: Chicken
+                    </option>
+                    
+                    <option value="Liar-Game-33?id=122430" >
+                        033: Yokoya
+                    </option>
+                    
+                    <option value="Liar-Game-34?id=122431" >
+                        034: Clairvoyance
+                    </option>
+                    
+                    <option value="Liar-Game-35?id=122432" >
+                        035: Confrontation
+                    </option>
+                    
+                    <option value="Liar-Game-36?id=122433" >
+                        036: Division
+                    </option>
+                    
+                    <option value="Liar-Game-37?id=122434" >
+                        037: Discovered
+                    </option>
+                    
+                    <option value="Liar-Game-38?id=122435" >
+                        038: Confession
+                    </option>
+                    
+                    <option value="Liar-Game-39?id=122436" >
+                        039: Recollection
+                    </option>
+                    
+                    <option value="Liar-Game-40?id=122437" >
+                        040: Counterattack
+                    </option>
+                    
+                    <option value="Liar-Game-41?id=122438" >
+                        041: Unrest
+                    </option>
+                    
+                    <option value="Liar-Game-42?id=122439" >
+                        042: Experiment
+                    </option>
+                    
+                    <option value="Liar-Game-43?id=122440" >
+                        043: Strategy
+                    </option>
+                    
+                    <option value="Liar-Game-44?id=122441" >
+                        044: Miscalculation
+                    </option>
+                    
+                    <option value="Liar-Game-45?id=122442" >
+                        045: Pressure
+                    </option>
+                    
+                    <option value="Liar-Game-46?id=122443" >
+                        046: Confusion
+                    </option>
+                    
+                    <option value="Liar-Game-47?id=122445" >
+                        047: Reign
+                    </option>
+                    
+                    <option value="Liar-Game-48?id=122446" >
+                        048: Preparation
+                    </option>
+                    
+                    <option value="Liar-Game-49?id=122447" >
+                        049: Tip-Off
+                    </option>
+                    
+                    <option value="Liar-Game-50?id=122448" >
+                        050: Interrogation
+                    </option>
+                    
+                    <option value="Liar-Game-51?id=122449" >
+                        051: Confession
+                    </option>
+                    
+                    <option value="Liar-Game-52?id=122450" >
+                        052: Scheme
+                    </option>
+                    
+                    <option value="Liar-Game-55?id=122451" >
+                        053: Caution
+                    </option>
+                    
+                    <option value="Liar-Game-54?id=122452" >
+                        054: Completion
+                    </option>
+                    
+                    <option value="Liar-Game-55?id=122453" >
+                        055: Disturbance
+                    </option>
+                    
+                    <option value="Liar-Game-56?id=122454" >
+                        056: Blunder
+                    </option>
+                    
+                    <option value="Vol-006-Ch-057--Solidarity?id=122455" >
+                        057: Solidarity
+                    </option>
+                    
+                    <option value="Liar-Game-58?id=122456" >
+                        058: Discrepancy
+                    </option>
+                    
+                    <option value="Liar-Game-59?id=122457" >
+                        059: Provocation
+                    </option>
+                    
+                    <option value="Liar-Game-60?id=122458" >
+                        060: No Way Out
+                    </option>
+                    
+                    <option value="Liar-Game-61?id=122459" >
+                        061: Simulation
+                    </option>
+                    
+                    <option value="Liar-Game-62?id=122460" >
+                        062: Reload
+                    </option>
+                    
+                    <option value="Liar-Game-63?id=122461" >
+                        063: Shoot
+                    </option>
+                    
+                    <option value="Liar-Game-64?id=122462" >
+                        064: Pitfall
+                    </option>
+                    
+                    <option value="Liar-Game-65?id=122463" >
+                        065: Insight
+                    </option>
+                    
+                    <option value="Liar-Game-66?id=122464" >
+                        066: Avarice
+                    </option>
+                    
+                    <option value="Liar-Game-67?id=122465" >
+                        067: Agitation
+                    </option>
+                    
+                    <option value="Liar-Game-68?id=122466" >
+                        068: Centerfield
+                    </option>
+                    
+                    <option value="Liar-Game-69?id=122467" >
+                        069: Natural Talent
+                    </option>
+                    
+                    <option value="Liar-Game-70?id=122468" >
+                        070: Enticement
+                    </option>
+                    
+                    <option value="Liar-Game-71?id=122469" >
+                        071: Divine Sight
+                    </option>
+                    
+                    <option value="Liar-Game-72?id=122470" >
+                        072: Counterattack
+                    </option>
+                    
+                    <option value="Liar-Game-73?id=122471" >
+                        073: Intuition
+                    </option>
+                    
+                    <option value="Liar-Game-74?id=122472" >
+                        074: Request
+                    </option>
+                    
+                    <option value="Liar-Game-75?id=122473" >
+                        075: Luck
+                    </option>
+                    
+                    <option value="Liar-Game-76?id=122474" >
+                        076: Ruse
+                    </option>
+                    
+                    <option value="Liar-Game-77?id=122475" >
+                        077: General
+                    </option>
+                    
+                    <option value="Liar-Game-78?id=122476" >
+                        078: Coercion
+                    </option>
+                    
+                    <option value="Liar-Game-79?id=122477" >
+                        079: Falter
+                    </option>
+                    
+                    <option value="Liar-Game-80?id=122478" >
+                        080: Secret Maneuver
+                    </option>
+                    
+                    <option value="Liar-Game-81?id=122479" >
+                        081: Distrust
+                    </option>
+                    
+                    <option value="Liar-Game-82?id=122480" >
+                        082: Surrender
+                    </option>
+                    
+                    <option value="Liar-Game-83?id=122481" >
+                        083: Ambition
+                    </option>
+                    
+                    <option value="Liar-Game-84?id=122483" >
+                        084: Game IV
+                    </option>
+                    
+                    <option value="Liar-Game-85?id=122485" >
+                        085: Pandemic Game
+                    </option>
+                    
+                    <option value="Liar-Game-86?id=122486" >
+                        086: Agree
+                    </option>
+                    
+                    <option value="Liar-Game-87?id=122488" >
+                        087: Virus Outbreak
+                    </option>
+                    
+                    <option value="Liar-Game-88?id=122490" >
+                        088: Confirmation
+                    </option>
+                    
+                    <option value="Liar-Game-89?id=122491" >
+                        089: Conspire
+                    </option>
+                    
+                    <option value="Liar-Game-90?id=122492" >
+                        090: Stalemate
+                    </option>
+                    
+                    <option value="Liar-Game-91?id=122493" >
+                        091: Doubt
+                    </option>
+                    
+                    <option value="Liar-Game-92?id=122494" >
+                        092: Anxiety
+                    </option>
+                    
+                    <option value="Liar-Game-93?id=122496" >
+                        093: Differentiate
+                    </option>
+                    
+                    <option value="Liar-Game-94?id=122497" >
+                        094: Setup
+                    </option>
+                    
+                    <option value="Liar-Game-95?id=122498" >
+                        095: Overturn
+                    </option>
+                    
+                    <option value="Liar-Game-96?id=122499" >
+                        096: Intent
+                    </option>
+                    
+                    <option value="Liar-Game-97?id=122500" >
+                        097: Trust
+                    </option>
+                    
+                    <option value="Liar-Game-98?id=122501" >
+                        098: Selflessness
+                    </option>
+                    
+                    <option value="Liar-Game-99?id=122502" >
+                        099: Check
+                    </option>
+                    
+                    <option value="Liar-Game-100?id=122503" >
+                        100: Lockout
+                    </option>
+                    
+                    <option value="Liar-Game-101?id=122504" >
+                        101: Bribery
+                    </option>
+                    
+                    <option value="Liar-Game-102?id=122505" >
+                        102: Closure
+                    </option>
+                    
+                    <option value="Liar-Game-103?id=122506" >
+                        103: Contest
+                    </option>
+                    
+                    <option value="Liar-Game-104?id=122507" >
+                        104: Musical Chairs
+                    </option>
+                    
+                    <option value="Liar-Game-105?id=122508" >
+                        105: Strategy
+                    </option>
+                    
+                    <option value="Liar-Game-106?id=122509" >
+                        106: Deception
+                    </option>
+                    
+                    <option value="Liar-Game-107?id=122510" >
+                        107: Maneuver
+                    </option>
+                    
+                    <option value="Vol-011-Ch-108--Friendship?id=122511" >
+                        108: Friendship
+                    </option>
+                    
+                    <option value="Vol-011-Ch-109--Medals?id=122512" >
+                        109: Medals
+                    </option>
+                    
+                    <option value="Liar-Game-110?id=122513" >
+                        110: Foundation
+                    </option>
+                    
+                    <option value="Liar-Game-111?id=122514" >
+                        111: Bonds
+                    </option>
+                    
+                    <option value="Liar-Game-112?id=122515" >
+                        112: Union
+                    </option>
+                    
+                    <option value="Liar-Game-113?id=122516" >
+                        113: Recapture
+                    </option>
+                    
+                    <option value="Liar-Game-114?id=122517" >
+                        114: Surprise Attack
+                    </option>
+                    
+                    <option value="Liar-Game-115?id=122518" >
+                        115: Abstaining
+                    </option>
+                    
+                    <option value="Liar-Game-116?id=122519" >
+                        116: Cause
+                    </option>
+                    
+                    <option value="Liar-Game-117?id=122520" >
+                        117: Breach
+                    </option>
+                    
+                    <option value="Liar-Game-118?id=122521" >
+                        118: Ambush
+                    </option>
+                    
+                    <option value="Liar-Game-119?id=122522" >
+                        119: Alliance
+                    </option>
+                    
+                    <option value="Liar-Game-120?id=122523" >
+                        120: Puppeteer
+                    </option>
+                    
+                    <option value="Liar-Game-121?id=122524" >
+                        121: Dummy
+                    </option>
+                    
+                    <option value="Liar-Game-122?id=122525" >
+                        122: Logical Reasoning
+                    </option>
+                    
+                    <option value="Liar-Game-123?id=122526" >
+                        123: Turn Around
+                    </option>
+                    
+                    <option value="Liar-Game-124?id=122527" >
+                        124: Chance
+                    </option>
+                    
+                    <option value="Liar-Game-125?id=122528" >
+                        125: Demons
+                    </option>
+                    
+                    <option value="Liar-Game-126?id=122529" >
+                        126: Heartless
+                    </option>
+                    
+                    <option value="Liar-Game-127?id=122530" >
+                        127: Betrayal
+                    </option>
+                    
+                    <option value="Liar-Game-128?id=122531" >
+                        128: Prediction
+                    </option>
+                    
+                    <option value="Liar-Game-129?id=122532" >
+                        129: Rift
+                    </option>
+                    
+                    <option value="Liar-Game-130?id=122533" >
+                        130: Negotiations
+                    </option>
+                    
+                    <option value="Liar-Game-131?id=122534" >
+                        131: Make &amp; Break
+                    </option>
+                    
+                    <option value="Liar-Game-132?id=122535" >
+                        132: Trickster
+                    </option>
+                    
+                    <option value="Liar-Game-133?id=122536" >
+                        133: Under Control
+                    </option>
+                    
+                    <option value="Liar-Game-134?id=122537" >
+                        134: Counterattack
+                    </option>
+                    
+                    <option value="Liar-Game-135?id=122538" >
+                        135: Shorn
+                    </option>
+                    
+                    <option value="Liar-Game-136?id=122539" >
+                        136: Overwhelming
+                    </option>
+                    
+                    <option value="Liar-Game-137?id=122540" >
+                        137: Unity
+                    </option>
+                    
+                    <option value="Vol-013-Ch-138--Conclusion?id=107088" >
+                        138: Conclusion
+                    </option>
+                    
+                    <option value="Vol-014-Ch-139--Resolve?id=95309" >
+                        139: Resolve
+                    </option>
+                    
+                    <option value="Vol-014-Ch-140-Read-Online?id=95310" >
+                        140 Read Online
+                    </option>
+                    
+                    <option value="Vol-014-Ch-140--Twist?id=95313" >
+                        140: Twist
+                    </option>
+                    
+                    <option value="Vol-014-Ch-141--Bid-Poker?id=97708" >
+                        141: Bid Poker
+                    </option>
+                    
+                    <option value="Vol-014-Ch-142--Growth?id=98862" >
+                        142: Growth
+                    </option>
+                    
+                    <option value="Ch-143--Unexpected?id=99793" >
+                        143: Unexpected
+                    </option>
+                    
+                    <option value="Ch-144-Read-Online?id=101933" >
+                        144 Read Online
+                    </option>
+                    
+                    <option value="Ch-145--Bad-Omen?id=104467" >
+                        145: Bad Omen
+                    </option>
+                    
+                    <option value="Ch-146--Foolhardiness?id=105179" >
+                        146: Foolhardiness
+                    </option>
+                    
+                    <option value="Ch-147--Mysterious-Power?id=105875" >
+                        147: Mysterious Power
+                    </option>
+                    
+                    <option value="Ch-148--Blasphemy?id=107139" >
+                        148 Blasphemy
+                    </option>
+                    
+                    <option value="Vol-014-Ch-148-005--Bakaman--Chapter-007---How-I-Lost-a-Manga-Contest-Yet-Again---?id=131058" >
+                        148.005: Bakaman, Chapter 007 - How I Lost a Manga Contest Yet Again...
+                    </option>
+                    
+                    <option value="Ch-149--Can--Religion--Fool-People--?id=109143" >
+                        149: Can &quot;Religion&quot; Fool People?!
+                    </option>
+                    
+                    <option value="Ch-150--Cornering-the-Enemy?id=109809" >
+                        150: Cornering the Enemy
+                    </option>
+                    
+                    <option value="Ch-151--Collapse?id=110497" >
+                        151: Collapse
+                    </option>
+                    
+                    <option value="Ch-152--Prologue?id=112154" >
+                        152: Prologue
+                    </option>
+                    
+                    <option value="153-Read-Online?id=136584" >
+                        153 Read Online
+                    </option>
+                    
+                    <option value="Ch-154--As-One?id=137788" >
+                        Ch.154: As One
+                    </option>
+                    
+                </select>
+            </div>
+            <div style="float: left; padding-left: 20px">
+                
+                <a href="http://kissmanga.com/Manga/Liar-Game/001-The-Legendary-Swindler?id=122665">
+                    <img class='btnPrevious' src="http://kissmanga.com/Content/images/previous.png"
+                        title="Prev chapter" border="0" /></a>&nbsp;&nbsp;
+                
+                <a href="http://kissmanga.com/Manga/Liar-Game/Liar-Game-3?id=122400">
+                    <img class='btnNext' src="http://kissmanga.com/Content/images/next.png"
+                        title="Next chapter" border="0" /></a>
+                
+            </div>
+        </div>
+        <!-- End Chapters and pages -->
+        <div class="clear">
+            &nbsp;</div>
+        <!-- Ads -->
+        
+
+<iframe frameborder="0" marginwidth="0" marginheight="0" scrolling="no" src="http://kissmanga.com/Ads/cpmstar.aspx" width="728px" height="90px">
+</iframe>
+
+<div class="clear2"></div>
+
+<iframe id='a691ae00' name='a691ae00' src='http://ads.ad4game.com/www/delivery/afr.php?zoneid=7531&amp;cb=INSERT_RANDOM_NUMBER_HERE' framespacing='0' frameborder='no' scrolling='no' width='728' height='90'><a href='http://ads.ad4game.com/www/delivery/ck.php?n=a75c98c9&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ads.ad4game.com/www/delivery/avw.php?zoneid=7531&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a75c98c9' border='0' alt='' /></a></iframe>
+
+<div class="clear2"></div>
+
+
+        <!-- Read -->
+        <div id="divImage" style="padding-top: 10px">
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p>
+                <img />
+            </p>
+            
+            <p id="pLoading">
+                <img src="http://kissmanga.com/Content/images/loading.gif" />
+            </p>
+        </div>
+        <div id="divMsg" class="banner" style="margin: auto; width: 500px; height: 120px;
+            margin-top: 20px; display: none">
+            <div style="float: left; width: 390px">
+                <p style="font-size: 14px; padding: 16px 0 0 6px">
+                    No more chapters today :(. Please come back later ^^!
+                </p>
+            </div>
+            <div style="float: right; width: 110px">
+                <img src="http://kissmanga.com/Content/images/error.png"
+                    style="border: 0px" />
+            </div>
+        </div>
+        <div class="clear">
+            &nbsp;</div>
+        <!-- Chapters and pages -->
+        <div style="margin: auto; width: 600px; padding-top: 10px">
+            <div style="float: left">
+                <label class="lbl">
+                    Chapter</label>
+                <select class="selectChapter" style="width: 380px">
+                    
+                    <option value="001-The-Legendary-Swindler?id=122665" >
+                        001 The Legendary Swindler
+                    </option>
+                    
+                    <option value="Liar-Game-2?id=122399" selected>
+                        002: Flaw
+                    </option>
+                    
+                    <option value="Liar-Game-3?id=122400" >
+                        003: Declaration of War
+                    </option>
+                    
+                    <option value="Liar-Game-4?id=122401" >
+                        004: Intimidating the Enemy
+                    </option>
+                    
+                    <option value="Liar-Game-5?id=122402" >
+                        005: Dissonance
+                    </option>
+                    
+                    <option value="Liar-Game-6?id=122403" >
+                        006: The Conclusion
+                    </option>
+                    
+                    <option value="Liar-Game-7?id=122404" >
+                        007: Game II
+                    </option>
+                    
+                    <option value="Liar-Game-8?id=122405" >
+                        008: Commence Battle
+                    </option>
+                    
+                    <option value="Liar-Game-9?id=122406" >
+                        009: Impatience
+                    </option>
+                    
+                    <option value="Liar-Game-10?id=122407" >
+                        010: Hope
+                    </option>
+                    
+                    <option value="Liar-Game-11?id=122408" >
+                        011: Alliance
+                    </option>
+                    
+                    <option value="Liar-Game-12?id=122409" >
+                        012: Catastrophe
+                    </option>
+                    
+                    <option value="Liar-Game-13?id=3466" >
+                        013 Light Vs Dark
+                    </option>
+                    
+                    <option value="Liar-Game-14?id=3475" >
+                        014 Scheme
+                    </option>
+                    
+                    <option value="Liar-Game-15?id=3479" >
+                        015 Upper Hand
+                    </option>
+                    
+                    <option value="Liar-Game-16?id=122410" >
+                        016: Foresight
+                    </option>
+                    
+                    <option value="Liar-Game-17?id=122411" >
+                        017: Trap
+                    </option>
+                    
+                    <option value="Liar-Game-18?id=122412" >
+                        018: Revival Round
+                    </option>
+                    
+                    <option value="Liar-Game-19?id=122413" >
+                        019: Downsizing Game
+                    </option>
+                    
+                    <option value="Liar-Game-20?id=122414" >
+                        020: Incitement
+                    </option>
+                    
+                    <option value="Liar-Game-21?id=122415" >
+                        021: Scapegoat
+                    </option>
+                    
+                    <option value="Liar-Game-22?id=122417" >
+                        022: Battle Plan
+                    </option>
+                    
+                    <option value="Liar-Game-23?id=122418" >
+                        023: Light vs Dark
+                    </option>
+                    
+                    <option value="Liar-Game-24?id=122420" >
+                        024: Retribution
+                    </option>
+                    
+                    <option value="Liar-Game-25?id=122421" >
+                        025: Comeback
+                    </option>
+                    
+                    <option value="Liar-Game-26?id=122422" >
+                        026: Control
+                    </option>
+                    
+                    <option value="Liar-Game-27?id=122423" >
+                        027: Inflation
+                    </option>
+                    
+                    <option value="Liar-Game-28?id=122425" >
+                        028: Salvation
+                    </option>
+                    
+                    <option value="Liar-Game-29?id=122426" >
+                        029: Game III
+                    </option>
+                    
+                    <option value="Liar-Game-30?id=122427" >
+                        030: Contraband
+                    </option>
+                    
+                    <option value="Liar-Game-31?id=122428" >
+                        031: Head Start
+                    </option>
+                    
+                    <option value="Liar-Game-32?id=122429" >
+                        032: Chicken
+                    </option>
+                    
+                    <option value="Liar-Game-33?id=122430" >
+                        033: Yokoya
+                    </option>
+                    
+                    <option value="Liar-Game-34?id=122431" >
+                        034: Clairvoyance
+                    </option>
+                    
+                    <option value="Liar-Game-35?id=122432" >
+                        035: Confrontation
+                    </option>
+                    
+                    <option value="Liar-Game-36?id=122433" >
+                        036: Division
+                    </option>
+                    
+                    <option value="Liar-Game-37?id=122434" >
+                        037: Discovered
+                    </option>
+                    
+                    <option value="Liar-Game-38?id=122435" >
+                        038: Confession
+                    </option>
+                    
+                    <option value="Liar-Game-39?id=122436" >
+                        039: Recollection
+                    </option>
+                    
+                    <option value="Liar-Game-40?id=122437" >
+                        040: Counterattack
+                    </option>
+                    
+                    <option value="Liar-Game-41?id=122438" >
+                        041: Unrest
+                    </option>
+                    
+                    <option value="Liar-Game-42?id=122439" >
+                        042: Experiment
+                    </option>
+                    
+                    <option value="Liar-Game-43?id=122440" >
+                        043: Strategy
+                    </option>
+                    
+                    <option value="Liar-Game-44?id=122441" >
+                        044: Miscalculation
+                    </option>
+                    
+                    <option value="Liar-Game-45?id=122442" >
+                        045: Pressure
+                    </option>
+                    
+                    <option value="Liar-Game-46?id=122443" >
+                        046: Confusion
+                    </option>
+                    
+                    <option value="Liar-Game-47?id=122445" >
+                        047: Reign
+                    </option>
+                    
+                    <option value="Liar-Game-48?id=122446" >
+                        048: Preparation
+                    </option>
+                    
+                    <option value="Liar-Game-49?id=122447" >
+                        049: Tip-Off
+                    </option>
+                    
+                    <option value="Liar-Game-50?id=122448" >
+                        050: Interrogation
+                    </option>
+                    
+                    <option value="Liar-Game-51?id=122449" >
+                        051: Confession
+                    </option>
+                    
+                    <option value="Liar-Game-52?id=122450" >
+                        052: Scheme
+                    </option>
+                    
+                    <option value="Liar-Game-55?id=122451" >
+                        053: Caution
+                    </option>
+                    
+                    <option value="Liar-Game-54?id=122452" >
+                        054: Completion
+                    </option>
+                    
+                    <option value="Liar-Game-55?id=122453" >
+                        055: Disturbance
+                    </option>
+                    
+                    <option value="Liar-Game-56?id=122454" >
+                        056: Blunder
+                    </option>
+                    
+                    <option value="Vol-006-Ch-057--Solidarity?id=122455" >
+                        057: Solidarity
+                    </option>
+                    
+                    <option value="Liar-Game-58?id=122456" >
+                        058: Discrepancy
+                    </option>
+                    
+                    <option value="Liar-Game-59?id=122457" >
+                        059: Provocation
+                    </option>
+                    
+                    <option value="Liar-Game-60?id=122458" >
+                        060: No Way Out
+                    </option>
+                    
+                    <option value="Liar-Game-61?id=122459" >
+                        061: Simulation
+                    </option>
+                    
+                    <option value="Liar-Game-62?id=122460" >
+                        062: Reload
+                    </option>
+                    
+                    <option value="Liar-Game-63?id=122461" >
+                        063: Shoot
+                    </option>
+                    
+                    <option value="Liar-Game-64?id=122462" >
+                        064: Pitfall
+                    </option>
+                    
+                    <option value="Liar-Game-65?id=122463" >
+                        065: Insight
+                    </option>
+                    
+                    <option value="Liar-Game-66?id=122464" >
+                        066: Avarice
+                    </option>
+                    
+                    <option value="Liar-Game-67?id=122465" >
+                        067: Agitation
+                    </option>
+                    
+                    <option value="Liar-Game-68?id=122466" >
+                        068: Centerfield
+                    </option>
+                    
+                    <option value="Liar-Game-69?id=122467" >
+                        069: Natural Talent
+                    </option>
+                    
+                    <option value="Liar-Game-70?id=122468" >
+                        070: Enticement
+                    </option>
+                    
+                    <option value="Liar-Game-71?id=122469" >
+                        071: Divine Sight
+                    </option>
+                    
+                    <option value="Liar-Game-72?id=122470" >
+                        072: Counterattack
+                    </option>
+                    
+                    <option value="Liar-Game-73?id=122471" >
+                        073: Intuition
+                    </option>
+                    
+                    <option value="Liar-Game-74?id=122472" >
+                        074: Request
+                    </option>
+                    
+                    <option value="Liar-Game-75?id=122473" >
+                        075: Luck
+                    </option>
+                    
+                    <option value="Liar-Game-76?id=122474" >
+                        076: Ruse
+                    </option>
+                    
+                    <option value="Liar-Game-77?id=122475" >
+                        077: General
+                    </option>
+                    
+                    <option value="Liar-Game-78?id=122476" >
+                        078: Coercion
+                    </option>
+                    
+                    <option value="Liar-Game-79?id=122477" >
+                        079: Falter
+                    </option>
+                    
+                    <option value="Liar-Game-80?id=122478" >
+                        080: Secret Maneuver
+                    </option>
+                    
+                    <option value="Liar-Game-81?id=122479" >
+                        081: Distrust
+                    </option>
+                    
+                    <option value="Liar-Game-82?id=122480" >
+                        082: Surrender
+                    </option>
+                    
+                    <option value="Liar-Game-83?id=122481" >
+                        083: Ambition
+                    </option>
+                    
+                    <option value="Liar-Game-84?id=122483" >
+                        084: Game IV
+                    </option>
+                    
+                    <option value="Liar-Game-85?id=122485" >
+                        085: Pandemic Game
+                    </option>
+                    
+                    <option value="Liar-Game-86?id=122486" >
+                        086: Agree
+                    </option>
+                    
+                    <option value="Liar-Game-87?id=122488" >
+                        087: Virus Outbreak
+                    </option>
+                    
+                    <option value="Liar-Game-88?id=122490" >
+                        088: Confirmation
+                    </option>
+                    
+                    <option value="Liar-Game-89?id=122491" >
+                        089: Conspire
+                    </option>
+                    
+                    <option value="Liar-Game-90?id=122492" >
+                        090: Stalemate
+                    </option>
+                    
+                    <option value="Liar-Game-91?id=122493" >
+                        091: Doubt
+                    </option>
+                    
+                    <option value="Liar-Game-92?id=122494" >
+                        092: Anxiety
+                    </option>
+                    
+                    <option value="Liar-Game-93?id=122496" >
+                        093: Differentiate
+                    </option>
+                    
+                    <option value="Liar-Game-94?id=122497" >
+                        094: Setup
+                    </option>
+                    
+                    <option value="Liar-Game-95?id=122498" >
+                        095: Overturn
+                    </option>
+                    
+                    <option value="Liar-Game-96?id=122499" >
+                        096: Intent
+                    </option>
+                    
+                    <option value="Liar-Game-97?id=122500" >
+                        097: Trust
+                    </option>
+                    
+                    <option value="Liar-Game-98?id=122501" >
+                        098: Selflessness
+                    </option>
+                    
+                    <option value="Liar-Game-99?id=122502" >
+                        099: Check
+                    </option>
+                    
+                    <option value="Liar-Game-100?id=122503" >
+                        100: Lockout
+                    </option>
+                    
+                    <option value="Liar-Game-101?id=122504" >
+                        101: Bribery
+                    </option>
+                    
+                    <option value="Liar-Game-102?id=122505" >
+                        102: Closure
+                    </option>
+                    
+                    <option value="Liar-Game-103?id=122506" >
+                        103: Contest
+                    </option>
+                    
+                    <option value="Liar-Game-104?id=122507" >
+                        104: Musical Chairs
+                    </option>
+                    
+                    <option value="Liar-Game-105?id=122508" >
+                        105: Strategy
+                    </option>
+                    
+                    <option value="Liar-Game-106?id=122509" >
+                        106: Deception
+                    </option>
+                    
+                    <option value="Liar-Game-107?id=122510" >
+                        107: Maneuver
+                    </option>
+                    
+                    <option value="Vol-011-Ch-108--Friendship?id=122511" >
+                        108: Friendship
+                    </option>
+                    
+                    <option value="Vol-011-Ch-109--Medals?id=122512" >
+                        109: Medals
+                    </option>
+                    
+                    <option value="Liar-Game-110?id=122513" >
+                        110: Foundation
+                    </option>
+                    
+                    <option value="Liar-Game-111?id=122514" >
+                        111: Bonds
+                    </option>
+                    
+                    <option value="Liar-Game-112?id=122515" >
+                        112: Union
+                    </option>
+                    
+                    <option value="Liar-Game-113?id=122516" >
+                        113: Recapture
+                    </option>
+                    
+                    <option value="Liar-Game-114?id=122517" >
+                        114: Surprise Attack
+                    </option>
+                    
+                    <option value="Liar-Game-115?id=122518" >
+                        115: Abstaining
+                    </option>
+                    
+                    <option value="Liar-Game-116?id=122519" >
+                        116: Cause
+                    </option>
+                    
+                    <option value="Liar-Game-117?id=122520" >
+                        117: Breach
+                    </option>
+                    
+                    <option value="Liar-Game-118?id=122521" >
+                        118: Ambush
+                    </option>
+                    
+                    <option value="Liar-Game-119?id=122522" >
+                        119: Alliance
+                    </option>
+                    
+                    <option value="Liar-Game-120?id=122523" >
+                        120: Puppeteer
+                    </option>
+                    
+                    <option value="Liar-Game-121?id=122524" >
+                        121: Dummy
+                    </option>
+                    
+                    <option value="Liar-Game-122?id=122525" >
+                        122: Logical Reasoning
+                    </option>
+                    
+                    <option value="Liar-Game-123?id=122526" >
+                        123: Turn Around
+                    </option>
+                    
+                    <option value="Liar-Game-124?id=122527" >
+                        124: Chance
+                    </option>
+                    
+                    <option value="Liar-Game-125?id=122528" >
+                        125: Demons
+                    </option>
+                    
+                    <option value="Liar-Game-126?id=122529" >
+                        126: Heartless
+                    </option>
+                    
+                    <option value="Liar-Game-127?id=122530" >
+                        127: Betrayal
+                    </option>
+                    
+                    <option value="Liar-Game-128?id=122531" >
+                        128: Prediction
+                    </option>
+                    
+                    <option value="Liar-Game-129?id=122532" >
+                        129: Rift
+                    </option>
+                    
+                    <option value="Liar-Game-130?id=122533" >
+                        130: Negotiations
+                    </option>
+                    
+                    <option value="Liar-Game-131?id=122534" >
+                        131: Make & Break
+                    </option>
+                    
+                    <option value="Liar-Game-132?id=122535" >
+                        132: Trickster
+                    </option>
+                    
+                    <option value="Liar-Game-133?id=122536" >
+                        133: Under Control
+                    </option>
+                    
+                    <option value="Liar-Game-134?id=122537" >
+                        134: Counterattack
+                    </option>
+                    
+                    <option value="Liar-Game-135?id=122538" >
+                        135: Shorn
+                    </option>
+                    
+                    <option value="Liar-Game-136?id=122539" >
+                        136: Overwhelming
+                    </option>
+                    
+                    <option value="Liar-Game-137?id=122540" >
+                        137: Unity
+                    </option>
+                    
+                    <option value="Vol-013-Ch-138--Conclusion?id=107088" >
+                        138: Conclusion
+                    </option>
+                    
+                    <option value="Vol-014-Ch-139--Resolve?id=95309" >
+                        139: Resolve
+                    </option>
+                    
+                    <option value="Vol-014-Ch-140-Read-Online?id=95310" >
+                        140 Read Online
+                    </option>
+                    
+                    <option value="Vol-014-Ch-140--Twist?id=95313" >
+                        140: Twist
+                    </option>
+                    
+                    <option value="Vol-014-Ch-141--Bid-Poker?id=97708" >
+                        141: Bid Poker
+                    </option>
+                    
+                    <option value="Vol-014-Ch-142--Growth?id=98862" >
+                        142: Growth
+                    </option>
+                    
+                    <option value="Ch-143--Unexpected?id=99793" >
+                        143: Unexpected
+                    </option>
+                    
+                    <option value="Ch-144-Read-Online?id=101933" >
+                        144 Read Online
+                    </option>
+                    
+                    <option value="Ch-145--Bad-Omen?id=104467" >
+                        145: Bad Omen
+                    </option>
+                    
+                    <option value="Ch-146--Foolhardiness?id=105179" >
+                        146: Foolhardiness
+                    </option>
+                    
+                    <option value="Ch-147--Mysterious-Power?id=105875" >
+                        147: Mysterious Power
+                    </option>
+                    
+                    <option value="Ch-148--Blasphemy?id=107139" >
+                        148 Blasphemy
+                    </option>
+                    
+                    <option value="Vol-014-Ch-148-005--Bakaman--Chapter-007---How-I-Lost-a-Manga-Contest-Yet-Again---?id=131058" >
+                        148.005: Bakaman, Chapter 007 - How I Lost a Manga Contest Yet Again...
+                    </option>
+                    
+                    <option value="Ch-149--Can--Religion--Fool-People--?id=109143" >
+                        149: Can "Religion" Fool People?!
+                    </option>
+                    
+                    <option value="Ch-150--Cornering-the-Enemy?id=109809" >
+                        150: Cornering the Enemy
+                    </option>
+                    
+                    <option value="Ch-151--Collapse?id=110497" >
+                        151: Collapse
+                    </option>
+                    
+                    <option value="Ch-152--Prologue?id=112154" >
+                        152: Prologue
+                    </option>
+                    
+                    <option value="153-Read-Online?id=136584" >
+                        153 Read Online
+                    </option>
+                    
+                    <option value="Ch-154--As-One?id=137788" >
+                        Ch.154: As One
+                    </option>
+                    
+                </select>
+            </div>
+            <div style="float: left; padding-left: 20px">
+                
+                <a href="http://kissmanga.com/Manga/Liar-Game/001-The-Legendary-Swindler?id=122665">
+                    <img class='btnPrevious' src="http://kissmanga.com/Content/images/previous.png"
+                        title="Prev chapter" border="0" /></a>&nbsp;&nbsp;
+                
+                <a href="http://kissmanga.com/Manga/Liar-Game/Liar-Game-3?id=122400">
+                    <img class='btnNext' src="http://kissmanga.com/Content/images/next.png"
+                        title="Next chapter" border="0" /></a>
+                
+            </div>
+        </div>
+        <!-- End Chapters and pages -->
+        <div class="clear2">
+            &nbsp;</div>
+        <div>
+            <a href="#">[ Back to top ]</a>
+        </div>
+        <div class="clear2">
+            &nbsp;</div>
+        
+        <div class="clear">
+            &nbsp;</div>
+        <p>
+            With manga, please read english scan online from right to left. With Manhwa(Korean)
+            or Comic please read english scan online from left to right.
+            <br />
+            <b>You can chose reading type 'One page'/'All pages' on top. </b>
+        </p>
+        <div class="clear2">
+            &nbsp;</div>
+    </div>
+    <script type="text/javascript">
+            var lstImages = new Array();
+            
+                lstImages.push("http://2.bp.blogspot.com/-P5UvQThkWpU/T81nr5a_z-I/AAAAAAAAA74/eFISb1rzOGE/000.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-z2BQ0DAxLHg/T81nseQOprI/AAAAAAAAA8A/FbWoiTPfgAM/001.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-DduTSe0OIQc/T81nsugLG7I/AAAAAAAAA8I/c124_2uy18Q/002.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-XtDDd6uqJTE/T81ns1uv6cI/AAAAAAAAA8Q/Ie-dZEUV2lM/003.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-qHBGXUSQMmw/T81ntJ_z4gI/AAAAAAAAA8Y/PAqWlbV6cls/004.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-9hme7XF21OQ/T81ntpSaIzI/AAAAAAAAA8g/tUvxT5LrDFo/005.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-cVGNsjZ_aZk/T81nuMSA1eI/AAAAAAAAA8o/xHywj4cYPuA/006.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-bpteEYAG2TU/T81nuqbbNOI/AAAAAAAAA8w/urAx1wOOAi8/007.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-AEWbMnRUf4s/T81nu5Ur3kI/AAAAAAAAA84/ch5OSdIQFXk/008.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-SWiLGxV4l-8/T81nvQmHrkI/AAAAAAAAA9A/qufBiN2o0Rw/009.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-3L8MRHNOOnA/T81nvsGhAvI/AAAAAAAAA9I/rJjGoJiGzSE/010.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-B_TlgXUnXDg/T81nwJNbDVI/AAAAAAAAA9Q/PTX0Ndg2T6c/011.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-MpUvVFYKebA/T81nwT7dcwI/AAAAAAAAA9Y/lTlWyWde77w/012.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-Xjdw7EgeEkc/T81nwxeJXEI/AAAAAAAAA9g/-hYeYtvtpms/013.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-p6NcQGDX_js/T81nxA3N-YI/AAAAAAAAA9o/EkXO4q6BBQY/014.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-OqdIT_eyVQs/T81nxb65JHI/AAAAAAAAA9w/6lYE12FNY8w/015.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-XP0E_ug2Bpk/T81nx2w3IWI/AAAAAAAAA94/NNp48ydUCh8/016.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-cYZCVkqLi0g/T81nykaXNyI/AAAAAAAAA-A/evoaroiJyW0/017.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-Q6TBZmfyUdA/T81nzFdFtkI/AAAAAAAAA-I/28XmVFh_sTw/018.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-dJwxwc6rYWc/T81nzXctcAI/AAAAAAAAA-U/4j8ucHnfg_k/019.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-s2grU-ytCwU/T81n02Xd_nI/AAAAAAAAA-c/o949AYqmbFY/020.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-u_1G1D7AO8I/T81n1O7vFgI/AAAAAAAAA-k/chump3l8TGw/021.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-zDiBv7MP7ts/T81n1YwkTjI/AAAAAAAAA-s/hjixb-mogwc/022.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-nHYEt5BTx5s/T81n1zL1kQI/AAAAAAAAA-0/iZ0qKDJEnv0/023.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-eoMvd3R_zds/T81n2HlbHAI/AAAAAAAAA-8/fotKudeLrTA/024.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-pCjh5B05Re8/T81n2u6pfRI/AAAAAAAAA_E/9Bgp_XObxTE/025.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-2lVsqPxuD68/T81n26tP_pI/AAAAAAAAA_M/d4FVxW1W914/026.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-YuxwqBYNamM/T81n3EV-RwI/AAAAAAAAA_U/PT9n4NLrpn8/027.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-CxTlcojZdw8/T81n3i2nEcI/AAAAAAAAA_c/ozj2fbP3sJ4/028.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-latUtSfZX4g/T81n300FWMI/AAAAAAAAA_k/fFMoiiR_DGI/029.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-dVuCDlYLryY/T81n4QJAzMI/AAAAAAAAA_s/9uvAV-CYdCY/030.png?imgmax=2000");
+            
+                lstImages.push("http://2.bp.blogspot.com/-uBVtVBN6rmc/T81n4hYbMtI/AAAAAAAAA_0/5rS6mnthKtY/031.png?imgmax=2000");
+            
+
+            var currImage = 0;            
+            $('#divImage img[src=""]:first').attr('src', lstImages[currImage]);
+            currImage++;
+            $('#divImage img[src=""]:first').attr('src', lstImages[currImage]);
+            currImage++;
+
+            $('#divImage img').load(function(){            
+                if (currImage < lstImages.length)
+                {
+                    $('#divImage img[src=""]:first').attr('src', lstImages[currImage]);
+                    currImage++;
+                }      
+                else
+                    $('#pLoading').hide();
+            });         
+
+            $('#selectReadType').change(function () {
+                document.cookie = "vns_readType=" + $(this).val() + "; expires=Thu, 2 Aug 2020 20:47:11 UTC;path=/;domain=.kissmanga.com";
+                window.location.reload();
+            });
+
+            $('.selectChapter').change(function () {
+                location.href = 'http://kissmanga.com/Manga/Liar-Game/' + $(this).val();
+            });
+
+            $('.selectGroup').change(function () {
+                location.href = 'http://kissmanga.com/Manga/' + $(this).val();
+            });
+
+            function NextChap() {
+                $('#divImage').empty();
+                $('#divMsg').css('display', 'block');
+            }     
+    </script>
+
+    
+<script>    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+    } (document, 'script', 'facebook-jssdk'));</script>
+<div style="text-align: center;">
+    <span class='st_fblike_hcount' displaytext='Facebook Like'></span><span class='st_facebook_hcount'
+        displaytext='Facebook'></span><span class='st_twitter_hcount' displaytext='Tweet'>
+    </span><span class='st_plusone_hcount' displaytext='Google +1'></span><span class='st_sharethis_hcount'
+        displaytext='ShareThis'></span>
+    <script type="text/javascript">        var switchTo5x = true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">        stLight.options({ publisher: "39da8212-8bbb-4097-a85f-6cedb7bc9464" }); </script>
+    <div class="clear2">
+        &nbsp;
+    </div>
+    
+
+    <div style="background: #111; border:1px solid #2F2F2F" class="fb-comments" data-href="http://kissmanga.com/Manga/Liar-Game/Liar-Game-2?id=122399" data-num-posts="5"
+        data-width="780px" data-colorscheme="dark">
+    </div>
+</div>
+
+        <!-- end div container -->
+        <div class="clear">
+            &nbsp;</div>
+        <div class="clear">
+            &nbsp;</div>
+        <div class="clear">
+            &nbsp;</div>
+        
+    </div>
+    <div id="footer">
+        <div id="footcontainer" style="position: relative">
+            <p>
+                Copyright &copy; 2011 <a href="http://kissmanga.com">KissManga.com</a>. All rights
+                reserved.</p>
+            <p>
+                A product of <a target="_blank" href="http://domdomsoft.com">DomDomSoft.com</a>&nbsp;&nbsp;
+            </p>
+            <div style="position: absolute; left: 200px; top: 20px">
+                <!-- Histats.com  START  (standard)-->
+                <script type="text/javascript">                    document.write(unescape("%3Cscript src=%27http://s10.histats.com/js15_gif.js%27 type=%27text/javascript%27%3E%3C/script%3E"));</script>
+                <a href="http://www.histats.com" target="_blank" title="free site statistics">
+                    <script type="text/javascript">
+                        try {
+                            Histats.startgif(1, 1691669, 4, 10045, "");
+                            Histats.track_hits();
+                        } catch (err) { };
+                    </script>
+                </a>
+                <noscript>
+                    <a href="http://www.histats.com" alt="free site statistics" target="_blank">
+                        <div id="histatsC">
+                            <img border="0" src="http://s4is.histats.com/stats/i/1691669.gif?1691669&103"></div>
+                    </a>
+                </noscript>
+                <!-- Histats.com  END  -->
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('#footer').css('top', $(document).height() - $('#containerRoot').height());
+    </script>	
+	
+</body>
+</html>

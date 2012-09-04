@@ -1,0 +1,2248 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	
+    Search by series name
+
+</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta property="fb:admins" content="683024937,683024937" /><meta property="fb:app_id" content="111670815619329" />
+<script src="http://kissmanga.com/Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+<!-- CSS -->
+<link href="http://kissmanga.com/Content/css/tpl_style.css" rel="stylesheet" type="text/css" />
+<link href="http://kissmanga.com/Content/css/upload-progress.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="http://kissmanga.com/Content/images/favicon.ico" type="image/x-icon" />
+<!--[if IE 6]><link href="http://kissmanga.com/Content/css/tpl_ie_6.css"  rel="stylesheet" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="http://kissmanga.com/Content/css/tpl_ie_7.css" /><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" type="text/css" href="http://kissmanga.com/Content/css/tpl_ie_7.css" /><![endif]-->
+
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-1712467-9']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    
+    <div id="containerRoot">
+        <div id="head">
+            <h3>
+                
+<div style="position: relative; text-align: right; margin: -40px 46px 20px 0px; font: bold 13px Arial;">
+    
+    <div id="topHolderBox" style="width: 230px; height: 27px;">
+        <img src="http://kissmanga.com/Content/images/user-small.png"
+            style="vertical-align: middle; margin-bottom: 5px">
+        <a href="http://kissmanga.com/Login">Login</a> or <a href="http://kissmanga.com/Register">
+            Register</a>
+    </div>
+    
+</div>
+
+                <div id="search" style="position: relative">
+                    <form id="formSearch" method="post">
+                    <p>
+                        <input size="40" maxlength="22" id="keyword" name="keyword" value="" class="text"
+                            autocomplete="off" />
+                        <select id="selectSearch">
+                            <option value="Manga">Series Name</option>
+                            <option value="AuthorArtist">Author/Artist</option>
+                        </select>
+                        <input id="imgSearch" type="image" src="http://kissmanga.com/Content/images/search.png"
+                            class="button" onclick="return false;" />
+                    </p>
+                    <div id="result_box" style="display: none">
+                    </div>
+                    <div style="margin: 10px 48px 10px 0">
+                        <a href="http://kissmanga.com/AdvanceSearch">
+                            <img src="http://kissmanga.com/Content/images/read.png"
+                                width="16px" border="0" style="vertical-align: middle" />&nbsp;&nbsp;Advanced
+                            Search</a>
+                    </div>
+                    </form>
+                </div>
+                <script type="text/javascript">
+                    $('#imgSearch').click(function () {
+                        Submit();
+                    });
+
+                    $('#keyword').keyup(function (evt) {
+                        Suggest();
+                    });
+
+                    $('#selectSearch').change(function () {
+                        Suggest();
+                    });
+
+                    $("#selectSearch option").each(function () {
+                        var url = location.href;
+                        if (url.indexOf($(this).attr('value')) != -1)
+                            $(this).attr("selected", "selected");
+                    });
+
+                    function Submit() {
+                        if ($.trim($('#keyword').val()).length < 2) {
+                            $('#keyword').blur();
+                            alert('Keyword must be more than one character!');
+                        }
+                        else {
+                            $("#formSearch").attr('action', "http://kissmanga.com/Search/" + $('#selectSearch').val());
+                            $("#formSearch").submit();
+                        }
+                    }
+
+                    function Suggest() {
+                        var keyword = $.trim($('#keyword').val());
+                        if (keyword != "") {
+                            $('#result_box').html("<span id='loader'></span>");
+                            $('#result_box').css('display', 'block');
+                            $.ajax(
+                            {
+                                type: "POST",
+                                url: "/Search/SearchSuggest",
+                                data: "type=" + $('#selectSearch').val() + '&keyword=' + keyword,
+                                success: function (message) {
+                                    if (message != "") {
+                                        $('#result_box').html(message);
+                                    }
+                                    else {
+                                        $('#result_box').html('');
+                                        $('#result_box').css('display', 'none');
+                                    }
+                                }
+                            });
+                        }
+                        else {
+                            $('#result_box').html('');
+                            $('#result_box').css('display', 'none');
+                        }
+                    }
+                </script>
+            </h3>
+            <h1>
+                <a href="http://kissmanga.com" title="Read manga online - kissmanga.com"
+                    class="logo">Read online manga - kissmanga.com</a></h1>
+        </div>
+        <!-- end div head -->
+        <div class="clear">
+        </div>
+        <div id="headnav">
+            
+<div id="navbar">
+    <div id="navcontainer">
+        <ul>
+            <li id="liHome"><a href="http://kissmanga.com">Home</a></li>
+            <li id="liDS"><a href="http://kissmanga.com/MangaList">Manga
+                List</a></li>
+            <li id="liGuide"><a href="http://kissmanga.com/Message/Guide">
+                Guide</a></li>
+            <li id="liReport"><a href="http://kissmanga.com/ReportError">
+                Report Error</a></li>
+            <li id="liRequest"><a href="http://kissmanga.com/RequestManga">
+                Request Manga</a></li>
+            <li id="liDownload"><a target="_blank" href="http://domdomsoft.com/home/2009/08/06/manga-downloader/domdomsoft-manga-downloader-2/">
+                Download Manga</a></li>
+            <li id="liDownloadAnime"><a target="_blank" href="http://blog.domdomsoft.com/category/domdomsoft/anime-downloader/">
+                Download Anime</a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var path = 'Search';
+    var action = 'Manga';
+    if (path == 'Home')
+        $('#liHome a').attr('id', 'currentTab');
+    else if (path == 'Manga' || path == 'Genre' || path == 'Group' || path == 'AuthorArtist')
+        $('#liDS a').attr('id', 'currentTab');
+    else if (action == 'Report')
+        $('#liReport a').attr('id', 'currentTab');
+    else if (action == 'RequestManga')
+        $('#liRequest a').attr('id', 'currentTab');
+    else if (action == 'Guide')
+        $('#liGuide a').attr('id', 'currentTab')
+    else
+        $('#navcontainer a[href*="' + path + '"]').attr('id', 'currentTab');
+</script>
+
+
+        </div>
+        <!-- end div headnav -->
+        
+    
+    <div id="container">
+        <div id="leftside">
+            <div class="bigBarContainer">
+                <div class="barTitle">
+                    Search by series name
+                </div>
+                <div class="barContent">
+                    <div class="arrow-general">
+                        &nbsp;</div>
+                    <div>
+                        
+<style>
+    .tooltip
+    {
+        display: none;
+        background: url('../../Content/images/black_big.png') no-repeat;
+        height: 180px;
+        padding: 25px 10px 0px 30px;
+        width: 450px;
+        font-size: 11px;
+        color: #fff;
+    }
+
+    .alphabet
+    {
+        background: none repeat scroll 0 0 #161616; 
+        color:gray; 
+        text-align:center; 
+        font-size:14px; 
+    }
+
+    .alphabet a
+    {
+        font-weight:bold;
+    }
+</style>
+<script type="text/javascript" src="../../Scripts/jqueryTooltip.js"></script>
+
+<img style="vertical-align: middle" title="Latest update" src="../../Content/images/newupdate.png" /> 
+Latest Update &nbsp;&nbsp;&nbsp;<img style="vertical-align: middle" title="Most Popular Manga"
+    src="../../Content/images/hot.png" />
+Top Popular Manga&nbsp;&nbsp;&nbsp;
+<input type="checkbox" id="chbDoujinshi"  /> 
+Display Doujinshi
+<div class="clear">
+    &nbsp;</div>    
+
+    <script type="text/javascript">
+            $('#chbDoujinshi').click(function () {
+                if ($(this).is(':checked'))
+                    document.cookie = "vns_doujinshi=1; expires=Thu, 2 Aug 2020 20:47:11 UTC;path=/";
+                else
+                    document.cookie = "vns_doujinshi=0; expires=Thu, 2 Aug 2020 20:47:11 UTC;path=/";
+                window.location.reload();
+            });
+    </script> 
+
+<div class="clear">
+    &nbsp;</div>   
+<table class="listing">
+    <tr class="head">
+        <th width="70%">
+            Series Name
+        </th>
+        <th width="30%">
+            Newest
+        </th>
+    </tr>
+    <tr style="height: 10px">
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/A-House-in-Venice" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/3-1-2012/7545822i87995 -1-.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/A-House-in-Venice">A House in Venice</a>
+                    <p>
+                        An art college students moves in Venice to study, she starts to live in her new room, part of an old huge historical mansion and she discovers a new world of secrets linked to her young, mysterious landlord. ...
+                    </p>
+                </div>'>
+                A House in Venice</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/A-House-in-Venice/Vol-001-Ch-001-002-Read-Online">Vol.001 Ch.001-002 ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/AAA" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/9-7-2011/209881210549.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/AAA">AAA</a>
+                    <p>
+                        Ogata Aoi is in her 2nd year of middle school and is the president of the student council. The middle school she attends is one of the best in the country and is called "AAA". Aoi goes there to meet her ...
+                    </p>
+                </div>'>
+                AAA</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Ah-My-Goddess" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/9-7-2011/2526192images--1-.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Ah-My-Goddess">Ah My Goddess</a>
+                    <p>
+                        While staying alone in his dormitory, college student Keiichi Morisato was trying to call some restaurants for delivery when he accidentally called the Goddess Help Line. Suddenly, the mirror near him ...
+                    </p>
+                </div>'>
+                Ah My Goddess</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Ah-My-Goddess/Vol-045-Ch-288--The-Meaning-of-Trust?id=136875">Vol.045 Ch.288: ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Ah-Itoshi-no-Banchousama" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/1-8-2012/2752262i112282.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Ah-Itoshi-no-Banchousama">Ah! Itoshi no Banchousama</a>
+                    <p>
+                        Souka and her recently divorced mother move to a new place to start over. In looking for a school to enroll in, Souka decides to leave her preppy, private high school behind and transfers into a technical ...
+                    </p>
+                </div>'>
+                Ah! Itoshi no Banchousama</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Ah-Itoshi-no-Banchousama/Vol-004-Ch-016-Read-Online">Vol.004 Ch.016 Read ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Akaya-Akashiya-Ayakashino" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/7-9-2012/3318232294c6947f0.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Akaya-Akashiya-Ayakashino">Akaya Akashiya Ayakashino</a>
+                    <p>
+                        The story of AkaAka begins with a dream filled with red camellia and the passing of a strange mask. The owner of this mask is a young boy named Yue who lives at a temple populated with rather unusual residents. ...
+                    </p>
+                </div>'>
+                Akaya Akashiya Ayakashino</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Akaya-Akashiya-Ayakashino/004?id=131993">004</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Alabaster" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/7-19-2012/741962alabaster01_001.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Alabaster">Alabaster</a>
+                    <p>
+                        James Block is a former sports star whose criminal endeavors landed him in jail. In prison he meets "Dr. F", a strange old man who tells James about a beam that can turn living things invisible.After escaping ...
+                    </p>
+                </div>'>
+                Alabaster</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Alabaster/001?id=130419">001</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Ani-ga-Imouto-de-Imouto-ga-Ani-de" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/7-5-2012/1362942img000001.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Ani-ga-Imouto-de-Imouto-ga-Ani-de">Ani ga Imouto de Imouto ga Ani de.</a>
+                    <p>
+                        Taiy&ocirc; is 16 years old and he loves talking. then his sister, Hikari is also 16 years old but shes a bit dark. they didnt know that their secret will be expose but it will explode their fraternity. ...
+                    </p>
+                </div>'>
+                Ani ga Imouto de Imouto ga Ani de.</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Ani-ga-Imouto-de-Imouto-ga-Ani-de/Vol-001-Ch-003--Episode--003?id=137279">Vol.001 Ch.003: ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Ao-no-Rhapsodia" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/6-10-2012/51972i131362.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Ao-no-Rhapsodia">Ao no Rhapsodia</a>
+                    <p>
+                        A collection of stories:&bull;&nbsp;Ao no RhapsodiaTheres a legend about a lost continent of gold and only one man has successfully made his way through the treacherous waters to that continent. The man ...
+                    </p>
+                </div>'>
+                Ao no Rhapsodia</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Ao-no-Rhapsodia/Ch-004--Ousama-Game?id=134582">Ch.004: Ousama  ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Arcana-Famiglia" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/3-16-2012/5667172i125279.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Arcana-Famiglia">Arcana Famiglia</a>
+                    <p>
+                        The story follows Arcana Famiglia, a self-appointed organization with mysterious powers that has protected a small Mediterranean island from pirates, foreign countries, and other threats. The only daughter ...
+                    </p>
+                </div>'>
+                Arcana Famiglia</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Arcana-Famiglia/Vol-002-Ch-006--La-sesta-storia?id=127836">Vol.002 Ch.006: ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/As-Long-as-the-Sun-Shines-in-the-Sky" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/12-26-2011/8697652As-Long-As-The-Sun-Shines-In-The-Sky-v01-c01---001---Cover.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/As-Long-as-the-Sun-Shines-in-the-Sky">As Long as the Sun Shines in the Sky</a>
+                    <p>
+                        Rieko Edogawa is a second year student at East Edogawa Academy - a private school. She is full of energy and courage, and she is so popular that there is not a soul in her town or school that doesnt know ...
+                    </p>
+                </div>'>
+                As Long as the Sun Shines in the Sky</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Baccano-1931-The-Grand-Punk-Railroad" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/1-8-2012/7764792dc5289c88f5a6ddc8fce11aa7ee593f4.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Baccano-1931-The-Grand-Punk-Railroad">Baccano! 1931 The Grand Punk Railroad</a>
+                    <p>
+                        A group of homicidal maniacs, gangsters, terrorist, and some eccentric thieves all board the same train. Some want to rob it, while others just want to create chaos. On top of all this some of these people ...
+                    </p>
+                </div>'>
+                Baccano! 1931 The Grand Punk Railroad</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Baccano-1931-The-Grand-Punk-Railroad/Vol-001-Ch-Prologue-III--Delinquents">Vol.001 Ch.Prologue ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Baka-and-Boing" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/9-7-2011/6207202default_bakaandboing.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Baka-and-Boing">Baka and Boing</a>
+                    <p>
+                        Taichi Yamada is what you would call a fan but he is not just any fan, he is a fan of Kokoro Shiina, a gravure model. Maybe it was fate that brought them together that day but Taichi met Kokoro when she ...
+                    </p>
+                </div>'>
+                Baka and Boing</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Baka-and-Boing/Vol-001-Ch-008--Reunion?id=89924">Vol.001 Ch.008: ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Bee-Be-Beat-It" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/6-10-2012/7828182i113565.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Bee-Be-Beat-It">Bee-Be-Beat It!</a>
+                    <p>
+                        Dokuritsu Tenjin Gakuen is a special school that give grades through "Battles" instead of tests. So everyday, the students engage in all-out battle and get points based on their rankings. Two students ...
+                    </p>
+                </div>'>
+                Bee-Be-Beat It!</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Bee-Be-Beat-It/004?id=124895">004</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Benkyou-Shinasai" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/11-27-2011/8412442ochibichan_scan_benkyou_shinasai_vol01_ch01_000a.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Benkyou-Shinasai">Benkyou Shinasai</a>
+                    <p>
+                        Misora had amazingly managed to get into a prestigious school which has 80% of its students managing to get into Tokyo University. However, because of that, everyday ever since school started, she&rsquo;s ...
+                    </p>
+                </div>'>
+                Benkyou Shinasai</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Benkyou-Shinasai/007">007</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Blood" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/9-29-2011/133432i88011.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Blood">Blood+</a>
+                    <p>
+                        Set several decades after the events in the popular Blood: The Last Vampire anime film, an amnesiac Saya Otonashi lives as a seemingly normal high school student with her adoptive family in Okinawa. Horrible ...
+                    </p>
+                </div>'>
+                Blood+</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Bokura-no-Himitsu-wo-Kyouyuu-Shiyou-ka" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/1-18-2012/544245266f5c481bd46386d4d3ac58bbc3d63e3.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Bokura-no-Himitsu-wo-Kyouyuu-Shiyou-ka">Bokura no Himitsu wo Kyouyuu Shiyou ka</a>
+                    <p>
+                        Yuka goes to Ikimonogakaris room to ask them to solve her love problem, but unfortunately, they couldnt help her. To make her feel better, the people in the club gives her a piece of candy. Yuka eats ...
+                    </p>
+                </div>'>
+                Bokura no Himitsu wo Kyouyuu Shiyou ka</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Cloth-Weaver" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/9-30-2011/1642912hcreditpage.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Cloth-Weaver">Cloth Weaver</a>
+                    <p>
+                        "Long, long time ago... God descended down to the world engulfed in darkness. With the threads made from sheeps wool, He created one wondrous piece of cloth, gave rise to another world. That world is ...
+                    </p>
+                </div>'>
+                Cloth Weaver</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Clover" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/11-18-2011/4898532565b0c8a38f8d128cdd9eaeb3b18aa6c.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Clover">Clover</a>
+                    <p>
+                        Suzuki Saya, age 21, is an office lady whos never been able to forget about the guy she liked in middle school. She carries on each day now getting reprimanded by her accomplished supervisor, Tsuge Susumu, ...
+                    </p>
+                </div>'>
+                Clover</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Clover/Vol-007-Ch-026-Read-Online?id=136841">Vol.007 Ch.026 Read ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Daa-Daa-Daa" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/9-22-2011/7182752Daa--Daa--Daa----v08-c039-credits.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Daa-Daa-Daa">Daa! Daa! Daa!</a>
+                    <p>
+                        Miyu, whose mom was chosen to be an astronaut, was sent to live with Kanata, a boy she just met. Soon after, Kanatas father leave the two to live alone. Amidst the panic, a mysterious UFO came... and ...
+                    </p>
+                </div>'>
+                Daa! Daa! Daa!</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Daikirai-na-Aitsu" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/6-10-2012/7643912daa1573a99eb0800cfc953e5b8ea5b25.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Daikirai-na-Aitsu">Daikirai na Aitsu!</a>
+                    <p>
+                        Chihiro Kouzuki is a stage actor and works part-time as a housekeeper to earn more money. His uncle called him about taking on a housekeeping job for Aoki, an elite businessman who lives in an expensive ...
+                    </p>
+                </div>'>
+                Daikirai na Aitsu!</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Daikirai-na-Aitsu/Vol-001-Ch-005-Read-Online?id=124893">Vol.001 Ch.005 Read ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Dear-School-Gang-Leader" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/12-23-2011/8050272Dear-School-Gang-Leader-Volume-01-Page--0-.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Dear-School-Gang-Leader">Dear School Gang Leader</a>
+                    <p>
+                        Souka and her recently divorced mother move to a new place to start over. In looking for a school to enroll in, Souka decides to leave her preppy, private high school behind and transfers into a technical ...
+                    </p>
+                </div>'>
+                Dear School Gang Leader</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Dear-School-Gang-Leader/014-005">014.005</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/DearS" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/9-19-2011/9819432DearS-v01-006.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/DearS">DearS</a>
+                    <p>
+                        Aliens have landed on Earth and are now a normal part of society. These beautiful beings have been given the name "DearS" and are trusted and welcomed by most humans. In order for the "DearS" to learn ...
+                    </p>
+                </div>'>
+                DearS</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/DN-Angel" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/9-6-2011/654162dn_angel.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/DN-Angel">DN Angel</a>
+                    <p>
+                        Daisuke Niwa is an ordinary, if slightly unlucky, middle school student. On his fourteenth birthday, he comes down with a \condition\ that has plagued the men in his family for three hundred years. When ...
+                    </p>
+                </div>'>
+                DN Angel</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/DN-Angel/D-N--Angel-Chapter-70">D.N. Angel Chapter ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Doctor-wa-Amai-Kisu-wo-Suru" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/9-27-2011/7547732Doctor_wa_Amai_Kisu_wo_Suru_Story01_00.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Doctor-wa-Amai-Kisu-wo-Suru">Doctor wa Amai Kisu wo Suru</a>
+                    <p>
+                        There are many popular doctors at Hokusan University Hospital!! Such doctors develop passionate love affairs. Which way are they going?
+                    </p>
+                </div>'>
+                Doctor wa Amai Kisu wo Suru</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Doctor-wa-Amai-Kisu-wo-Suru/Dr--wa-Amai-Kiss-wo-Suru-004">Dr. wa Amai Kiss ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Dr-wa-Amai-Kiss-wo-Suru" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/3-21-2012/3377242i57855.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Dr-wa-Amai-Kiss-wo-Suru">Dr. wa Amai Kiss wo Suru</a>
+                    <p>
+                        There are many popular doctors at Hokusan University Hospital!! Such doctors develop passionate love affairs. Which way are they going?
+                    </p>
+                </div>'>
+                Dr. wa Amai Kiss wo Suru</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Dr-wa-Amai-Kiss-wo-Suru/Vol-001-Ch-005--Gentle--Strong-Shining-Season--End-">Vol.001 Ch.005: ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Emma-to-Hakushaku" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/1-15-2012/4937832ss-480-1-2.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Emma-to-Hakushaku">Emma to Hakushaku</a>
+                    <p>
+                        The penniless Miss Emma Lawrence has no choice about accepting the post of governess to the young daughter of Dominic Hastings, the Earl of Chard. But what unkind twist of fate has her working for the ...
+                    </p>
+                </div>'>
+                Emma to Hakushaku</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Evil-Virgin" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/6-18-2012/7083372a2e0762d0b002ab554b31a91d3690957.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Evil-Virgin">Evil Virgin</a>
+                    <p>
+                        Nurunuru Pharmaceutical&rsquo;s leading product, the Piagra, helps men bring up and maintain their sex drive. To further develop their research, the president of the company has hired a succubus. Known ...
+                    </p>
+                </div>'>
+                Evil Virgin</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Evil-Virgin/Vol-001-Ch-002-Read-Online?id=125085">Vol.001 Ch.002 Read ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/God-Seeker" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/9-14-2011/7156412god-seeker.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/God-Seeker">God Seeker</a>
+                    <p>
+                        Many people in this world possess commonplace magical abilities. These are usually things that make their lives a bit more convenient - such as the ability to make a small flame, or to heal slightly more ...
+                    </p>
+                </div>'>
+                God Seeker</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/God-Seeker/God-Seeker-Chapter-2">God Seeker Chapter ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Hakoniwa-Angel" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/10-23-2011/6046452i80735.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Hakoniwa-Angel">Hakoniwa Angel</a>
+                    <p>
+                        Hasato, finds love at first sight with the model &ldquo;Peach.&rdquo; She has entered the high school he attends just before the applications shut. But what is the truth about this &ldquo;Peach&rdquo; ...
+                    </p>
+                </div>'>
+                Hakoniwa Angel</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Hakoniwa-Angel/Vol-001-Ch-Extra--chocolate---shuffle?id=132260">Vol.001 Ch.Extra: ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Hana-wa-Sakura-yori-mo-Hana-no-Gotoku" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/3-25-2012/9304022f11577b7cc3a98c0668060e977c1c56d.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Hana-wa-Sakura-yori-mo-Hana-no-Gotoku">Hana wa Sakura yori mo Hana no Gotoku</a>
+                    <p>
+                        At a time when the world was still at peace, to the east of the capital, a beautiful dancer of Noh named Hakubi appeared. She was keeping a terrible secret that she couldnt tell anybody...
+                    </p>
+                </div>'>
+                Hana wa Sakura yori mo Hana no Gotoku</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Hana-wa-Sakura-yori-mo-Hana-no-Gotoku/Vol-001-Ch-003-Read-Online?id=134940">Vol.001 Ch.003 Read ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Hatsukiai" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/12-3-2011/6868252img000002.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Hatsukiai">Hatsukiai</a>
+                    <p>
+                        A collection of short stories about first romantic relationships. When young people first start dating, theres a lot of shyness, miscommunication, and embarrassment involved. How do you figure out the ...
+                    </p>
+                </div>'>
+                Hatsukiai</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Hatsukiai/Vol-001-Ch-005--Secret-Honey-Honey-Date?id=128904">Vol.001 Ch.005: ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Heart-no-Diamond" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/8-29-2011/7599342Diamond02.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Heart-no-Diamond">Heart no Diamond</a>
+                    <p>
+                        Himeno s chest will hurt if any boy touches her because she has the diamond of the heart. However, when she was young, she befriended two boys -- the gentle Mamoru and the blunt Keigo -- who are able to ...
+                    </p>
+                </div>'>
+                Heart no Diamond</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Heart-no-Diamond/Heart-No-Diamond-Chapter-10">Heart No Diamond ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Hetalia" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/6-12-2012/1761992i113267.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Hetalia">Hetalia</a>
+                    <p>
+                        Think of it like WWII, except every country is a pretty boy instead. A hilariously stereotypical pretty boy. America loves burgers, Russia is into the vodka, and China has pandas and a Wok.It is centered ...
+                    </p>
+                </div>'>
+                Hetalia</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Hetalia/Vol-Extra-043?id=132128">Vol.Extra 043</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Hidan-No-Aria-AA" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/5-6-2012/6800442i126186.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Hidan-No-Aria-AA">Hidan No Aria AA</a>
+                    <p>
+                        A young girl idolizes the world-renowned S-ranked butei Kanzaki H. Aria and plans to follow in her footsteps. However, her test grades her out as only an E-rank! All is not lost, however, as Aria agrees ...
+                    </p>
+                </div>'>
+                Hidan No Aria AA</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Hidan-No-Aria-AA/Vol-001-Ch-005--005th-Shot--Sasaki-Shino-001">Vol.001 Ch.005: ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/High-School-DxD-Aashia-Koneko-Himitsu-no-Keiyaku" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/4-27-2012/5009642i127185--1-.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/High-School-DxD-Aashia-Koneko-Himitsu-no-Keiyaku">High-School DxD: Aashia & Koneko Himitsu no Keiyaku!?</a>
+                    <p>
+                        Spin-off of High-School DxD that deals with the lives of two cute girls in the group, this takes place after Chapter 10 of the main manga series.
+                    </p>
+                </div>'>
+                High-School DxD: Aashia & Koneko Himitsu no Keiyaku!?</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/High-School-DxD-Aashia-Koneko-Himitsu-no-Keiyaku/Vol-001-Ch-004--Life-004---The-heroines-of-justice-will-do-it-?id=135791">Vol.001 Ch.004: ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Himitsu-Kichi" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/4-19-2012/4494712img000002.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Himitsu-Kichi">Himitsu Kichi</a>
+                    <p>
+                        Contains four one-shots.Boyfriends SecretHigh school year one, Kana has recently started looking for a boyfriend. She is head over heels for this mature guy whom she always thought was a 20 year old college ...
+                    </p>
+                </div>'>
+                Himitsu Kichi</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Hishintan-Vita-Arcana" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/7-10-2012/8074342i134762.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Hishintan-Vita-Arcana">Hishintan - Vita Arcana</a>
+                    <p>
+                        Its 217 AD, several decades after the end of the "Pax Romana," and the Roman Empire is still the most powerful empire in the world. However, between corruption in the government, increasing attacks from ...
+                    </p>
+                </div>'>
+                Hishintan - Vita Arcana</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Hishintan-Vita-Arcana/004?id=129193">004</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Hone-no-Oto" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/4-8-2012/7269022i116976.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Hone-no-Oto">Hone no Oto</a>
+                    <p>
+                        A selection of short stories. The stories deal with the same themes as Parasyte and his other work, and in only one of them is his art style noticeably more primitive.
+                    </p>
+                </div>'>
+                Hone no Oto</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Hone-no-Oto/Ch-004--The-Day-of-the-Ring">Ch.004: The Day ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/HoneyComb" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/2-16-2012/461692i98838.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/HoneyComb">HoneyComb</a>
+                    <p>
+                        Meet Mitarai Mutsumo &ndash; the only waiter at a maid caf&eacute;. And every single one of the girls who work as maid/waitresses is a little bit insane&hellip;
+                    </p>
+                </div>'>
+                HoneyComb</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/HoneyComb/Vol-001-Ch-005--Mutual-Benefits">Vol.001 Ch.005: ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Horikou-Hanemono-Ranger" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/8-6-2012/5077832New-folder.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Horikou-Hanemono-Ranger">Horikou Hanemono Ranger</a>
+                    <p>
+                        Hori High is attended by a bunch of good for nothing delinquents called Hanemono. Their adventures include interweaving tales of Hayato, a guy with a chonmage hairstyle, his colorful buddies, and their ...
+                    </p>
+                </div>'>
+                Horikou Hanemono Ranger</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Horikou-Hanemono-Ranger/004?id=134199">004</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Hot-Milk-KOMURA-Ayumi" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/8-31-2012/2293642img000002.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Hot-Milk-KOMURA-Ayumi">Hot Milk (KOMURA Ayumi)</a>
+                    <p>
+                        Waiting 300 years for a fateful meeting, living positively with crazy delusions, striving for many lovers, and drinking milk every day to get bigger breasts&hellip;Girls do all of this for boys! A collection ...
+                    </p>
+                </div>'>
+                Hot Milk (KOMURA Ayumi)</a>
+            
+            &nbsp;&nbsp;<img style="vertical-align: middle" title="Latest update series" src="../../Content/images/newupdate.png" />
+            
+            &nbsp;&nbsp;<img style="vertical-align: middle" title="Most Popular Manga" src="../../Content/images/hot.png" />
+            
+        </td>        
+        <td>
+            <a href="/Manga/Hot-Milk-KOMURA-Ayumi/Vol-001-Ch-002--Honey-Filter?id=137943">Vol.001 Ch.002: ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Inubaka" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/6-28-2012/157912Inubaka-v01-p-0000.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Inubaka">Inubaka</a>
+                    <p>
+                        All alone except for her loyal mutt Lupin, 18-year-old Suguri moves from the countryside to the big city to find a career and a new life!In her first job at a pet store, she meets an assortment of quirky ...
+                    </p>
+                </div>'>
+                Inubaka</a>
+            
+            &nbsp;&nbsp;<img style="vertical-align: middle" title="Most Popular Manga" src="../../Content/images/hot.png" />
+            
+        </td>        
+        <td>
+            <a href="/Manga/Inubaka/162?id=127491">162</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Inverted-Patema-Another-Side" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/4-8-2012/99698526e4aa291cf735b89acbc9e6f2cd56aa4.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Inverted-Patema-Another-Side">Inverted Patema: Another Side</a>
+                    <p>
+                        Side story to the film Inverted Patema.
+                    </p>
+                </div>'>
+                Inverted Patema: Another Side</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Inverted-Patema-Another-Side/Ch-003-Read-Online?id=125914">Ch.003 Read Onl ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Joshidaisei-Kateikyoushi-Hamanaka-Ai" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/8-31-2012/722128206000a.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Joshidaisei-Kateikyoushi-Hamanaka-Ai">Joshidaisei Kateikyoushi Hamanaka Ai</a>
+                    <p>
+                        Kokubo Masahiko is normal Junior High School student, but because of his bad grades he gets a home tutor known by the name of Hamanaka Ai. With help from her senpai Nakamura Ryoko, she goes about her days ...
+                    </p>
+                </div>'>
+                Joshidaisei Kateikyoushi Hamanaka Ai</a>
+            
+            &nbsp;&nbsp;<img style="vertical-align: middle" title="Latest update series" src="../../Content/images/newupdate.png" />
+            
+            &nbsp;&nbsp;<img style="vertical-align: middle" title="Most Popular Manga" src="../../Content/images/hot.png" />
+            
+        </td>        
+        <td>
+            <a href="/Manga/Joshidaisei-Kateikyoushi-Hamanaka-Ai/Ch-020--Concentration-Attack-?id=138098">Ch.020: Concentration ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Jounetsu-wa-Arashi-no-Atode" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/2-1-2012/720722200a.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Jounetsu-wa-Arashi-no-Atode">Jounetsu wa Arashi no Atode</a>
+                    <p>
+                        And it seemed to get colder every time Conrad DeVere looked Emma Belles way. The feeling was mutual. Emma thought Conrad was the most unlikable man shed ever met.Conrad viewed Emma as a scheming gold ...
+                    </p>
+                </div>'>
+                Jounetsu wa Arashi no Atode</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Kami-ka-Akuma-ka" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/4-22-2012/9168052i92544.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Kami-ka-Akuma-ka">Kami ka Akuma ka</a>
+                    <p>
+                        A girl who dreams of fated meetings - Kizuna. The one she met in a suspicious western-style house, the "Yuurei Library", was a good-looking but demon-like young man - Ruu. On top of that, Ruu has an unbelievable ...
+                    </p>
+                </div>'>
+                Kami ka Akuma ka</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Kami-ka-Akuma-ka/Vol-001-Ch-004-Read-Online?id=135424">Vol.001 Ch.004 Read ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Kamisama-no-Iutoori" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/12-28-2011/44432324daf9b4b766bd642255fbedab14fa007.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Kamisama-no-Iutoori">Kamisama no Iutoori</a>
+                    <p>
+                        Takahata Shuns day at high school begins just as normal and boring as ever, but it doesnt end that way. After his teachers head explodes, he and his classmates find themselves forced to play childrens ...
+                    </p>
+                </div>'>
+                Kamisama no Iutoori</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Kamisama-no-Iutoori/Vol-004-Ch-017-Read-Online?id=136367">Vol.004 Ch.017 Read ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Kanojo-wa-Kanno-Shosetsuka" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/10-30-2011/2441172Kanojo-wa-Wannou-Shousetsuka-v01-c00---000a.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Kanojo-wa-Kanno-Shosetsuka">Kanojo wa Kanno Shosetsuka</a>
+                    <p>
+                        Yearning for the world of erotic novels, Shiina Keisuke triumphantly joins the business as an editor. The author he yearns to work with is Kuroki Chihiro, however everyone is afraid of her because she ...
+                    </p>
+                </div>'>
+                Kanojo wa Kanno Shosetsuka</a>
+            
+            &nbsp;&nbsp;<img style="vertical-align: middle" title="Most Popular Manga" src="../../Content/images/hot.png" />
+            
+        </td>        
+        <td>
+            <a href="/Manga/Kanojo-wa-Kanno-Shosetsuka/Vol-004-Ch-038--She-s-Someone-Who-Gets-Extremely-Jealous-?id=127725">Vol.004 Ch.038: ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Kashikoi-Ken-Lilienthal" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/9-18-2011/704622g00.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Kashikoi-Ken-Lilienthal">Kashikoi Ken Lilienthal</a>
+                    <p>
+                        The Hino family picks up their "little brother" from the airport. The "brother" turns out to be Rilienthal, an intelligent dog who speaks Japanese. (wiki)
+                    </p>
+                </div>'>
+                Kashikoi Ken Lilienthal</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Kashikoi-Ken-Lilienthal/6">6</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Kimi-ga-Suki-toka-Arienai" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/6-28-2012/451842241e37a8.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Kimi-ga-Suki-toka-Arienai">Kimi ga Suki toka Arienai</a>
+                    <p>
+                        Kana, who has zero experience with love and cant even talk to a boy, loves to read about it in her favorite manga, which according to her friends is completely unrealistic. Annoyed by their cynicism, ...
+                    </p>
+                </div>'>
+                Kimi ga Suki toka Arienai</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Kimi-ga-Suki-toka-Arienai/Vol-001-Ch-002--Kiss-Panic?id=130959">Vol.001 Ch.002: ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Kimi-no-Uta-ga-Aru" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/7-23-2012/6198392img000004.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Kimi-no-Uta-ga-Aru">Kimi no Uta ga Aru</a>
+                    <p>
+                        After a very public (and humiliating) break-up with her last boyfriend, things couldnt get any worse for 18 year old Emiko. Things start looking up however, when a good-looking guy stops her in the middle ...
+                    </p>
+                </div>'>
+                Kimi no Uta ga Aru</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Kiss-Zekkou-Kiss-Bokura-no-Baai" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/7-28-2012/8408792a06a8172.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Kiss-Zekkou-Kiss-Bokura-no-Baai">Kiss, Zekkou, Kiss Bokura no Baai</a>
+                    <p>
+                        Continuation of Kiss, Zekkou, Kiss, a shoujo manga following the relationship between Sakisaka and Hatori--the ups and downs, misunderstandings, the tears and the laughter.A unique thing about this series ...
+                    </p>
+                </div>'>
+                Kiss, Zekkou, Kiss Bokura no Baai</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Kiss-Zekkou-Kiss-Bokura-no-Baai/Vol-002-Ch-008--Special-Sunday--Hatori-?id=132805">Vol.002 Ch.008: ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Kurobara-Alice" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/9-6-2011/4291242images.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Kurobara-Alice">Kurobara Alice</a>
+                    <p>
+                        The young tenor singer Dimitri miraculously escaped with his life after a severe accident. But soon after that, strange cases of group-suicides started to happen all around him&hellip; A vampire-romanesque ...
+                    </p>
+                </div>'>
+                Kurobara Alice</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Kurobara-Alice/025-Read-Online?id=128828">025 Read Online</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Landreaall" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/4-26-2012/5313192ddc1125.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Landreaall">Landreaall</a>
+                    <p>
+                        Siscon. Power-phobie. Son of the great General Luccafort. Wether-crown. Fourth-in-line for succession. The titles, accolades, expectations, respect, and envy for DX Luccafort keeps coming. But all he wanted ...
+                    </p>
+                </div>'>
+                Landreaall</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Landreaall/Vol-001-Ch-003-005--Tailpiece">Vol.001 Ch.003.005: ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Little-Busters-Kud-Wafter" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/9-27-2011/175012i101555.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Little-Busters-Kud-Wafter">Little Busters! Kud Wafter</a>
+                    <p>
+                        This is the manga version of "Little Busters! Kud Wafter," the popular visual novel made by KEY that focused on Kudryavka Noumi.
+                    </p>
+                </div>'>
+                Little Busters! Kud Wafter</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Little-Busters-Kud-Wafter/009-Read-Online">009 Read Online</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Lying-Mii-kun-and-Broken-Maa-chan-Precious-Lies" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/10-2-2011/8050772bceaaaef6d3b36e6722fc7df20f50629.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Lying-Mii-kun-and-Broken-Maa-chan-Precious-Lies">Lying Mii-kun and Broken Maa-chan: Precious Lies</a>
+                    <p>
+                        The setting is a rural city in which kidnapping and series of murders are happening simultaneously. Eight years ago, a boy and a girl were kidnapped and suffered through the hands of their perpetrator. ...
+                    </p>
+                </div>'>
+                Lying Mii-kun and Broken Maa-chan: Precious Lies</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Mada-Amanogawa-ni-Ikenai" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/7-8-2012/3282462957f1ab360f.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Mada-Amanogawa-ni-Ikenai">Mada Amanogawa ni Ikenai</a>
+                    <p>
+                        1.&nbsp;Mada Amanogawa ni Ikenaithey met when they were in 1st year.Theyre supposed to love the same things but...2.&nbsp;Juunen no Ame3.&nbsp;Koi ni Ichiban Chikai Shima4.&nbsp;Senaka Watte Koi (w)o ...
+                    </p>
+                </div>'>
+                Mada Amanogawa ni Ikenai</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Mada-Amanogawa-ni-Ikenai/Vol-001-Ch-001--Mada-Amanogawa-ni-Ikenai?id=128726">Vol.001 Ch.001: ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Magical-Girl-Lyrical-Nanoha-A-s" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/10-2-2011/3982082nanoha_as1a.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Magical-Girl-Lyrical-Nanoha-A-s">Magical Girl Lyrical Nanoha As</a>
+                    <p>
+                        A manga adaptation of a thirteen episode sequel to Magical Girl Lyrical Nanoha, a magical girl alternate universe spinoff of the Triangle Heart series of games and OAVs
+                    </p>
+                </div>'>
+                Magical Girl Lyrical Nanoha A's</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Marginal" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/9-15-2011/3440902i73705.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Marginal">Marginal</a>
+                    <p>
+                        In the year 2999, only eleven cities still survive on Earth. The climate has changed drastically, and a biochemical apocalypse has made women extinct. For centuries, the male population of Earth has survived ...
+                    </p>
+                </div>'>
+                Marginal</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Nana-to-Kaoru" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/8-27-2011/7998472nana_to_kaoru.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Nana-to-Kaoru">Nana to Kaoru</a>
+                    <p>
+                        Kaoru is a 17-year old virgin who has a SM fetish. He always dreams about a SM relationship with his childhood friend Nana. One day Kaorus mom decides to hide all his SM toys so hell study for a change, ...
+                    </p>
+                </div>'>
+                Nana to Kaoru</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Nana-to-Kaoru/082-Ch-056?id=132479">082 (Ch 056)</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Nausicaa-of-the-Valley-of-the-Wind" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/10-1-2011/9924032nausicaa-1.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Nausicaa-of-the-Valley-of-the-Wind">Nausicaa of the Valley of the Wind</a>
+                    <p>
+                        Humanity, in its hubris, has precipitated a devastating environmental disaster. Flourishing industrial civilizations have been swallowed up by the Sea of Corruption, an enormous forest of fungi releases ...
+                    </p>
+                </div>'>
+                Nausicaa of the Valley of the Wind</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Nausicaä-of-the-valley-of-the-wind" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/10-13-2011/5831472Nausicaa-v01p001.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Nausicaä-of-the-valley-of-the-wind">Nausicaä of the valley of the wind</a>
+                    <p>
+                        Humanity, in its hubris, has precipitated a devastating environmental disaster. Flourishing industrial civilizations have been swallowed up by the Sea of Corruption, an enormous forest of fungi releases ...
+                    </p>
+                </div>'>
+                Nausicaä of the valley of the wind</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Obaachan-wa-Idol" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/10-14-2011/5447152i87004.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Obaachan-wa-Idol">Obaachan wa Idol</a>
+                    <p>
+                        Yamada Momoka is your average 16 year old girl. Her family consists of herself, her dad who works at a TV station, and her mom. Apparently she also has a strict prune of a grandma, but who doesn&rsquo;t? ...
+                    </p>
+                </div>'>
+                Obaachan wa Idol</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Obaachan-wa-Idol/15">15</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Oeufs-D-ange" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/12-16-2011/517473288789d79146b9bb50de95a7f20da34b0.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Oeufs-D-ange">Oeufs Dange</a>
+                    <p>
+                        A short but sweet oneshot about an artist and her portrait model.
+                    </p>
+                </div>'>
+                Oeufs D'ange</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Order-wa-Boku-de-Yoroshi-desu-ka" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/5-23-2012/174029296f6153d6796fd090365948f98e33403.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Order-wa-Boku-de-Yoroshi-desu-ka">Order wa Boku de Yoroshi desu ka?</a>
+                    <p>
+                        Akari always goes to a particular coffee shop, but not for their coffee. Its to see Naruse Hijiri-kun, a waiter whos totally Akaris type. And then suddenly one day she finds him waiting outside her ...
+                    </p>
+                </div>'>
+                Order wa Boku de Yoroshi desu ka?</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Order-wa-Boku-de-Yoroshi-desu-ka/Vol-001-Ch-003--Story-003---Power-of-Love">Vol.001 Ch.003: ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Order-wa-Boku-de-Yoroshii-desu-ka" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/12-10-2011/8904412ebd3f3b119006f24ff92492ddc3577f5.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Order-wa-Boku-de-Yoroshii-desu-ka">Order wa Boku de Yoroshii desu ka?</a>
+                    <p>
+                        Akari always goes to a particular coffee shop, but not for their coffee. Its to see Naruse Hijiri-kun, a waiter whos totally Akaris type. And then suddenly one day she finds him waiting outside her ...
+                    </p>
+                </div>'>
+                Order wa Boku de Yoroshii desu ka?</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Order-wa-Boku-de-Yoroshii-desu-ka/Vol-001-Ch-003--Story-003---Power-of-Love">Vol.001 Ch.003: ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Ore-ga-Akuma-de-Aitsu-ga-Yome-de" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/5-1-2012/7368092img000002.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Ore-ga-Akuma-de-Aitsu-ga-Yome-de">Ore ga Akuma de, Aitsu ga Yome de</a>
+                    <p>
+                        Demons will grant any human one wish in exchange for their soul. Anzamnia, an ambitious demon, has fallen to the bottom of the chart, having collected zero souls. After being kicked out to earth by the ...
+                    </p>
+                </div>'>
+                Ore ga Akuma de, Aitsu ga Yome de</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Ore-ga-Akuma-de-Aitsu-ga-Yome-de/Ch-009--Wish-009--Don-t-hate-me?id=135005">009: Wish 009: Don't ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Osuteki-Daarin" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/1-23-2012/23517926d55c10c99fac51ac805c31be3fcd837.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Osuteki-Daarin">Osuteki Daarin</a>
+                    <p>
+                        Serika is your typical high school girl. She loves reading books, likes romance, and has the ability to knock a guy flat out with her fist. She imagines herself as one of those heroines she reads in books, ...
+                    </p>
+                </div>'>
+                Osuteki Daarin</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Osuteki-Daarin/Vol-001-Ch-002b-Read-Online">Vol.001 Ch.002b ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Otona-no-Shoumei-﻿" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/12-26-2011/407027201.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Otona-no-Shoumei-﻿">Otona no Shoumei ﻿</a>
+                    <p>
+                        Tsubaki always appears experienced, but actually, she has never had a boyfriend even though shes already 16, and shes a real baby. She wants to quickly increase her love experiences, and become an adult! ...
+                    </p>
+                </div>'>
+                Otona no Shoumei ﻿</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Otona-no-Shoumei-﻿/Otona-no-Shoumei-001">Otona no Shoumei ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Otoshite-Appli-Girl" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/4-11-2012/6030622i116431.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Otoshite-Appli-Girl">Otoshite Appli Girl</a>
+                    <p>
+                        An antisocial teacher ends up on an island for her first teaching assignment. Little does she know that both her assignment and the class are&hellip; a bit out of the ordinary.
+                    </p>
+                </div>'>
+                Otoshite Appli Girl</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Otoshite-Appli-Girl/Vol-001-Ch-005-Read-Online?id=127999">Vol.001 Ch.005 Read ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Pandora-Hearts" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/8-22-2011/61351422870032Untitled-2.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Pandora-Hearts">Pandora Hearts</a>
+                    <p>
+                        Oz Vessalius is about to turn fifteen, and as the heir to a prestigious family, he must undergo a coming-of-age ceremony. However, during the ceremony Ozs carefree life changes forever &mdash; hes attacked ...
+                    </p>
+                </div>'>
+                Pandora Hearts</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Pandora-Hearts/Vol-019-Ch-076--Retrace-LXXVI--Alice--amp--Oz?id=136452">Vol.019 Ch.076: ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Past-Future" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/12-2-2011/1297322i91438.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Past-Future">Past Future</a>
+                    <p>
+                        An older brother discovered his interest in cross-dressing and totally grossed out his sister. After consulting online message board, he decided he will play the role of older sister instead to build better ...
+                    </p>
+                </div>'>
+                Past Future</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Past-Future/008-But-It-s-Limited-to-Cool-Guys?id=123859">008 But It's Limited ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Perfect-World-NAKAMURA-Asumiko" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/6-19-2012/8559302perfect1.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Perfect-World-NAKAMURA-Asumiko">Perfect World (NAKAMURA Asumiko)</a>
+                    <p>
+                        A short oneshot about a disease where one sprouts flowers.
+                    </p>
+                </div>'>
+                Perfect World (NAKAMURA Asumiko)</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Red-River" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/9-9-2011/5183502anatolia_story_cover_v01.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Red-River">Red River</a>
+                    <p>
+                        Yuri lived the peaceful, average teenage life until Queen Nakia drew Yuri across time and space into the ancient Hittite Empire to use her as a sacrifice! Yuri meets many different friends throughout her ...
+                    </p>
+                </div>'>
+                Red River</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Rutta-Kodama" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/5-20-2012/36715925e61c9bbf809d2bd64db06b96df27886.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Rutta-Kodama">Rutta & Kodama</a>
+                    <p>
+                        Rutta changed from a delinquent to a nice guy because of his new roommate, Miyagi Kodama. Kodama was unsure of his own feelings after Ruttas confession. After seeing Ruttas injuries caused from excessive ...
+                    </p>
+                </div>'>
+                Rutta & Kodama</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Rutta-Kodama/Vol-003-Ch-021---end-?id=123435">Vol.003 Ch.021: ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Sailor-Fuku-ni-Onegai" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/9-8-2011/7402692Sailorfuku-02_FJP_254x400.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Sailor-Fuku-ni-Onegai">Sailor Fuku ni Onegai</a>
+                    <p>
+                        When Hina hits a homerun ball and goes to get it back she realizes she has damaged a shrine with the baseball. When she touches the object inside the shrine the object is absorbed into her and she becomes ...
+                    </p>
+                </div>'>
+                Sailor Fuku ni Onegai</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Seiyuu-Ka" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/10-17-2011/2168832i101061.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Seiyuu-Ka">Seiyuu Ka-!</a>
+                    <p>
+                        Kino Hime is a 15 year-old girl who just started her first year in a high school for voice actors (Seiyuu) called Hiiragi Academy. She dreams of becoming the voice of the main character in one of the most ...
+                    </p>
+                </div>'>
+                Seiyuu Ka-!</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Seiyuu-Ka/Vol-011-Ch-062--Voice-062?id=136482">Vol.011 Ch.062: ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Sekaiichi-Hatsukoi" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/4-18-2012/4923782img000004.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Sekaiichi-Hatsukoi">Sekaiichi Hatsukoi</a>
+                    <p>
+                        Onodera Ritsu quits his job and transfers to the publishing company Marukawa Shoten. Sadly, he gets assigned to the editing department that handles shoujo manga; and Ritsu, who vowed to never fall in love ...
+                    </p>
+                </div>'>
+                Sekaiichi Hatsukoi</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Sekaiichi-Hatsukoi/Vol-007-Ch-014--The-Case-of-Onodera-Ritsu--014?id=122487">Vol.007 Ch.014: ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Sexy-Guardian" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/10-18-2011/5142002i3795.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Sexy-Guardian">Sexy Guardian</a>
+                    <p>
+                        Juunas uncle gets her to enroll in the school where hes principal. The only problem is that its an all boys school! With all those rabid guys around, Juuna needs someone to protect her. In comes Shibuki ...
+                    </p>
+                </div>'>
+                Sexy Guardian</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Shin-Daa-Daa-Daa" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/8-3-2012/3411152img000002.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Shin-Daa-Daa-Daa">Shin Daa! Daa! Daa!</a>
+                    <p>
+                        After Daa! Daa! Daa!, Ruu is now a cheerful youth living in his home, Planet Otto. Then, a confused girl named Miu arrives through a wormhole from Earth. Ruu joins up with her and promises to take her ...
+                    </p>
+                </div>'>
+                Shin Daa! Daa! Daa!</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Shishunki-na-Adam" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/8-8-2012/7402162i137204.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Shishunki-na-Adam">Shishunki na Adam</a>
+                    <p>
+                        A noisy little family, a cheerful group of classmates, and a boy, born on the first year of the lunar calendar living a never changing life. Then one day he notices a girl in his class shrouded in mystery. ...
+                    </p>
+                </div>'>
+                Shishunki na Adam</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Shishunki-na-Adam/001?id=134790">001</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Shiwhamong" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/1-7-2012/263402i90782.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Shiwhamong">Shiwhamong</a>
+                    <p>
+                        Shi, Hwa and Mong are sisters. They have something special: they are triplets. After losing their mother, they are each entrusted to a different family. Thus, Shi lives in New York; Mong in Japan and Hwa ...
+                    </p>
+                </div>'>
+                Shiwhamong</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Shiwhamong/Shiwhamong-v012?id=128823">Shiwhamong Vol. ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Shounen-wa-Amaku-Aisu" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/10-26-2011/2358872i61685.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Shounen-wa-Amaku-Aisu">Shounen wa Amaku Aisu</a>
+                    <p>
+                        Rio is a transfer student in Kao Gakuin, who is longing to find her "man of destiny". She met Kanna the first day at school, and he told her that hed be her man of destiny. Hes the student chair, even ...
+                    </p>
+                </div>'>
+                Shounen wa Amaku Aisu</a>
+            
+        </td>        
+        <td>
+            Completed
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Sono-Koi-ni-wa-Wake-ga-Aru" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/6-4-2012/3839232cd4f28216fda9ba13f6bb98ebb230108.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Sono-Koi-ni-wa-Wake-ga-Aru">Sono Koi ni wa Wake ga Aru</a>
+                    <p>
+                        Aoi, a first year student in all-boys high school, is a violent but beautiful boy. Viewing his good looks as a burden, he ruthlessly rejects every guy that approaches him. Until one day, Aoi notices Azuma, ...
+                    </p>
+                </div>'>
+                Sono Koi ni wa Wake ga Aru</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Sono-Koi-ni-wa-Wake-ga-Aru/Vol-001-Ch-001-006---Extras---Complete-?id=122751">Vol.001 Ch.001-006 ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Sono-Rokudenashi-ni-You-ga-Aru" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/1-2-2012/7500052ecd5373e0bf74d8d73edabb4315c47e2.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Sono-Rokudenashi-ni-You-ga-Aru">Sono Rokudenashi ni You ga Aru</a>
+                    <p>
+                        What will happened when Yuzu meets the boy who helped her out ten years ago in middle school? What will happened between the relationship between her and Shinra, her boyfriend?
+                    </p>
+                </div>'>
+                Sono Rokudenashi ni You ga Aru</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Sono-Rokudenashi-ni-You-ga-Aru/Ch-001-Read-Online">Ch.001 Read Onl ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Sono-Te-wa-Atatakai" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/12-6-2011/4068592img000003.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Sono-Te-wa-Atatakai">Sono Te wa Atatakai</a>
+                    <p>
+                        Todo is a very skilled locksmith. One day, after a job, a car almost hits him. In the car is a box&hellip; and in that box is a young girl?!
+                    </p>
+                </div>'>
+                Sono Te wa Atatakai</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Sono-Te-wa-Atatakai/Ch-000---Oneshot-">Ch.000: [Onesho ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Takumi-kun-Series" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/10-26-2011/9749532i86321.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Takumi-kun-Series">Takumi-kun Series</a>
+                    <p>
+                        Shidou highschool Institute is an all-boys dormitory school located far from the city inside the mountains. Takumi, who is going out with the famous Gii - Saki Giichi in the academy, has a secret which ...
+                    </p>
+                </div>'>
+                Takumi-kun Series</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Takumi-kun-Series/018">018</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Tiger-Mask" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/12-1-2011/190360297d1f71d516cc41c82fe109fb4f2e632.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Tiger-Mask">Tiger Mask</a>
+                    <p>
+                        In the manga and anime, Tiger Mask (whose real name was Naoto Date) was a feared heel wrestler in America who was extremely vicious in the ring. However, he became a face after returning to Japan when ...
+                    </p>
+                </div>'>
+                Tiger Mask</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Tiger-Mask/Vol-001-Ch-005-Read-Online">Vol.001 Ch.005 Read ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Twinkle-Crusaders-Go-Go" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/11-14-2011/618301256a7b4fc47b3db24d073eaae9717de3d.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Twinkle-Crusaders-Go-Go">Twinkle Crusaders Go Go!</a>
+                    <p>
+                        Synn is a hard-luck high school student. One day, he becomes student council president. But his job as president includes getting rid of mazoku (denizens of hell) that appear in his town as well. Also, ...
+                    </p>
+                </div>'>
+                Twinkle Crusaders Go Go!</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/Twinkle-Crusaders-Go-Go/Vol-002-Ch-011-Read-Online?id=129532">Vol.002 Ch.011 Read ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/Watashi-ni-XX-Shinasai" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/8-22-2011/80752924280451396Cover.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Watashi-ni-XX-Shinasai">Watashi ni XX Shinasai!</a>
+                    <p>
+                        In class, shes a sort of zoned-out girl, and hes the year one class most perfect, good-looking guy. But the two of them have a secret, and their extraordinary "love experience" will start now!
+Himuro ...
+                    </p>
+                </div>'>
+                Watashi ni XX Shinasai!</a>
+            
+            &nbsp;&nbsp;<img style="vertical-align: middle" title="Latest update series" src="../../Content/images/newupdate.png" />
+            
+        </td>        
+        <td>
+            <a href="/Manga/Watashi-ni-XX-Shinasai/Vol-010-Ch-039--Fake-Lover-Date?id=127731">Vol.010 Ch.039: ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Yamada-kun-to-7-nin-no-Majo" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/3-4-2012/430588243f3fb510e06f4067dc9bf0160b6fe1c.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Yamada-kun-to-7-nin-no-Majo">Yamada-kun to 7-nin no Majo</a>
+                    <p>
+                        Ryu Yamada is a second year student at Suzaku High. Ryu is always late for school, naps in class and gets abysmal grades. His life is a dead bore. The beautiful Urara Shiraishi, on the other hand, is Suzaku ...
+                    </p>
+                </div>'>
+                Yamada-kun to 7-nin no Majo</a>
+            
+            &nbsp;&nbsp;<img style="vertical-align: middle" title="Latest update series" src="../../Content/images/newupdate.png" />
+            
+            &nbsp;&nbsp;<img style="vertical-align: middle" title="Most Popular Manga" src="../../Content/images/hot.png" />
+            
+        </td>        
+        <td>
+            <a href="/Manga/Yamada-kun-to-7-nin-no-Majo/Ch-028--Fwish-Fwish?id=138030">Ch.028: Fwish F ...</a>
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td>
+            <a href="/Manga/YM-Yagyuu-Ninpouchou" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/9-11-2011/353032Y10M-Yagyuu-Ninpouchou-v01---Cover.png" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/YM-Yagyuu-Ninpouchou">YM Yagyuu Ninpouchou</a>
+                    <p>
+                        In 17th century Japan, a rebellion in the Aizu territory has been brutally crushed, leaving twenty-one brave warriors dead and most of the nuns of the local convent slaughtered. Now the surviving nuns ...
+                    </p>
+                </div>'>
+                YM Yagyuu Ninpouchou</a>
+            
+        </td>        
+        <td>
+            <a href="/Manga/YM-Yagyuu-Ninpouchou/Vol-010-Ch-090--The-Ways-of-Good-and-Evil?id=136015">Vol.010 Ch.090: ...</a>
+        </td>
+    </tr>
+    
+    <tr class="odd">
+        
+        <td>
+            <a href="/Manga/Youkai-Apato-no-Yuuga-na-Nichijou" title='
+                <img width="120" height="165" src="http://kissmanga.com/Uploads/Etc/2-21-2012/52618826b62bef0197d538605ab138ac3767195.jpg" style="float: left; padding-right: 10px" />
+                <div style="float: left; width: 300px">
+                    <a class="bigChar" href="/Manga/Youkai-Apato-no-Yuuga-na-Nichijou">Youkai Apato no Yuuga na Nichijou</a>
+                    <p>
+                        Inaba Yuushis parents died in his first year of middle school, and he moved in with his relatives. Though they did care for him, he could tell he was a burden. After he graduated, he happily prepared ...
+                    </p>
+                </div>'>
+                Youkai Apato no Yuuga na Nichijou</a>
+            
+            &nbsp;&nbsp;<img style="vertical-align: middle" title="Latest update series" src="../../Content/images/newupdate.png" />
+            
+        </td>        
+        <td>
+            <a href="/Manga/Youkai-Apato-no-Yuuga-na-Nichijou/Vol-001-Ch-004--Kuri-and-Shiro---001st-Vol-?id=137759">Vol.001 Ch.004: ...</a>
+        </td>
+    </tr>
+    
+</table>
+
+<script type="text/javascript">
+    $(".listing tr a[title]").tooltip({ position: "top right", effect: 'slide' }).dynamic({ bottom: { direction: 'down', bounce: true} });
+</script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="rightside">
+            <div class="rightBox">
+                
+                <div class="barTitle">
+                    Search by genres</div>
+                <div class="barContent">
+                    <div class="arrow-general">
+                        &nbsp;</div>
+                    <div>
+                        
+                        <a href="/Genre/Action" title="A work typically depicting fighting, violence, chaos, and fast paced  motion.">
+                            Action</a><br />
+                        
+                        <a href="/Genre/Adult" title="Contains content that is suitable only for adults. Titles in this  category may include prolonged scenes of intense violence and/or graphic  sexual content and nudity.">
+                            Adult</a><br />
+                        
+                        <a href="/Genre/Adventure" title="If a character in the story goes on a trip or along that line, your best  bet is that it is an adventure manga.  Otherwise, it's up to your  personal prejudice on this case.">
+                            Adventure</a><br />
+                        
+                        <a href="/Genre/Comedy" title="A dramatic work that is light and often humorous or satirical in tone  and that usually contains a happy resolution of the thematic conflict.">
+                            Comedy</a><br />
+                        
+                        <a href="/Genre/Doujinshi" title="Fan based work inspired by official anime or manga. For MangaUpdates,  original works DO NOT fall under this category">
+                            Doujinshi</a><br />
+                        
+                        <a href="/Genre/Drama" title="A work meant to bring on an emotional response, such as instilling  sadness or tension.">
+                            Drama</a><br />
+                        
+                        <a href="/Genre/Ecchi" title="Possibly the line between hentai and non-hentai, ecchi usually refers to  fanservice put in to attract a certain group of fans.">
+                            Ecchi</a><br />
+                        
+                        <a href="/Genre/Fantasy" title="Anything that involves, but not limited to, magic, dream world, and  fairy tales.">
+                            Fantasy</a><br />
+                        
+                        <a href="/Genre/Gender-Bender" title="Girls dressing up as guys, guys dressing up as girls.. Guys turning into  girls, girls turning into guys.. I think you get the picture.">
+                            Gender Bender</a><br />
+                        
+                        <a href="/Genre/Harem" title="A series involving one male character and many female characters  (usually attracted to the male character). A Reverse Harem is when the  genders are reversed.">
+                            Harem</a><br />
+                        
+                        <a href="/Genre/Historical" title="Having to do with old or ancient times.">
+                            Historical</a><br />
+                        
+                        <a href="/Genre/Horror" title="A painful emotion of fear, dread, and abhorrence; a shuddering with terror and detestation; the feeling inspired by something frightful and shocking.">
+                            Horror</a><br />
+                        
+                        <a href="/Genre/Josei" title="Literally Woman. Targets women 18-30. Female equivalent to seinen. Unlike shoujo the romance is more realistic and less idealized. The storytelling is more explicit and mature.
+&nbsp;">
+                            Josei</a><br />
+                        
+                        <a href="/Genre/Lolicon" title="Representing a sexual attraction to young or under-age girls.">
+                            Lolicon</a><br />
+                        
+                        <a href="/Genre/Manga" title="Manga is the Japanese word for comics and consists of comicsand print cartoons">
+                            Manga</a><br />
+                        
+                        <a href="/Genre/Manhua" title="Manhua are Chinese comics originally produced in China.">
+                            Manhua</a><br />
+                        
+                        <a href="/Genre/Manhwa" title="Manhwa is the general Korean term for comics and print cartoons (common usage also includes animated cartoons).&nbsp;">
+                            Manhwa</a><br />
+                        
+                        <a href="/Genre/Martial-Arts" title="As the name suggests, anything martial arts related. Any of several arts of combat or self-defense, such as aikido, karate, judo, or tae kwon do, kendo, fencing, and so on and so forth.">
+                            Martial Arts</a><br />
+                        
+                        <a href="/Genre/Mature" title="Contains subject matter which may be too extreme for people under the age of 17. Titles in this category may contain intense violence, blood and gore, sexual content and/or strong language.">
+                            Mature</a><br />
+                        
+                        <a href="/Genre/Mecha" title="A work   involving and usually concentrating on all types of large robotic machines.">
+                            Mecha</a><br />
+                        
+                        <a href="/Genre/Mystery" title="Usually an unexplained event occurs, and the main protagonist attempts to find out what caused it.">
+                            Mystery</a><br />
+                        
+                        <a href="/Genre/One-shot" title="One shot">
+                            One shot</a><br />
+                        
+                        <a href="/Genre/Psychological" title="Usually deals with the philosophy of a state of mind, in most cases  detailing abnormal psychology.">
+                            Psychological</a><br />
+                        
+                        <a href="/Genre/Romance" title="Any love related story.  We will define love as between man and woman in  this case. Other than that, it is up to your own imagination of what  love is.">
+                            Romance</a><br />
+                        
+                        <a href="/Genre/School-Life" title="Having a major setting of the story deal with some type of school.">
+                            School Life</a><br />
+                        
+                        <a href="/Genre/Sci-fi" title="Short for science fiction, these works involve twists on technology and  other science related phenomena which are contrary or stretches of the  modern day scientific world.">
+                            Sci-fi</a><br />
+                        
+                        <a href="/Genre/Seinen" title="Seinen means young Man. Manga and anime that specifically targets  young adult males around the ages of 18 to 25 are seinen titles.The  stories in seinen works appeal to university students and those in the  working world. Typically the story lines deal with the issues of  adulthood.">
+                            Seinen</a><br />
+                        
+                        <a href="/Genre/Shotacon" title="Representing a sexual attraction to young or under-age boys.">
+                            Shotacon</a><br />
+                        
+                        <a href="/Genre/Shoujo" title="A work intended and primarily written for females.  Usually involves a  lot of romance and strong character development.">
+                            Shoujo</a><br />
+                        
+                        <a href="/Genre/Shoujo-Ai" title="Often synonymous with yuri, this can be thought of as somewhat less  extreme. Girl's Love, so to speak.">
+                            Shoujo Ai</a><br />
+                        
+                        <a href="/Genre/Shounen" title="A work intended and primarily written for males.  These  works usually  involve fighting and/or violence.">
+                            Shounen</a><br />
+                        
+                        <a href="/Genre/Shounen-Ai" title="Often synonymous with yaoi, this can be thought of as somewhat less  extreme. Boy's Love, so to speak.">
+                            Shounen Ai</a><br />
+                        
+                        <a href="/Genre/Slice-of-Life" title="
+As the name suggests, this genre represents day-to-day tribulations of one/many character(s). These challenges/events could technically happen in real life and are often -if not all the time- set in the present timeline in a world that mirrors our own.
+
+">
+                            Slice of Life</a><br />
+                        
+                        <a href="/Genre/Smut" title="Deals with series that are considered profane or offensive, particularly with regards to sexual content">
+                            Smut</a><br />
+                        
+                        <a href="/Genre/Sports" title="As the name suggests, anything sports related. Baseball, basketball, hockey, soccer, golf, and racing just to name a few.">
+                            Sports</a><br />
+                        
+                        <a href="/Genre/Supernatural" title="Usually   entails amazing and unexplained powers or events which defy the laws of   physics.">
+                            Supernatural</a><br />
+                        
+                        <a href="/Genre/Tragedy" title="
+Contains events resulting in great loss and misfortune.
+">
+                            Tragedy</a><br />
+                        
+                        <a href="/Genre/Yaoi" title="This   work usually involves intimate relationships between men.">
+                            Yaoi</a><br />
+                        
+                        <a href="/Genre/Yuri" title="This   work usually involves intimate relationships between women.">
+                            Yuri</a><br />
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- end div container -->
+        <div class="clear">
+            &nbsp;</div>
+        <div class="clear">
+            &nbsp;</div>
+        <div class="clear">
+            &nbsp;</div>
+        
+
+   <!-- BEGIN CPMSTAR TWO-SIDED SITESKIN CODE -->
+<script type='text/javascript'>
+var cpmstar_pid         = 30688; // your poolid
+var cpmstar_centerWidth = "900px"; //width IN PIXELS of your center content, e.g. "800px"
+var cpmstar_fixed       = "0" ; //fix ads near top of screen: "0" to allow ads to scroll with page
+var cpmstar_leftOffset  = "0px" ; //optionally adjust left ad positioning
+var cpmstar_rightOffset = "0px" ; //optionally adjust right ad positioning
+var cpmstar_zIndex      = "100" ; //adjust layering of ads vs. other page elements
+var cpmstar_topPos = "220px" ; //optionally shift both ads down from top of page
+var cpmstar_rnd         = Math.round(Math.random() * 999999);
+document.write("\x3cscript type='text/javascript' src='http://server.cpmstar.com/view.aspx?poolid=" + cpmstar_pid + "&script=1&rnd=" + cpmstar_rnd + "'\x3e\x3c/script\x3e");
+</script>
+<!-- END CPMSTAR TWO-SIDED SITESKIN CODE -->
+   
+   
+
+    </div>
+    <div id="footer">
+        <div id="footcontainer" style="position: relative">
+            <p>
+                Copyright &copy; 2011 <a href="http://kissmanga.com">KissManga.com</a>. All rights
+                reserved.</p>
+            <p>
+                A product of <a target="_blank" href="http://domdomsoft.com">DomDomSoft.com</a>&nbsp;&nbsp;
+            </p>
+            <div style="position: absolute; left: 200px; top: 20px">
+                <!-- Histats.com  START  (standard)-->
+                <script type="text/javascript">                    document.write(unescape("%3Cscript src=%27http://s10.histats.com/js15_gif.js%27 type=%27text/javascript%27%3E%3C/script%3E"));</script>
+                <a href="http://www.histats.com" target="_blank" title="free site statistics">
+                    <script type="text/javascript">
+                        try {
+                            Histats.startgif(1, 1691669, 4, 10045, "");
+                            Histats.track_hits();
+                        } catch (err) { };
+                    </script>
+                </a>
+                <noscript>
+                    <a href="http://www.histats.com" alt="free site statistics" target="_blank">
+                        <div id="histatsC">
+                            <img border="0" src="http://s4is.histats.com/stats/i/1691669.gif?1691669&103"></div>
+                    </a>
+                </noscript>
+                <!-- Histats.com  END  -->
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('#footer').css('top', $(document).height() - $('#containerRoot').height());
+    </script>	
+	
+</body>
+</html>

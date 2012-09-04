@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if test "$1" == ""; then
-    echo "Usage: $0 [animea|mangareader|naver|mangahere]"
+    echo "Usage: $0 [animea|mangareader|naver|mangahere|kissmanga]"
     exit 1
 fi
 
@@ -28,6 +28,11 @@ mangahere_rinne_c2_p1_html	http://www.mangahere.com/manga/kyoukai_no_rinne/v01/c
 mangahere_rinne_c2_p2_html	http://www.mangahere.com/manga/kyoukai_no_rinne/v01/c002/2.html
 mangahere_rinne_chapters_html	http://www.mangahere.com/manga/kyoukai_no_rinne/
 mangahere_advanced_search	http://www.mangahere.com/search.php?direction=&name_method=cw&name=a&author_method=cw&author=&artist_method=cw&artist=&genres%5BAction%5D=0&genres%5BAdventure%5D=0&genres%5BComedy%5D=0&genres%5BDoujinshi%5D=0&genres%5BDrama%5D=0&genres%5BEcchi%5D=0&genres%5BFantasy%5D=1&genres%5BGender+Bender%5D=0&genres%5BHarem%5D=0&genres%5BHistorical%5D=0&genres%5BHorror%5D=0&genres%5BJosei%5D=0&genres%5BMartial+Arts%5D=0&genres%5BMature%5D=0&genres%5BMecha%5D=0&genres%5BMystery%5D=0&genres%5BOne+Shot%5D=2&genres%5BPsychological%5D=1&genres%5BRomance%5D=0&genres%5BSchool+Life%5D=0&genres%5BSci-fi%5D=0&genres%5BSeinen%5D=0&genres%5BShoujo%5D=0&genres%5BShoujo+Ai%5D=0&genres%5BShounen%5D=0&genres%5BShounen+Ai%5D=0&genres%5BSlice+of+Life%5D=0&genres%5BSports%5D=0&genres%5BSupernatural%5D=0&genres%5BTragedy%5D=0&released_method=eq&released=&is_completed=&advopts=1
+kissmanga_results_empty_html	http://kissmanga.com/Search/Manga?keyword=twaz
+kissmanga_results_html		http://kissmanga.com/Search/Manga?keyword=aa
+kissmanga_liar_c2_p1_html	http://kissmanga.com/Manga/Liar-Game/Liar-Game-2?id=122399
+kissmanga_liar_chapters_html	http://kissmanga.com/Manga/Liar-Game
+kissmanga_advanced_search	http://kissmanga.com/AdvanceSearch
 EOF
 
 while read name url; do

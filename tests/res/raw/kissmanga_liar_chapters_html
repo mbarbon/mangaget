@@ -1,0 +1,1977 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	
+    Liar Game manga | Read Liar Game online
+
+</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta property="fb:admins" content="683024937,683024937" /><meta property="fb:app_id" content="111670815619329" />
+<script src="http://kissmanga.com/Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+<!-- CSS -->
+<link href="http://kissmanga.com/Content/css/tpl_style.css" rel="stylesheet" type="text/css" />
+<link href="http://kissmanga.com/Content/css/upload-progress.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="http://kissmanga.com/Content/images/favicon.ico" type="image/x-icon" />
+<!--[if IE 6]><link href="http://kissmanga.com/Content/css/tpl_ie_6.css"  rel="stylesheet" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="http://kissmanga.com/Content/css/tpl_ie_7.css" /><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" type="text/css" href="http://kissmanga.com/Content/css/tpl_ie_7.css" /><![endif]-->
+
+    <meta name="description" content="Read Liar Game manga online, Read Liar Game online free and high quality at KissManga.com" />
+    <meta name="keywords" content="Read Liar Game manga online, Liar Game, read Liar Game online" />
+    <link rel="image_src" href="http://kissmanga.com/Uploads/Etc/8-22-2011/836624251366734.jpg" />
+    <link rel="alternate" type="application/rss+xml" title="Liar Game manga"
+        href="http://kissmanga.com/RSS/Manga/Liar-Game" />
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-1712467-9']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    
+    <div id="containerRoot">
+        <div id="head">
+            <h3>
+                
+<div style="position: relative; text-align: right; margin: -40px 46px 20px 0px; font: bold 13px Arial;">
+    
+    <div id="topHolderBox" style="width: 230px; height: 27px;">
+        <img src="http://kissmanga.com/Content/images/user-small.png"
+            style="vertical-align: middle; margin-bottom: 5px">
+        <a href="http://kissmanga.com/Login">Login</a> or <a href="http://kissmanga.com/Register">
+            Register</a>
+    </div>
+    
+</div>
+
+                <div id="search" style="position: relative">
+                    <form id="formSearch" method="post">
+                    <p>
+                        <input size="40" maxlength="22" id="keyword" name="keyword" value="" class="text"
+                            autocomplete="off" />
+                        <select id="selectSearch">
+                            <option value="Manga">Series Name</option>
+                            <option value="AuthorArtist">Author/Artist</option>
+                        </select>
+                        <input id="imgSearch" type="image" src="http://kissmanga.com/Content/images/search.png"
+                            class="button" onclick="return false;" />
+                    </p>
+                    <div id="result_box" style="display: none">
+                    </div>
+                    <div style="margin: 10px 48px 10px 0">
+                        <a href="http://kissmanga.com/AdvanceSearch">
+                            <img src="http://kissmanga.com/Content/images/read.png"
+                                width="16px" border="0" style="vertical-align: middle" />&nbsp;&nbsp;Advanced
+                            Search</a>
+                    </div>
+                    </form>
+                </div>
+                <script type="text/javascript">
+                    $('#imgSearch').click(function () {
+                        Submit();
+                    });
+
+                    $('#keyword').keyup(function (evt) {
+                        Suggest();
+                    });
+
+                    $('#selectSearch').change(function () {
+                        Suggest();
+                    });
+
+                    $("#selectSearch option").each(function () {
+                        var url = location.href;
+                        if (url.indexOf($(this).attr('value')) != -1)
+                            $(this).attr("selected", "selected");
+                    });
+
+                    function Submit() {
+                        if ($.trim($('#keyword').val()).length < 2) {
+                            $('#keyword').blur();
+                            alert('Keyword must be more than one character!');
+                        }
+                        else {
+                            $("#formSearch").attr('action', "http://kissmanga.com/Search/" + $('#selectSearch').val());
+                            $("#formSearch").submit();
+                        }
+                    }
+
+                    function Suggest() {
+                        var keyword = $.trim($('#keyword').val());
+                        if (keyword != "") {
+                            $('#result_box').html("<span id='loader'></span>");
+                            $('#result_box').css('display', 'block');
+                            $.ajax(
+                            {
+                                type: "POST",
+                                url: "/Search/SearchSuggest",
+                                data: "type=" + $('#selectSearch').val() + '&keyword=' + keyword,
+                                success: function (message) {
+                                    if (message != "") {
+                                        $('#result_box').html(message);
+                                    }
+                                    else {
+                                        $('#result_box').html('');
+                                        $('#result_box').css('display', 'none');
+                                    }
+                                }
+                            });
+                        }
+                        else {
+                            $('#result_box').html('');
+                            $('#result_box').css('display', 'none');
+                        }
+                    }
+                </script>
+            </h3>
+            <h1>
+                <a href="http://kissmanga.com" title="Read manga online - kissmanga.com"
+                    class="logo">Read online manga - kissmanga.com</a></h1>
+        </div>
+        <!-- end div head -->
+        <div class="clear">
+        </div>
+        <div id="headnav">
+            
+<div id="navbar">
+    <div id="navcontainer">
+        <ul>
+            <li id="liHome"><a href="http://kissmanga.com">Home</a></li>
+            <li id="liDS"><a href="http://kissmanga.com/MangaList">Manga
+                List</a></li>
+            <li id="liGuide"><a href="http://kissmanga.com/Message/Guide">
+                Guide</a></li>
+            <li id="liReport"><a href="http://kissmanga.com/ReportError">
+                Report Error</a></li>
+            <li id="liRequest"><a href="http://kissmanga.com/RequestManga">
+                Request Manga</a></li>
+            <li id="liDownload"><a target="_blank" href="http://domdomsoft.com/home/2009/08/06/manga-downloader/domdomsoft-manga-downloader-2/">
+                Download Manga</a></li>
+            <li id="liDownloadAnime"><a target="_blank" href="http://blog.domdomsoft.com/category/domdomsoft/anime-downloader/">
+                Download Anime</a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var path = 'Manga';
+    var action = 'Details';
+    if (path == 'Home')
+        $('#liHome a').attr('id', 'currentTab');
+    else if (path == 'Manga' || path == 'Genre' || path == 'Group' || path == 'AuthorArtist')
+        $('#liDS a').attr('id', 'currentTab');
+    else if (action == 'Report')
+        $('#liReport a').attr('id', 'currentTab');
+    else if (action == 'RequestManga')
+        $('#liRequest a').attr('id', 'currentTab');
+    else if (action == 'Guide')
+        $('#liGuide a').attr('id', 'currentTab')
+    else
+        $('#navcontainer a[href*="' + path + '"]').attr('id', 'currentTab');
+</script>
+
+    <div id="navsubbar">
+        <p>
+            <a href="/MangaList">Sort by alphabet</a>| <a href="/MangaList/MostPopular">Sort by
+                popularity</a> | <a href="/MangaList/Newest">New manga</a>
+        </p>
+    </div>
+
+        </div>
+        <!-- end div headnav -->
+        
+    <div id="fb-root">
+    </div>
+    <script>        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+        } (document, 'script', 'facebook-jssdk'));</script>
+    
+    <div id="container">
+        <div id="leftside">
+            <div class="bigBarContainer">
+                <div class="barTitle">
+                    Info about
+                    Liar Game
+                </div>
+                <div class="barContent">
+                    <div class="arrow-general">
+                        &nbsp;</div>
+                    <div>
+                        <a Class="bigChar" href="/Manga/Liar-Game">Liar Game</a>
+                        
+                        <p>
+                            <span class="info">Other name:</span>&nbsp;<a href="/Manga/Liar-Game" title="ライアー　ゲーム manga online">ライアー　ゲーム</a>; <a href="/Manga/Liar-Game" title="欺诈游戏 manga online">欺诈游戏</a>; <a href="/Manga/Liar-Game" title="لعبة الكذاب manga online">لعبة الكذاب</a>; <a href="/Manga/Liar-Game" title="라이어 게임 manga online">라이어 게임</a>; <a href="/Manga/Liar-Game" title="Hazug Játék manga online">Hazug Játék</a>
+                        </p>
+                        
+                        <p>
+                            <span class="info">Genres:</span>&nbsp;<a href="/Genre/Drama" class="dotUnder" title="A work meant to bring on an emotional response, such as instilling  sadness or tension.">Drama</a><span class="info">,</span> <a href="/Genre/Manga" class="dotUnder" title="Manga is the Japanese word for comics and consists of comicsand print cartoons">Manga</a><span class="info">,</span> <a href="/Genre/Seinen" class="dotUnder" title="Seinen means young Man. Manga and anime that specifically targets  young adult males around the ages of 18 to 25 are seinen titles.The  stories in seinen works appeal to university students and those in the  working world. Typically the story lines deal with the issues of  adulthood.">Seinen</a><span class="info">,</span> <a href="/Genre/Shounen" class="dotUnder" title="A work intended and primarily written for males.  These  works usually  involve fighting and/or violence.">Shounen</a>
+                        </p>
+                        <p>
+                            <span class="info">Author:</span>&nbsp;<a href="/AuthorArtist/Kaitani-Shinobu" class="dotUnder" title="">Kaitani Shinobu</a>
+                        </p>
+                        <p>
+                            <span class="info">Status:</span>&nbsp;Ongoing
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="info">Views:</span>&nbsp;48667&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            
+<span id="spanBookmark">
+    <img src="/Content/images/plus.png" style="vertical-align: middle; margin-bottom: 5px">
+    <a id="btnRegOrLogin" onclick="return false;" href="#">Bookmark</a>
+</span>
+<script type="text/javascript">
+    $('#btnRegOrLogin').click(function () {
+        $('#spanBookmark').html('<img src="/Content/images/user-small.png" style="vertical-align: middle; margin-bottom: 5px"> Please <a href="/Login">Login</a> or <a href="/Register">Register</a>');
+    });
+</script>
+
+                        </p>
+                        <p>
+                            <span class="info">Summary:</span>
+                            <p>Along with the postcard there are 100 million yen in notes. That's the beginning of the Liar Game. When the game ends, in 30 days, you will have to return your 100 million. If your opponent steals them, he can keep them as a prize, and you will have a debt of 100 million...</p>
+<p>--------------</p>
+<p>Nao Kanzaki has been dubbed a "foolishly honest girl" for her excessive faith in the best of others. When a package arrives at her house, she, unsuspecting, opens it only to discover her admittance into the Liar Game -- a twisted, tournament game involving 100 million yen! The profits are high, but so are the prospects of losing.</p>
+<p>Allying with an ex-convict, how will she be able to cope with the circumstances? And what is the true intent of the corporation behind the Liar Game?</p>
+<p>A mind-boggling, psychological thriller that looks into the nature of the human mind as well as the never ending battle between truth and lies.</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+
+<center>
+<div style="text-align: center; overflow: hidden; width: 635px">
+<iframe frameborder="0" marginwidth="0" marginheight="0" scrolling="no" src="http://kissmanga.com/Ads/cpmstar.aspx" width="728px" height="90px">
+</iframe>
+</div>
+</center>
+<br>
+
+
+            <div class="bigBarContainer">
+                <div class="barTitle">
+                    Chapters
+                </div>
+                <div class="barContent chapterList">
+                    <div class="arrow-general">
+                        &nbsp;</div>
+                    <div>
+                        
+<div style="float: left; padding-right: 10px">
+    <a target="_blank" href="http://kissmanga.com/RSS/Manga/Liar-Game">
+        <img border="0" title="RSS Latest chapter of series" src="../../Content/images/icon_rss.png" /></a>
+</div>
+&nbsp;
+<div style="float: left;">
+
+<span class='st_fblike_hcount' displayText='Facebook Like'></span>
+<span class='st_facebook_hcount' displayText='Facebook'></span>
+<span class='st_twitter_hcount' displayText='Tweet'></span>
+<span class='st_plusone_hcount' displayText='Google +1'></span>
+<span class='st_sharethis_hcount' displayText='ShareThis'></span>
+
+<script type="text/javascript">    var switchTo5x = true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">    stLight.options({ publisher: "39da8212-8bbb-4097-a85f-6cedb7bc9464" }); </script>
+
+</div>
+
+                        <div class="clear">
+                            &nbsp;</div>
+                        <table class="listing">
+                            <tr>
+                                <th width="85%">
+                                    Chapter Name
+                                </th>
+                                <th width="15%">
+                                    Day Added
+                                </th>
+                            </tr>
+                            <tr style="height: 10px">
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Ch-154--As-One?id=137788" title="Read Liar Game Ch.154: As One online">
+                                        Liar Game Ch.154: As One</a>
+                                </td>
+                                <td>
+                                    9/1/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/153-Read-Online?id=136584" title="Read Liar Game 153 Read Online online">
+                                        Liar Game 153 Read Online</a>
+                                </td>
+                                <td>
+                                    8/24/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Ch-152--Prologue?id=112154" title="Read Liar Game 152: Prologue online">
+                                        Liar Game 152: Prologue</a>
+                                </td>
+                                <td>
+                                    3/24/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Ch-151--Collapse?id=110497" title="Read Liar Game 151: Collapse online">
+                                        Liar Game 151: Collapse</a>
+                                </td>
+                                <td>
+                                    3/8/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Ch-150--Cornering-the-Enemy?id=109809" title="Read Liar Game 150: Cornering the Enemy online">
+                                        Liar Game 150: Cornering the Enemy</a>
+                                </td>
+                                <td>
+                                    3/2/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Ch-149--Can--Religion--Fool-People--?id=109143" title="Read Liar Game 149: Can &quot;Religion&quot; Fool People?! online">
+                                        Liar Game 149: Can &quot;Religion&quot; Fool People?!</a>
+                                </td>
+                                <td>
+                                    2/25/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Vol-014-Ch-148-005--Bakaman--Chapter-007---How-I-Lost-a-Manga-Contest-Yet-Again---?id=131058" title="Read Liar Game 148.005: Bakaman, Chapter 007 - How I Lost a Manga Contest Yet Again... online">
+                                        Liar Game 148.005: Bakaman, Chapter 007 - How I Lost a Manga Contest Yet Again...</a>
+                                </td>
+                                <td>
+                                    7/21/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Ch-148--Blasphemy?id=107139" title="Read Liar Game 148 Blasphemy online">
+                                        Liar Game 148 Blasphemy</a>
+                                </td>
+                                <td>
+                                    2/12/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Ch-147--Mysterious-Power?id=105875" title="Read Liar Game 147: Mysterious Power online">
+                                        Liar Game 147: Mysterious Power</a>
+                                </td>
+                                <td>
+                                    2/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Ch-146--Foolhardiness?id=105179" title="Read Liar Game 146: Foolhardiness online">
+                                        Liar Game 146: Foolhardiness</a>
+                                </td>
+                                <td>
+                                    1/29/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Ch-145--Bad-Omen?id=104467" title="Read Liar Game 145: Bad Omen online">
+                                        Liar Game 145: Bad Omen</a>
+                                </td>
+                                <td>
+                                    1/21/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Ch-144-Read-Online?id=101933" title="Read Liar Game 144 Read Online online">
+                                        Liar Game 144 Read Online</a>
+                                </td>
+                                <td>
+                                    1/3/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Ch-143--Unexpected?id=99793" title="Read Liar Game 143: Unexpected online">
+                                        Liar Game 143: Unexpected</a>
+                                </td>
+                                <td>
+                                    12/24/2011
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Vol-014-Ch-142--Growth?id=98862" title="Read Liar Game 142: Growth online">
+                                        Liar Game 142: Growth</a>
+                                </td>
+                                <td>
+                                    12/18/2011
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Vol-014-Ch-141--Bid-Poker?id=97708" title="Read Liar Game 141: Bid Poker online">
+                                        Liar Game 141: Bid Poker</a>
+                                </td>
+                                <td>
+                                    12/13/2011
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Vol-014-Ch-140--Twist?id=95313" title="Read Liar Game 140: Twist online">
+                                        Liar Game 140: Twist</a>
+                                </td>
+                                <td>
+                                    12/4/2011
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Vol-014-Ch-140-Read-Online?id=95310" title="Read Liar Game 140 Read Online online">
+                                        Liar Game 140 Read Online</a>
+                                </td>
+                                <td>
+                                    12/4/2011
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Vol-014-Ch-139--Resolve?id=95309" title="Read Liar Game 139: Resolve online">
+                                        Liar Game 139: Resolve</a>
+                                </td>
+                                <td>
+                                    12/4/2011
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Vol-013-Ch-138--Conclusion?id=107088" title="Read Liar Game 138: Conclusion online">
+                                        Liar Game 138: Conclusion</a>
+                                </td>
+                                <td>
+                                    2/11/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-137?id=122540" title="Read Liar Game 137: Unity online">
+                                        Liar Game 137: Unity</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-136?id=122539" title="Read Liar Game 136: Overwhelming online">
+                                        Liar Game 136: Overwhelming</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-135?id=122538" title="Read Liar Game 135: Shorn online">
+                                        Liar Game 135: Shorn</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-134?id=122537" title="Read Liar Game 134: Counterattack online">
+                                        Liar Game 134: Counterattack</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-133?id=122536" title="Read Liar Game 133: Under Control online">
+                                        Liar Game 133: Under Control</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-132?id=122535" title="Read Liar Game 132: Trickster online">
+                                        Liar Game 132: Trickster</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-131?id=122534" title="Read Liar Game 131: Make &amp; Break online">
+                                        Liar Game 131: Make &amp; Break</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-130?id=122533" title="Read Liar Game 130: Negotiations online">
+                                        Liar Game 130: Negotiations</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-129?id=122532" title="Read Liar Game 129: Rift online">
+                                        Liar Game 129: Rift</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-128?id=122531" title="Read Liar Game 128: Prediction online">
+                                        Liar Game 128: Prediction</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-127?id=122530" title="Read Liar Game 127: Betrayal online">
+                                        Liar Game 127: Betrayal</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-126?id=122529" title="Read Liar Game 126: Heartless online">
+                                        Liar Game 126: Heartless</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-125?id=122528" title="Read Liar Game 125: Demons online">
+                                        Liar Game 125: Demons</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-124?id=122527" title="Read Liar Game 124: Chance online">
+                                        Liar Game 124: Chance</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-123?id=122526" title="Read Liar Game 123: Turn Around online">
+                                        Liar Game 123: Turn Around</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-122?id=122525" title="Read Liar Game 122: Logical Reasoning online">
+                                        Liar Game 122: Logical Reasoning</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-121?id=122524" title="Read Liar Game 121: Dummy online">
+                                        Liar Game 121: Dummy</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-120?id=122523" title="Read Liar Game 120: Puppeteer online">
+                                        Liar Game 120: Puppeteer</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-119?id=122522" title="Read Liar Game 119: Alliance online">
+                                        Liar Game 119: Alliance</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-118?id=122521" title="Read Liar Game 118: Ambush online">
+                                        Liar Game 118: Ambush</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-117?id=122520" title="Read Liar Game 117: Breach online">
+                                        Liar Game 117: Breach</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-116?id=122519" title="Read Liar Game 116: Cause online">
+                                        Liar Game 116: Cause</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-115?id=122518" title="Read Liar Game 115: Abstaining online">
+                                        Liar Game 115: Abstaining</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-114?id=122517" title="Read Liar Game 114: Surprise Attack online">
+                                        Liar Game 114: Surprise Attack</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-113?id=122516" title="Read Liar Game 113: Recapture online">
+                                        Liar Game 113: Recapture</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-112?id=122515" title="Read Liar Game 112: Union online">
+                                        Liar Game 112: Union</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-111?id=122514" title="Read Liar Game 111: Bonds online">
+                                        Liar Game 111: Bonds</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-110?id=122513" title="Read Liar Game 110: Foundation online">
+                                        Liar Game 110: Foundation</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Vol-011-Ch-109--Medals?id=122512" title="Read Liar Game 109: Medals online">
+                                        Liar Game 109: Medals</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Vol-011-Ch-108--Friendship?id=122511" title="Read Liar Game 108: Friendship online">
+                                        Liar Game 108: Friendship</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-107?id=122510" title="Read Liar Game 107: Maneuver online">
+                                        Liar Game 107: Maneuver</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-106?id=122509" title="Read Liar Game 106: Deception online">
+                                        Liar Game 106: Deception</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-105?id=122508" title="Read Liar Game 105: Strategy online">
+                                        Liar Game 105: Strategy</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-104?id=122507" title="Read Liar Game 104: Musical Chairs online">
+                                        Liar Game 104: Musical Chairs</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-103?id=122506" title="Read Liar Game 103: Contest online">
+                                        Liar Game 103: Contest</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-102?id=122505" title="Read Liar Game 102: Closure online">
+                                        Liar Game 102: Closure</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-101?id=122504" title="Read Liar Game 101: Bribery online">
+                                        Liar Game 101: Bribery</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-100?id=122503" title="Read Liar Game 100: Lockout online">
+                                        Liar Game 100: Lockout</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-99?id=122502" title="Read Liar Game 099: Check online">
+                                        Liar Game 099: Check</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-98?id=122501" title="Read Liar Game 098: Selflessness online">
+                                        Liar Game 098: Selflessness</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-97?id=122500" title="Read Liar Game 097: Trust online">
+                                        Liar Game 097: Trust</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-96?id=122499" title="Read Liar Game 096: Intent online">
+                                        Liar Game 096: Intent</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-95?id=122498" title="Read Liar Game 095: Overturn online">
+                                        Liar Game 095: Overturn</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-94?id=122497" title="Read Liar Game 094: Setup online">
+                                        Liar Game 094: Setup</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-93?id=122496" title="Read Liar Game 093: Differentiate online">
+                                        Liar Game 093: Differentiate</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-92?id=122494" title="Read Liar Game 092: Anxiety online">
+                                        Liar Game 092: Anxiety</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-91?id=122493" title="Read Liar Game 091: Doubt online">
+                                        Liar Game 091: Doubt</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-90?id=122492" title="Read Liar Game 090: Stalemate online">
+                                        Liar Game 090: Stalemate</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-89?id=122491" title="Read Liar Game 089: Conspire online">
+                                        Liar Game 089: Conspire</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-88?id=122490" title="Read Liar Game 088: Confirmation online">
+                                        Liar Game 088: Confirmation</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-87?id=122488" title="Read Liar Game 087: Virus Outbreak online">
+                                        Liar Game 087: Virus Outbreak</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-86?id=122486" title="Read Liar Game 086: Agree online">
+                                        Liar Game 086: Agree</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-85?id=122485" title="Read Liar Game 085: Pandemic Game online">
+                                        Liar Game 085: Pandemic Game</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-84?id=122483" title="Read Liar Game 084: Game IV online">
+                                        Liar Game 084: Game IV</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-83?id=122481" title="Read Liar Game 083: Ambition online">
+                                        Liar Game 083: Ambition</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-82?id=122480" title="Read Liar Game 082: Surrender online">
+                                        Liar Game 082: Surrender</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-81?id=122479" title="Read Liar Game 081: Distrust online">
+                                        Liar Game 081: Distrust</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-80?id=122478" title="Read Liar Game 080: Secret Maneuver online">
+                                        Liar Game 080: Secret Maneuver</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-79?id=122477" title="Read Liar Game 079: Falter online">
+                                        Liar Game 079: Falter</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-78?id=122476" title="Read Liar Game 078: Coercion online">
+                                        Liar Game 078: Coercion</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-77?id=122475" title="Read Liar Game 077: General online">
+                                        Liar Game 077: General</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-76?id=122474" title="Read Liar Game 076: Ruse online">
+                                        Liar Game 076: Ruse</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-75?id=122473" title="Read Liar Game 075: Luck online">
+                                        Liar Game 075: Luck</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-74?id=122472" title="Read Liar Game 074: Request online">
+                                        Liar Game 074: Request</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-73?id=122471" title="Read Liar Game 073: Intuition online">
+                                        Liar Game 073: Intuition</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-72?id=122470" title="Read Liar Game 072: Counterattack online">
+                                        Liar Game 072: Counterattack</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-71?id=122469" title="Read Liar Game 071: Divine Sight online">
+                                        Liar Game 071: Divine Sight</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-70?id=122468" title="Read Liar Game 070: Enticement online">
+                                        Liar Game 070: Enticement</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-69?id=122467" title="Read Liar Game 069: Natural Talent online">
+                                        Liar Game 069: Natural Talent</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-68?id=122466" title="Read Liar Game 068: Centerfield online">
+                                        Liar Game 068: Centerfield</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-67?id=122465" title="Read Liar Game 067: Agitation online">
+                                        Liar Game 067: Agitation</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-66?id=122464" title="Read Liar Game 066: Avarice online">
+                                        Liar Game 066: Avarice</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-65?id=122463" title="Read Liar Game 065: Insight online">
+                                        Liar Game 065: Insight</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-64?id=122462" title="Read Liar Game 064: Pitfall online">
+                                        Liar Game 064: Pitfall</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-63?id=122461" title="Read Liar Game 063: Shoot online">
+                                        Liar Game 063: Shoot</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-62?id=122460" title="Read Liar Game 062: Reload online">
+                                        Liar Game 062: Reload</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-61?id=122459" title="Read Liar Game 061: Simulation online">
+                                        Liar Game 061: Simulation</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-60?id=122458" title="Read Liar Game 060: No Way Out online">
+                                        Liar Game 060: No Way Out</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-59?id=122457" title="Read Liar Game 059: Provocation online">
+                                        Liar Game 059: Provocation</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-58?id=122456" title="Read Liar Game 058: Discrepancy online">
+                                        Liar Game 058: Discrepancy</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Vol-006-Ch-057--Solidarity?id=122455" title="Read Liar Game 057: Solidarity online">
+                                        Liar Game 057: Solidarity</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-56?id=122454" title="Read Liar Game 056: Blunder online">
+                                        Liar Game 056: Blunder</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-55?id=122453" title="Read Liar Game 055: Disturbance online">
+                                        Liar Game 055: Disturbance</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-54?id=122452" title="Read Liar Game 054: Completion online">
+                                        Liar Game 054: Completion</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-55?id=122451" title="Read Liar Game 053: Caution online">
+                                        Liar Game 053: Caution</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-52?id=122450" title="Read Liar Game 052: Scheme online">
+                                        Liar Game 052: Scheme</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-51?id=122449" title="Read Liar Game 051: Confession online">
+                                        Liar Game 051: Confession</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-50?id=122448" title="Read Liar Game 050: Interrogation online">
+                                        Liar Game 050: Interrogation</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-49?id=122447" title="Read Liar Game 049: Tip-Off online">
+                                        Liar Game 049: Tip-Off</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-48?id=122446" title="Read Liar Game 048: Preparation online">
+                                        Liar Game 048: Preparation</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-47?id=122445" title="Read Liar Game 047: Reign online">
+                                        Liar Game 047: Reign</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-46?id=122443" title="Read Liar Game 046: Confusion online">
+                                        Liar Game 046: Confusion</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-45?id=122442" title="Read Liar Game 045: Pressure online">
+                                        Liar Game 045: Pressure</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-44?id=122441" title="Read Liar Game 044: Miscalculation online">
+                                        Liar Game 044: Miscalculation</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-43?id=122440" title="Read Liar Game 043: Strategy online">
+                                        Liar Game 043: Strategy</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-42?id=122439" title="Read Liar Game 042: Experiment online">
+                                        Liar Game 042: Experiment</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-41?id=122438" title="Read Liar Game 041: Unrest online">
+                                        Liar Game 041: Unrest</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-40?id=122437" title="Read Liar Game 040: Counterattack online">
+                                        Liar Game 040: Counterattack</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-39?id=122436" title="Read Liar Game 039: Recollection online">
+                                        Liar Game 039: Recollection</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-38?id=122435" title="Read Liar Game 038: Confession online">
+                                        Liar Game 038: Confession</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-37?id=122434" title="Read Liar Game 037: Discovered online">
+                                        Liar Game 037: Discovered</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-36?id=122433" title="Read Liar Game 036: Division online">
+                                        Liar Game 036: Division</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-35?id=122432" title="Read Liar Game 035: Confrontation online">
+                                        Liar Game 035: Confrontation</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-34?id=122431" title="Read Liar Game 034: Clairvoyance online">
+                                        Liar Game 034: Clairvoyance</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-33?id=122430" title="Read Liar Game 033: Yokoya online">
+                                        Liar Game 033: Yokoya</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-32?id=122429" title="Read Liar Game 032: Chicken online">
+                                        Liar Game 032: Chicken</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-31?id=122428" title="Read Liar Game 031: Head Start online">
+                                        Liar Game 031: Head Start</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-30?id=122427" title="Read Liar Game 030: Contraband online">
+                                        Liar Game 030: Contraband</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-29?id=122426" title="Read Liar Game 029: Game III online">
+                                        Liar Game 029: Game III</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-28?id=122425" title="Read Liar Game 028: Salvation online">
+                                        Liar Game 028: Salvation</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-27?id=122423" title="Read Liar Game 027: Inflation online">
+                                        Liar Game 027: Inflation</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-26?id=122422" title="Read Liar Game 026: Control online">
+                                        Liar Game 026: Control</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-25?id=122421" title="Read Liar Game 025: Comeback online">
+                                        Liar Game 025: Comeback</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-24?id=122420" title="Read Liar Game 024: Retribution online">
+                                        Liar Game 024: Retribution</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-23?id=122418" title="Read Liar Game 023: Light vs Dark online">
+                                        Liar Game 023: Light vs Dark</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-22?id=122417" title="Read Liar Game 022: Battle Plan online">
+                                        Liar Game 022: Battle Plan</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-21?id=122415" title="Read Liar Game 021: Scapegoat online">
+                                        Liar Game 021: Scapegoat</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-20?id=122414" title="Read Liar Game 020: Incitement online">
+                                        Liar Game 020: Incitement</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-19?id=122413" title="Read Liar Game 019: Downsizing Game online">
+                                        Liar Game 019: Downsizing Game</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-18?id=122412" title="Read Liar Game 018: Revival Round online">
+                                        Liar Game 018: Revival Round</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-17?id=122411" title="Read Liar Game 017: Trap online">
+                                        Liar Game 017: Trap</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-16?id=122410" title="Read Liar Game 016: Foresight online">
+                                        Liar Game 016: Foresight</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-15?id=3479" title="Read Liar Game 015 Upper Hand online">
+                                        Liar Game 015 Upper Hand</a>
+                                </td>
+                                <td>
+                                    8/23/2011
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-14?id=3475" title="Read Liar Game 014 Scheme online">
+                                        Liar Game 014 Scheme</a>
+                                </td>
+                                <td>
+                                    8/23/2011
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-13?id=3466" title="Read Liar Game 013 Light Vs Dark online">
+                                        Liar Game 013 Light Vs Dark</a>
+                                </td>
+                                <td>
+                                    8/23/2011
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-12?id=122409" title="Read Liar Game 012: Catastrophe online">
+                                        Liar Game 012: Catastrophe</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-11?id=122408" title="Read Liar Game 011: Alliance online">
+                                        Liar Game 011: Alliance</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-10?id=122407" title="Read Liar Game 010: Hope online">
+                                        Liar Game 010: Hope</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-9?id=122406" title="Read Liar Game 009: Impatience online">
+                                        Liar Game 009: Impatience</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-8?id=122405" title="Read Liar Game 008: Commence Battle online">
+                                        Liar Game 008: Commence Battle</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-7?id=122404" title="Read Liar Game 007: Game II online">
+                                        Liar Game 007: Game II</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-6?id=122403" title="Read Liar Game 006: The Conclusion online">
+                                        Liar Game 006: The Conclusion</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-5?id=122402" title="Read Liar Game 005: Dissonance online">
+                                        Liar Game 005: Dissonance</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-4?id=122401" title="Read Liar Game 004: Intimidating the Enemy online">
+                                        Liar Game 004: Intimidating the Enemy</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-3?id=122400" title="Read Liar Game 003: Declaration of War online">
+                                        Liar Game 003: Declaration of War</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/Liar-Game-2?id=122399" title="Read Liar Game 002: Flaw online">
+                                        Liar Game 002: Flaw</a>
+                                </td>
+                                <td>
+                                    6/4/2012
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <a  href="/Manga/Liar-Game/001-The-Legendary-Swindler?id=122665" title="Read Liar Game 001 The Legendary Swindler online">
+                                        Liar Game 001 The Legendary Swindler</a>
+                                </td>
+                                <td>
+                                    6/5/2012
+                                </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="rightside">
+            <div class="rightBox">
+                <div class="barTitle">
+                    Image</div>
+                <div class="barContent">
+                    <div class="arrow-general">
+                        &nbsp;</div>
+                    <div style="text-align: center">
+                        <img width="190px" height="250px" src="http://kissmanga.com/Uploads/Etc/8-22-2011/836624251366734.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="clear2">
+            </div>
+            <div class="rightBox">
+                <div class="barTitle">
+                    Comments</div>
+                <div class="barContent">
+                    <div class="arrow-general">
+                        &nbsp;</div>
+                    <div>
+                        <div class="fb-comments" data-href="http://kissmanga.com/Manga/Liar-Game" data-num-posts="2"
+                            data-width="200" data-colorscheme="dark">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear2">
+            </div>
+            <div class="rightBox">
+                <div class="barTitle">
+                    Related Links</div>
+                <div class="barContent">
+                    <div class="arrow-general">
+                        &nbsp;</div>
+                    
+                    <div>
+                        <img src="../../Content/images/bullet.png" />&nbsp;<a href="/Manga/Liar-Game/155" title="Read Liar Game 155 online">Liar Game 155</a><div class="clear" style="height:5px"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear2">
+            </div>
+            <center>
+                
+            </center>
+        </div>
+    </div>
+
+        <!-- end div container -->
+        <div class="clear">
+            &nbsp;</div>
+        <div class="clear">
+            &nbsp;</div>
+        <div class="clear">
+            &nbsp;</div>
+        
+
+   <!-- BEGIN CPMSTAR TWO-SIDED SITESKIN CODE -->
+<script type='text/javascript'>
+var cpmstar_pid         = 30688; // your poolid
+var cpmstar_centerWidth = "900px"; //width IN PIXELS of your center content, e.g. "800px"
+var cpmstar_fixed       = "0" ; //fix ads near top of screen: "0" to allow ads to scroll with page
+var cpmstar_leftOffset  = "0px" ; //optionally adjust left ad positioning
+var cpmstar_rightOffset = "0px" ; //optionally adjust right ad positioning
+var cpmstar_zIndex      = "100" ; //adjust layering of ads vs. other page elements
+var cpmstar_topPos = "220px" ; //optionally shift both ads down from top of page
+var cpmstar_rnd         = Math.round(Math.random() * 999999);
+document.write("\x3cscript type='text/javascript' src='http://server.cpmstar.com/view.aspx?poolid=" + cpmstar_pid + "&script=1&rnd=" + cpmstar_rnd + "'\x3e\x3c/script\x3e");
+</script>
+<!-- END CPMSTAR TWO-SIDED SITESKIN CODE -->
+   
+   
+
+    </div>
+    <div id="footer">
+        <div id="footcontainer" style="position: relative">
+            <p>
+                Copyright &copy; 2011 <a href="http://kissmanga.com">KissManga.com</a>. All rights
+                reserved.</p>
+            <p>
+                A product of <a target="_blank" href="http://domdomsoft.com">DomDomSoft.com</a>&nbsp;&nbsp;
+            </p>
+            <div style="position: absolute; left: 200px; top: 20px">
+                <!-- Histats.com  START  (standard)-->
+                <script type="text/javascript">                    document.write(unescape("%3Cscript src=%27http://s10.histats.com/js15_gif.js%27 type=%27text/javascript%27%3E%3C/script%3E"));</script>
+                <a href="http://www.histats.com" target="_blank" title="free site statistics">
+                    <script type="text/javascript">
+                        try {
+                            Histats.startgif(1, 1691669, 4, 10045, "");
+                            Histats.track_hits();
+                        } catch (err) { };
+                    </script>
+                </a>
+                <noscript>
+                    <a href="http://www.histats.com" alt="free site statistics" target="_blank">
+                        <div id="histatsC">
+                            <img border="0" src="http://s4is.histats.com/stats/i/1691669.gif?1691669&103"></div>
+                    </a>
+                </noscript>
+                <!-- Histats.com  END  -->
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('#footer').css('top', $(document).height() - $('#containerRoot').height());
+    </script>	
+	
+</body>
+</html>

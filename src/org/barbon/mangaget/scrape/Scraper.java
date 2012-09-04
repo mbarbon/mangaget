@@ -29,6 +29,7 @@ import org.barbon.mangaget.scrape.animea.AnimeAScraper;
 import org.barbon.mangaget.scrape.mangareader.MangareaderScraper;
 import org.barbon.mangaget.scrape.naver.NaverScraper;
 import org.barbon.mangaget.scrape.mangahere.MangaHereScraper;
+import org.barbon.mangaget.scrape.kissmanga.KissmangaScraper;
 
 public class Scraper {
     private static final Scraper.Provider[] PROVIDERS =
@@ -37,6 +38,7 @@ public class Scraper {
             new MangareaderScraper.Provider(),
             new NaverScraper.Provider(),
             new MangaHereScraper.Provider(),
+            new KissmangaScraper.Provider(),
         };
 
     public static class SearchCriteria {
