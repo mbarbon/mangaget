@@ -625,6 +625,8 @@ public class Download extends Service {
             }
         }
 
+        chapters.close();
+
         if (updated)
             Notifier.getInstance().notifyChapterListUpdate(mangaId);
     }
