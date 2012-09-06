@@ -76,6 +76,10 @@ public class Scraper {
             Downloader.DownloadDestination target);
         public abstract HtmlScrape.ChapterPage scrapeMangaPage(
             Downloader.DownloadDestination target);
+
+        public boolean handleRedirects() {
+            return false;
+        }
     }
 
     private static Scraper theInstance;
@@ -213,7 +217,8 @@ public class Scraper {
             public void downloadCompleteBackground(boolean success) {
                 super.downloadCompleteBackground(success);
 
-                if (!success)
+                if (!success && (   !target.isRedirect
+                                 || !getProvider(target).handleRedirects()))
                     return;
 
                 HtmlScrape.SearchResultPage results =

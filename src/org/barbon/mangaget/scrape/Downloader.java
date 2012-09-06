@@ -18,8 +18,12 @@ import java.io.InputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
+import java.net.URI;
+
+import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
 
 import org.apache.http.util.EntityUtils;
 
@@ -86,6 +90,8 @@ public class Downloader {
             throws Exception;
         public void abortDownload()
             throws Exception;
+        public void startRedirect(String targetUrl)
+            throws Exception;
     }
 
     public static class OnDownloadProgressAdapter
@@ -134,6 +140,12 @@ public class Downloader {
 
         @Override
         public void abortDownload() { }
+
+        @Override
+        public void startRedirect(String targetUrl) {
+            destination.baseUrl = targetUrl;
+            destination.isRedirect = true;
+        }
     }
 
     public class FileDownloadTarget implements DownloadTarget {
@@ -178,6 +190,12 @@ public class Downloader {
 
             // remove target path
             destination.path.delete();
+        }
+
+        @Override
+        public void startRedirect(String targetUrl) {
+            destination.baseUrl = targetUrl;
+            destination.isRedirect = true;
         }
     }
 
@@ -229,6 +247,22 @@ public class Downloader {
 
             try {
                 HttpResponse response = client.execute(new HttpGet(params[0]));
+                int responseStatus = response.getStatusLine().getStatusCode();
+
+                if (responseStatus == HttpStatus.SC_MOVED_PERMANENTLY ||
+                    responseStatus == HttpStatus.SC_MOVED_TEMPORARILY) {
+                    Header[] headers = response.getHeaders("Location");
+
+                    if (headers != null && headers.length != 0) {
+                        URI base = new URI(params[0]);
+                        String rel = headers[headers.length - 1].getValue();
+
+                        downloadTarget.startRedirect(base.resolve(rel).toString());
+                    }
+
+                    return finishDownload(false);
+                }
+
                 HttpEntity entity = response.getEntity();
                 InputStream content = entity.getContent();
 
@@ -296,6 +330,7 @@ public class Downloader {
         public InputStream stream;
         public String encoding;
         public String baseUrl;
+        public boolean isRedirect;
 
         public DownloadDestination() {
         }

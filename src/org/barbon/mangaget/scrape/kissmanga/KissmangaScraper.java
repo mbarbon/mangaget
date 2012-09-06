@@ -61,6 +61,9 @@ public class KissmangaScraper {
         @Override
         public List<String> scrapeChapterPages(
                 Downloader.DownloadDestination target) {
+            if (target.isRedirect)
+                return null;
+
             // Kissmanga has all chapter images in the same HTML page...
             List<String> urls = new ArrayList<String>(1);
 
@@ -72,19 +75,33 @@ public class KissmangaScraper {
         @Override
         public List<String> scrapeImageUrls(
                 Downloader.DownloadDestination target) {
+            if (target.isRedirect)
+                return null;
+
             return KissmangaScraper.scrapeImageUrls(target);
         }
 
         @Override
         public HtmlScrape.SearchResultPage scrapeSearchResults(
                 Downloader.DownloadDestination target) {
-            return KissmangaScraper.scrapeSearchResults(target);
+            if (target.isRedirect)
+                return KissmangaScraper.scrapeSearchRedirect(target);
+            else
+                return KissmangaScraper.scrapeSearchResults(target);
         }
 
         @Override
         public HtmlScrape.ChapterPage scrapeMangaPage(
                 Downloader.DownloadDestination target) {
+            if (target.isRedirect)
+                return null;
+
             return KissmangaScraper.scrapeMangaPage(target);
+        }
+
+        @Override
+        public boolean handleRedirects() {
+            return true;
         }
     }
 
@@ -132,6 +149,28 @@ public class KissmangaScraper {
         }
 
         return urls;
+    }
+
+    public static HtmlScrape.SearchResultPage scrapeSearchRedirect(
+            Downloader.DownloadDestination target) {
+        List<String> urls = new ArrayList<String>();
+        List<String> titles = new ArrayList<String>();
+        int slash = target.baseUrl.lastIndexOf("/");
+
+        if (slash != -1) {
+            urls.add(target.baseUrl);
+            titles.add(target.baseUrl.substring(slash + 1).replace("-", " "));
+        }
+
+        HtmlScrape.SearchResultPage page = new HtmlScrape.SearchResultPage();
+
+        page.urls = urls;
+        page.titles = titles;
+        page.pagingUrl = null;
+        page.currentPage = 1;
+        page.lastPage = 1;
+
+        return page;
     }
 
     public static HtmlScrape.SearchResultPage scrapeSearchResults(
