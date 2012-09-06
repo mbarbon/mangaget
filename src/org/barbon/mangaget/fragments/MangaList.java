@@ -30,6 +30,7 @@ import java.util.Set;
 import org.barbon.mangaget.Download;
 import org.barbon.mangaget.Notifier;
 import org.barbon.mangaget.R;
+import org.barbon.mangaget.Utils;
 
 import org.barbon.mangaget.data.DB;
 
@@ -190,6 +191,11 @@ public class MangaList extends ListFragment {
         onMangaSelected.onMangaSelected(id);
     }
 
+    private void deleteMangaAndChapters(long id) {
+        Utils.deleteChapters(getActivity(), id);
+        deleteManga(id);
+    }
+
     private void deleteManga(long id) {
         DB db = DB.getInstance(getActivity());
 
@@ -205,12 +211,16 @@ public class MangaList extends ListFragment {
             return;
 
         final long mangaId = dialog.getMangaId();
+        final boolean deleteChapters = dialog.getDeleteChapters();
 
         DialogInterface.OnClickListener delete =
             new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    deleteManga(mangaId);
+                    if (deleteChapters)
+                        deleteMangaAndChapters(mangaId);
+                    else
+                        deleteManga(mangaId);
                 }
             };
 
@@ -242,7 +252,17 @@ public class MangaList extends ListFragment {
         case R.id.delete:
         {
             DeleteConfirmationDialog dlg =
-                DeleteConfirmationDialog.newInstance(info.id);
+                DeleteConfirmationDialog.newInstance(info.id, false);
+
+            bindConfirmationDialog(dlg);
+            dlg.show(this);
+
+            return true;
+        }
+        case R.id.delete_all:
+        {
+            DeleteConfirmationDialog dlg =
+                DeleteConfirmationDialog.newInstance(info.id, true);
 
             bindConfirmationDialog(dlg);
             dlg.show(this);

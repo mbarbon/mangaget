@@ -16,6 +16,7 @@
   <!-- Manga list menu -->
   <string name="refresh_manga">Refresh manga</string>
   <string name="delete_manga">Delete manga</string>
+  <string name="delete_all_manga">Delete manga &amp; chapters</string>
   <string name="follow_manga">Follow manga</string>
 
   <!-- Manga details -->
@@ -52,7 +53,8 @@
   <string name="manga_info_update_error_toast">Error during manga info update</string>
 
   <!-- Delete manga confirmation dialog -->
-  <string name="delete_confirmation_title">Really delete this manga?</string>
+  <string name="delete_confirmation_title">Delete this manga?</string>
+  <string name="delete_all_confirmation_title">Delete this manga and all chapters?</string>
 
   <!-- Preferences -->
   <string name="per_manga_directory_preference">Use per-manga directory</string>

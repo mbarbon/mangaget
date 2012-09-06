@@ -15,13 +15,14 @@ public class DeleteConfirmationDialog extends ConfirmationDialog
 {
     private static final String TAG = "deleteConfirmationDialog";
 
-    public static DeleteConfirmationDialog newInstance(long mangaId) {
+    public static DeleteConfirmationDialog newInstance(long mangaId, boolean deleteChapters) {
         DeleteConfirmationDialog frag = new DeleteConfirmationDialog();
-        Bundle args = getDialogArguments(R.string.delete_confirmation_title,
+        Bundle args = getDialogArguments(deleteChapters ? R.string.delete_all_confirmation_title : R.string.delete_confirmation_title,
                                          R.string.delete_manga,
                                          R.string.cancel);
 
         args.putLong("mangaId", mangaId);
+        args.putBoolean("deleteChapters", deleteChapters);
 
         frag.setArguments(args);
 
@@ -39,5 +40,9 @@ public class DeleteConfirmationDialog extends ConfirmationDialog
 
     public long getMangaId() {
         return getArguments().getLong("mangaId");
+    }
+
+    public boolean getDeleteChapters() {
+        return getArguments().getBoolean("deleteChapters");
     }
 }
