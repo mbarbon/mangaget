@@ -20,14 +20,24 @@ import java.io.OutputStream;
 
 import java.net.URI;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
+import org.apache.http.NameValuePair;
 
 import org.apache.http.util.EntityUtils;
 
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpRequestBase;
+
+import org.apache.http.message.BasicNameValuePair;
 
 public class Downloader {
     protected static class CountingInputStream extends FilterInputStream {
@@ -238,6 +248,25 @@ public class Downloader {
             return success;
         }
 
+        private HttpRequestBase createRequest(String[] args) throws IOException {
+            if (args.length == 1)
+            {
+                return new HttpGet(args[0]);
+            }
+            else
+            {
+                HttpPost post = new HttpPost(args[0]);
+                List<NameValuePair> form = new ArrayList<NameValuePair>();
+
+                for (int i = 1; i < args.length; i += 2)
+                    form.add(new BasicNameValuePair(args[i], args[i + 1]));
+
+                post.setEntity(new UrlEncodedFormEntity(form));
+
+                return post;
+            }
+        }
+
         public Boolean doInBackground(String... params) {
             publishProgress(0L);
 
@@ -246,7 +275,7 @@ public class Downloader {
             long totalSize = -1;
 
             try {
-                HttpResponse response = client.execute(new HttpGet(params[0]));
+                HttpResponse response = client.execute(createRequest(params));
                 int responseStatus = response.getStatusLine().getStatusCode();
 
                 if (responseStatus == HttpStatus.SC_MOVED_PERMANENTLY ||
@@ -379,12 +408,34 @@ public class Downloader {
         return destination;
     }
 
+    public DownloadDestination requestDownload(
+            List<String> form, OnDownloadProgress listener) {
+        DownloadDestination destination = new DownloadDestination();
+        DownloadTarget target = new StringDownloadTarget(destination);
+        DownloadTask task = new DownloadTask(listener, target);
+
+        // avoid potential error condition
+        executeLater(task, form.toArray(new String[0]));
+
+        return destination;
+    }
+
     private void executeLater(final DownloadTask task, final String url) {
         new android.os.Handler().post(
             new Runnable() {
                 @Override
                 public void run() {
                     task.execute(url);
+                }
+            });
+    }
+
+    private void executeLater(final DownloadTask task, final String[] form) {
+        new android.os.Handler().post(
+            new Runnable() {
+                @Override
+                public void run() {
+                    task.execute(form);
                 }
             });
     }

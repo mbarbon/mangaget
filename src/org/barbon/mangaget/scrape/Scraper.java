@@ -53,7 +53,14 @@ public class Scraper {
 
         // URL manipulation
         public String composeMangaUrl(String url) { return url; }
-        public abstract String composeSearchUrl(SearchCriteria criteria);
+
+        public String composeSearchUrl(SearchCriteria criteria) {
+            return null;
+        }
+
+        public List<String> composeSearchForm(SearchCriteria criteria) {
+            return null;
+        }
 
         public String composePagingUrl(String pagingUrl, int page) {
             String url = new Formatter()
@@ -104,7 +111,8 @@ public class Scraper {
 
         for (Scraper.Provider provider : PROVIDERS)
             for (String tag : provider.supportedTags())
-                tags.add(tag);
+                if (tag != null)
+                    tags.add(tag);
 
         List<String> result = new ArrayList<String>(tags);
 
@@ -303,22 +311,32 @@ public class Scraper {
                 if (pending[index] || currentPage[index] == -1)
                     continue;
 
-                String startUrl;
+                String startUrl = null;
+                List<String> startForm = null;
 
                 if (pagingUrls[index] != null)
+                {
                     startUrl = provider.composePagingUrl(
                         pagingUrls[index], currentPage[index] + 1);
+                }
                 else
+                {
                     startUrl = provider.composeSearchUrl(criteria);
+                    startForm = provider.composeSearchForm(criteria);
+                }
 
-                if (startUrl == null)
+                if (startUrl == null && startForm == null)
                     continue;
 
                 SearchRequest req = new SearchRequest();
 
                 pending[index] = true;
 
-                req.target = downloader.requestDownload(startUrl, req);
+                if (startUrl != null)
+                    req.target = downloader.requestDownload(startUrl, req);
+                else
+                    req.target = downloader.requestDownload(startForm, req);
+
                 req.index = index;
             }
         }

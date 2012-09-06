@@ -27,6 +27,14 @@ import org.jsoup.select.Elements;
 
 public class KissmangaScraper {
     private static final String[] SUPPORTED_TAGS = new String[] {
+        "Action", "Adult", "Adventure", "Comedy", null, "Drama",
+        "Ecchi", "Fantasy", "Gender Bender", "Harem", "Historical",
+        "Horror", "Josei", null, null, null, null, "Martial Arts",
+        "Mature", "Mecha", "Mystery", "One shot", "Psychological",
+        "Romance", "School Life", "Sci-fi", "Seinen", "Shotacon",
+        "Shoujo", "Shoujo Ai", "Shounen", "Shounen Ai",
+        "Slice of Life", "Smut", "Sports", "Supernatural",
+        "Tragedy", "Yaoi", "Yuri"
     };
 
     // scraper interface
@@ -44,8 +52,8 @@ public class KissmangaScraper {
         }
 
         @Override
-        public String composeSearchUrl(Scraper.SearchCriteria criteria) {
-            return KissmangaScraper.composeSearchUrl(criteria);
+        public List<String> composeSearchForm(Scraper.SearchCriteria criteria) {
+            return KissmangaScraper.composeSearchForm(criteria);
         }
 
         @Override
@@ -105,24 +113,47 @@ public class KissmangaScraper {
         }
     }
 
-    public static String composeSearchUrl(Scraper.SearchCriteria criteria) {
-        String encodedTitle = "";
+    public static List<String> composeSearchForm(Scraper.SearchCriteria criteria) {
+        List<String> form = new ArrayList<String>();
 
-        try {
-            if (criteria.title != null)
-                encodedTitle = URLEncoder.encode(criteria.title, "UTF-8");
-        }
-        catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
+        form.add("http://kissmanga.com/Search/Manga");
+
+        if (criteria.title != null) {
+            form.add("keyword");
+            form.add(criteria.title);
         }
 
         if (criteria.includeTags != null && criteria.includeTags.size() != 0) {
-            // advanced search requires an HTTP POST
-            return null;
+            form.set(0, "http://kissmanga.com/AdvanceSearch");
+
+            if (criteria.title != null)
+                form.set(1, "mangaName");
+
+            form.add("authorArtist");
+            form.add("");
+
+            boolean selected = false;
+
+            for (String tag : SUPPORTED_TAGS) {
+                form.add("genres");
+
+                if (criteria.includeTags.indexOf(tag) != -1)
+                {
+                    form.add("1");
+                    selected = true;
+                }
+                else
+                    form.add("0");
+            }
+
+            form.add("status");
+            form.add("");
+
+            if (!selected)
+                return null;
         }
 
-        return "http://kissmanga.com/Search/Manga?keyword=" +
-            encodedTitle;
+        return form;
     }
 
     // pure HTML scraping
