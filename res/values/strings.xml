@@ -23,6 +23,8 @@
   <string name="manga_genres">Genres:</string>
   <string name="manga_summary">Summary:</string>
   <string name="not_available">N/A</string>
+  <string name="last_chapter">Last chapter:</string>
+  <string name="missing_chapters">Missing chapters:</string>
 
   <!-- Chapter list -->
   <string name="no_chapter">Select manga</string>

@@ -17,14 +17,18 @@ import android.widget.TextView;
 
 import android.support.v4.app.Fragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.barbon.mangaget.Download;
 import org.barbon.mangaget.Notifier;
 import org.barbon.mangaget.R;
+import org.barbon.mangaget.Utils;
 
 import org.barbon.mangaget.data.DB;
 
 public class MangaDetails extends Fragment {
-    private TextView summary, title, genres;
+    private TextView summary, title, genres, last, missing, missing_label;
     private View first, progress, content;
     private long currentManga = -1;
 
@@ -60,6 +64,9 @@ public class MangaDetails extends Fragment {
         title = (TextView) view.findViewById(R.id.manga_title);
         summary = (TextView) view.findViewById(R.id.manga_summary);
         genres = (TextView) view.findViewById(R.id.manga_genres);
+        last = (TextView) view.findViewById(R.id.last_chapter);
+        missing = (TextView) view.findViewById(R.id.missing_chapters);
+        missing_label = (TextView) view.findViewById(R.id.missing_chapters_label);
         first = view.findViewById(R.id.select_manga);
         progress = view.findViewById(R.id.manga_progress);
         content = view.findViewById(R.id.manga_details);
@@ -108,6 +115,9 @@ public class MangaDetails extends Fragment {
         DB db = DB.getInstance(getActivity());
         ContentValues manga = db.getManga(currentManga);
         ContentValues metadata = db.getMangaMetadata(currentManga);
+        List<Integer> missingList = new ArrayList<Integer>();
+        int lastChapter = Utils.mangaChapterInfo(
+            getActivity(), currentManga, missingList);
 
         title.setText(manga.getAsString(DB.MANGA_TITLE));
 
@@ -123,6 +133,18 @@ public class MangaDetails extends Fragment {
                 summary.setText(metadata.getAsString("summary"));
             else
                 summary.setText(R.string.not_available);
+
+            last.setText(Utils.formatChapterNumber(lastChapter));
+
+            if (missingList.size() > 0) {
+                missing.setVisibility(View.VISIBLE);
+                missing_label.setVisibility(View.VISIBLE);
+                missing.setText(Utils.formatMissingChapters(missingList));
+            } else {
+                missing.setVisibility(View.GONE);
+                missing_label.setVisibility(View.GONE);
+            }
+
         } else {
             Download.startMangaUpdate(getActivity(), currentManga);
         }

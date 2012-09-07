@@ -35,6 +35,51 @@
         android:padding="4dp"
         android:textSize="14sp"
         />
+    <LinearLayout
+        android:id="@+id/manga_details"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:padding="4dp"
+          android:textSize="18sp"
+          android:text="@string/last_chapter"
+          />
+      <TextView
+          android:id="@+id/last_chapter"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:padding="4dp"
+          android:textSize="14sp"
+          />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/manga_details"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+      <TextView
+          android:id="@+id/missing_chapters_label"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:padding="4dp"
+          android:textSize="18sp"
+          android:text="@string/missing_chapters"
+          android:visibility="gone"
+          />
+      <TextView
+          android:id="@+id/missing_chapters"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:padding="4dp"
+          android:textSize="14sp"
+          android:visibility="gone"
+          />
+    </LinearLayout>
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

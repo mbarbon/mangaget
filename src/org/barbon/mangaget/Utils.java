@@ -21,6 +21,7 @@ import android.os.Environment;
 import java.io.File;
 
 import java.util.Formatter;
+import java.util.List;
 
 import org.barbon.mangaget.data.DB;
 
@@ -42,6 +43,29 @@ public class Utils {
         chapters.close();
     }
 
+    public static int mangaChapterInfo(Context context, long mangaId, List<Integer> missing) {
+        DB db = DB.getInstance(context);
+
+        Cursor chapters = db.getChapterList(mangaId);
+        int numberI = chapters.getColumnIndex(DB.CHAPTER_NUMBER);
+        int last = 0;
+
+        while (chapters.moveToNext()) {
+            int number = chapters.getInt(numberI);
+
+            if ((number / 100) != (last / 100) + 1) {
+                missing.add((last - last % 100) + 100);
+                missing.add((number - number % 100) - 100);
+            }
+
+            last = number;
+        }
+
+        chapters.close();
+
+        return last;
+    }
+
     public static String formatChapterNumber(int number) {
         int chap = number / 100, part = number % 100;
 
@@ -49,6 +73,24 @@ public class Utils {
             return String.valueOf(chap);
         else
             return String.valueOf(chap) + "." + String.valueOf(part);
+    }
+
+    public static String formatMissingChapters(List<Integer> missing) {
+        StringBuffer buffer = new StringBuffer();
+
+        for (int i = 0; i < missing.size(); i += 2) {
+            if (missing.get(i).equals(missing.get(i + 1))) {
+                buffer.append(formatChapterNumber(missing.get(i)));
+            } else {
+                buffer.append(formatChapterNumber(missing.get(i)));
+                buffer.append("-");
+                buffer.append(formatChapterNumber(missing.get(i + 1)));
+            }
+
+            buffer.append(", ");
+        }
+
+        return buffer.substring(0, buffer.length() - 2).toString();
     }
 
     public static String getChapterPath(Context context, long chapterId) {
