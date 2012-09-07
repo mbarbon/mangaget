@@ -53,6 +53,11 @@ public class Utils {
         while (chapters.moveToNext()) {
             int number = chapters.getInt(numberI);
 
+            // ignore "fractional" chapters, there is no way to check
+            // whether they are missing
+            if ((number / 100) == (last / 100))
+                continue;
+
             if ((number / 100) != (last / 100) + 1) {
                 missing.add((last - last % 100) + 100);
                 missing.add((number - number % 100) - 100);
