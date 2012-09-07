@@ -88,7 +88,7 @@ public class ChapterList extends ListFragment {
             if (status != DB.DOWNLOAD_STARTED)
                 image.setVisibility(View.VISIBLE);
             else
-                image.setVisibility(View.GONE);
+                image.setVisibility(View.INVISIBLE);
 
             return true;
         }
@@ -100,7 +100,7 @@ public class ChapterList extends ListFragment {
             if (status == DB.DOWNLOAD_STARTED)
                 progress.setVisibility(View.VISIBLE);
             else
-                progress.setVisibility(View.GONE);
+                progress.setVisibility(View.INVISIBLE);
 
             return true;
         }
