@@ -289,6 +289,8 @@ public class Downloader {
                         downloadTarget.startRedirect(base.resolve(rel).toString());
                     }
 
+                    client.close();
+
                     return finishDownload(false);
                 }
 
