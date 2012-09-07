@@ -243,7 +243,15 @@ public class MangaHereScraper {
             String value = ((TextNode)text).text().trim();
 
             if (label.text().trim().endsWith("Summary:")) {
-                result.summary = li.select("p.show").first().text().trim();
+                Element summary = li.select("p#show").first();
+
+                if (summary != null) {
+                    result.summary = summary.text().trim();
+
+                    if (result.summary.endsWith("Show less"))
+                        result.summary = result.summary.substring(
+                            0, result.summary.length() - 9);
+                }
             } else if (label.text().trim().equals("Genre(s):")) {
                 result.genres = new ArrayList<String>();
 
