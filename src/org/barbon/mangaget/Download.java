@@ -22,6 +22,7 @@ import android.database.Cursor;
 
 import android.net.ConnectivityManager;
 
+import android.os.AsyncTask;
 import android.os.Binder;
 import android.os.Environment;
 import android.os.IBinder;
@@ -52,10 +53,12 @@ public class Download extends Service {
     private static final int COMMAND_SCAN_DOWNLOADED_FILES = 6;
     private static final int COMMAND_STOP_ALL_DOWNLOADS = 7;
     private static final int COMMAND_DOWNLOAD_ALL = 8;
+    private static final int COMMAND_DELETE_MANGA = 9;
 
     private static final String COMMAND = "command";
     private static final String MANGA_ID = "mangaId";
     private static final String CHAPTER_ID = "chapterId";
+    private static final String DELETE_CHAPTERS = "deleteChapters";
 
     // TODO make configurable
     private static final int MAX_CONCURRENT_DOWNLOADS = 3;
@@ -171,6 +174,10 @@ public class Download extends Service {
         case COMMAND_SCAN_DOWNLOADED_FILES:
             scanDownloadedFiles(intent.getLongExtra(MANGA_ID, -1L));
             break;
+        case COMMAND_DELETE_MANGA:
+            deleteManga(intent.getLongExtra(MANGA_ID, -1L),
+                        intent.getBooleanExtra(DELETE_CHAPTERS, false));
+            break;
         }
 
         return START_STICKY;
@@ -237,6 +244,16 @@ public class Download extends Service {
         Intent intent = new Intent(context, Download.class);
 
         intent.putExtra(COMMAND, COMMAND_DOWNLOAD_ALL);
+
+        context.startService(intent);
+    }
+
+    public static void deleteManga(Context context, long mangaId, boolean deleteChapters) {
+        Intent intent = new Intent(context, Download.class);
+
+        intent.putExtra(COMMAND, COMMAND_DELETE_MANGA);
+        intent.putExtra(MANGA_ID, mangaId);
+        intent.putExtra(DELETE_CHAPTERS, deleteChapters);
 
         context.startService(intent);
     }
@@ -485,6 +502,24 @@ public class Download extends Service {
         chapters.close();
     }
 
+    private void stopAllChapters(long mangaId) {
+        Cursor chapters = db.getChapterList(mangaId);
+        int statusI = chapters.getColumnIndex(DB.DOWNLOAD_STATUS);
+        int idI = chapters.getColumnIndex(DB.ID);
+
+        while (chapters.moveToNext()) {
+            int status = chapters.getInt(statusI);
+            long chapterId = chapters.getLong(idI);
+
+            if (status == DB.DOWNLOAD_STOPPED)
+                continue;
+
+            stopDownloadChapter(chapterId);
+        }
+
+        chapters.close();
+    }
+
     private void downloadChapter(long chapterId) {
         if (chapterDownloads.containsKey(chapterId))
             return;
@@ -629,5 +664,52 @@ public class Download extends Service {
 
         if (updated)
             Notifier.getInstance().notifyChapterListUpdate(mangaId);
+    }
+
+    class DeleteChapters extends AsyncTask<File, Void, Void>
+    {
+        private boolean deleteDir(File dir)
+        {
+            if (!dir.exists() || !dir.isDirectory())
+                return false;
+
+            for (File file : dir.listFiles()) {
+                if (file.isDirectory()) {
+                    if (!deleteDir(file))
+                        return false;
+                } else {
+                    if (!file.delete())
+                        return false;
+                }
+            }
+
+            return dir.delete();
+        }
+
+        @Override
+        public Void doInBackground(File... params) {
+            deleteDir(params[0].getParentFile());
+
+            return null;
+        }
+    }
+
+    private void deleteManga(long mangaId, boolean deleteChapters) {
+        DB db = DB.getInstance(this);
+        ContentValues manga = db.getManga(mangaId);
+        File path = Utils.getChapterFile(manga, 1);
+
+        if (!db.updateMangaSubscription(mangaId, DB.SUBSCRIPTION_TEMPORARY))
+            return;
+
+        stopAllChapters(mangaId);
+        Notifier.getInstance().notifyMangaUpdate(mangaId);
+
+        if (path != null && deleteChapters)
+        {
+            DeleteChapters delete = new DeleteChapters();
+
+            delete.execute(path);
+        }
     }
 }

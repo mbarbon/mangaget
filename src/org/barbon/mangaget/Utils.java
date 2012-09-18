@@ -26,23 +26,6 @@ import java.util.List;
 import org.barbon.mangaget.data.DB;
 
 public class Utils {
-    public static void deleteChapters(Context context, long mangaId) {
-        DB db = DB.getInstance(context);
-        ContentValues manga = db.getManga(mangaId);
-
-        Cursor chapters = db.getChapterList(mangaId);
-        int numberI = chapters.getColumnIndex(DB.CHAPTER_NUMBER);
-
-        while (chapters.moveToNext()) {
-            File file = Utils.getChapterFile(manga, chapters.getInt(numberI));
-
-            if (file.exists())
-                file.delete();
-        }
-
-        chapters.close();
-    }
-
     public static int mangaChapterInfo(Context context, long mangaId, List<Integer> missing) {
         DB db = DB.getInstance(context);
 

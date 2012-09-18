@@ -44,6 +44,7 @@ public class MangaList extends ListFragment {
     private long currentSelection = -1;
     private StatusBinder viewBinder = new StatusBinder();
     private MangaListener listener = new MangaListener();
+    private MangaDBListener dbListener = new MangaDBListener();
 
     public interface OnMangaSelected {
         public void onMangaSelected(long mangaId);
@@ -59,6 +60,13 @@ public class MangaList extends ListFragment {
         @Override
         public void onMangaUpdateComplete(long mangaId, boolean success) {
             viewBinder.setStatus(mangaId, false);
+            adapter.getCursor().requery();
+        }
+    }
+
+    private class MangaDBListener extends Notifier.DBNotificationAdapter {
+        @Override
+        public void onMangaUpdate(long mangaId) {
             adapter.getCursor().requery();
         }
     }
@@ -146,6 +154,7 @@ public class MangaList extends ListFragment {
         super.onResume();
 
         Notifier.getInstance().add(listener);
+        Notifier.getInstance().add(dbListener);
 
         if (adapter.getCursor() != null)
             adapter.getCursor().requery();
@@ -162,6 +171,7 @@ public class MangaList extends ListFragment {
     public void onPause() {
         super.onPause();
 
+        Notifier.getInstance().remove(dbListener);
         Notifier.getInstance().remove(listener);
     }
 
@@ -192,18 +202,11 @@ public class MangaList extends ListFragment {
     }
 
     private void deleteMangaAndChapters(long id) {
-        Utils.deleteChapters(getActivity(), id);
-        deleteManga(id);
+        Download.deleteManga(getActivity(), id, true);
     }
 
     private void deleteManga(long id) {
-        DB db = DB.getInstance(getActivity());
-
-        db.deleteManga(id);
-
-        // TODO notify changes around/stop downloads/etc.
-
-        adapter.getCursor().requery();
+        Download.deleteManga(getActivity(), id, false);
     }
 
     private void bindConfirmationDialog(DeleteConfirmationDialog dialog) {
