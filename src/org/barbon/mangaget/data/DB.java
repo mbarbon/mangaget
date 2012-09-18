@@ -201,7 +201,7 @@ public class DB {
     public ContentValues getManga(long mangaId) {
         SQLiteDatabase db = getDatabase();
         Cursor cursor = db.rawQuery(
-            "SELECT id AS _id, title, pattern, url" +
+            "SELECT id AS _id, title, pattern, url, subscription_status" +
             "    FROM manga" +
             "    WHERE id = ?",
             new String[] { Long.toString(mangaId)});
@@ -215,6 +215,7 @@ public class DB {
             values.put("title", cursor.getString(1));
             values.put("pattern", cursor.getString(2));
             values.put("url", cursor.getString(3));
+            values.put("subscription_status", cursor.getInt(4));
         }
 
         cursor.close();

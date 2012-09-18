@@ -18,6 +18,7 @@
   <string name="delete_manga">Delete manga</string>
   <string name="delete_all_manga">Delete manga &amp; chapters</string>
   <string name="follow_manga">Follow manga</string>
+  <string name="stop_following_manga">Stop following manga</string>
 
   <!-- Manga details -->
   <string name="manga_genres">Genres:</string>

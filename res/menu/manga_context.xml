@@ -6,6 +6,8 @@
           android:title="@string/refresh_manga" />
     <item android:id="@+id/follow"
           android:title="@string/follow_manga" />
+    <item android:id="@+id/stop_following"
+          android:title="@string/stop_following_manga" />
     <item android:id="@+id/delete"
           android:title="@string/delete_manga" />
     <item android:id="@+id/delete_all"

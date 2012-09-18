@@ -237,10 +237,21 @@ public class MangaList extends ListFragment {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v,
                                     ContextMenu.ContextMenuInfo menuInfo) {
+        AdapterView.AdapterContextMenuInfo info =
+            (AdapterView.AdapterContextMenuInfo) menuInfo;
+
         super.onCreateContextMenu(menu, v, menuInfo);
         MenuInflater inflater = getActivity().getMenuInflater();
 
         inflater.inflate(R.menu.manga_context, menu);
+
+        DB db = DB.getInstance(getActivity());
+        int status = db.getManga(info.id).getAsInteger(DB.MANGA_SUBSCRIPTION_STATUS);;
+
+        if (status != DB.SUBSCRIPTION_FOLLOWING)
+            menu.removeItem(R.id.stop_following);
+        else
+            menu.removeItem(R.id.follow);
     }
 
     @Override
@@ -273,11 +284,21 @@ public class MangaList extends ListFragment {
             Download.startMangaUpdate(getActivity(), info.id);
             return true;
         case R.id.follow:
+        {
             DB db = DB.getInstance(getActivity());
 
             db.updateMangaSubscription(info.id, DB.SUBSCRIPTION_FOLLOWING);
 
             return true;
+        }
+        case R.id.stop_following:
+        {
+            DB db = DB.getInstance(getActivity());
+
+            db.updateMangaSubscription(info.id, DB.SUBSCRIPTION_SAVED);
+
+            return true;
+        }
         default:
             return super.onContextItemSelected(item);
         }
