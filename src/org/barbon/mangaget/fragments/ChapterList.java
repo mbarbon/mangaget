@@ -138,7 +138,16 @@ public abstract class ChapterList extends ListFragment {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        showChapter(id);
+        DB db = DB.getInstance(getActivity());
+        ContentValues chapter = db.getChapter(id);
+        int status = chapter.getAsInteger(DB.DOWNLOAD_STATUS);
+
+        if (status == DB.DOWNLOAD_REQUESTED || status == DB.DOWNLOAD_STARTED)
+            Download.stopChapterDownload(getActivity(), id);
+        else if (status == DB.DOWNLOAD_STOPPED)
+            Download.startChapterDownload(getActivity(), id);
+        else
+            showChapter(id);
     }
 
     @Override
