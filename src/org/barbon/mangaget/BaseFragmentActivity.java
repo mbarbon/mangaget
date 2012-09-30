@@ -23,14 +23,33 @@ public class BaseFragmentActivity extends FragmentActivity {
         manager.executePendingTransactions();
     }
 
+    protected void popBackStack(String name) {
+        FragmentManager manager = getSupportFragmentManager();
+
+        // should be equivalent to manager.popBackStack(name, 0), but
+        // for some reason the former does not work
+        for (int i = manager.getBackStackEntryCount(); i != 0; --i) {
+            if (name.equals(manager.getBackStackEntryAt(i - 1).getName()))
+                break;
+
+            manager.popBackStack();
+        }
+
+        manager.executePendingTransactions();
+    }
+
     protected FragmentTransaction beginTransaction(boolean push) {
+        return beginTransaction(push, null);
+    }
+
+    protected FragmentTransaction beginTransaction(boolean push, String name) {
         FragmentTransaction transaction =
             getSupportFragmentManager().beginTransaction();
 
         transaction.setTransition(FragmentTransaction.TRANSIT_NONE);
 
         if (push)
-            transaction.addToBackStack(null);
+            transaction.addToBackStack(name);
 
         return transaction;
     }

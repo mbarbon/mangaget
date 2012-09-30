@@ -12,8 +12,6 @@ import android.database.Cursor;
 
 import android.os.Bundle;
 
-import android.view.ContextMenu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -34,31 +32,11 @@ import org.barbon.mangaget.Utils;
 
 import org.barbon.mangaget.data.DB;
 
-public class ChapterList extends ListFragment {
-    private static final String SELECTED_ID = "mangaId";
+public abstract class ChapterList extends ListFragment {
     private static final StatusBinder VIEW_BINDER = new StatusBinder();
 
-    private SimpleCursorAdapter adapter;
-    private long currentManga = -1;
-    private ChapterListener listener = new ChapterListener();
-
-    private class ChapterListener extends Notifier.DBNotificationAdapter {
-        @Override
-        public void onChapterListUpdate(long mangaId) {
-            if (mangaId != currentManga)
-                return;
-
-            adapter.getCursor().requery();
-        }
-
-        @Override
-        public void onChapterUpdate(long mangaId, long chapterId) {
-            if (mangaId != currentManga)
-                return;
-
-            adapter.getCursor().requery();
-        }
-    }
+    protected SimpleCursorAdapter adapter;
+    protected Notifier.DBNotificationAdapter listener;
 
     private static class StatusBinder
             implements SimpleCursorAdapter.ViewBinder {
@@ -113,29 +91,19 @@ public class ChapterList extends ListFragment {
         }
     }
 
+    // lifecycle
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        adapter = new SimpleCursorAdapter(
-            getActivity(), R.layout.chapter_item, null,
-            new String[] { DB.CHAPTER_NUMBER, DB.CHAPTER_TITLE,
-                           DB.DOWNLOAD_STATUS, DB.DOWNLOAD_STATUS },
-            new int[] { R.id.chapter_number, R.id.chapter_title,
-                        R.id.chapter_downloaded, R.id.chapter_progress });
+        adapter = createAdapter();
         adapter.setViewBinder(VIEW_BINDER);
-
-        // loadChapterList might have been called before onCreate
-        if (currentManga != -1 && getActivity() != null)
-            loadChapterList(currentManga);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        if (savedInstanceState != null)
-            loadChapterList(savedInstanceState.getLong(SELECTED_ID));
 
         setEmptyText(getString(R.string.no_chapter));
         setListAdapter(adapter);
@@ -152,14 +120,6 @@ public class ChapterList extends ListFragment {
         if (adapter.getCursor() != null)
             adapter.getCursor().requery();
     }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        outState.putLong(SELECTED_ID, currentManga);
-    }
-
     @Override
     public void onPause() {
         super.onPause();
@@ -174,50 +134,11 @@ public class ChapterList extends ListFragment {
         adapter.changeCursor(null);
     }
 
-    // public interface
-
-    public void loadChapterList(long mangaId) {
-        DB db = DB.getInstance(getActivity());
-
-        currentManga = mangaId;
-
-        // handle the case when loadChapterList is called right after creation
-        if (adapter != null) {
-            adapter.changeCursor(db.getChapterList(mangaId));
-
-            Download.scanDownloadedFiles(getActivity(), currentManga);
-        }
-    }
-
     // event handlers
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         showChapter(id);
-    }
-
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v,
-                                    ContextMenu.ContextMenuInfo menuInfo) {
-        AdapterView.AdapterContextMenuInfo info =
-            (AdapterView.AdapterContextMenuInfo) menuInfo;
-
-        super.onCreateContextMenu(menu, v, menuInfo);
-        MenuInflater inflater = getActivity().getMenuInflater();
-
-        inflater.inflate(R.menu.chapters_context, menu);
-
-        DB db = DB.getInstance(getActivity());
-        int status = db.getChapter(info.id).getAsInteger(DB.DOWNLOAD_STATUS);
-
-        if (status != DB.DOWNLOAD_COMPLETE)
-            menu.removeItem(R.id.view_chapter);
-        if (status != DB.DOWNLOAD_STOPPED && status != DB.DOWNLOAD_DELETED) {
-            menu.removeItem(R.id.download_chapter);
-            menu.removeItem(R.id.download_all_chapters);
-        }
-        if (status != DB.DOWNLOAD_REQUESTED && status != DB.DOWNLOAD_STARTED)
-            menu.removeItem(R.id.stop_chapter_download);
     }
 
     @Override
@@ -228,9 +149,6 @@ public class ChapterList extends ListFragment {
         switch (item.getItemId()) {
         case R.id.download_chapter:
             Download.startChapterDownload(getActivity(), info.id);
-            return true;
-        case R.id.download_all_chapters:
-            Download.startDownloadAllChapters(getActivity(), currentManga);
             return true;
         case R.id.stop_chapter_download:
             Download.stopChapterDownload(getActivity(), info.id);
@@ -244,6 +162,8 @@ public class ChapterList extends ListFragment {
     }
 
     // implementation
+
+    protected abstract SimpleCursorAdapter createAdapter();
 
     private void showChapter(long chapterId) {
         DB db = DB.getInstance(getActivity());

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Mattia Barbon <mattia@barbon.org>
+     distributed under the terms of the MIT license -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/download_chapter"
+          android:title="@string/download_chapter" />
+    <item android:id="@+id/view_chapter"
+          android:title="@string/view_chapter" />
+    <item android:id="@+id/stop_chapter_download"
+          android:title="@string/stop_chapter_download" />
+</menu>

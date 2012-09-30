@@ -17,12 +17,14 @@ import android.support.v4.app.FragmentTransaction;
 
 import org.barbon.mangaget.data.DB;
 
-import org.barbon.mangaget.fragments.ChapterList;
+import org.barbon.mangaget.fragments.ChapterDownloadQueue;
+import org.barbon.mangaget.fragments.MangaChapterList;
 import org.barbon.mangaget.fragments.MangaList;
 
 public class Main extends BaseFragmentActivity {
     private static final String MANGA_LIST = "manga_list";
     private static final String CHAPTER_LIST = "chapter_list";
+    private static final String QUEUE_LIST = "queue_list";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,7 @@ public class Main extends BaseFragmentActivity {
 
         setContentView(R.layout.main);
 
-        // needs to be flushed here otherwise the functions belog
+        // needs to be flushed here otherwise the functions below
         // sees the wrong state
         clearBackStack();
 
@@ -41,28 +43,30 @@ public class Main extends BaseFragmentActivity {
             FragmentTransaction transaction = beginTransaction(false);
             MangaList mangaList = setMangaList(transaction, true);
 
+            setChapterDownloadQueue(transaction, false);
             setChapterList(transaction, true);
             transaction.commit();
 
             mangaList.setOnMangaSelected(
                 new MangaList.OnMangaSelected() {
                     public void onMangaSelected(long mangaId) {
+                        popBackStack("chapters");
                         getChapterList().loadChapterList(mangaId);
                     }
                 });
-        }
-        else {
+        } else {
             // portrait
             FragmentTransaction transaction = beginTransaction(false);
             MangaList mangaList = setMangaList(transaction, true);
 
+            setChapterDownloadQueue(transaction, false);
             setChapterList(transaction, false);
             transaction.commit();
 
             mangaList.setOnMangaSelected(
                 new MangaList.OnMangaSelected() {
                     public void onMangaSelected(long mangaId) {
-                        ChapterList chapterList = pushChapterList();
+                        MangaChapterList chapterList = pushChapterList();
 
                         chapterList.loadChapterList(mangaId);
                     }
@@ -94,6 +98,17 @@ public class Main extends BaseFragmentActivity {
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        if (!super.onPrepareOptionsMenu(menu))
+            return false;
+
+        menu.findItem(R.id.download_queue).setVisible(
+            getSupportFragmentManager().findFragmentByTag(QUEUE_LIST) == null);
+
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
         case R.id.preferences:
@@ -112,6 +127,10 @@ public class Main extends BaseFragmentActivity {
             Download.downloadAll(this);
 
             return true;
+        case R.id.download_queue:
+            displayDownloadQueue();
+
+            return true;
         default:
             return super.onOptionsItemSelected(item);
         }
@@ -119,14 +138,26 @@ public class Main extends BaseFragmentActivity {
 
     // implementation
 
-    private ChapterList pushChapterList() {
-        FragmentTransaction transaction = beginTransaction(true);
-        ChapterList chapterList = setChapterList(transaction, true);
+    private MangaChapterList pushChapterList() {
+        FragmentTransaction transaction = beginTransaction(true, "chapters");
+        MangaChapterList chapterList = setChapterList(transaction, true);
 
+        setChapterDownloadQueue(transaction, false);
         setMangaList(transaction, false);
         transaction.commit();
 
         return chapterList;
+    }
+
+    private ChapterDownloadQueue pushChapterDownloadQueue(boolean hideManga) {
+        FragmentTransaction transaction = beginTransaction(true, "queue");
+        ChapterDownloadQueue queue = setChapterDownloadQueue(transaction, true);
+
+        setChapterList(transaction, false);
+        setMangaList(transaction, !hideManga);
+        transaction.commit();
+
+        return queue;
     }
 
     private MangaList setMangaList(
@@ -135,10 +166,16 @@ public class Main extends BaseFragmentActivity {
                            R.id.manga_list, MANGA_LIST, status);
     }
 
-    private ChapterList setChapterList(
+    private MangaChapterList setChapterList(
             FragmentTransaction transaction, boolean status) {
-        return setFragment(ChapterList.class, transaction,
+        return setFragment(MangaChapterList.class, transaction,
                            R.id.chapter_list, CHAPTER_LIST, status);
+    }
+
+    private ChapterDownloadQueue setChapterDownloadQueue(
+            FragmentTransaction transaction, boolean status) {
+        return setFragment(ChapterDownloadQueue.class, transaction,
+                           R.id.chapter_list, QUEUE_LIST, status);
     }
 
     private MangaList getMangaList() {
@@ -146,8 +183,20 @@ public class Main extends BaseFragmentActivity {
             .findFragmentByTag(MANGA_LIST);
     }
 
-    private ChapterList getChapterList() {
-        return (ChapterList) getSupportFragmentManager()
+    private MangaChapterList getChapterList() {
+        return (MangaChapterList) getSupportFragmentManager()
             .findFragmentByTag(CHAPTER_LIST);
+    }
+
+    private void displayDownloadQueue() {
+        boolean isLandscape = findViewById(R.id.landscape_container) != null;
+
+        if (isLandscape) {
+            // landscape
+            pushChapterDownloadQueue(false);
+        } else {
+            // portrait
+            pushChapterDownloadQueue(true);
+        }
     }
 }
