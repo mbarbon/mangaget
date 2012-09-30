@@ -42,7 +42,7 @@ public class DB {
     public static final String PAGE_URL = "url";
     public static final String PAGE_IMAGE_URL = "image_url";
 
-    private static final int VERSION = 5;
+    private static final int VERSION = 6;
     private static final String DB_NAME = "manga";
     private static DB theInstance;
 
@@ -80,6 +80,7 @@ public class DB {
         "    title TEXT NOT NULL," +
         "    url TEXT NOT NULL," +
         "    download_status INTEGER NOT NULL," +
+        "    download_time INTEGER NOT NULL DEFAULT 0," +
         "    FOREIGN KEY (manga_id) REFERENCES manga(id) " +
         "        ON DELETE CASCADE" +
         ")";
@@ -157,6 +158,20 @@ public class DB {
             "SELECT id AS _id, number, title, download_status, manga_id" +
             "    FROM chapters" +
             "    ORDER BY number",
+            null);
+    }
+
+    public Cursor getChapterDownloadQueue() {
+        SQLiteDatabase db = getDatabase();
+
+        return db.rawQuery(
+            "SELECT chapters.id AS _id, number, chapters.title AS title," +
+            "       download_status, manga_id, manga.title AS manga_title" +
+            "    FROM chapters INNER JOIN manga" +
+            "        ON chapters.manga_id = manga.id" +
+            "    WHERE download_status IN (1, 2, 3)" +
+            "    ORDER BY download_status IN (1, 2) DESC," +
+            "             download_time DESC",
             null);
     }
 
@@ -286,10 +301,17 @@ public class DB {
     }
 
     public boolean updateChapterStatus(long chapterId, int downloadStatus) {
+        return updateChapterStatus(chapterId, downloadStatus, -1);
+    }
+
+    public boolean updateChapterStatus(long chapterId, int downloadStatus,
+                                       long downloadTime) {
         SQLiteDatabase db = getDatabase();
         ContentValues values = new ContentValues();
 
         values.put("download_status", downloadStatus);
+        if (downloadTime > 0)
+            values.put("download_time", downloadTime);
 
         return db.update("chapters", values, "id = ?",
                          new String[] { Long.toString(chapterId) }) == 1;
@@ -496,6 +518,8 @@ public class DB {
                 upgrade3To4(db);
             if (from < 5 && to >= 5)
                 upgrade4To5(db);
+            if (from < 6 && to >= 6)
+                upgrade5To6(db);
         }
 
         private void upgrade1To2(SQLiteDatabase db) {
@@ -595,6 +619,20 @@ public class DB {
                 db.endTransaction();
             }
         }
+
+        private void upgrade5To6(SQLiteDatabase db) {
+            db.beginTransaction();
+
+            try {
+                db.execSQL(
+                    "ALTER TABLE chapters" +
+                    "    ADD COLUMN download_time INTEGER NOT NULL DEFAULT 0");
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
+        }
+
 
     }
 }

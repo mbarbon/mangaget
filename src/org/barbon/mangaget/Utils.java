@@ -129,7 +129,8 @@ public class Utils {
                 File path = getChapterFile(pattern, number);
 
                 if (path != null && path.exists()) {
-                    db.updateChapterStatus(id, DB.DOWNLOAD_COMPLETE);
+                    db.updateChapterStatus(id, DB.DOWNLOAD_COMPLETE,
+                                           path.lastModified() / 1000);
                     Notifier.getInstance().notifyChapterUpdate(mangaId, id);
                 }
             }

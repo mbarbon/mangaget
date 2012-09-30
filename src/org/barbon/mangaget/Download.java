@@ -652,7 +652,8 @@ public class Download extends Service {
             int status = chapters.getInt(statusI);
 
             if (file.exists() && status != DB.DOWNLOAD_COMPLETE) {
-                db.updateChapterStatus(chapterId, DB.DOWNLOAD_COMPLETE);
+                db.updateChapterStatus(chapterId, DB.DOWNLOAD_COMPLETE,
+                                       file.lastModified() / 1000);
                 updated = true;
             } else if (!file.exists() && status == DB.DOWNLOAD_COMPLETE) {
                 db.updateChapterStatus(chapterId, DB.DOWNLOAD_DELETED);

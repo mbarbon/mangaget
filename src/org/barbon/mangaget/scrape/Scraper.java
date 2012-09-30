@@ -764,7 +764,8 @@ public class Scraper {
         }
 
         private void downloadFinished() {
-            db.updateChapterStatus(download.id, DB.DOWNLOAD_COMPLETE);
+            db.updateChapterStatus(download.id, DB.DOWNLOAD_COMPLETE,
+                                   System.currentTimeMillis() / 1000);
 
             download.listener.downloadComplete(true);
             notifyChapterUpdate(download);
